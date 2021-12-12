@@ -1,0 +1,1 @@
+export { useHelpDetail } from './useHelpDetail'

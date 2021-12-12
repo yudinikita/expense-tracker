@@ -1,0 +1,1 @@
+export { useFormDeleteBase } from './useFormDeleteBase'

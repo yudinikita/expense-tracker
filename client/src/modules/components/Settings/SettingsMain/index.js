@@ -1,0 +1,1 @@
+export { SettingsMain } from './SettingsMain'

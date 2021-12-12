@@ -1,0 +1,1 @@
+export { MyError } from './MyError'

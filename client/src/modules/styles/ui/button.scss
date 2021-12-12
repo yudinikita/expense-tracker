@@ -1,0 +1,75 @@
+.mainButton {
+  width: 100%;
+  max-width: 315px;
+  height: 70px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 130%;
+  background-color: var(--color-brand-yellow);
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #e7c337;
+  }
+
+  &:active {
+    transform: scale(.96);
+  }
+}
+
+.secondaryButton {
+  width: 100%;
+  max-width: 315px;
+  height: 70px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 130%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  border: 2px solid var(--color-black);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--color-brand-yellow);
+    border-color: var(--color-brand-yellow);
+  }
+
+  &:active {
+    transform: scale(.96);
+  }
+}
+
+.thirdButton {
+  width: 100%;
+  max-width: 315px;
+  height: 70px;
+  padding: 0;
+  color: var(--color-other-blue);
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 130%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  border: 0;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+
+  &:active {
+    color: var(--color-black);
+    background-color: var(--color-brand-yellow);
+    transform: scale(.96);
+  }
+}

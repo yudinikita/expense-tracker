@@ -1,0 +1,1 @@
+export { useGetAnalyticsAverage } from './useGetAnalyticsAverage'

@@ -1,0 +1,45 @@
+@mixin font-face($font-family, $url, $weight, $style) {
+  @font-face {
+    src: local(""),
+    url("../../assets/fonts/#{$url}.woff2") format("woff2");
+    font-family: "#{$font-family}";
+    font-weight: #{$weight};
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@mixin font-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 120%;
+}
+
+@mixin h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+}
+
+@mixin h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+@mixin p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+}
+
+@mixin a {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+}

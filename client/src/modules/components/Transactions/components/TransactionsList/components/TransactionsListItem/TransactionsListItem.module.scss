@@ -1,0 +1,55 @@
+.link {
+  display: block;
+  padding: 10px 0;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+
+  &:active {
+    background-color: var(--color-brand-yellow);
+    transform: scale(0.98);
+  }
+}
+
+.containerTitleAmount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  max-width: 195px;
+  margin: 0;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+.amount {
+  max-width: 120px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.commentary {
+  margin: 10px 0 0;
+  color: var(--color-gray-5);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+
+  overflow: hidden;
+}

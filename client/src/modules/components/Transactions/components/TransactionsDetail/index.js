@@ -1,0 +1,1 @@
+export { TransactionsDetail } from './TransactionsDetail'

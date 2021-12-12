@@ -1,0 +1,1 @@
+export { useRegistrationUser } from './useRegistrationUser'

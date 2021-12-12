@@ -1,0 +1,1 @@
+export { SettingsSecurityMain } from './SettingsSecurityMain'

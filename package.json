@@ -1,0 +1,70 @@
+{
+  "name": "expence-tracker-mern",
+  "version": "1.0.0",
+  "description": "A simple tool for keeping track of personal finances. Keep track of expenses and income.",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "server": "nodemon server",
+    "client": "npm run start --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "typescript",
+    "mern",
+    "mongodb",
+    "express",
+    "react",
+    "nodejs",
+    "expense",
+    "income",
+    "tracker",
+    "graphql",
+    "apollo"
+  ],
+  "author": "Nikita Yudin <nikitayudin782@gmail.com> (https://t.me/yudinikita)",
+  "license": "MIT",
+  "homepage": "https://github.com/nblackninja/expense-tracker#readme",
+  "bugs": {
+    "url": "https://github.com/nblackninja/expense-tracker/issues",
+    "email": "nikitayudin782@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nblackninja/expense-tracker.git"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1",
+    "apollo-server-core": "^3.3.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "@graphql-modules/core": "^0.7.17",
+    "@graphql-tools/schema": "^8.2.0",
+    "apollo-server-express": "^3.3.0",
+    "bcrypt": "^5.0.1",
+    "colors": "^1.4.0",
+    "compression": "^1.7.4",
+    "concurrently": "^6.3.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.8.0",
+    "graphql-modules": "^2.0.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.5",
+    "serve-static": "^1.14.1"
+  }
+}

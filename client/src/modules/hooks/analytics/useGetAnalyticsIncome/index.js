@@ -1,0 +1,1 @@
+export { useGetAnalyticsIncome } from './useGetAnalyticsIncome'

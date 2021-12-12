@@ -1,0 +1,1 @@
+export { TransactionsDetailContainer } from './TransactionsDetailContainer'

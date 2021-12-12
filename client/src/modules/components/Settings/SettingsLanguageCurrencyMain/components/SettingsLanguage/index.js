@@ -1,0 +1,1 @@
+export { SettingsLanguage } from './SettingsLanguage'

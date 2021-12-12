@@ -1,0 +1,18 @@
+@import "src/modules/styles/animations";
+
+.container {
+  text-align: center;
+  margin: 25px auto 0;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.content {
+  display: block;
+  margin: 0 auto;
+  animation: bounce-top 0.9s both;
+}
+
+

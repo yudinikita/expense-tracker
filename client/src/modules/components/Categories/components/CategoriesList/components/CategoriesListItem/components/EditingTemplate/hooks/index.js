@@ -1,0 +1,1 @@
+export { useEditingTemplate } from './useEditingTemplate'

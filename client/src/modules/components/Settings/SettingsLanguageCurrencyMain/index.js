@@ -1,0 +1,1 @@
+export { SettingsLanguageCurrencyMain } from './SettingsLanguageCurrencyMain'

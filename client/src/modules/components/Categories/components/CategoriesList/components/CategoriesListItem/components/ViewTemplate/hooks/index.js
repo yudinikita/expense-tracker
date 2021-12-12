@@ -1,0 +1,1 @@
+export { useViewTemplate } from './useViewTemplate'

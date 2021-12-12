@@ -1,0 +1,1 @@
+export { useSetUpdateUserPassword } from './useSetUpdateUserPassword'

@@ -1,0 +1,1 @@
+export { SettingsSecurityPage } from './SettingsSecurityPage'

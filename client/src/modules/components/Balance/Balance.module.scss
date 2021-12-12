@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 45px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-gray-7);
+}
+
+.balance {
+  margin: 5px 0;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+}
+
+.balancePerDateGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.balancePerDate {
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+.balancePercent {
+  margin: 0;
+  color: var(--color-gray-7);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+}

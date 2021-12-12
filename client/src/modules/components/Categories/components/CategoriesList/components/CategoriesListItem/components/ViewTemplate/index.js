@@ -1,0 +1,1 @@
+export { ViewTemplate } from './ViewTemplate'

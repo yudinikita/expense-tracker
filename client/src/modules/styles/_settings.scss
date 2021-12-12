@@ -1,0 +1,139 @@
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  outline-color: var(--color-brand-yellow);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  line-height: 160%;
+  background-color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  line-height: 130%;
+}
+
+h1 {
+  @include h1
+}
+
+h2 {
+  @include h2
+}
+
+p {
+  @include p
+}
+
+a {
+  @include a
+}
+
+.container {
+  width: 315px;
+  margin: 120px auto 150px;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  border: 0;
+  overflow: hidden;
+}
+
+.btn-reset {
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkSecond {
+  display: block;
+  margin-top: 15px;
+  color: var(--color-gray-6);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  transition: all 300ms;
+
+  &:hover {
+    color: var(--color-brand-yellow);
+  }
+
+  &:active {
+    color: var(--color-brand-orange);
+  }
+}
+
+::selection {
+  color: black;
+  background-color: #ffcf26;
+}
+
+.contentContainer {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+@media screen and (max-width: 370px) {
+  .contentContainer {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .contentContainer {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 329px) {
+  .contentContainer {
+    padding: 0;
+  }
+}
+
+

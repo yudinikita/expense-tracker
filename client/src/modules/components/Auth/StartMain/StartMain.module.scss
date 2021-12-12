@@ -1,0 +1,30 @@
+.container {
+  margin: 120px auto;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 35px;
+
+  &:active {
+    transform: scale(.96);
+  }
+}
+
+.title {
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 24px;
+  font-style: normal;
+  line-height: 150%;
+  text-align: center;
+}
+
+.text {
+  margin-bottom: 140px;
+  text-align: center;
+}
+
+.btnSecond {
+  margin-top: 10px;
+}

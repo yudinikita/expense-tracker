@@ -1,0 +1,1 @@
+export { MyAlert } from './MyAlert'

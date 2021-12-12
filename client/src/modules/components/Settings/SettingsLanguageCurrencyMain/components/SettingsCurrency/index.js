@@ -1,0 +1,1 @@
+export { SettingsCurrency } from './SettingsCurrency'

@@ -1,0 +1,15 @@
+.container {
+  max-height: calc(80vh);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+}
+
+.title {
+  margin-bottom: 35px;
+  font-size: 20px;
+}

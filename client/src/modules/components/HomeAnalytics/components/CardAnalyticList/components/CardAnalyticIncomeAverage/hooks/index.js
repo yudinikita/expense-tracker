@@ -1,0 +1,1 @@
+export { useCardAnalyticIncomeAverage } from './useCardAnalyticIncomeAverage'

@@ -1,0 +1,45 @@
+.percentGroup {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.percent {
+  margin-top: 0;
+  color: var(--color-black);
+  font-weight: bold;
+  font-size: 8px;
+  font-style: normal;
+  line-height: 140%;
+}
+
+.circularChart {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.circleBg {
+  fill: none;
+  stroke-width: 3.8;
+}
+
+.circle {
+  animation: progress 1s ease-out forwards;
+  fill: none;
+  stroke: var(--color-gray-6);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: -10px;
+  left: 70px;
+  display: block;
+}

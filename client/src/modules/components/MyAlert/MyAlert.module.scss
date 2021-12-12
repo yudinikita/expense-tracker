@@ -1,0 +1,27 @@
+.alert {
+  width: 315px;
+  background-color: var(--color-white);
+  cursor: pointer;
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.icon {
+  width: 27px;
+  height: 27px;
+  margin-right: 15px;
+}
+
+.message {
+  width: fit-content;
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 160%;
+}

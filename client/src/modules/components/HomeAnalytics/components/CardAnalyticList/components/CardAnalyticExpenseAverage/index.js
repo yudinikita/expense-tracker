@@ -1,0 +1,1 @@
+export { CardAnalyticExpenseAverage } from './CardAnalyticExpenseAverage'

@@ -1,0 +1,49 @@
+.loader {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+
+  &:before {
+    display: block;
+    padding-top: 100%;
+    content: '';
+  }
+
+  &__circular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    transform-origin: center center;
+    animation: rotate 2s linear infinite;
+  }
+
+  &__path {
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -124;
+  }
+}

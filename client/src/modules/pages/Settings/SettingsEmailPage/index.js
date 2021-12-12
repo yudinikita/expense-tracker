@@ -1,0 +1,1 @@
+export { SettingsEmailPage } from './SettingsEmailPage'

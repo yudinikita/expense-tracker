@@ -1,0 +1,1 @@
+export { ActivatePage } from './ActivatePage'

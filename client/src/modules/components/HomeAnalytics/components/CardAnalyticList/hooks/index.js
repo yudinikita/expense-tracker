@@ -1,0 +1,1 @@
+export { useGetDate } from './useGetDate'

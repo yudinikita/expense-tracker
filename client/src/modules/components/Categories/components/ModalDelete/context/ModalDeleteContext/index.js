@@ -1,0 +1,1 @@
+export { ModalDeleteContext } from './ModalDeleteContext'

@@ -1,0 +1,1 @@
+export { CardAnalyticPercent } from './CardAnalyticPercent'

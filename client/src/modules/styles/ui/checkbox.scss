@@ -1,0 +1,38 @@
+.checkbox {
+  input {
+    display: none;
+
+    &:checked + label {
+      color: var(--color-black);
+      background-color: var(--color-brand-yellow);
+    }
+  }
+
+  label {
+    display: inline-block;
+    padding: 10px 15px;
+    color: var(--color-gray-6);
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 130%;
+    background-color: var(--color-gray-1);
+    cursor: pointer;
+    transition: color 250ms ease-in-out;
+    user-select: none;
+    border-radius: 10px;
+
+    &:hover {
+      color: var(--color-black);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+.groupCheckbox {
+  display: flex;
+  justify-content: space-evenly;
+}

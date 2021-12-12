@@ -1,0 +1,27 @@
+.content {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 35px auto;
+}
+
+.desc {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.email {
+  margin: 5px auto;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: center;
+}
+
+.form {
+  margin: 40px auto;
+}
+
+.error {
+  color: var(--color-other-red);
+}

@@ -1,0 +1,1 @@
+export { HomePhrase } from './HomePhrase'

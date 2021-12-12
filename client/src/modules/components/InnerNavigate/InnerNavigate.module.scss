@@ -1,0 +1,29 @@
+.navigate {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.button {
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--color-gray-2);
+  }
+
+  &:active {
+    background-color: var(--color-brand-yellow);
+    transform: scale(.90);
+  }
+
+  svg {
+    vertical-align: bottom;
+  }
+}

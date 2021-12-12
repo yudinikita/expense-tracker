@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='utf-8' />
+  <link href='%PUBLIC_URL%/favicon.ico' rel='icon' />
+  <meta content='width=device-width, initial-scale=1' name='viewport' />
+  <meta content='#000000' name='theme-color' />
+  <meta
+    content='Сервис позволяет добавлять расходы и доходы по категориям с комментариями к ним. Подойдет для людей, желающих просто вести учет своих трат и понимать, на что они тратят денег больше всего.'
+    name='description'
+  />
+  <title> Денежки - простой учет личных финансов </title>
+  <style>
+    #app-preloader {
+      animation: pulsate-bck 1.5s ease-in-out infinite both;
+      animation-delay: 1.5s;
+      overflow: visible;
+    }
+
+    .app-preloader__ping {
+      transform: scale(1);
+      transform-origin: center center;
+      animation: pulse-me 3s linear infinite both;
+      animation-delay: 1.5s;
+    }
+
+    #app-preloader__ping-two {
+      animation-delay: 3s;
+    }
+
+    @keyframes pulse-me {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.09;
+      }
+      70% {
+        opacity: 0.08;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulsate-bck {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+<noscript>Включите JavaScript для работы приложения.</noscript>
+<div id='root'>
+  <span>
+    <svg
+      height='50'
+      id='app-preloader'
+      style='position:absolute;top:50%;left:50%;margin:-25px 0 0 -25px;fill:#f2ce3c;'
+      viewBox='0 0 40 40'
+      width='50'
+    >
+      <use class='app-preloader__ping' href='#app-preloader__bg' id='app-preloader__ping-three' />
+      <use class='app-preloader__ping' href='#app-preloader__bg' id='app-preloader__ping-two' />
+      <use class='app-preloader__ping' href='#app-preloader__bg' id='app-preloader__ping' />
+      <rect
+        height='40'
+        id='app-preloader__bg'
+        rx='6'
+        width='40'
+      />
+      <path
+        d='M17.307 24.064c-.032.032-.04.072-.024.12a.163.163 0 0 0 .12.048h4.776c.144 0 .216-.064.216-.192V13.48c0-.128-.072-.192-.216-.192h-2.736c-.144 0-.216.072-.216.216 0 3.008-.12 5.16-.36 6.456-.24 1.296-.76 2.664-1.56 4.104Zm-4.272 7.296c-.368 0-.688-.136-.96-.408a1.314 1.314 0 0 1-.408-.96v-4.68c0-.304.104-.56.312-.768.208-.208.464-.312.768-.312.144 0 .232-.04.264-.12.944-1.44 1.568-2.84 1.872-4.2.304-1.36.456-3.568.456-6.624v-1.92c0-.368.128-.688.384-.96.272-.272.592-.408.96-.408h8.352c.368 0 .688.136.96.408.272.272.408.592.408.96V24.04c0 .128.064.192.192.192h.552c.368 0 .688.136.96.408.272.272.408.592.408.96v4.392c0 .368-.136.688-.408.96a1.314 1.314 0 0 1-.96.408h-1.032c-.368 0-.688-.136-.96-.408a1.314 1.314 0 0 1-.408-.96v-2.256c0-.144-.064-.216-.192-.216h-8.928c-.128 0-.192.072-.192.216v2.256c0 .368-.136.688-.408.96a1.314 1.314 0 0 1-.96.408h-1.032Z'
+        fill='#000'
+      />
+    </svg>
+  </span>
+</div>
+</body>
+</html>

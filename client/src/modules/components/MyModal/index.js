@@ -1,0 +1,1 @@
+export { MyModal } from './MyModal'

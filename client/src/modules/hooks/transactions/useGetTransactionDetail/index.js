@@ -1,0 +1,1 @@
+export { useGetTransactionDetail } from './useGetTransactionDetail'

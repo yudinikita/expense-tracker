@@ -1,0 +1,1 @@
+export { SettingsLanguageCurrencyPage } from './SettingsLanguageCurrencyPage'

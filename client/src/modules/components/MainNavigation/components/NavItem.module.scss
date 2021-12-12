@@ -1,0 +1,33 @@
+.link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--color-gray-2);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+.activeLink {
+  .icon {
+    :global(path#bg) {
+      fill: var(--color-brand-yellow);
+    }
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  :global(path#bg) {
+    fill: transparent;
+    transition: fill 0.6s ease-in-out;
+  }
+}

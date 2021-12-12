@@ -1,0 +1,44 @@
+@import "src/modules/styles/mixins";
+
+.link {
+  @include p;
+  padding: 15px 10px 15px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+
+  &:active {
+    background-color: var(--color-brand-yellow);
+    transform: scale(0.98);
+  }
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-left: 20px;
+}
+
+.iconCategory {
+  width: 24px;
+  height: 24px;
+}
+
+.iconGo {
+  width: 18px;
+  height: 18px;
+
+  path {
+    stroke: var(--color-gray-5);
+  }
+}

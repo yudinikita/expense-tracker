@@ -1,0 +1,47 @@
+.link {
+  color: var(--color-black);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-weight: 400;
+  transition: background-color .3s ease-in-out;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+
+  &:active {
+    transform: scale(.96);
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.title {
+  max-width: 240px;
+  padding-bottom: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.innerContainer {
+  width: 100%;
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
