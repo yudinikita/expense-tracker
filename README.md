@@ -2,6 +2,14 @@
 
 # Денежки – самый легкий учет финансов
 
+<p>
+  <img alt="Scrutinizer build (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/build/g/nblackninja/expense-tracker">
+  <img alt="Code Climate maintainability" src="https://img.shields.io/codeclimate/maintainability-percentage/nblackninja/expense-tracker">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/nblackninja/expense-tracker">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/nblackninja/expense-tracker">
+  <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
+</p>
+
 💰 **Простой** инструмент для учета расходов и доходов. Без лишних функций и подписок. Различные **отчеты** за период.
 Подойдет для людей, желающих вести учет своих трат и понимать, на что они тратят денег больше всего, не разбираясь в
 сложных системах.
