@@ -1,4 +1,4 @@
-<img align='right' src="https://user-images.githubusercontent.com/36636599/145855303-6a5b2d37-37ae-4314-8470-869212c7bd5b.png" width="150" height='150' alt='Денежки (Управление расходами и доходами)'>
+<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Управление расходами и доходами)'>
 
 # Денежки – самый легкий учет финансов 💰
 
