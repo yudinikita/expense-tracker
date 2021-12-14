@@ -1,5 +1,5 @@
 <img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Управление расходами и доходами)'>
-
+.
 # Денежки – самый легкий учет финансов
 
 <p>
