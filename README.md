@@ -59,7 +59,7 @@ npm install
 ## 💬 Примечание
 
 Если у вас есть пожелания или проблемы с использованием приложения, пишите на
-почту nikitayudin782@gmail.com
+почту.
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
