@@ -59,7 +59,9 @@ npm install
 ## 💬 Примечание
 
 Если у вас есть пожелания или проблемы с использованием приложения, пишите на
-почту [nikitayudin782@gmail.com](mailto:nikitayudin782@gmail.com)
+почту.
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 ## 🔐 Лицензия
 
@@ -67,6 +69,6 @@ npm install
 
 ---
 
-> [nikitayudin782@gmail.com](mailto:nikitayudin782@gmail.com) &nbsp;&middot;&nbsp;
+> nikitayudin782@gmail.com &nbsp;&middot;&nbsp;
 > GitHub [@nblackninja](https://github.com/с) &nbsp;&middot;&nbsp;
 > Telegram [@yudinikita](https://t.me/yudinikita)
