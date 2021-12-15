@@ -11,8 +11,13 @@ class TokenService {
   validateAccessToken (token) {
     try {
       return jwt.verify(token, process.env.JWT_ACCESS_SECRET, function (err, decoded) {
-        if (err) return null
-        if (decoded) return decoded
+        if (err) {
+          return null
+        }
+        if (decoded) {
+          return decoded
+        }
+        return null
       })
     } catch (error) {
       return null

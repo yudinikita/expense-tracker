@@ -3,10 +3,16 @@ import { homePhrases } from '../../../data'
 
 export const useHomePhrase = () => {
   const getPhrase = () => {
-    const sessionPhrase = sessionStorage.getItem('homePhrases')
-    if (sessionPhrase) return sessionPhrase
+    const sessionPhrase = window.sessionStorage.getItem('homePhrases')
+
+    if (sessionPhrase) {
+      return sessionPhrase
+    }
+
     const randomPhrase = getRandomItems(homePhrases)
-    sessionStorage.setItem('homePhrases', randomPhrase)
+
+    window.sessionStorage.setItem('homePhrases', randomPhrase)
+
     return randomPhrase
   }
 
