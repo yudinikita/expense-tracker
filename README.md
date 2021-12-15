@@ -7,6 +7,7 @@
   <img alt="Code Climate maintainability" src="https://img.shields.io/codeclimate/maintainability-percentage/nblackninja/expense-tracker">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/nblackninja/expense-tracker">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/nblackninja/expense-tracker">
+  <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
