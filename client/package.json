@@ -29,6 +29,9 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "engines": {
+    "node": "^16.x"
+  },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "^7.16.0",
     "graphql-tag": "^2.12.5",

@@ -4,7 +4,7 @@
   "description": "A simple tool for keeping track of personal finances. Keep track of expenses and income.",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production concurrently \"npm run server:build\" \"npm run client:build\"",
+    "start": "cross-env NODE_ENV=production node server",
     "server": "nodemon server",
     "server:build": "node server",
     "client": "npm run start --prefix client",
@@ -27,7 +27,7 @@
     "graphql",
     "apollo"
   ],
-  "author": "Nikita Yudin <nikitayudin782@gmail.com> (https://t.me/yudinikita)",
+  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/nblackninja/expense-tracker#readme",
   "bugs": {
