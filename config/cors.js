@@ -1,5 +1,7 @@
 const whitelist = [
+  'http://localhost',
   'http://localhost:3000',
+  'https://expense-tracker-easy.herokuapp.com/',
   'https://studio.apollographql.com'
 ]
 
