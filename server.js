@@ -5,8 +5,10 @@ const { ApolloServer } = require('apollo-server-express')
 const apolloConfig = require('./config/apollo')
 const app = require('./app')
 
-const dotenvParse = dotenv.config({ path: `${__dirname}/config/config.env` })
-if (dotenvParse.error) throw dotenvParse?.error
+if (process.env.NODE_ENV === 'development') {
+  const dotenvParse = dotenv.config({ path: `${__dirname}/config/config.env` })
+  if (dotenvParse.error) throw dotenvParse?.error
+}
 
 const DEFAULT_PORT = 5000
 const PORT = process.env.PORT || DEFAULT_PORT
