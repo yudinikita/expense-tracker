@@ -20,10 +20,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  app.use('/', serveStatic(path.join(__dirname, 'app', 'client', 'build'), { index: 'index.html' }))
+  app.use('/', serveStatic(path.join(__dirname, 'client', 'build'), { index: 'index.html' }))
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'app', 'client', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
 
