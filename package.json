@@ -4,7 +4,7 @@
   "description": "A simple tool for keeping track of personal finances. Keep track of expenses and income.",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
+    "start": "cross-env NODE_ENV=production node server",
     "server": "nodemon server",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
