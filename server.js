@@ -19,7 +19,7 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}...`.magenta.bold)
-    console.log(`Server ready at http://localhost:${PORT}`.yellow.bold)
+    console.log(`Server ready at ${process.env.SERVER_URL}:${PORT}`.yellow.bold)
   })
 }
 
