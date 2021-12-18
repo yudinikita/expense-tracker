@@ -3,7 +3,8 @@ import { App } from './App'
 import { ApolloClient, ApolloLink, ApolloProvider, from, HttpLink, InMemoryCache } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 
-const URI = `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_PORT}/graphql`
+const DEFAULT_URI = 'http://localhost:5000'
+const URI = `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_PORT}/graphql` || DEFAULT_URI
 
 const httpLink = new HttpLink({ uri: URI })
 
