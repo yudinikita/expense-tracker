@@ -30,8 +30,7 @@
     "web-vitals": "^1.0.1"
   },
   "engines": {
-    "node": "^16",
-    "npm": "^8"
+    "node": "14.x"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "^7.16.0",

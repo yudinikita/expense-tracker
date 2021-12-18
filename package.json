@@ -39,8 +39,7 @@
     "url": "https://github.com/nblackninja/expense-tracker.git"
   },
   "engines": {
-    "node": "^16",
-    "npm": "^8"
+    "node": "14.x"
   },
   "devDependencies": {
     "@types/node": "^16.10.1",
