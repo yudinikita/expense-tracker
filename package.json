@@ -6,7 +6,6 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
     "server": "nodemon server",
-    "server:build": "node server",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
