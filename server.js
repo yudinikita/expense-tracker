@@ -7,6 +7,8 @@ const app = require('./app')
 
 dotenv.config({ path: `${__dirname}/config/config.env` })
 
+process.title = 'expense-tracker'
+
 const DEFAULT_PORT = 5000
 const PORT = process.env.PORT || DEFAULT_PORT
 
