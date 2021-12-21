@@ -7,7 +7,7 @@ const morgan = require('morgan')
 const serveStatic = require('serve-static')
 const path = require('path')
 
-const app = express()
+const app = express().disable('x-powered-by')
 
 app.use(compression())
 app.use(express.json({ extended: true }))
