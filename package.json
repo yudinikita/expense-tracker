@@ -1,15 +1,15 @@
 {
   "name": "expence-tracker-mern",
   "version": "1.0.0",
-  "description": "A simple tool for keeping track of personal finances. Keep track of expenses and income.",
+  "description": "A simple tool for keeping track of personal finances.",
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
     "server": "nodemon server",
-    "client": "npm run start --prefix client",
-    "client:install": "npm install --prefix client",
-    "client:build": "npm run build --prefix client",
-    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+    "client": "yarn --cwd client start",
+    "client:install": "yarn install --prefix client",
+    "client:build": "yarn build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\""
   },
   "keywords": [
     "js",
