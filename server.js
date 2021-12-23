@@ -23,6 +23,8 @@ const startServer = async () => {
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}...`.magenta.bold)
     console.log(`Server ready at ${process.env.SERVER_URL}:${PORT}`.yellow.bold)
   })
+
+  process.on('SIGINT', () => process.exit(0))
 }
 
 startServer()
