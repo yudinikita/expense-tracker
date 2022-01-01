@@ -1,11 +1,11 @@
 const dotenv = require('dotenv')
 const colors = require('colors')
-const connectDB = require('./config/db')
+const connectDB = require('./server/config/db')
 const { ApolloServer } = require('apollo-server-express')
-const apolloConfig = require('./config/apollo')
-const app = require('./app')
+const apolloConfig = require('./server/config/apollo')
+const app = require('./server/app')
 
-dotenv.config({ path: `${__dirname}/config/config.env` })
+dotenv.config({ path: `${__dirname}/server/config/config.env` })
 
 process.title = 'expense-tracker'
 
@@ -20,8 +20,15 @@ const startServer = async () => {
   apolloServer.applyMiddleware({ app })
 
   app.listen(PORT, () => {
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}...`.magenta.bold)
-    console.log(`Server ready at ${process.env.SERVER_URL}:${PORT}`.yellow.bold)
+    const PAD_START = 10
+    console.log('[' + 'ExpenseTracker'.yellow + '] ' + 'AccessURLs:'.bold)
+    console.log('--------------------------------------')
+    console.log('Server: '.padStart(PAD_START) + process.env.SERVER_URL.magenta + ':' + PORT)
+    console.log('Client: '.padStart(PAD_START) + process.env.CLIENT_URL.magenta)
+    console.log('--------------------------------------')
+    console.log('Mode: '.padStart(PAD_START) + process.env.NODE_ENV.magenta)
+    console.log('Port: '.padStart(PAD_START) + PORT.magenta)
+    console.log('--------------------------------------')
   })
 
   process.on('SIGINT', () => process.exit(0))

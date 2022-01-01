@@ -23,7 +23,7 @@ module.exports = {
       const user = context?.user
       if (!user) return new AuthenticationError('Ошибка авторизации')
       if (user?.isActivated) return new ForbiddenError('Аккаунт уже активирован')
-      
+
       const { activationCode } = args
       const { id } = user
       const userData = await UserService.activate(id, activationCode)
