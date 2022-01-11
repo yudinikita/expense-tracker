@@ -7,6 +7,7 @@ import { useGetUserSettings, useSetUpdateUserSettings } from '../hooks'
 export const SettingsContext = React.createContext(null)
 
 const defaultSettings = {
+  theme: 'dark',
   language: 'ru',
   currency: 'RUB'
 }
@@ -26,6 +27,9 @@ export const SettingsProvider = ({ settings }) => {
         ...currentSettings,
         ...userSettings
       })
+
+      const userTheme = userSettings?.theme || 'light'
+      document.documentElement.setAttribute('data-theme', userTheme)
     }
   }, [userSettings, loading, error])
 
@@ -34,16 +38,23 @@ export const SettingsProvider = ({ settings }) => {
       ...settings,
       ...values
     }
-    setCurrentSettings(newSettings)
+
     try {
       await setUpdateUserSettings({
         variables: {
           settings: {
-            language: newSettings?.language || '',
-            currency: newSettings?.currency || ''
+            theme: newSettings?.theme || 'light',
+            language: newSettings?.language || 'ru',
+            currency: newSettings?.currency || 'RUB'
           }
         }
       })
+
+      setCurrentSettings(newSettings)
+
+      const userTheme = newSettings?.theme || 'light'
+      document.documentElement.setAttribute('data-theme', userTheme)
+
       alert.success('Настройки сохранены')
     } catch {
       alert.error('Не удалось сохранить настройки')

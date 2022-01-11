@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     type: String
   },
   settings: {
+    theme: {
+      type: String,
+      default: 'light'
+    },
     language: {
       type: String,
       default: 'ru'

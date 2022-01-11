@@ -4,18 +4,20 @@ module.exports = gql`
   type Query {
     userSettings: Settings!
   }
-  
+
   type Mutation {
     updateUserPassword(userPasswordInput: UserPasswordInput): updateUserPasswordResponse!
     updateUserSettings(settings: SettingsInput): Settings!
   }
 
   type Settings {
+    theme: String!
     language: String!
     currency: String!
   }
 
   input SettingsInput {
+    theme: String!
     language: String!
     currency: String!
   }
