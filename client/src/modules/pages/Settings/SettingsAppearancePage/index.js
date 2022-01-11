@@ -1,0 +1,1 @@
+export { SettingsAppearancePage } from './SettingsAppearancePage'

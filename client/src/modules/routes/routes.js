@@ -19,6 +19,7 @@ import {
   Page404,
   RegistrationPage,
   SearchTransactionsPage,
+  SettingsAppearancePage,
   SettingsEmailPage,
   SettingsLanguageCurrencyPage,
   SettingsPage,
@@ -61,6 +62,7 @@ export const RouteComponent = () => {
               <Route path='settings/security' element={<SettingsSecurityPage />} />
               <Route path='settings/email' element={<SettingsEmailPage />} />
               <Route path='settings/language-currency' element={<SettingsLanguageCurrencyPage />} />
+              <Route path='settings/appearance' element={<SettingsAppearancePage />} />
               <Route path='help' element={<HelpPage />} />
               <Route path='help/:id' element={<HelpDetailPage />} />
               <Route path='404' element={<Page404 />} />

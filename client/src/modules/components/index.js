@@ -32,6 +32,7 @@ export { SettingsNavigate } from './Settings/SettingsNavigate'
 export { SettingsEmailMain } from './Settings/SettingsEmailMain'
 export { SettingsSecurityMain } from './Settings/SettingsSecurityMain'
 export { SettingsLanguageCurrencyMain } from './Settings/SettingsLanguageCurrencyMain'
+export { SettingsAppearance } from './Settings/SettingsAppearance'
 
 // Категории
 export { Categories } from './Categories'

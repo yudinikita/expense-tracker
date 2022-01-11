@@ -14,7 +14,8 @@ export { Logout } from './Logout'
 export {
   SettingsEmailPage,
   SettingsSecurityPage,
-  SettingsLanguageCurrencyPage
+  SettingsLanguageCurrencyPage,
+  SettingsAppearancePage
 } from './Settings'
 
 // Дополнительные
