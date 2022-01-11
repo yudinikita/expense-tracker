@@ -3,7 +3,7 @@ import { App } from './App'
 import { ApolloClient, ApolloLink, ApolloProvider, from, HttpLink, InMemoryCache } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 
-const URI = process.env.REACT_APP_APOLLO_URI
+const URI = process.env.REACT_APP_APOLLO_URI || 'http://localhost:5000/graphql'
 const httpLink = new HttpLink({ uri: URI })
 
 const authLink = new ApolloLink((operation, forward) => {
