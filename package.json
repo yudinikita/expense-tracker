@@ -48,6 +48,7 @@
   "dependencies": {
     "@graphql-modules/core": "^0.7.17",
     "@graphql-tools/schema": "^8.2.0",
+    "@sendgrid/mail": "^7.6.0",
     "apollo-server-express": "^3.3.0",
     "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
