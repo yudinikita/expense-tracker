@@ -2,7 +2,6 @@
   "private": true,
   "name": "client",
   "version": "1.0.0",
-  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -27,19 +26,14 @@
     "react-lottie-player": "^1.4.1",
     "react-modal": "^3.14.3",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.0",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx-source": "^7.16.0",
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-react-jsx-source": "^7.16.7",
     "graphql-tag": "^2.12.5",
     "standard": "^16.0.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
