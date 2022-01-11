@@ -2,11 +2,11 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 10px;
   transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
 
   &:hover {
-    background-color: var(--color-gray-2);
+    background-color: var(--hover-color);
   }
 
   &:active {
@@ -27,7 +27,7 @@
   height: 24px;
 
   :global(path#bg) {
-    fill: transparent;
     transition: fill 0.6s ease-in-out;
+    fill: transparent;
   }
 }

@@ -2,11 +2,11 @@
 @import './vendor/calendar';
 @import './vendor/modal';
 
-@import 'mixins';
-@import 'fonts';
-@import 'vars';
-@import 'animations';
-@import 'settings';
+@import './global/mixins';
+@import './global/fonts';
+@import './global/vars';
+@import './global/animations';
+@import './global/settings';
 
 @import './ui/button';
 @import './ui/input';

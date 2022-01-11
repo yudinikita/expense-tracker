@@ -21,6 +21,7 @@ export const EditingTemplate = () => {
           value={editInput}
           onChange={onChangeEditInput}
           disabled={loading}
+          autoFocus
         />
       </div>
       <div className={styles.groupBtn + ' ' + styles.groupBtnEdit}>

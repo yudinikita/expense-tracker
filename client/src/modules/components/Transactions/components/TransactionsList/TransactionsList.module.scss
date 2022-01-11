@@ -1,4 +1,4 @@
-@import 'src/modules/styles/animations';
+@import '../../../../styles/global/animations';
 
 .transactionsItem {
   animation: fade-in-bottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

@@ -13,7 +13,8 @@ const modalStyles = {
     border: 0,
     borderRadius: '10px',
     padding: '30px',
-    maxWidth: '315px'
+    maxWidth: '350px',
+    background: 'var(--background-color)'
   }
 }
 

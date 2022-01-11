@@ -36,3 +36,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+[data-theme='dark'] {
+  .checkbox {
+    label {
+      background-color: var(--color-gray-9);
+    }
+  }
+}
+

@@ -8,7 +8,7 @@
   max-width: 375px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .list {
@@ -18,4 +18,16 @@
   margin: 0;
   padding: 15px 0;
   list-style: none;
+
+  li:nth-child(odd) {
+    svg > path {
+      fill: var(--icon-color);
+    }
+  }
+
+  li:nth-child(even) {
+    svg > path {
+      stroke: var(--icon-color);
+    }
+  }
 }

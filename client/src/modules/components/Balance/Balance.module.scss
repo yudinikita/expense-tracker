@@ -7,11 +7,12 @@
 
 .title {
   margin: 0;
-  color: var(--color-gray-7);
+  color: var(--font-color-second);
 }
 
 .balance {
   margin: 5px 0;
+  color: var(--title-color);
   font-weight: 700;
   font-size: 30px;
   line-height: 140%;
@@ -26,6 +27,7 @@
 
 .balancePerDate {
   margin-right: 20px;
+  color: var(--font-color);
   font-weight: 500;
   font-size: 24px;
   line-height: 150%;

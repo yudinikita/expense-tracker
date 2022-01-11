@@ -2,7 +2,6 @@ import React from 'react'
 import { MyError, MyLoader } from '../../..'
 import { useGetHelps } from '../../../../hooks'
 import { HelpListItem } from './components'
-import styles from './HelpList.module.scss'
 
 export const HelpList = () => {
   const { helps, loading, error } = useGetHelps()
@@ -25,7 +24,7 @@ export const HelpList = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <h2>Мои вопросы</h2>
       <br />
       {renderHelpList()}

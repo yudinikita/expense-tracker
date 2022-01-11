@@ -5,7 +5,7 @@
   border-radius: 10px;
 
   &:hover {
-    background-color: var(--color-gray-1);
+    background-color: var(--hover-color);
   }
 
   &:active {
@@ -23,7 +23,7 @@
 .title {
   max-width: 195px;
   margin: 0;
-  color: black;
+  color: var(--font-color);
   font-weight: 500;
   font-size: 18px;
   line-height: 160%;

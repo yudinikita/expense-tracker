@@ -19,7 +19,6 @@
 
 .title {
   margin: 0;
-  color: black;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -44,7 +43,7 @@
   }
 
   &:hover {
-    background-color: var(--color-gray-2);
+    background-color: var(--hover-color);
   }
 
   &:active {
@@ -101,12 +100,19 @@
   max-width: 220px;
   padding-right: 10px;
   padding-left: 10px;
+  color: var(--font-color);
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
   line-height: 160%;
+  background-color: var(--background-color);
+  outline: none;
   border-radius: 5px;
-  border: 1px solid var(--color-gray-5);
+  border: 2px solid var(--color-gray-7);
+
+  &:focus {
+    border-color: var(--color-brand-yellow);
+  }
 }
 
 .groupBtnEdit {

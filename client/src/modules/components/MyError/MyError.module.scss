@@ -1,8 +1,8 @@
-@import "src/modules/styles/animations";
+@import '../../styles/global/animations';
 
 .container {
-  text-align: center;
   margin: 25px auto 0;
+  text-align: center;
 }
 
 .title {

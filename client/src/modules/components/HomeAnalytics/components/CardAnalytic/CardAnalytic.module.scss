@@ -60,3 +60,9 @@
   overflow: hidden;
   overflow: hidden;
 }
+
+[data-theme='dark'] {
+  .container {
+    filter: brightness(.8);
+  }
+}

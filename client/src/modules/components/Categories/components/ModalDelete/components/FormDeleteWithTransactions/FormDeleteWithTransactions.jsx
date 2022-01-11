@@ -6,7 +6,7 @@ export const FormDeleteWithTransactions = () => {
 
   return (
     <div>
-      <p>Удалить категорию и все операции с ней</p>
+      <p>Удалить категорию и все операции вместе с ней</p>
       <button
         className='mainButton'
         type='button'

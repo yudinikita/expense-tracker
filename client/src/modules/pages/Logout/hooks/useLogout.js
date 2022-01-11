@@ -8,10 +8,16 @@ export const useLogout = () => {
   const navigate = useNavigate()
 
   const logout = async () => {
-    await clearCache()
-    await clearStorage()
-    signOut()
-    navigate('/')
+    try {
+      await clearCache()
+      await clearStorage()
+      await clearTheme()
+    } catch (e) {
+      console.log(e)
+    } finally {
+      signOut()
+      navigate('/')
+    }
   }
 
   const clearCache = async () => {
@@ -22,6 +28,10 @@ export const useLogout = () => {
   const clearStorage = async () => {
     localStorage.clear()
     sessionStorage.clear()
+  }
+
+  const clearTheme = async () => {
+    document.documentElement.removeAttribute('data-theme')
   }
 
   return { logout }

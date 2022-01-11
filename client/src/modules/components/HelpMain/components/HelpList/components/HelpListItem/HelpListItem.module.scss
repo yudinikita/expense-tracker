@@ -12,7 +12,7 @@
   border-radius: 10px;
 
   &:hover {
-    background-color: var(--color-gray-1);
+    background-color: var(--hover-color);
   }
 
   &:active {
@@ -43,5 +43,6 @@
 .detail {
   display: flex;
   justify-content: space-between;
+  color: var(--font-color);
   font-size: 16px;
 }

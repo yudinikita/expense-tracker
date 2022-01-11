@@ -17,7 +17,8 @@ body {
   font-size: 16px;
   font-family: 'Inter', sans-serif;
   line-height: 160%;
-  background-color: white;
+  background-color: var(--background-color);
+  animation: .3s fadeIn ease-in-out;
 }
 
 img {
@@ -25,7 +26,12 @@ img {
   height: auto;
 }
 
+p {
+  color: var(--font-color);
+}
+
 a {
+  color: var(--font-color);
   text-decoration: none;
 }
 
@@ -37,25 +43,10 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+  color: var(--title-color);
   font-weight: 600;
   font-family: 'Inter', sans-serif;
   line-height: 130%;
-}
-
-h1 {
-  @include h1
-}
-
-h2 {
-  @include h2
-}
-
-p {
-  @include p
-}
-
-a {
-  @include a
 }
 
 .container {
@@ -136,4 +127,12 @@ a {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+  }
+}
