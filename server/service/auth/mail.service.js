@@ -1,32 +1,29 @@
-const nodemailer = require('nodemailer')
 const { getActivationHtml, getActivationText } = require('../../mails/activationMail/actiovationMail')
+const sgMail = require('@sendgrid/mail')
 
 class MailService {
 
-  constructor () {
-    const smtpConfig = {
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: process.env.SMTP_SECURE,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      }
-    }
-
-    this.transporter = nodemailer.createTransport(smtpConfig)
-  }
-
   async sendActivationMail (to, code) {
-    await this.transporter.sendMail({
-      from: `"Никита Юдин" ${process.env.SMTP_USER}`,
-      to,
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
+    const msg = {
+      to: to,
+      from: process.env.EMAIL_SENDER,
       subject: 'Код активации | Денежки',
       text: getActivationText(code),
-      html: getActivationHtml(code)
-    }, (err) => err)
-  }
+      html: getActivationHtml(code),
+    }
 
+    try {
+      await sgMail.send(msg)
+    } catch (error) {
+      console.error(error)
+
+      if (error.response) {
+        console.error(error.response.body)
+      }
+    }
+  }
 }
 
 module.exports = new MailService()
