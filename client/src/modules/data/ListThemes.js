@@ -1,4 +1,4 @@
 export const themeList = [
-  { id: 0, title: 'Светлая', value: 'light' },
-  { id: 1, title: 'Тёмная', value: 'dark' },
+  { id: 0, title: 'Светлая', value: 'light', icon: 'sun' },
+  { id: 1, title: 'Тёмная', value: 'dark', icon: 'moon' },
 ]
