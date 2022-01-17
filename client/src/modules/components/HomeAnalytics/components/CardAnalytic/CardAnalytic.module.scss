@@ -63,6 +63,6 @@
 
 [data-theme='dark'] {
   .container {
-    filter: brightness(.8);
+    filter: saturate(2);
   }
 }
