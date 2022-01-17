@@ -50,3 +50,11 @@
 .groupInput {
   position: relative;
 }
+
+[data-theme='dark'] {
+  .mainInput {
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  }
+}
