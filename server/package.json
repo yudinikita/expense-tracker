@@ -37,6 +37,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "fastify-static": "^4.5.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "pino-pretty": "^7.3.0"
   }
 }

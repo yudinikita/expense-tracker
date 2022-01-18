@@ -5,13 +5,12 @@ import fastifyCors from 'fastify-cors'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import corsOptions from './modules/config/cors.js'
+import fastifyOptions from './modules/config/fastifyOptions.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default async function buildApp () {
-  const app = fastify({
-    logger: true,
-  })
+  const app = fastify(fastifyOptions)
 
   app.register(fastifyCompress)
 
