@@ -1,4 +1,4 @@
-module.exports = class UserDto {
+class UserDto {
   email
   id
   isActivated
@@ -10,5 +10,6 @@ module.exports = class UserDto {
     this.isActivated = model.isActivated
     this.settings = model.settings
   }
-
 }
+
+export default UserDto

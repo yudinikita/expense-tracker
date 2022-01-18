@@ -1,5 +1,5 @@
-const { getActivationHtml, getActivationText } = require('../../mails/activationMail/actiovationMail')
-const sgMail = require('@sendgrid/mail')
+import { getActivationHtml, getActivationText } from '../../mails/activationMail/actiovationMail.js'
+import sgMail from '@sendgrid/mail'
 
 class MailService {
 
@@ -26,4 +26,4 @@ class MailService {
   }
 }
 
-module.exports = new MailService()
+export default new MailService()

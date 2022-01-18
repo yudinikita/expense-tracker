@@ -1,4 +1,6 @@
-const { Schema, model, Types } = require('mongoose')
+import pkg from 'mongoose'
+
+const { model, Schema, Types } = pkg
 
 const CategorySchema = new Schema({
   title: {
@@ -15,4 +17,4 @@ const CategorySchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = model('Category', CategorySchema)
+export default model('Category', CategorySchema)

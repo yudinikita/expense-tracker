@@ -52,11 +52,11 @@ const getActivationHtml = (code) => {
 const getActivationText = (code) => {
   return `
 ${code} — ваш код для активации на ${process.env.CLIENT_URL}
-    
+
 Или перейдите по ссылке:
-    
+
 ${process.env.CLIENT_URL}/#/activate/${code}
 `
 }
 
-module.exports = { getActivationHtml, getActivationText }
+export { getActivationHtml, getActivationText }

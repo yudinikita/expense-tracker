@@ -1,6 +1,8 @@
-const CategoryModel = require('../models/Category')
-const transactionService = require('./transaction.service')
-const { Types } = require('mongoose')
+import CategoryModel from '../models/Category.js'
+import transactionService from './transaction.service.js'
+import pkg from 'mongoose'
+
+const { Types } = pkg
 
 const defaultCategories = [
   'Зарплата',
@@ -59,4 +61,4 @@ class CategoryService {
 
 }
 
-module.exports = new CategoryService()
+export default new CategoryService()

@@ -1,11 +1,11 @@
-const express = require('express')
-const compression = require('compression')
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
-const corsOptions = require('./modules/config/cors')
-const morgan = require('morgan')
-const serveStatic = require('serve-static')
-const path = require('path')
+import express from 'express'
+import compression from 'compression'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import morgan from 'morgan'
+import serveStatic from 'serve-static'
+import path from 'path'
+import corsOptions from './modules/config/cors.js'
 
 const app = express().disable('x-powered-by')
 
@@ -20,13 +20,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  const pathStatic = path.join(__dirname, 'client', 'build')
+  const pathStatic = path.join(import.meta.url, 'client', 'build')
   const index = 'index.html'
   app.use('/', serveStatic(pathStatic, { index }))
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', index))
+    res.sendFile(path.resolve(import.meta.url, 'client', 'build', index))
   })
 }
 
-module.exports = app
+export default app

@@ -1,1 +1,1 @@
-module.exports = require('./userSettings.module.graphql.js')
+export { default } from './userSettings.module.graphql.js'

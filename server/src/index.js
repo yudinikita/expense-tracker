@@ -1,11 +1,16 @@
-const dotenv = require('dotenv')
-const colors = require('colors')
-const connectDB = require('./modules/config/db')
-const { ApolloServer } = require('apollo-server-express')
-const apolloConfig = require('./modules/config/apollo')
-const app = require('./app')
+import dotenv from 'dotenv'
+import colors from 'colors'
+import connectDB from './modules/config/db.js'
+import { ApolloServer } from 'apollo-server-express'
+import apolloConfig from './modules/config/apollo.js'
+import app from './app.js'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
-dotenv.config({ path: `${__dirname}/modules/config/.env` })
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+dotenv.config({ path: __dirname + '/modules/config/.env' })
 
 process.title = 'expense-tracker'
 
@@ -27,7 +32,7 @@ const startServer = async () => {
   apolloServer.applyMiddleware({ app })
 
   app.listen(PORT, HOSTNAME, async () => {
-    console.log('[ExpenseTracker] '.yellow + 'AccessURLs:'.bold)
+    console.log(colors.yellow('[ExpenseTracker] ') + 'AccessURLs:'.bold)
     console.log('--------------------------------------')
     console.log('Server: '.padStart(PAD_START) + 'http://' + HOSTNAME.magenta + ':' + PORT)
     console.log('Client: '.padStart(PAD_START) + CLIENT_URL.magenta)

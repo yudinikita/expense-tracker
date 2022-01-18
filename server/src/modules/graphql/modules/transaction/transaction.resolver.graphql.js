@@ -1,7 +1,7 @@
-const { AuthenticationError, ForbiddenError, ApolloError } = require('apollo-server-express')
-const TransactionService = require('../../../service/transaction.service')
+import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import TransactionService from '../../../service/transaction.service.js'
 
-module.exports = {
+export default {
   Query: {
     transactions: async (root, args, context, info) => {
       const user = context?.user

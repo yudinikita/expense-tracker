@@ -1,5 +1,4 @@
-const HelpModel = require('../models/Help')
-const TransactionModel = require('../models/Transactions')
+import HelpModel from '../models/Help.js'
 
 class HelpService {
 
@@ -50,4 +49,4 @@ class HelpService {
 
 }
 
-module.exports = new HelpService()
+export default new HelpService()

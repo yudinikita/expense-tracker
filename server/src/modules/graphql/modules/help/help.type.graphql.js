@@ -1,6 +1,6 @@
-const { gql } = require('graphql-modules')
+import { gql } from 'graphql-modules'
 
-module.exports = gql`
+export default gql`
   type Query {
     helps: [Help!]!
     helpDetail(helpId: ID): Help!

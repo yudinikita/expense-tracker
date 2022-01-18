@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose')
+import pkg from 'mongoose'
+
+const { model, Schema } = pkg
 
 const UserSchema = new Schema({
   email: {
@@ -33,4 +35,4 @@ const UserSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = model('User', UserSchema)
+export default model('User', UserSchema)

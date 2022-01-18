@@ -1,1 +1,1 @@
-module.exports = require('./analytic.module.graphql.js')
+export { default } from './analytic.module.graphql.js'

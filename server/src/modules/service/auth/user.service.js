@@ -1,10 +1,10 @@
-const bcrypt = require('bcrypt')
-const UserModel = require('../../models/User')
-const MailService = require('./mail.service')
-const TokenService = require('./token.service')
-const CategoryService = require('../category.service')
-const UserDto = require('../../dtos/user.dto')
-const { getHashedPassword, getActivationCode, getPasswordConfirmation } = require('../../utils/auth')
+import bcrypt from 'bcrypt'
+import UserModel from '../../models/User.js'
+import MailService from './mail.service.js'
+import TokenService from './token.service.js'
+import CategoryService from '../category.service.js'
+import UserDto from '../../dtos/user.dto.js'
+import { getHashedPassword, getActivationCode, getPasswordConfirmation } from '../../utils/auth.js'
 
 class UserService {
 
@@ -110,4 +110,4 @@ class UserService {
 
 }
 
-module.exports = new UserService()
+export default new UserService()

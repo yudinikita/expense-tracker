@@ -1,1 +1,1 @@
-module.exports = require('./category.module.graphql')
+export { default } from './category.module.graphql.js'

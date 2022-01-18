@@ -1,5 +1,5 @@
-const application = require('../graphql/modules/application')
-const TokenService = require('../service/auth/token.service')
+import application from '../graphql/application.js'
+import TokenService from '../service/auth/token.service.js'
 
 const schema = application.createSchemaForApollo({})
 
@@ -14,7 +14,7 @@ const context = ({ req }) => {
   }
 }
 
-module.exports = {
-  schema,
-  context
+export default {
+  context,
+  schema
 }

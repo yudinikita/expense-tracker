@@ -3,6 +3,7 @@
   "name": "expence-tracker-mern-server",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "main": "src/index.js",
   "scripts": {

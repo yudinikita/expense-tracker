@@ -1,5 +1,7 @@
-const TransactionModel = require('../models/Transactions')
-const { Types } = require('mongoose')
+import TransactionModel from '../models/Transactions.js'
+import pkg from 'mongoose'
+
+const { Types } = pkg
 
 class AnalyticsService {
 
@@ -217,4 +219,4 @@ class AnalyticsService {
 
 }
 
-module.exports = new AnalyticsService()
+export default new AnalyticsService()

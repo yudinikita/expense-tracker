@@ -1,4 +1,4 @@
-const TransactionModel = require('../models/Transactions')
+import TransactionModel from '../models/Transactions.js'
 
 class TransactionService {
 
@@ -135,4 +135,4 @@ class TransactionService {
 
 }
 
-module.exports = new TransactionService()
+export default new TransactionService()

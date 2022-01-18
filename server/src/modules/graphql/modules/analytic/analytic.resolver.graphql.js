@@ -1,8 +1,8 @@
-const { AuthenticationError, ForbiddenError, ApolloError } = require('apollo-server-express')
-const AnalyticsService = require('../../../service/analytics.service')
-const BalanceService = require('../../../service/balance.service')
+import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import AnalyticsService from '../../../service/analytics.service.js'
+import BalanceService from '../../../service/balance.service.js'
 
-module.exports = {
+export default {
   Query: {
     balance: async (root, args, context, info) => {
       const user = context?.user

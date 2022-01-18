@@ -3,7 +3,7 @@ const whitelist = [
   'https://studio.apollographql.com'
 ]
 
-module.exports = {
+export default {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)

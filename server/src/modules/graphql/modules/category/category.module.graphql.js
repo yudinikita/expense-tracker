@@ -1,10 +1,10 @@
-const { createModule } = require('graphql-modules')
-const CategoryType = require('./category.type.graphql')
-const CategoryResolvers = require('./category.resolver.graphql')
+import { createModule } from 'graphql-modules'
+import CategoryType from './category.type.graphql.js'
+import CategoryResolvers from './category.resolver.graphql.js'
 
-module.exports = createModule({
+export default createModule({
   id: 'category-module',
-  dirname: __dirname,
+  dirname: import.meta.url,
   typeDefs: [CategoryType],
   resolvers: [CategoryResolvers],
 })

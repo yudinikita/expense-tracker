@@ -1,5 +1,7 @@
-const TransactionModel = require('../models/Transactions')
-const { Types } = require('mongoose')
+import TransactionModel from '../models/Transactions.js'
+import pkg from 'mongoose'
+
+const { Types } = pkg
 
 class BalanceService {
 
@@ -88,4 +90,4 @@ class BalanceService {
 
 }
 
-module.exports = new BalanceService()
+export default new BalanceService()

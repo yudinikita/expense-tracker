@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
 
 class TokenService {
 
@@ -26,4 +26,4 @@ class TokenService {
 
 }
 
-module.exports = new TokenService()
+export default new TokenService()

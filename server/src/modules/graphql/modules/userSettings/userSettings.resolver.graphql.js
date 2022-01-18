@@ -1,7 +1,7 @@
-const { AuthenticationError, ForbiddenError, ApolloError } = require('apollo-server-express')
-const UserService = require('../../../service/auth/user.service')
+import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import UserService from '../../../service/auth/user.service.js'
 
-module.exports = {
+export default {
   Query: {
     userSettings: async (root, args, context, info) => {
       const user = context?.user

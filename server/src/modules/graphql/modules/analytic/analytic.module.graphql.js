@@ -1,10 +1,10 @@
-const { createModule } = require('graphql-modules')
-const TypeDefs = require('./analytic.type.graphql')
-const Resolvers = require('./analytic.resolver.graphql')
+import { createModule } from 'graphql-modules'
+import TypeDefs from './analytic.type.graphql.js'
+import Resolvers from './analytic.resolver.graphql.js'
 
-module.exports = createModule({
+export default createModule({
   id: 'analytic-module',
-  dirname: __dirname,
+  dirname: import.meta.url,
   typeDefs: [TypeDefs],
   resolvers: [Resolvers],
 })

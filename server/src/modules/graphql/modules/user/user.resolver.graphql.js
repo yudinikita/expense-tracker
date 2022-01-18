@@ -1,8 +1,8 @@
-const { AuthenticationError, ForbiddenError } = require('apollo-server-express')
-const UserValidation = require('../../../validation/user.validation')
-const UserService = require('../../../service/auth/user.service')
+import { AuthenticationError, ForbiddenError } from 'apollo-server-express'
+import UserValidation from '../../../validation/user.validation.js'
+import UserService from '../../../service/auth/user.service.js'
 
-module.exports = {
+export default {
   Mutation: {
     registration: async (root, args, context, info) => {
       const { email, password } = args?.userInput

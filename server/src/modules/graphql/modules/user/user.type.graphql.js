@@ -1,6 +1,6 @@
-const { gql } = require('graphql-modules')
+import { gql } from 'graphql-modules'
 
-module.exports = gql`
+export default gql`
   type Mutation {
     registration(userInput: UserRegistrationInput): User!
     login(userInput: UserLoginInput): User!

@@ -1,4 +1,6 @@
-const { Schema, model, Types } = require('mongoose')
+import pkg from 'mongoose'
+
+const { model, Schema, Types } = pkg
 
 const TransactionSchema = new Schema({
   amount: {
@@ -30,4 +32,4 @@ const TransactionSchema = new Schema({
   }
 })
 
-module.exports = model('Transaction', TransactionSchema)
+export default model('Transaction', TransactionSchema)

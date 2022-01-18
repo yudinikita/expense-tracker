@@ -1,7 +1,7 @@
-const CategoryService = require('../../../service/category.service')
-const { AuthenticationError, ForbiddenError, ApolloError } = require('apollo-server-express')
+import CategoryService from '../../../service/category.service.js'
+import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
 
-module.exports = {
+export default {
   Query: {
     categories: async (root, args, context, info) => {
       const user = context?.user
