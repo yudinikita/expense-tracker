@@ -13,7 +13,7 @@ app.use(compression())
 app.use(express.json({ extended: true }))
 app.use(cookieParser())
 
-app.use(cors())
+app.use(cors(corsOptions))
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))

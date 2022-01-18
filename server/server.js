@@ -1,16 +1,23 @@
 const dotenv = require('dotenv')
 const colors = require('colors')
-const connectDB = require('./server/config/db')
+const connectDB = require('./src/config/db')
 const { ApolloServer } = require('apollo-server-express')
-const apolloConfig = require('./server/config/apollo')
-const app = require('./server/app')
+const apolloConfig = require('./src/config/apollo')
+const app = require('./src/app')
 
-dotenv.config({ path: `${__dirname}/server/config/config.env` })
+dotenv.config({ path: `${__dirname}/src/config/.env` })
 
 process.title = 'expense-tracker'
 
 const DEFAULT_PORT = 5000
 const PORT = process.env.PORT || DEFAULT_PORT
+
+const HOSTNAME = process.env.HOSTNAME
+const CLIENT_URL = process.env.CLIENT_URL
+
+const NODE_ENV = process.env.NODE_ENV
+
+const PAD_START = 10
 
 const startServer = async () => {
   await connectDB()
@@ -19,14 +26,13 @@ const startServer = async () => {
   await apolloServer.start()
   apolloServer.applyMiddleware({ app })
 
-  app.listen(PORT, () => {
-    const PAD_START = 10
-    console.log('[' + 'ExpenseTracker'.yellow + '] ' + 'AccessURLs:'.bold)
+  app.listen(PORT, HOSTNAME, async () => {
+    console.log('[ExpenseTracker] '.yellow + 'AccessURLs:'.bold)
     console.log('--------------------------------------')
-    console.log('Server: '.padStart(PAD_START) + process.env.SERVER_URL.magenta + ':' + PORT)
-    console.log('Client: '.padStart(PAD_START) + process.env.CLIENT_URL.magenta)
+    console.log('Server: '.padStart(PAD_START) + 'http://' + HOSTNAME.magenta + ':' + PORT)
+    console.log('Client: '.padStart(PAD_START) + CLIENT_URL.magenta)
     console.log('--------------------------------------')
-    console.log('Mode: '.padStart(PAD_START) + process.env.NODE_ENV.magenta)
+    console.log('Mode: '.padStart(PAD_START) + NODE_ENV.magenta)
     console.log('Port: '.padStart(PAD_START) + PORT.magenta)
     console.log('--------------------------------------')
   })

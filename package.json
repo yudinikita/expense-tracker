@@ -2,10 +2,10 @@
   "name": "expence-tracker-mern",
   "version": "1.0.0",
   "description": "A simple tool for keeping track of personal finances.",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
-    "server": "nodemon server",
+    "server": "nodemon ./server/server.js",
     "client": "yarn --cwd client start",
     "client:install": "yarn --cwd client install",
     "client:build": "yarn --cwd client build",
