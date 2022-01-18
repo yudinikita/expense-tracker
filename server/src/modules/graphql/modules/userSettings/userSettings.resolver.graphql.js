@@ -1,4 +1,4 @@
-import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
 import UserService from '../../../service/auth/user.service.js'
 
 export default {

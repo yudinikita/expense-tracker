@@ -1,16 +1,26 @@
 import mongoose from 'mongoose'
 
-export default async () => {
+const connectDB = async (app) => {
+  const MONGO_URI = process.env.MONGO_URI
+
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connection.on('connected', () => {
+      app.log.info({ actor: 'MongoDB' }, 'connected')
+    })
+
+    mongoose.connection.on('disconnected', () => {
+      app.log.error({ actor: 'MongoDB' }, 'disconnected')
+    })
+
+    await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
-
-    console.log(`[MongoDB] Connected to: ${mongoose.connection.host}`.cyan.bold)
-  } catch (e) {
-    console.log(`[MongoDB] Error Connected:`.red)
-    console.error(e.message)
+  } catch (error) {
+    app.log.error({ actor: 'MongoDB' }, 'error')
+    app.log.error({ actor: 'MongoDB' }, error?.message)
     process.exit(1)
   }
 }
+
+export default connectDB

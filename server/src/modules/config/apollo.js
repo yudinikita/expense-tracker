@@ -1,10 +1,10 @@
 import application from '../graphql/application.js'
 import TokenService from '../service/auth/token.service.js'
 
-const schema = application.createSchemaForApollo({})
+const schema = application.createSchemaForApollo()
 
-const context = ({ req }) => {
-  const authorization = req?.headers?.authorization || ''
+const context = (req) => {
+  const authorization = req?.request?.headers?.authorization || ''
 
   const [typeAuth, token] = authorization.split(' ')
 

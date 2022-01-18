@@ -1,5 +1,5 @@
 import CategoryService from '../../../service/category.service.js'
-import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
 
 export default {
   Query: {
