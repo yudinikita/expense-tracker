@@ -9,7 +9,7 @@ const LoaderItem = (props) => (
     height={60}
     viewBox='0 0 315 60'
     title='Загрузка...'
-    backgroundColor='var(--font-color-second)'
+    backgroundColor='#ebebeb'
     foregroundColor='#d2d2d2'
     {...props}
   >
