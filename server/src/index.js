@@ -1,11 +1,11 @@
 const dotenv = require('dotenv')
 const colors = require('colors')
-const connectDB = require('./src/config/db')
+const connectDB = require('./config/db')
 const { ApolloServer } = require('apollo-server-express')
-const apolloConfig = require('./src/config/apollo')
-const app = require('./src/app')
+const apolloConfig = require('./config/apollo')
+const app = require('./app')
 
-dotenv.config({ path: `${__dirname}/src/config/.env` })
+dotenv.config({ path: `${__dirname}/config/.env` })
 
 process.title = 'expense-tracker'
 
