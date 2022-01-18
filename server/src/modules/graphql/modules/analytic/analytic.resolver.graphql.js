@@ -1,4 +1,4 @@
-import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express'
+import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
 import AnalyticsService from '../../../service/analytics.service.js'
 import BalanceService from '../../../service/balance.service.js'
 

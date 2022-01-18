@@ -14,7 +14,7 @@ const application = createApplication({
     TransactionModule,
     AnalyticModule,
     HelpModule,
-  ],
+  ]
 })
 
 export default application
