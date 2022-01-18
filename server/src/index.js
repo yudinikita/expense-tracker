@@ -1,11 +1,11 @@
 import dotenv from 'dotenv'
 import colors from 'colors'
-import connectDB from './modules/config/db.js'
 import { ApolloServer } from 'apollo-server-fastify'
-import apolloConfig from './modules/config/apollo.js'
-import buildApp from './app.js'
-import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import buildApp from './app.js'
+import connectDB from './modules/config/db.js'
+import apolloConfig from './modules/config/apollo.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 

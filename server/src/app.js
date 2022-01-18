@@ -1,10 +1,10 @@
 import fastify from 'fastify'
 import fastifyCompress from 'fastify-compress'
+import fastifyStatic from 'fastify-static'
+import fastifyCors from 'fastify-cors'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import fastifyStatic from 'fastify-static'
 import corsOptions from './modules/config/cors.js'
-import fastifyCors from 'fastify-cors'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
