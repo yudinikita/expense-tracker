@@ -4,7 +4,7 @@
   "description": "A simple tool for keeping track of personal finances.",
   "main": "server/server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server",
+    "start": "cross-env NODE_ENV=production node ./server/server.js",
     "server": "nodemon ./server/server.js",
     "client": "yarn --cwd client start",
     "client:install": "yarn --cwd client install",
