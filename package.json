@@ -7,10 +7,13 @@
   "scripts": {
     "server": "yarn --cwd server start",
     "server:dev": "yarn --cwd server node:dev",
+    "server:install": "yarn --cwd server install",
     "client": "yarn --cwd client start",
     "client:build": "yarn --cwd client build",
-    "start": "concurrently \"yarn client\" \"yarn server\"",
-    "dev": "concurrently \"yarn client\" \"yarn server:dev\""
+    "client:install": "yarn --cwd client install",
+    "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
+    "dev": "concurrently \"yarn client\" \"yarn server:dev\"",
+    "start": "concurrently \"yarn client\" \"yarn server\""
   },
   "homepage": "https://github.com/nblackninja/expense-tracker#readme",
   "bugs": {
