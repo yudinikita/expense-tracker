@@ -26,24 +26,28 @@ const PAD_START = 10
 
 const app = await buildApp()
 
-try {
-  await connectDB(app)
+const startServer = async () => {
+  try {
+    await connectDB(app)
 
-  const apolloServer = new ApolloServer(apolloConfig)
-  await apolloServer.start()
-  app.register(apolloServer.createHandler({ cors: false }))
+    const apolloServer = new ApolloServer(apolloConfig)
+    await apolloServer.start()
+    app.register(apolloServer.createHandler({ cors: false }))
 
-  await app.listen(PORT, HOSTNAME, () => {
-    console.log(colors.yellow('[ExpenseTracker] ') + colors.bold('AccessURLs:'))
-    console.log('--------------------------------------')
-    console.log('Server: '.padStart(PAD_START) + 'http://' + colors.magenta(HOSTNAME) + ':' + PORT)
-    console.log('Client: '.padStart(PAD_START) + colors.magenta(CLIENT_URL))
-    console.log('--------------------------------------')
-    console.log('Mode: '.padStart(PAD_START) + colors.magenta(NODE_ENV))
-    console.log('Port: '.padStart(PAD_START) + colors.magenta(PORT))
-    console.log('--------------------------------------')
-  })
-} catch (error) {
-  app.log.error(error)
-  process.exit(1)
+    await app.listen(PORT, HOSTNAME, () => {
+      console.log(colors.yellow('[ExpenseTracker] ') + colors.bold('AccessURLs:'))
+      console.log('--------------------------------------')
+      console.log('Server: '.padStart(PAD_START) + 'http://' + colors.magenta(HOSTNAME) + ':' + PORT)
+      console.log('Client: '.padStart(PAD_START) + colors.magenta(CLIENT_URL))
+      console.log('--------------------------------------')
+      console.log('Mode: '.padStart(PAD_START) + colors.magenta(NODE_ENV))
+      console.log('Port: '.padStart(PAD_START) + colors.magenta(PORT))
+      console.log('--------------------------------------')
+    })
+  } catch (error) {
+    app.log.error(error)
+    process.exit(1)
+  }
 }
+
+startServer()
