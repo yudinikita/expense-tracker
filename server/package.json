@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "expence-tracker-mern-server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node",
+    "node:dev": "cross-env NODE_ENV=development nodemon"
+  },
+  "dependencies": {
+    "@graphql-modules/core": "^0.7.17",
+    "@graphql-tools/schema": "^8.2.0",
+    "@sendgrid/mail": "^7.6.0",
+    "apollo-server-express": "^3.3.0",
+    "bcrypt": "^5.0.1",
+    "colors": "^1.4.0",
+    "compression": "^1.7.4",
+    "concurrently": "^7.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.8.0",
+    "graphql-modules": "^2.0.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.5",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1",
+    "apollo-server-core": "^3.3.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^2.0.13"
+  }
+}

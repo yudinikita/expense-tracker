@@ -1,15 +1,25 @@
 {
   "name": "expence-tracker-mern",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "A simple tool for keeping track of personal finances.",
-  "main": "server/server.js",
+  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server/server.js",
-    "server": "nodemon ./server/server.js",
+    "server": "yarn --cwd server start",
+    "server:dev": "yarn --cwd server node:dev",
     "client": "yarn --cwd client start",
-    "client:install": "yarn --cwd client install",
     "client:build": "yarn --cwd client build",
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\""
+    "start": "concurrently \"yarn client\" \"yarn server\"",
+    "dev": "concurrently \"yarn client\" \"yarn server:dev\""
+  },
+  "homepage": "https://github.com/nblackninja/expense-tracker#readme",
+  "bugs": {
+    "url": "https://github.com/nblackninja/expense-tracker/issues",
+    "email": "nikitayudin782@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nblackninja/expense-tracker.git"
   },
   "keywords": [
     "js",
@@ -26,46 +36,7 @@
     "graphql",
     "apollo"
   ],
-  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/nblackninja/expense-tracker#readme",
-  "bugs": {
-    "url": "https://github.com/nblackninja/expense-tracker/issues",
-    "email": "nikitayudin782@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nblackninja/expense-tracker.git"
-  },
-  "devDependencies": {
-    "@types/node": "^16.10.1",
-    "apollo-server-core": "^3.3.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "nodemon": "^2.0.13"
-  },
   "dependencies": {
-    "@graphql-modules/core": "^0.7.17",
-    "@graphql-tools/schema": "^8.2.0",
-    "@sendgrid/mail": "^7.6.0",
-    "apollo-server-express": "^3.3.0",
-    "bcrypt": "^5.0.1",
-    "colors": "^1.4.0",
-    "compression": "^1.7.4",
-    "concurrently": "^6.3.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "graphql": "^15.8.0",
-    "graphql-modules": "^2.0.0",
-    "joi": "^17.4.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.7",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.6.5",
-    "serve-static": "^1.14.1"
+    "concurrently": "^7.0.0"
   }
 }

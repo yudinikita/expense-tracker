@@ -1,7 +1,9 @@
 {
   "private": true,
-  "name": "client",
+  "name": "expence-tracker-mern-client",
   "version": "1.0.0",
+  "license": "MIT",
+  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
