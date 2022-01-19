@@ -8,6 +8,8 @@
     "server": "yarn --cwd server start",
     "server:build": "yarn --cwd server build",
     "server:install": "yarn --cwd server install",
+    "server:eslint": "yarn --cwd server eslint",
+    "server:eslint:fix": "yarn --cwd server eslint:fix",
     "client": "yarn --cwd client start",
     "client:build": "yarn --cwd client build",
     "client:install": "yarn --cwd client install",
