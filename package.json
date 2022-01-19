@@ -6,13 +6,13 @@
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
     "server": "yarn --cwd server start",
-    "server:dev": "yarn --cwd server node:dev",
+    "server:build": "yarn --cwd server build",
     "server:install": "yarn --cwd server install",
     "client": "yarn --cwd client start",
     "client:build": "yarn --cwd client build",
     "client:install": "yarn --cwd client install",
     "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
-    "dev": "concurrently \"yarn client\" \"yarn server:dev\"",
+    "build": "concurrently \"yarn client:build\" \"yarn server:build\"",
     "start": "concurrently \"yarn client\" \"yarn server\""
   },
   "homepage": "https://github.com/nblackninja/expense-tracker#readme",
@@ -41,5 +41,8 @@
   ],
   "dependencies": {
     "concurrently": "^7.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
   }
 }
