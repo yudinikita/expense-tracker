@@ -1,9 +1,9 @@
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
 import fastify from 'fastify'
 import fastifyCompress from 'fastify-compress'
 import fastifyStatic from 'fastify-static'
 import fastifyCors from 'fastify-cors'
-import path, { dirname } from 'path'
-import { fileURLToPath } from 'url'
 import corsOptions from './modules/config/cors.js'
 import fastifyOptions from './modules/config/fastifyOptions.js'
 
