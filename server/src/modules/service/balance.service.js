@@ -4,7 +4,6 @@ import pkg from 'mongoose'
 const { Types } = pkg
 
 class BalanceService {
-
   async getBalance (user) {
     user = Types.ObjectId(user)
     const balanceFetched = await TransactionModel.aggregate(
@@ -51,7 +50,7 @@ class BalanceService {
         {
           $match: {
             user,
-            'createdAt': {
+            createdAt: {
               $gte: startDate,
               $lte: endDate
             }
@@ -87,7 +86,6 @@ class BalanceService {
 
     return balancePerDate
   }
-
 }
 
 export default new BalanceService()

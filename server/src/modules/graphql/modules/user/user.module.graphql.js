@@ -6,5 +6,5 @@ export default createModule({
   id: 'user-module',
   dirname: import.meta.url,
   typeDefs: [TypeDefs],
-  resolvers: [Resolvers],
+  resolvers: [Resolvers]
 })

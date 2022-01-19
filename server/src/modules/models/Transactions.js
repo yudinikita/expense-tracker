@@ -5,12 +5,12 @@ const { model, Schema, Types } = pkg
 const TransactionSchema = new Schema({
   amount: {
     type: Number,
-    required: [true, 'Пожалуйста, введите число не равное нулю'],
+    required: [true, 'Пожалуйста, введите число не равное нулю']
   },
   category: {
     type: Types.ObjectId,
     ref: 'Category',
-    required: [true, 'Пожалуйста, укажите категорию'],
+    required: [true, 'Пожалуйста, укажите категорию']
   },
   commentary: {
     type: String,
@@ -19,16 +19,16 @@ const TransactionSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now
   },
   updatedAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now
   },
   user: {
     type: Types.ObjectId,
     ref: 'User',
-    required: true,
+    required: true
   }
 })
 

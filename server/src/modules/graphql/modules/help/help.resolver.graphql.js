@@ -25,7 +25,7 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    }
   },
   Mutation: {
     createHelp: async (root, args, context, info) => {
@@ -50,6 +50,6 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    }
   }
 }

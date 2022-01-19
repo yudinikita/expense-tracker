@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken'
 
 class TokenService {
-
   async generateToken (payload) {
     const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, { expiresIn: '30d' })
 
@@ -23,7 +22,6 @@ class TokenService {
       return null
     }
   }
-
 }
 
 export default new TokenService()

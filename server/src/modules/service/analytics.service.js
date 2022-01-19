@@ -4,7 +4,6 @@ import pkg from 'mongoose'
 const { Types } = pkg
 
 class AnalyticsService {
-
   async getAnalyticsBalance (user, startDate, endDate) {
     user = Types.ObjectId(user)
     startDate = new Date(startDate)
@@ -143,10 +142,10 @@ class AnalyticsService {
         },
         {
           $lookup: {
-            from: 'categories',       // other table name
-            localField: '_id',   // name of users table field
+            from: 'categories', // other table name
+            localField: '_id', // name of users table field
             foreignField: '_id', // name of userinfo table field
-            as: 'categories'         // alias for userinfo table
+            as: 'categories' // alias for userinfo table
           }
         },
         { $unwind: '$categories' },
@@ -193,10 +192,10 @@ class AnalyticsService {
         },
         {
           $lookup: {
-            from: 'categories',       // other table name
-            localField: '_id',   // name of users table field
+            from: 'categories', // other table name
+            localField: '_id', // name of users table field
             foreignField: '_id', // name of userinfo table field
-            as: 'categories'         // alias for userinfo table
+            as: 'categories' // alias for userinfo table
           }
         },
         { $unwind: '$categories' },
@@ -216,7 +215,6 @@ class AnalyticsService {
 
     return transactionsIncome
   }
-
 }
 
 export default new AnalyticsService()

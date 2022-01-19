@@ -1,5 +1,5 @@
 import colors from 'colors'
-import {ApolloServer} from 'apollo-server-fastify'
+import { ApolloServer } from 'apollo-server-fastify'
 import buildApp from './app.js'
 import apolloConfig from './modules/config/apollo.js'
 import connectDB from './modules/config/db.js'
@@ -28,7 +28,7 @@ const startServer = async () => {
 
     const apolloServer = new ApolloServer(apolloConfig)
     await apolloServer.start()
-    app.register(apolloServer.createHandler({cors: false}))
+    app.register(apolloServer.createHandler({ cors: false }))
 
     await app.listen(PORT, HOSTNAME)
 

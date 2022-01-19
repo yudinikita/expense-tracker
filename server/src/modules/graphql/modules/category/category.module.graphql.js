@@ -6,5 +6,5 @@ export default createModule({
   id: 'category-module',
   dirname: import.meta.url,
   typeDefs: [CategoryType],
-  resolvers: [CategoryResolvers],
+  resolvers: [CategoryResolvers]
 })

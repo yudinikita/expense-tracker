@@ -9,8 +9,13 @@
   "scripts": {
     "ts:watch": "tsc -w",
     "node:dev": "cross-env NODE_ENV=development nodemon",
+    "eslint": "ts-standard --verbose | snazzy",
+    "eslint:fix": "ts-standard --fix --verbose | snazzy",
     "build": "tsc --build && cross-env NODE_ENV=production node build/index.js",
     "start": "concurrently \"yarn ts:watch\" \"yarn node:dev\""
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json"
   },
   "dependencies": {
     "@graphql-modules/core": "^0.7.17",
@@ -42,6 +47,7 @@
     "fastify-static": "^4.5.0",
     "nodemon": "^2.0.13",
     "pino-pretty": "^7.3.0",
+    "ts-standard": "^11.0.0",
     "typescript": "^4.5.4"
   }
 }

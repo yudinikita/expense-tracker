@@ -48,6 +48,6 @@ export default {
         accessToken: userData.accessToken,
         settings: userData.user.settings
       }
-    },
+    }
   }
 }

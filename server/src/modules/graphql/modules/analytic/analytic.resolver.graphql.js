@@ -79,6 +79,6 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    }
   }
 }

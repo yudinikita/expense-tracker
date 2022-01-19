@@ -13,7 +13,7 @@ const application = createApplication({
     CategoryModule,
     TransactionModule,
     AnalyticModule,
-    HelpModule,
+    HelpModule
   ]
 })
 

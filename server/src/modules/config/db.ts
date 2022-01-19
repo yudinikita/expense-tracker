@@ -1,15 +1,15 @@
 import mongoose from 'mongoose'
 
-const connectDB = async (app: any) => {
+const connectDB = async (app: any): Promise<void> => {
   const MONGO_URI = process.env.MONGO_URI || ''
 
   try {
     mongoose.connection.on('connected', () => {
-      app.log.info({actor: 'MongoDB'}, 'connected')
+      app.log.info({ actor: 'MongoDB' }, 'connected')
     })
 
     mongoose.connection.on('disconnected', () => {
-      app.log.error({actor: 'MongoDB'}, 'disconnected')
+      app.log.error({ actor: 'MongoDB' }, 'disconnected')
     })
 
     await mongoose.connect(MONGO_URI, {
@@ -17,8 +17,8 @@ const connectDB = async (app: any) => {
       useUnifiedTopology: true
     })
   } catch (error: any) {
-    app.log.error({actor: 'MongoDB'}, 'error')
-    app.log.error({actor: 'MongoDB'}, error?.message)
+    app.log.error({ actor: 'MongoDB' }, 'error')
+    app.log.error({ actor: 'MongoDB' }, error?.message)
     process.exit(1)
   }
 }

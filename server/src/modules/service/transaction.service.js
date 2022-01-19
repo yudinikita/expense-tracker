@@ -1,19 +1,18 @@
 import TransactionModel from '../models/Transactions.js'
 
 class TransactionService {
-
   async getTransactions (user, startDate, endDate) {
-    const transactionsFetched
-      = await TransactionModel
-      .find({
-        user,
-        createdAt: {
-          $gte: startDate,
-          $lte: endDate
-        }
-      })
-      .sort({ createdAt: -1 })
-      .populate('category')
+    const transactionsFetched =
+      await TransactionModel
+        .find({
+          user,
+          createdAt: {
+            $gte: startDate,
+            $lte: endDate
+          }
+        })
+        .sort({ createdAt: -1 })
+        .populate('category')
 
     return await transactionsFetched.map(transaction => {
       const createdAt = new Date(transaction._doc.createdAt).toISOString()
@@ -23,7 +22,7 @@ class TransactionService {
         ...transaction._doc,
         _id: transaction.id,
         createdAt,
-        updatedAt,
+        updatedAt
       }
     })
   }
@@ -38,7 +37,7 @@ class TransactionService {
       ...transactionFetched._doc,
       _id: transactionFetched.id,
       createdAt,
-      updatedAt,
+      updatedAt
     }
   }
 
@@ -53,17 +52,17 @@ class TransactionService {
     const amount = parseInt(querySearch) || null
     const commentary = String(querySearch) || null
 
-    const transactionsFetched
-      = await TransactionModel
-      .find({
-        user,
-        $or: [
-          { amount: amount },
-          { commentary: { $regex: commentary } }
-        ]
-      })
-      .sort({ createdAt: -1 })
-      .populate('category')
+    const transactionsFetched =
+      await TransactionModel
+        .find({
+          user,
+          $or: [
+            { amount: amount },
+            { commentary: { $regex: commentary } }
+          ]
+        })
+        .sort({ createdAt: -1 })
+        .populate('category')
 
     return await transactionsFetched.map(transaction => {
       const createdAt = new Date(transaction._doc.createdAt).toISOString()
@@ -73,7 +72,7 @@ class TransactionService {
         ...transaction._doc,
         _id: transaction.id,
         createdAt,
-        updatedAt,
+        updatedAt
       }
     })
   }
@@ -90,7 +89,7 @@ class TransactionService {
       ...populateTransaction._doc,
       _id: populateTransaction.id,
       createdAt,
-      updatedAt,
+      updatedAt
     }
   }
 
@@ -132,7 +131,6 @@ class TransactionService {
       { $set: { category: newCategory } }
     )
   }
-
 }
 
 export default new TransactionService()

@@ -39,7 +39,7 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    }
   },
   Mutation: {
     createTransaction: async (root, args, context, info) => {
@@ -76,7 +76,7 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    }
   },
   Transaction: {
     id (transaction) {
