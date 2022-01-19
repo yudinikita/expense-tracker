@@ -83,11 +83,11 @@ typings/
 
 # dotenv environment variables file
 *.env
-.env
+.env.*
 .env.test
 .passport.js
 .DS_Store
-!config.env.example
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
