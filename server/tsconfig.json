@@ -1,9 +1,7 @@
 {
+  "extends": "./tsconfig.checks.json",
   "compilerOptions": {
-    // блок базовых настроек
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
     "module": "ES2020",
     "target": "ES2021",
     "lib": [
@@ -12,19 +10,12 @@
     "moduleResolution": "node",
     "outDir": "./build",
     "rootDir": "./src",
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
     "typeRoots": [
       "./node_modules/@types"
-    ],
-    // блок настроек строгости
-    "alwaysStrict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "strictBindCallApply": true
+    ]
   },
   "include": [
     "./src"
