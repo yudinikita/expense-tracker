@@ -1,37 +1,31 @@
+import { ApolloError } from 'apollo-server-fastify'
+import { withAuth } from '../../../utils/auth.js'
 import CategoryService from '../../../service/category.service.js'
-import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
 
 export default {
   Query: {
-    categories: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    categories: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         return await CategoryService.getCategories(userId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    }
+    })
   },
   Mutation: {
-    createCategory: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    createCategory: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const category = args?.category
         return await CategoryService.createCategory(userId, category)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    updateCategory: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    updateCategory: withAuth(async (root, args, context, info) => {
       try {
         const categoryId = args?.id
         const category = args?.category
@@ -39,22 +33,16 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    deleteCategory: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    deleteCategory: withAuth(async (root, args, context, info) => {
       try {
         const categoryId = args?.id
         return await CategoryService.deleteCategory(categoryId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    deleteCategoryReplace: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    deleteCategoryReplace: withAuth(async (root, args, context, info) => {
       try {
         const categoryId = args?.id
         const newCategoryId = args?.newId
@@ -62,18 +50,15 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    deleteCategoryWithTransactions: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    deleteCategoryWithTransactions: withAuth(async (root, args, context, info) => {
       try {
         const categoryId = args?.id
         return await CategoryService.deleteCategoryWithTransactions(categoryId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    }
+    })
   },
   Category: {
     id (category) {

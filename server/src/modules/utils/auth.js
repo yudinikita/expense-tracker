@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
 import crypto from 'crypto'
+import { AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
 
 const SALT_ROUNDS = 10
 
@@ -24,4 +25,21 @@ export const getActivationCode = async () => {
   })
 
   return randomNum.toString().padStart(ACTIVATION_CODE_LENGTH, '0').substring(0, ACTIVATION_CODE_LENGTH)
+}
+
+export const withAuth = (next) => (
+  root,
+  args,
+  context,
+  info,
+) => {
+  if (!context.user) {
+    throw new AuthenticationError('Ошибка авторизации')
+  }
+
+  if (!context.user.isActivated) {
+    throw new ForbiddenError('Аккаунт не активирован')
+  }
+
+  return next(root, args, context, info)
 }

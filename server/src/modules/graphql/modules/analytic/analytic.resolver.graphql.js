@@ -1,25 +1,22 @@
-import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
+import { ApolloError } from 'apollo-server-fastify'
+import { withAuth } from '../../../utils/auth.js'
 import AnalyticsService from '../../../service/analytics.service.js'
 import BalanceService from '../../../service/balance.service.js'
 
 export default {
   Query: {
-    balance: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    balance: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         return await BalanceService.getBalance(userId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    balancePerDate: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    balancePerDate: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -27,12 +24,10 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    analyticsBalance: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    analyticsBalance: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -40,12 +35,10 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    analyticsAverage: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    analyticsAverage: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -53,12 +46,10 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    analyticsExpense: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    analyticsExpense: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -66,12 +57,10 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    analyticsIncome: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    analyticsIncome: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -79,6 +68,6 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    }
+    })
   }
 }
