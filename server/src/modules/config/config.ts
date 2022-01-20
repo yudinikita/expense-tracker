@@ -2,14 +2,14 @@ import dotenv from 'dotenv'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const initConfig = async () => {
+  const NODE_ENV = process.env['NODE_ENV'] || ''
 
-const NODE_ENV = process.env.NODE_ENV || ''
+  const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const initConfig = () => {
   dotenv.config()
 
-  let pathConfig
+  let pathConfig: string
 
   switch (NODE_ENV) {
     case 'production':
@@ -21,13 +21,7 @@ const initConfig = () => {
       break
   }
 
-  const result = dotenv.config({ path: pathConfig })
-
-  if (result.error != null) {
-    throw result.error
-  }
-
-  return result
+  return dotenv.config({ path: pathConfig })
 }
 
 export default initConfig
