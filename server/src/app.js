@@ -4,19 +4,22 @@ import fastify from 'fastify'
 import fastifyCompress from 'fastify-compress'
 import fastifyStatic from 'fastify-static'
 import fastifyCors from 'fastify-cors'
+import fastifyHelmet from 'fastify-helmet'
 import corsOptions from './modules/config/cors.js'
 import fastifyOptions from './modules/config/fastifyOptions.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-export default async function buildApp () {
+const buildApp = async () => {
   const app = fastify(fastifyOptions)
 
   app.register(fastifyCompress)
 
   app.register(fastifyCors, corsOptions)
 
-  if (process.env.NODE_ENV === 'production') {
+  app.register(fastifyHelmet)
+
+  if (process.env['NODE_ENV'] === 'production') {
     const pathStatic = path.join(__dirname, 'client', 'build')
     const index = 'index.html'
 
@@ -32,3 +35,5 @@ export default async function buildApp () {
 
   return app
 }
+
+export default buildApp
