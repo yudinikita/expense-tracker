@@ -1,4 +1,4 @@
-import colors from 'colors'
+import colors from 'ansi-colors'
 import { ApolloServer } from 'apollo-server-fastify'
 import buildApp from './app.js'
 import connectDB from './modules/config/db.js'
