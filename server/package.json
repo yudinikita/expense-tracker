@@ -1,17 +1,17 @@
 {
   "private": true,
-  "name": "expence-tracker-mern-server",
+  "name": "expence-tracker-server",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "main": "build/index.js",
   "scripts": {
-    "ts:watch": "tsc -w",
+    "ts:watch": "tsc -p ./tsconfig.development.json -w",
     "node:dev": "cross-env NODE_ENV=development nodemon",
     "eslint": "ts-standard --verbose | snazzy",
     "eslint:fix": "ts-standard --fix --verbose | snazzy",
-    "build": "tsc --build && cross-env NODE_ENV=production node build/index.js",
+    "build": "tsc -p ./tsconfig.production.json --build && cross-env NODE_ENV=production node build/index.js",
     "start": "concurrently \"yarn ts:watch\" \"yarn node:dev\""
   },
   "ts-standard": {
@@ -32,6 +32,7 @@
     "fastify": "^3.26.0",
     "fastify-compress": "^4.0.1",
     "fastify-cors": "^6.0.2",
+    "fastify-helmet": "^7.0.0",
     "graphql": "^16.2.0",
     "graphql-modules": "^2.0.0",
     "joi": "^17.5.0",
