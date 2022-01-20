@@ -1,5 +1,5 @@
 {
-  "name": "expence-tracker-mern",
+  "name": "expence-tracker",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A simple tool for keeping track of personal finances.",
@@ -39,7 +39,8 @@
     "income",
     "tracker",
     "graphql",
-    "apollo"
+    "apollo",
+    "fastify"
   ],
   "dependencies": {
     "concurrently": "^7.0.0"
