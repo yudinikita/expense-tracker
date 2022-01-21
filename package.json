@@ -5,14 +5,20 @@
   "description": "A simple tool for keeping track of personal finances.",
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
-    "server": "yarn --cwd server start",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "server": "yarn --cwd server lint:fix",
     "server:build": "yarn --cwd server build",
     "server:install": "yarn --cwd server install",
-    "server:eslint": "yarn --cwd server eslint",
-    "server:eslint:fix": "yarn --cwd server eslint:fix",
     "client": "yarn --cwd client start",
     "client:build": "yarn --cwd client build",
     "client:install": "yarn --cwd client install",
+    "lint:server": "yarn --cwd server lint",
+    "lint:client": "yarn --cwd client lint",
+    "lint:server:fix": "yarn --cwd server lint:fix",
+    "lint:client:fix": "yarn --cwd client lint:fix",
+    "lint": "concurrently \"yarn lint:server\" \"yarn lint:client\"",
+    "lint:fix": "concurrently \"yarn lint:server:fix\" \"yarn lint:client:fix\"",
     "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
     "build": "concurrently \"yarn client:build\" \"yarn server:build\"",
     "start": "concurrently \"yarn client\" \"yarn server\""
@@ -46,6 +52,7 @@
     "concurrently": "^7.0.0"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
     "typescript": "^4.5.4"
   }
 }
