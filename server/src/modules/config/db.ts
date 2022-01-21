@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const NameDB: string = colors.magenta('[MongoDB] ')
 
 const connectDB = async (app: any): Promise<void> => {
-  const MONGO_URI: string = process.env['MONGO_URI'] || ''
+  const MONGO_URI: string = process.env['MONGO_URI'] ?? ''
 
   try {
     mongoose.connection.on('connected', () => {
