@@ -1,12 +1,11 @@
 {
   "name": "expence-tracker",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "description": "A simple tool for keeping track of personal finances.",
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
     "server": "yarn --cwd server lint:fix",
     "server:build": "yarn --cwd server build",
     "server:install": "yarn --cwd server install",
@@ -21,7 +20,8 @@
     "lint:fix": "concurrently \"yarn lint:server:fix\" \"yarn lint:client:fix\"",
     "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
     "build": "concurrently \"yarn client:build\" \"yarn server:build\"",
-    "start": "concurrently \"yarn client\" \"yarn server\""
+    "start": "concurrently \"yarn client\" \"yarn server\"",
+    "semantic-release": "semantic-release"
   },
   "homepage": "https://github.com/nblackninja/expense-tracker#readme",
   "bugs": {
@@ -48,11 +48,21 @@
     "apollo",
     "fastify"
   ],
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
   "dependencies": {
     "concurrently": "^7.0.0"
   },
   "devDependencies": {
     "husky": "^7.0.4",
+    "lint-staged": "^12.2.2",
+    "semantic-release": "^19.0.2",
     "typescript": "^4.5.4"
+  },
+  "lint-staged": {
+    "*.js": "yarn lint:server"
   }
 }
