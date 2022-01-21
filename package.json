@@ -6,7 +6,7 @@
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
   "scripts": {
     "prepare": "husky install",
-    "server": "yarn --cwd server lint:fix",
+    "server": "yarn --cwd server start",
     "server:build": "yarn --cwd server build",
     "server:install": "yarn --cwd server install",
     "client": "yarn --cwd client start",
