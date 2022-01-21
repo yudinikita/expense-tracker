@@ -14,7 +14,9 @@ const context = (req) => {
   }
 }
 
-export default {
+const apolloConfig = {
   context,
   schema
 }
+
+export default apolloConfig
