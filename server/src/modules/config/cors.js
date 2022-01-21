@@ -3,7 +3,7 @@ const whitelist = [
   'https://studio.apollographql.com'
 ]
 
-export default {
+const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
@@ -13,3 +13,5 @@ export default {
   },
   credentials: true
 }
+
+export default corsOptions
