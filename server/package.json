@@ -9,8 +9,8 @@
   "scripts": {
     "ts:watch": "tsc -p ./tsconfig.development.json -w",
     "node:dev": "cross-env NODE_ENV=development nodemon",
-    "eslint": "ts-standard --verbose | snazzy",
-    "eslint:fix": "ts-standard --fix --verbose | snazzy",
+    "lint": "ts-standard --verbose | snazzy",
+    "lint:fix": "ts-standard --fix --verbose | snazzy",
     "build": "tsc -p ./tsconfig.production.json --build && cross-env NODE_ENV=production node build/index.js",
     "start": "concurrently \"yarn ts:watch\" \"yarn node:dev\""
   },
@@ -42,9 +42,6 @@
     "@types/node": "^16.10.1",
     "ansi-colors": "^4.1.1",
     "apollo-server-core": "^3.3.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
     "fastify-static": "^4.5.0",
     "nodemon": "^2.0.13",
     "pino-pretty": "^7.3.0",
