@@ -31,7 +31,7 @@ export const withAuth = (next) => (
   root,
   args,
   context,
-  info,
+  info
 ) => {
   if (!context.user) {
     throw new AuthenticationError('Ошибка авторизации')
