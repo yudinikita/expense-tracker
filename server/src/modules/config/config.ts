@@ -1,11 +1,11 @@
-import dotenv from 'dotenv'
+import dotenv, { DotenvConfigOutput } from 'dotenv'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
-const initConfig = async () => {
-  const NODE_ENV = process.env['NODE_ENV'] || ''
+const initConfig = async (): Promise<DotenvConfigOutput> => {
+  const NODE_ENV = process.env['NODE_ENV'] ?? ''
 
-  const __dirname = dirname(fileURLToPath(import.meta.url))
+  const _dirname = dirname(fileURLToPath(import.meta.url))
 
   dotenv.config()
 
@@ -13,11 +13,11 @@ const initConfig = async () => {
 
   switch (NODE_ENV) {
     case 'production':
-      pathConfig = path.join(__dirname, '../../../.env.production')
+      pathConfig = path.join(_dirname, '../../../.env.production')
       break
     case 'development':
     default:
-      pathConfig = path.join(__dirname, '../../../.env.development')
+      pathConfig = path.join(_dirname, '../../../.env.development')
       break
   }
 
