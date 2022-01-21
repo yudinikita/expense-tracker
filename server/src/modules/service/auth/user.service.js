@@ -4,10 +4,9 @@ import MailService from './mail.service.js'
 import TokenService from './token.service.js'
 import CategoryService from '../category.service.js'
 import UserDto from '../../dtos/user.dto.js'
-import { getHashedPassword, getActivationCode, getPasswordConfirmation } from '../../utils/auth.js'
+import { getActivationCode, getHashedPassword, getPasswordConfirmation } from '../../utils/auth.js'
 
 class UserService {
-
   async registration (email, password) {
     const candidate = await UserModel.findOne({ email })
 
@@ -45,7 +44,7 @@ class UserService {
 
     const isPassConfirm = await getPasswordConfirmation(password, user.password)
     if (!isPassConfirm) {
-      throw new Error(`Неверный пароль`)
+      throw new Error('Неверный пароль')
     }
 
     const userDto = new UserDto(user)
@@ -107,7 +106,6 @@ class UserService {
       message: 'Новый пароль сохранен'
     }
   }
-
 }
 
 export default new UserService()

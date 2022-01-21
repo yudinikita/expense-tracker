@@ -11,11 +11,10 @@ const defaultCategories = [
   'Покупки',
   'Подарки',
   'Развлечения',
-  'Здоровье',
+  'Здоровье'
 ]
 
 class CategoryService {
-
   async getCategories (user) {
     return CategoryModel.find({ user }).sort({ title: 1 })
   }
@@ -30,7 +29,7 @@ class CategoryService {
 
   async createDefaultCategories (userId) {
     const user = Types.ObjectId(userId)
-    const defaultCategoriesWithUser = defaultCategories.map(category => {return { user, title: category }})
+    const defaultCategoriesWithUser = defaultCategories.map(category => { return { user, title: category } })
     return await CategoryModel.insertMany(defaultCategoriesWithUser)
   }
 
@@ -40,14 +39,14 @@ class CategoryService {
   }
 
   async deleteCategoryReplace (id, newId) {
-    const modifiedTransactions = await transactionService.updateTransactionsByCategory(id, newId)
+    await transactionService.updateTransactionsByCategory(id, newId)
     const result = await CategoryModel.deleteOne({ _id: id })
     return result.deletedCount === 1
   }
 
   async deleteCategoryWithTransactions (id) {
     const result = await CategoryModel.deleteOne({ _id: id })
-    const deletedTransactions = await transactionService.deleteManyTransaction(id)
+    await transactionService.deleteManyTransaction(id)
     return result.deletedCount === 1
   }
 
@@ -58,7 +57,6 @@ class CategoryService {
       { returnOriginal: false }
     )
   }
-
 }
 
 export default new CategoryService()

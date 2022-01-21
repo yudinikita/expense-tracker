@@ -6,5 +6,5 @@ export default createModule({
   id: 'help-module',
   dirname: import.meta.url,
   typeDefs: [TypeDefs],
-  resolvers: [Resolvers],
+  resolvers: [Resolvers]
 })

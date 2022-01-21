@@ -1,13 +1,12 @@
-import { ApolloError, AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
+import { ApolloError } from 'apollo-server-fastify'
+import { withAuth } from '../../../utils/auth.js'
 import TransactionService from '../../../service/transaction.service.js'
 
 export default {
   Query: {
-    transactions: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    transactions: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const id = user?.id
         const startDate = args?.startDate
         const endDate = args?.endDate
@@ -15,60 +14,48 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    transactionDetail: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    transactionDetail: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const transactionId = args?.transactionId
         return await TransactionService.getTransactionDetail(userId, transactionId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    searchTransaction: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    searchTransaction: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const query = args?.query
         return await TransactionService.getSearchTransaction(userId, query)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    })
   },
   Mutation: {
-    createTransaction: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    createTransaction: withAuth(async (root, args, context, info) => {
       try {
+        const user = context?.user
         const userId = user?.id
         const transaction = args?.transaction
         return await TransactionService.createTransaction(userId, transaction)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    deleteTransaction: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    deleteTransaction: withAuth(async (root, args, context, info) => {
       try {
         const transactionId = args?.id
         return await TransactionService.deleteTransaction(transactionId)
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
-    updateTransaction: async (root, args, context, info) => {
-      const user = context?.user
-      if (!user) throw new AuthenticationError('Ошибка авторизации')
-      if (!user?.isActivated) throw new ForbiddenError('Аккаунт не активирован')
+    }),
+    updateTransaction: withAuth(async (root, args, context, info) => {
       try {
         const transactionId = args?.id
         const transaction = args?.transaction
@@ -76,7 +63,7 @@ export default {
       } catch (error) {
         throw new ApolloError('Упс, произошла ошибка.')
       }
-    },
+    })
   },
   Transaction: {
     id (transaction) {

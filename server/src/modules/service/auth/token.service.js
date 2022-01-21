@@ -1,29 +1,28 @@
-import jwt from 'jsonwebtoken'
+import { createSigner, createVerifier } from 'fast-jwt'
+import constants from '../../constants/constants.js'
 
 class TokenService {
-
   async generateToken (payload) {
-    const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, { expiresIn: '30d' })
+    const JWT_SECRET = process.env.JWT_ACCESS_SECRET
+    const EXPIRES_IN = Number(constants.JWT.EXPIRES_IN)
 
-    return { accessToken }
+    const signer = createSigner({
+      key: async () => JWT_SECRET,
+      expiresIn: EXPIRES_IN
+    })
+
+    const token = await signer(payload)
+
+    return { accessToken: token }
   }
 
-  validateAccessToken (token) {
-    try {
-      return jwt.verify(token, process.env.JWT_ACCESS_SECRET, function (err, decoded) {
-        if (err) {
-          return null
-        }
-        if (decoded) {
-          return decoded
-        }
-        return null
-      })
-    } catch (error) {
-      return null
-    }
-  }
+  async validateAccessToken (token) {
+    const JWT_SECRET = process.env.JWT_ACCESS_SECRET
 
+    const verifier = createVerifier({ key: JWT_SECRET })
+
+    return verifier(token)
+  }
 }
 
 export default new TokenService()

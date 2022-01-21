@@ -2,7 +2,6 @@ import { getActivationHtml, getActivationText } from '../../mails/activationMail
 import sgMail from '@sendgrid/mail'
 
 class MailService {
-
   async sendActivationMail (to, code) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -11,7 +10,7 @@ class MailService {
       from: process.env.EMAIL_SENDER,
       subject: 'Код активации | Денежки',
       text: getActivationText(code),
-      html: getActivationHtml(code),
+      html: getActivationHtml(code)
     }
 
     try {

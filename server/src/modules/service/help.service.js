@@ -1,7 +1,6 @@
 import HelpModel from '../models/Help.js'
 
 class HelpService {
-
   async getHelps (user) {
     const helpFetched = await HelpModel.find({ user }).sort({ createdAt: -1 })
 
@@ -13,7 +12,7 @@ class HelpService {
         ...helpItem._doc,
         id: helpItem._doc._id,
         createdAt,
-        updatedAt,
+        updatedAt
       }
     })
   }
@@ -28,7 +27,7 @@ class HelpService {
       ...helpFetched._doc,
       id: helpFetched._doc._id,
       createdAt,
-      updatedAt,
+      updatedAt
     }
   }
 
@@ -46,7 +45,6 @@ class HelpService {
       { $set: { solved: helpUpdate?.solved } }
     )
   }
-
 }
 
 export default new HelpService()

@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.checks.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "ES2020",
+    "target": "ES2021",
+    "lib": [
+      "ES2021"
+    ],
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "./src"
+  ],
+  "references": [
+    {
+      "path": "../shared"
+    }
+  ]
+}

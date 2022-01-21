@@ -1,43 +1,50 @@
 {
   "private": true,
-  "name": "expence-tracker-mern-server",
+  "name": "expence-tracker-server",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "author": "Nikita Yudin <nikitayudin782@gmail.com>",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node",
-    "node:dev": "cross-env NODE_ENV=development nodemon"
+    "ts:watch": "tsc -p ./tsconfig.development.json -w",
+    "node:dev": "cross-env NODE_ENV=development nodemon",
+    "lint": "ts-standard --verbose | snazzy",
+    "lint:fix": "ts-standard --fix --verbose | snazzy",
+    "build": "tsc -p ./tsconfig.production.json --build && cross-env NODE_ENV=production node build/index.js",
+    "start": "concurrently \"yarn ts:watch\" \"yarn node:dev\""
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json"
   },
   "dependencies": {
     "@graphql-modules/core": "^0.7.17",
     "@graphql-tools/schema": "^8.3.1",
     "@sendgrid/mail": "^7.6.0",
     "apollo-server-fastify": "^3.6.1",
-    "autocannon": "^7.6.0",
     "bcrypt": "^5.0.1",
-    "colors": "^1.4.0",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "dotenv": "^14.2.0",
+    "fast-jwt": "^1.4.1",
     "fastify": "^3.26.0",
     "fastify-compress": "^4.0.1",
     "fastify-cors": "^6.0.2",
+    "fastify-helmet": "^7.0.0",
     "graphql": "^16.2.0",
     "graphql-modules": "^2.0.0",
     "joi": "^17.5.0",
-    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.7"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/node": "^16.10.1",
+    "ansi-colors": "^4.1.1",
     "apollo-server-core": "^3.3.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
     "fastify-static": "^4.5.0",
     "nodemon": "^2.0.13",
-    "pino-pretty": "^7.3.0"
+    "pino-pretty": "^7.3.0",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.5.4"
   }
 }

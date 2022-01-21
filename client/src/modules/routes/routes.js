@@ -27,10 +27,11 @@ import {
   StartPage,
   TransactionPage
 } from '../pages'
+import browserHistory from '../../browserHistory'
 
 export const RouteComponent = () => {
   return (
-    <Router>
+    <Router history={browserHistory}>
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route element={<LayoutAuth />}>
