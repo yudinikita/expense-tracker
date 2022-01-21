@@ -3,6 +3,9 @@ const constants = {
   SERVER: {
     DEFAULT_PORT: 5000,
     DEFAULT_HOST: 'localhost'
+  },
+  JWT: {
+    EXPIRES_IN: 1000 * 60 * 60 * 24 * 30
   }
 }
 
