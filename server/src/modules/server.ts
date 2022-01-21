@@ -1,10 +1,10 @@
-import { ApolloServer } from 'apollo-server-fastify'
-import buildApp from './app.js'
-import connectDB from './modules/config/db.js'
-import apolloConfig from './modules/config/apollo.js'
-import printStartServer from './modules/config/printStartServer.js'
-import constants from './modules/constants/constants.js'
 import { FastifyInstance } from 'fastify'
+import { ApolloServer } from 'apollo-server-fastify'
+import constants from './constants/constants.js'
+import buildApp from './app.js'
+import { connectDB } from './config/database/db.js'
+import { apolloConfig } from './config/apollo/apollo.js'
+import printStartServer from './utils/printStartServer.js'
 
 const startServer = async (): Promise<FastifyInstance> => {
   const PORT = process.env['PORT'] ?? constants.SERVER.DEFAULT_PORT
@@ -17,14 +17,15 @@ const startServer = async (): Promise<FastifyInstance> => {
 
     const apolloServer = new ApolloServer(apolloConfig)
     await apolloServer.start()
-    await app.register(apolloServer.createHandler({ cors: false }))
+    const apolloHandler = await apolloServer.createHandler({ cors: false })
+    await app.register(apolloHandler)
 
     await app.listen(PORT, HOSTNAME)
 
     await printStartServer(PORT, HOSTNAME)
   } catch (error) {
     app.log.error(error)
-    process.exit(0)
+    process.exit(1)
   }
 
   return app
