@@ -12,6 +12,4 @@ const retryOptions = {
   }
 }
 
-const retryLink = new RetryLink(retryOptions)
-
-export default retryLink
+export const retryLink = new RetryLink(retryOptions)
