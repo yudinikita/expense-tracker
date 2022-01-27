@@ -1,1 +1,1 @@
-export { default } from './help.module.graphql.js'
+export { default as HelpModule } from './help.module.graphql.js'

@@ -1,9 +1,9 @@
 import { gql } from 'graphql-modules'
 
-export default gql`
+export const typeDefs = gql`
   type Query {
-    helps: [Help!]!
-    helpDetail(helpId: ID): Help!
+    helps: [Help]
+    helpDetail(helpId: ID): Help
   }
 
   type Mutation {

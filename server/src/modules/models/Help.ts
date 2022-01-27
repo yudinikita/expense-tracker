@@ -2,7 +2,7 @@ import pkg from 'mongoose'
 
 const { model, Schema, Types } = pkg
 
-const HelpSchema = new Schema({
+const HelpSchema = new Schema<any>({
   title: {
     type: String,
     trim: true,
@@ -29,4 +29,4 @@ const HelpSchema = new Schema({
   }
 }, { timestamps: true })
 
-export default model('Help', HelpSchema)
+export const HelpModel = model<any>('Help', HelpSchema)
