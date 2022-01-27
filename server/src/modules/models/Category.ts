@@ -2,12 +2,11 @@ import pkg from 'mongoose'
 
 const { model, Schema, Types } = pkg
 
-const CategorySchema = new Schema({
+const CategorySchema = new Schema<any>({
   title: {
     type: String,
     trim: true,
     maxLength: 256,
-    minlength: 1,
     required: [true, 'Пожалуйста, введите название категории']
   },
   user: {
@@ -17,4 +16,4 @@ const CategorySchema = new Schema({
   }
 }, { timestamps: true })
 
-export default model('Category', CategorySchema)
+export const CategoryModel = model<any>('Category', CategorySchema)
