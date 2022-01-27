@@ -13,16 +13,7 @@ initConfig()
     }
 
     startServer()
-      .then((app) => {
-        app.log.info(colors.bold.green('Happy Expenses! ️❤ '))
-        app.log.info(colors.white(`
-                      __   __              __
-.-----.-----.-----.--|  | |  |.--.--.----.|  |--.
-|  _  |  _  |  _  |  _  | |  ||  |  |  __||    <
-|___  |_____|_____|_____| |__||_____|____||__|__|
-|_____|
-      `))
-      })
+      .then(() => console.log(colors.bold.green('Happy Expenses! ️❤ ')))
       .catch(() => console.log('Error server starting!'))
   })
   .catch(() => console.log('Error init config!'))

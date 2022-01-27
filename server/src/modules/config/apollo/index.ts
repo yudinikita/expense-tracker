@@ -1,1 +1,1 @@
-export { apolloConfig } from './apollo.js'
+export * from './apollo.js'

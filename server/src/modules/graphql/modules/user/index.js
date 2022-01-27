@@ -1,1 +1,1 @@
-export { default } from './user.module.graphql.js'
+export { default as UserModule } from './user.module.graphql.js'

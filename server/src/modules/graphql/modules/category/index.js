@@ -1,1 +1,1 @@
-export { default } from './category.module.graphql.js'
+export { default as CategoryModule } from './category.module.graphql.js'

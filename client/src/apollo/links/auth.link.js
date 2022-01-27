@@ -1,6 +1,6 @@
 import { ApolloLink } from '@apollo/client'
 
-const authLink = new ApolloLink((operation, forward) => {
+export const authLink = new ApolloLink((operation, forward) => {
   const token = window.localStorage.getItem('_auth')
   const authorization = token ? `Bearer ${token}` : ''
 
@@ -13,5 +13,3 @@ const authLink = new ApolloLink((operation, forward) => {
 
   return forward(operation)
 })
-
-export default authLink
