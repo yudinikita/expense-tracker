@@ -1,1 +1,1 @@
-export { fastifyOptions } from './fastifyOptions.js'
+export * from './fastifyOptions.js'

@@ -1,1 +1,1 @@
-export { staticOptions, staticRoute } from './static.js'
+export * from './static.js'

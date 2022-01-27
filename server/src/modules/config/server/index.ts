@@ -1,1 +1,1 @@
-export { initConfig } from './config.js'
+export * from './config.js'
