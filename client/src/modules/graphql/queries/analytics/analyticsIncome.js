@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const ANALYTICS_INCOME = gql`
-  query analyticsIncome ($startDate: String, $endDate: String) {
-    analyticsIncome(startDate: $startDate, endDate: $endDate) {
+  query analyticsIncome ($input: AnalyticsInput) {
+    analyticsIncome(input: $input) {
       amount
       category {
         title
