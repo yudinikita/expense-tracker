@@ -1,0 +1,28 @@
+schema: "./server/src/modules/graphql/modules/**/*.graphql.ts"
+documents: "./client/src/modules/graphql/**/*.js"
+generates:
+  ./server/src/modules/graphql/modules:
+    preset: graphql-modules
+    presetConfig:
+      baseTypesPath: ../__generated__/graphql.types.gen.ts
+      filename: __generated__/module.types.gen.ts
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-document-nodes"
+    config:
+      contextType: GraphQLModules.Context
+      useIndexSignature: true
+  ./client/src/modules/graphql/models/models.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+    config:
+      useExplicitTyping: true
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+    config:
+      minify: true
