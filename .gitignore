@@ -57,7 +57,7 @@ typings/
 __generated__/
 *.gen.ts
 *.gen.js
-graphql.schema.json
+!/graphql.schema.json
 
 # Optional npm cache directory
 .npm
