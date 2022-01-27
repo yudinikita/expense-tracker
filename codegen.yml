@@ -15,7 +15,7 @@ generates:
     config:
       contextType: GraphQLModules.Context
       useIndexSignature: true
-  ./client/src/modules/graphql/models/models.ts:
+  ./client/src/modules/graphql/models/models.gen.ts:
     plugins:
       - "typescript"
       - "typescript-operations"
