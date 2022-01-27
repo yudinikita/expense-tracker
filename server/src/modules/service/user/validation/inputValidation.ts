@@ -1,6 +1,6 @@
 import Joi from 'joi'
 
-export default Joi.object({
+export const inputValidation = Joi.object({
   email: Joi.string()
     .email({ minDomainSegments: 2 })
     .required()
@@ -19,4 +19,4 @@ export default Joi.object({
       'any.required': 'Пароль обязательное поле',
       'any.ref': 'Пароли должны совпадать'
     })
-})
+}) as any

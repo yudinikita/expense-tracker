@@ -2,7 +2,7 @@ import pkg from 'mongoose'
 
 const { model, Schema } = pkg
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<any>({
   email: {
     type: String,
     unique: true,
@@ -14,7 +14,8 @@ const UserSchema = new Schema({
   },
   isActivated: {
     type: Boolean,
-    default: false
+    default: false,
+    required: true
   },
   activationCode: {
     type: String
@@ -35,4 +36,4 @@ const UserSchema = new Schema({
   }
 }, { timestamps: true })
 
-export default model('User', UserSchema)
+export const UserModel = model<any>('User', UserSchema)

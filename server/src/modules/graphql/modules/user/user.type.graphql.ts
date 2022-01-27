@@ -1,6 +1,6 @@
 import { gql } from 'graphql-modules'
 
-export default gql`
+export const typeDefs = gql`
   type Mutation {
     registration(userInput: UserRegistrationInput): User!
     login(userInput: UserLoginInput): User!
