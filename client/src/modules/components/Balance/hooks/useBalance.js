@@ -9,8 +9,8 @@ endDate.setHours(23, 59, 59, 999)
 export const useBalance = () => {
   const { balance, balancePerDate, loading, error } = useGetBalance(startDate, endDate)
 
-  const balanceTotal = balance?.totalAmount
-  const balancePerDateTotal = balancePerDate?.totalAmount
+  const balanceTotal = balance?.totalAmount ?? 0
+  const balancePerDateTotal = balancePerDate?.totalAmount ?? 0
   const balancePercentage = balancePerDateTotal / balanceTotal
 
   const userBalanceTotal = {
