@@ -1,4 +1,6 @@
-const getActivationHtml = (code) => {
+const getActivationHtml = (code: string): string => {
+  const CLIENT_URL = process.env['CLIENT_URL'] ?? ''
+
   return `
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +16,7 @@ const getActivationHtml = (code) => {
   <table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse: collapse;'>
     <tr>
       <td style='background:#ffffff;padding: 60px 0 30px 60px;vertical-align:middle' valign='middle' align='left'>
-        <a href='${process.env.CLIENT_URL}' target='_blank'>
+        <a href='${CLIENT_URL}' target='_blank'>
           <img src=' http://drive.google.com/uc?export=view&id=1ueXMFLlBlgQrt8nhzX1l5iK2nbhR2PLQ' alt='Денеджи' width='40' height='40' style='display: block;' />
         </a>
       </td>
@@ -22,7 +24,7 @@ const getActivationHtml = (code) => {
     <tr>
       <td style='padding: 30px 0 30px 60px;'>
         <p style='margin-bottom:0;margin-top:0'><b>${code}</b> — ваш код для активации на <a
-            href='${process.env.CLIENT_URL}' target='_blank'>${process.env.CLIENT_URL}</a></p>
+            href='${CLIENT_URL}' target='_blank'>${CLIENT_URL}</a></p>
       </td>
     </tr>
     <tr>
@@ -32,7 +34,7 @@ const getActivationHtml = (code) => {
             <tr style='background:#ffcf26'>
               <td
                 style='border:0 solid #ff5f0f;display:inline-block;text-align:center;font-family: Arial, Helvetica, sans-serif;font-size: 16px;line-height: 130%;font-weight: bold;text-decoration:none;color:#000000;'>
-                <a href='${process.env.CLIENT_URL}/#/activate/${code}' target='_blank'
+                <a href='${CLIENT_URL}/#/activate/${code}' target='_blank'
                   style='color: #000000;padding: 25px 68px;display:block;text-decoration:none;font-family: Arial, Helvetica, sans-serif;font-size: 16px;font-weight: bold;line-height: 130%;text-align: center;'>
                   <font color='#000000'>Активировать аккаунт</font>
                 </a>
@@ -49,13 +51,15 @@ const getActivationHtml = (code) => {
   `
 }
 
-const getActivationText = (code) => {
+const getActivationText = (code: string): string => {
+  const CLIENT_URL = process.env['CLIENT_URL'] ?? ''
+
   return `
-${code} — ваш код для активации на ${process.env.CLIENT_URL}
+${code} — ваш код для активации на ${CLIENT_URL}
 
 Или перейдите по ссылке:
 
-${process.env.CLIENT_URL}/#/activate/${code}
+${CLIENT_URL}/#/activate/${code}
 `
 }
 
