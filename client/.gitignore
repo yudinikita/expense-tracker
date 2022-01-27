@@ -9,6 +9,11 @@
 # production
 /build
 
+# Graphql Code Generate
+__generated__/
+*.gen.ts
+*.gen.js
+
 # misc
 .DS_Store
 .env.local
