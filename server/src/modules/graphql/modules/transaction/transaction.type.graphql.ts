@@ -1,6 +1,6 @@
 import { gql } from 'graphql-modules'
 
-export default gql`
+export const typeDefs = gql`
   type Query {
     transactions(startDate: String, endDate: String): [Transaction!]!
     transactionDetail(transactionId: ID): Transaction!
@@ -35,5 +35,13 @@ export default gql`
     code: String!
     success: Boolean!
     message: String!
+  }
+
+  input TransactionInput {
+    amount: Int!
+    category: ID
+    commentary: String
+    createdAt: String
+    updatedAt: String
   }
 `

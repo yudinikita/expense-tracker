@@ -2,7 +2,7 @@ import pkg from 'mongoose'
 
 const { model, Schema, Types } = pkg
 
-const TransactionSchema = new Schema({
+const TransactionSchema = new Schema<any>({
   amount: {
     type: Number,
     required: [true, 'Пожалуйста, введите число не равное нулю']
@@ -17,19 +17,11 @@ const TransactionSchema = new Schema({
     trim: true,
     default: ''
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  },
   user: {
     type: Types.ObjectId,
     ref: 'User',
     required: true
   }
-})
+}, { timestamps: true })
 
-export default model('Transaction', TransactionSchema)
+export const TransactionModel = model<any>('Transaction', TransactionSchema)
