@@ -21,7 +21,8 @@
     "ignore": [
       "build",
       "__generated__",
-      "src/**/*.gen.ts"
+      "src/**/*.gen.ts",
+      "src/**/*.js"
     ]
   },
   "dependencies": {
