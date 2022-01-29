@@ -6,7 +6,7 @@ const logout = () => {
   window.location.reload()
 }
 
-const errorLink = onError(({
+export const errorLink = onError(({
   graphQLErrors,
   networkError
 }) => {
@@ -23,5 +23,3 @@ const errorLink = onError(({
     console.log(`[Network error]: ${networkError}`)
   }
 })
-
-export default errorLink

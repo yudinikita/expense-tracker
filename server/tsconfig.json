@@ -7,9 +7,9 @@
     "lib": [
       "ES2021"
     ],
-    "moduleResolution": "node",
-    "outDir": "./build",
+    "moduleResolution": "Node",
     "rootDir": "./src",
+    "outDir": "./build",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

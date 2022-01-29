@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const ANALYTICS_BALANCE = gql`
-  query analyticsBalance ($startDate: String, $endDate: String) {
-    analyticsBalance(startDate: $startDate, endDate: $endDate) {
+  query analyticsBalance ($input: AnalyticsInput) {
+    analyticsBalance(input: $input) {
       income
       expense
       remainder

@@ -1,1 +1,1 @@
-export { default } from './transaction.module.graphql.js'
+export { default as TransactionModule } from './transaction.module.graphql.js'

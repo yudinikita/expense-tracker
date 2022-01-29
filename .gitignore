@@ -53,6 +53,12 @@ typings/
 # TypeScript cache
 *.tsbuildinfo
 
+# Graphql Code Generate
+__generated__/
+*.gen.ts
+*.gen.js
+graphql.schema.json
+
 # Optional npm cache directory
 .npm
 

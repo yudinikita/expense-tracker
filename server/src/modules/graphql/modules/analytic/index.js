@@ -1,1 +1,1 @@
-export { default } from './analytic.module.graphql.js'
+export { default as AnalyticModule } from './analytic.module.graphql.js'

@@ -1,12 +1,12 @@
-import TokenService from '../../service/auth/token.service.js'
+import { Context } from 'apollo-server-core'
+import { getCurrentUser } from '../../utils/auth/index.js'
 
-export const context = async (req: any): Promise<any> => {
-  const authorization: string = req?.request?.headers?.authorization ?? ''
+export const context: Context = async (req: any): Promise<any> => {
+  const authHeader: string = req?.request?.headers?.authorization ?? ''
 
-  const [typeAuth, token]: string[] = authorization.split(' ')
+  const currentUser = await getCurrentUser(authHeader)
 
-  if (typeAuth === 'Bearer') {
-    const user = await TokenService.validateAccessToken(token)
-    return { user }
+  return {
+    user: currentUser
   }
 }
