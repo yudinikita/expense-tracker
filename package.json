@@ -20,8 +20,7 @@
     "lint:fix": "concurrently \"yarn lint:server:fix\" \"yarn lint:client:fix\"",
     "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
     "build": "concurrently \"yarn client:build\" \"yarn server:build\"",
-    "start": "concurrently \"yarn client\" \"yarn server\"",
-    "semantic-release": "semantic-release"
+    "start": "concurrently \"yarn client\" \"yarn server\""
   },
   "homepage": "https://github.com/nblackninja/expense-tracker#readme",
   "bugs": {
