@@ -23,7 +23,7 @@ const startServer = async (): Promise<FastifyInstance> => {
 
     await app.listen(PORT, HOSTNAME)
 
-    await printStartServer(PORT, HOSTNAME)
+    printStartServer(PORT, HOSTNAME)
   } catch (error) {
     app.log.error(error)
     process.exit(1)

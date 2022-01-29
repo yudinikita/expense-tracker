@@ -1,7 +1,7 @@
 import colors from 'ansi-colors'
 import constants from '../constants/constants.js'
 
-const printStartServer = async (PORT: string | number, HOSTNAME: string): Promise<void> => {
+const printStartServer = (PORT: string | number, HOSTNAME: string): void => {
   const NODE_ENV = process.env['NODE_ENV'] ?? constants.DEFAULT_NODE_ENV
   const CLIENT_URL = process.env['CLIENT_URL'] ?? ''
   const SERVER_URL = `http://${HOSTNAME}:${PORT}`
