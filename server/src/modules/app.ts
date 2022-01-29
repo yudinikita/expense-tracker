@@ -4,7 +4,7 @@ import fastifyStatic from 'fastify-static'
 import fastifyCors from 'fastify-cors'
 import fastifyHelmet from 'fastify-helmet'
 import { corsOptions } from './config/cors/index.js'
-import { fastifyOptions } from './config/fastify/index.js'
+import { devRoute, fastifyOptions } from './config/fastify/index.js'
 import { staticOptions, staticRoute } from './config/static/static.js'
 
 const buildApp = async (): Promise<FastifyInstance> => {
@@ -17,6 +17,8 @@ const buildApp = async (): Promise<FastifyInstance> => {
   if (process.env['NODE_ENV'] === 'production') {
     await app.register(fastifyStatic, staticOptions)
     await app.route(staticRoute)
+  } else {
+    await app.route(devRoute)
   }
 
   return app
