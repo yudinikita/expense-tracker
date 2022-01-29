@@ -19,7 +19,7 @@
     "lint": "concurrently \"yarn lint:server\" \"yarn lint:client\"",
     "lint:fix": "concurrently \"yarn lint:server:fix\" \"yarn lint:client:fix\"",
     "install:all": "concurrently \"yarn client:install\" \"yarn server:install\"",
-    "semantic-release": "semantic-release",
+    "test:server": "yarn --cwd server test",
     "gen": "graphql-codegen --config codegen.yml",
     "gen:watch": "graphql-codegen --config codegen.yml --watch",
     "build": "concurrently \"yarn client:build\" \"yarn server:build\"",
