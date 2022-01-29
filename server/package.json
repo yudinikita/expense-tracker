@@ -16,7 +16,15 @@
     "test": "jest"
   },
   "ts-standard": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "files": [
+      "src"
+    ],
+    "ignore": [
+      "build",
+      "__tests__",
+      "src/**/*.js"
+    ]
   },
   "dependencies": {
     "@graphql-modules/core": "^0.7.17",
