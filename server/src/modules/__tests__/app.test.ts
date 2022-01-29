@@ -16,13 +16,13 @@ describe('App:', () => {
     await app.close()
   })
 
-  test('should return status code 200 when app is ready', async () => {
+  it('should return status code 200 when app is ready', async () => {
     const response = await app.inject({ url: '/', headers: { origin: allowOrigin } })
 
     expect(response.statusCode).toBe(200)
   })
 
-  test('should return status code 500 when cors not allowed', async () => {
+  it('should return status code 500 when cors not allowed', async () => {
     const response = await app.inject({ url: '/', headers: { origin: notAllowOrigin } })
 
     expect(response.statusCode).toBe(500)
