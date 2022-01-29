@@ -34,14 +34,15 @@
     "graphql": "^16.2.0",
     "graphql-modules": "^2.0.0",
     "joi": "^17.5.0",
-    "mongoose": "^6.1.7"
+    "mongoose": "^6.1.7",
+    "ansi-colors": "^4.1.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^16.10.1",
-    "ansi-colors": "^4.1.1",
     "apollo-server-core": "^3.3.0",
     "fastify-static": "^4.5.0",
+    "jest": "^27.4.7",
     "nodemon": "^2.0.13",
     "pino-pretty": "^7.3.0",
     "ts-standard": "^11.0.0",
