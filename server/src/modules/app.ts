@@ -1,13 +1,13 @@
-import fastify, { FastifyInstance } from 'fastify'
+import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify'
 import fastifyCompress from 'fastify-compress'
 import fastifyStatic from 'fastify-static'
 import fastifyCors from 'fastify-cors'
 import fastifyHelmet from 'fastify-helmet'
 import { corsOptions } from './config/cors/index.js'
-import { devRoute, fastifyOptions } from './config/fastify/index.js'
+import { devRoute } from './config/fastify/index.js'
 import { staticOptions, staticRoute } from './config/static/static.js'
 
-const buildApp = async (): Promise<FastifyInstance> => {
+const buildApp = async (fastifyOptions: FastifyServerOptions): Promise<FastifyInstance> => {
   const app: FastifyInstance = fastify(fastifyOptions)
 
   await app.register(fastifyCompress)

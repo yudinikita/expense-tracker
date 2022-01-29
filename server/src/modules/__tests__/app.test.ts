@@ -9,7 +9,7 @@ describe('App:', () => {
   const notAllowOrigin: string = 'not-allow-origin'
 
   beforeAll(async () => {
-    app = await buildApp()
+    app = await buildApp({})
   })
 
   afterAll(async () => {

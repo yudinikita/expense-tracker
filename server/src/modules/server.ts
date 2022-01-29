@@ -5,12 +5,13 @@ import buildApp from './app.js'
 import { connectDB } from './config/database/db.js'
 import { apolloConfig } from './config/apollo/apollo.js'
 import printStartServer from './utils/printStartServer.js'
+import { fastifyOptions } from './config/fastify/index.js'
 
 const startServer = async (): Promise<FastifyInstance> => {
   const PORT = process.env['PORT'] ?? constants.SERVER.DEFAULT_PORT
   const HOSTNAME = process.env['HOSTNAME'] ?? constants.SERVER.DEFAULT_HOST
 
-  const app = await buildApp()
+  const app = await buildApp(fastifyOptions)
 
   try {
     await connectDB(app)
