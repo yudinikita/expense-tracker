@@ -15,7 +15,9 @@ const config = {
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
-  modulePathIgnorePatterns: ['src'],
+  setupFiles: [
+    'dotenv/config'
+  ]
 }
 
 module.exports = config
