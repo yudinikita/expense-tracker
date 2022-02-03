@@ -13,9 +13,10 @@
     "node:build": "cross-env NODE_ENV=production node ./build/index.js",
     "lint": "ts-standard --verbose | snazzy",
     "lint:fix": "ts-standard --fix --verbose | snazzy",
+    "test": "cross-env NODE_ENV=test DOTENV_CONFIG_PATH=./.env.development jest --runInBand ./build",
+    "test:coverage": "cross-env NODE_ENV=test DOTENV_CONFIG_PATH=./.env.development jest --runInBand ./build --coverage true",
     "build": "concurrently \"yarn ts:build\" \"yarn node:build\"",
-    "start": "concurrently \"yarn ts:dev\" \"yarn node:dev\"",
-    "test": "jest"
+    "start": "concurrently \"yarn ts:dev\" \"yarn node:dev\""
   },
   "ts-standard": {
     "project": "./tsconfig.json",
@@ -56,13 +57,16 @@
     "@babel/preset-env": "^7.16.11",
     "@types/bcrypt": "^5.0.0",
     "@types/jest": "^27.4.0",
+    "@types/joi": "^17.2.3",
     "@types/node": "^16.10.1",
     "apollo-server-core": "^3.3.0",
     "babel-plugin-transform-import-meta": "^2.1.0",
     "fastify-static": "^4.5.0",
-    "nodemon": "^2.0.15",
     "jest": "^27.4.7",
+    "mongodb-memory-server": "^8.2.0",
+    "nodemon": "^2.0.15",
     "pino-pretty": "^7.3.0",
+    "reflect-metadata": "^0.1.13",
     "ts-jest": "^27.1.3",
     "ts-standard": "^11.0.0",
     "typescript": "^4.5.5"
