@@ -1,12 +1,9 @@
-import pkg from 'mongoose'
 import { CategoryModel } from '../../../models/index.js'
 import { CategoryDeleteInput, CategoryDeletePayload } from '../../../graphql/__generated__/graphql.types.gen.js'
-
-const { Types } = pkg
+import { toObjectId } from '../../../utils/index.js'
 
 export const deleteCategory = async (input: CategoryDeleteInput): Promise<CategoryDeletePayload> => {
-  const categoryId = new Types.ObjectId(input.id)
-  const result = await CategoryModel.deleteOne({ _id: categoryId })
+  const result = await CategoryModel.deleteOne({ _id: toObjectId(input.id) })
   const success = result.deletedCount === 1
 
   return {
