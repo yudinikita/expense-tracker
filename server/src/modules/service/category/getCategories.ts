@@ -1,10 +1,8 @@
 import { CategoryModel } from '../../models/index.js'
-import { User } from '../../graphql/__generated__/graphql.types.gen.js'
-import pkg from 'mongoose'
+import { Category, User } from '../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
-
-export const getCategories = async (user: User): Promise<any> => {
-  const userId = new Types.ObjectId(user.id)
-  return await CategoryModel.find({ user: userId }).sort({ title: 1 })
+export const getCategories = async (user: User): Promise<Category[]> => {
+  const categories = await CategoryModel.find({ user: toObjectId(user.id) }).sort({ title: 1 })
+  return categories
 }
