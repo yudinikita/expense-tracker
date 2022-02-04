@@ -1,16 +1,16 @@
 import { TransactionModel } from '../../models/index.js'
-import pkg from 'mongoose'
+import { SearchTransactionInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
+export const getSearchTransaction = async (userId: string, input: SearchTransactionInput): Promise<any> => {
+  const query = input?.query
 
-export const getSearchTransaction = async (id: string, query: string): Promise<any> => {
-  const userId = new Types.ObjectId(id)
-  if (query === null) return null
+  if (query === undefined) return []
 
   const patternFind = /[^A-Za-zА-Яа-яЁё0-9]+/g
   const querySearch = query.replace(patternFind, '')
 
-  if (querySearch === null) return null
+  if (querySearch === undefined) return []
 
   const amount = parseInt(querySearch) ?? null
   const commentary = String(querySearch) ?? null
@@ -18,7 +18,7 @@ export const getSearchTransaction = async (id: string, query: string): Promise<a
   const transactionsFetched =
     await TransactionModel
       .find({
-        user: userId,
+        user: toObjectId(userId),
         $or: [
           { amount: amount },
           { commentary: { $regex: commentary } }
@@ -33,7 +33,6 @@ export const getSearchTransaction = async (id: string, query: string): Promise<a
 
     return {
       ...transaction.toJSON(),
-      _id: transaction.id,
       createdAt,
       updatedAt
     }
