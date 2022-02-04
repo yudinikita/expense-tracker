@@ -15,9 +15,8 @@ export const resolvers: Resolvers = {
     transactions: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const startDate = args.startDate ?? ''
-        const endDate = args.endDate ?? ''
-        return await getTransactions(userId, startDate, endDate)
+        const input = args?.input
+        return await getTransactions(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
@@ -25,8 +24,8 @@ export const resolvers: Resolvers = {
     transactionDetail: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const transactionId = args?.transactionId ?? ''
-        return await getTransactionDetail(userId, transactionId)
+        const input = args?.input
+        return await getTransactionDetail(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
@@ -34,8 +33,8 @@ export const resolvers: Resolvers = {
     searchTransaction: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const query = args?.query ?? ''
-        return await getSearchTransaction(userId, query)
+        const input = args?.input
+        return await getSearchTransaction(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
@@ -45,28 +44,33 @@ export const resolvers: Resolvers = {
     createTransaction: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const transaction = args?.transaction ?? undefined
-        return await createTransaction(userId, transaction)
+        const input = args?.input
+        return await createTransaction(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
     },
     deleteTransaction: async (_root, args, _context, _info) => {
       try {
-        const transactionId = args?.id ?? ''
-        return await deleteTransaction(transactionId)
+        const input = args?.input
+        return await deleteTransaction(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
     },
     updateTransaction: async (_root, args, _context, _info) => {
       try {
-        const transactionId = args?.id ?? ''
-        const transaction = args.transaction ?? undefined
-        return await updateTransaction(transactionId, transaction)
+        const input = args?.input
+        return await updateTransaction(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
+    }
+  },
+  Transaction: {
+    id: parent => {
+      // @ts-expect-error
+      return parent._id
     }
   }
 }
