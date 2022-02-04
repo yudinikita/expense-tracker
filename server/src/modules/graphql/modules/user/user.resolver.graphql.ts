@@ -38,5 +38,11 @@ export const resolvers: Resolvers = {
 
       return { ...user }
     }
+  },
+  User: {
+    id: parent => {
+      // @ts-expect-error
+      return parent._id
+    }
   }
 }
