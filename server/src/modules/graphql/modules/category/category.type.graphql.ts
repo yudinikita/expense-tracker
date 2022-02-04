@@ -2,15 +2,15 @@ import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
   type Query {
-    categories: [Category!]!
+    categories: [Category]!
   }
 
   type Mutation {
-    createCategory(category: CategoryInput): Category!
-    updateCategory(id: ID, category: CategoryInput): Category!
-    deleteCategory(input: CategoryDeleteInput): Boolean
-    deleteCategoryReplace(input: CategoryDeleteInput): Boolean
-    deleteCategoryWithTransactions(input: CategoryDeleteInput): Boolean
+    createCategory(input: CategoryInput!): Category!
+    updateCategory(id: ID!, input: CategoryInput!): Category!
+    deleteCategory(input: CategoryDeleteInput!): CategoryDeletePayload!
+    deleteCategoryReplace(input: CategoryDeleteInput!): CategoryDeletePayload!
+    deleteCategoryWithTransactions(input: CategoryDeleteInput!): CategoryDeletePayload!
   }
 
   type Category {
@@ -21,6 +21,11 @@ export const typeDefs = gql`
   input CategoryDeleteInput {
     id: ID!
     newId: ID
+  }
+
+  type CategoryDeletePayload {
+    id: ID!
+    success: Boolean!
   }
 
   input CategoryInput {
