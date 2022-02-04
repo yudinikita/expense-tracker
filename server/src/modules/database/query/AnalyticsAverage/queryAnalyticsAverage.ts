@@ -53,8 +53,8 @@ export const queryAnalyticsAverage: QueryAnalytics = async (userId, gte, lte) =>
     }
   ])
 
-  const income: number = response[0].income[0].average ?? 0
-  const expanse: number = response[0].expanse[0].average ?? 0
+  const income: number = response[0]?.income[0]?.average ?? 0
+  const expanse: number = response[0]?.expanse[0]?.average ?? 0
 
   const result: ResponseAnalytics = {
     income,
