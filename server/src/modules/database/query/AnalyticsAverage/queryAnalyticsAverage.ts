@@ -1,7 +1,14 @@
 import { TransactionModel } from '../../../models/index.js'
 import { QueryAnalytics, ResponseAnalytics } from '../../types/index.js'
+import { analyticsFilterBuilder } from '../../../service/analytic/analyticsFilterBuilder/index.js'
 
-export const queryAnalyticsAverage: QueryAnalytics = async (userId, gte, lte) => {
+export const queryAnalyticsAverage: QueryAnalytics = async (userId, input) => {
+  let filter = {}
+
+  if (input?.filter !== undefined && input?.filter !== null) {
+    filter = analyticsFilterBuilder(input.filter)
+  }
+
   const response = await TransactionModel.aggregate([
     {
       $facet: {
@@ -9,13 +16,10 @@ export const queryAnalyticsAverage: QueryAnalytics = async (userId, gte, lte) =>
           {
             $match: {
               user: userId,
-              createdAt: {
-                $gte: gte,
-                $lte: lte
-              },
               amount: {
                 $gt: 0
-              }
+              },
+              ...filter
             }
           },
           {
@@ -31,13 +35,10 @@ export const queryAnalyticsAverage: QueryAnalytics = async (userId, gte, lte) =>
           {
             $match: {
               user: userId,
-              createdAt: {
-                $gte: gte,
-                $lte: lte
-              },
               amount: {
                 $lt: 0
-              }
+              },
+              ...filter
             }
           },
           {
