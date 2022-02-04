@@ -14,7 +14,7 @@ export const resolvers: Resolvers = {
     balance: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const input = args?.input ?? {}
+        const input = args?.input
         return await getBalance(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -23,7 +23,7 @@ export const resolvers: Resolvers = {
     analyticsBalance: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const input = args?.input ?? {}
+        const input = args?.input
         return await getAnalyticsBalance(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -32,7 +32,7 @@ export const resolvers: Resolvers = {
     analyticsAverage: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const input = args?.input ?? {}
+        const input = args?.input
         return await getAnalyticsAverage(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -41,7 +41,7 @@ export const resolvers: Resolvers = {
     analyticsExpense: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const input = args?.input ?? {}
+        const input = args?.input
         return await getAnalyticsExpense(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -50,7 +50,7 @@ export const resolvers: Resolvers = {
     analyticsIncome: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const input = args?.input ?? {}
+        const input = args?.input
         return await getAnalyticsIncome(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
