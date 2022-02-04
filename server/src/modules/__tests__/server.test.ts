@@ -2,7 +2,7 @@ import buildApp from '../app.js'
 import { FastifyInstance } from 'fastify'
 import whitelist from '../config/cors/whitelist.js'
 
-describe('Server:', () => {
+describe('Server', () => {
 
   let app: FastifyInstance
   const allowOrigin: string = whitelist[0]!
