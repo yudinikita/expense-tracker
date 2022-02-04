@@ -25,16 +25,16 @@ export const resolvers: Resolvers = {
     createCategory: async (_root, args, context, _info) => {
       try {
         const user = context.user
-        const category = args?.category ?? undefined
-        return await createCategory(user, category)
+        const input = args.input
+        return await createCategory(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
     },
     updateCategory: async (_root, args, _context, _info) => {
       try {
-        const categoryId = args?.id ?? ''
-        const category = args?.category ?? undefined
+        const categoryId = args?.id
+        const category = args.input
         return await updateCategory(categoryId, category)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -42,8 +42,7 @@ export const resolvers: Resolvers = {
     },
     deleteCategory: async (_root, args, _context, _info) => {
       try {
-        const input = args?.input
-        if (input === null || input === undefined) return null
+        const input = args.input
         return await deleteCategory(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -51,8 +50,7 @@ export const resolvers: Resolvers = {
     },
     deleteCategoryReplace: async (_root, args, _context, _info) => {
       try {
-        const input = args?.input
-        if (input === null || input === undefined) return null
+        const input = args.input
         return await deleteCategoryReplace(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -60,12 +58,17 @@ export const resolvers: Resolvers = {
     },
     deleteCategoryWithTransactions: async (_root, args, _context, _info) => {
       try {
-        const input = args?.input
-        if (input === null || input === undefined) return null
+        const input = args.input
         return await deleteCategoryWithTransactions(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
+    }
+  },
+  Category: {
+    id: (parent) => {
+      // @ts-expect-error
+      return parent._id
     }
   }
 }
