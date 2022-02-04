@@ -1,15 +1,11 @@
-import pkg from 'mongoose'
 import { HelpModel } from '../../models/index.js'
-import { CreateHelpInput, User } from '../../graphql/__generated__/graphql.types.gen.js'
+import { CreateHelpInput, Help, User } from '../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
-
-export const createHelp = async (user: User, input: CreateHelpInput): Promise<any> => {
-  const userId = new Types.ObjectId(user.id)
-
-  const newHelp = new HelpModel({ ...input, user: userId })
+export const createHelp = async (user: User, input: CreateHelpInput): Promise<Help> => {
+  const newHelp = new HelpModel({ ...input, user: toObjectId(user.id) })
 
   await newHelp.save()
 
-  return newHelp
+  return newHelp.toJSON()
 }
