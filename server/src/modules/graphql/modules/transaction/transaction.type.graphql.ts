@@ -19,8 +19,8 @@ export const typeDefs = gql`
     amount: Int!
     category: Category
     commentary: String
-    createdAt: String
-    updatedAt: String
+    createdAt: String!
+    updatedAt: String!
   }
 
   type DeleteTransactionPayload {
