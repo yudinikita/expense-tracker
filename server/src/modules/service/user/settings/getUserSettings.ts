@@ -1,10 +1,8 @@
 import { UserModel } from '../../../models/index.js'
-import pkg from 'mongoose'
+import { Settings } from '../../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../../utils/index.js'
 
-const { Types } = pkg
-
-export const getUserSettings = async (id: string): Promise<any> => {
-  const userId = new Types.ObjectId(id)
-  const user = await UserModel.findOne({ _id: userId })
-  return user?.settings ?? {}
+export const getUserSettings = async (userId: string): Promise<Settings> => {
+  const user = await UserModel.findOne({ _id: toObjectId(userId) })
+  return user?.settings.toJSON() ?? {}
 }

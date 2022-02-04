@@ -1,12 +1,15 @@
 import bcrypt from 'bcrypt'
-import pkg from 'mongoose'
 import { UserModel } from '../../../models/index.js'
 import { UserPasswordInput } from '../../../graphql/__generated__/graphql.types.gen.js'
+import { UserSettingsModule } from '../../../graphql/modules/userSettings/__generated__/module.types.gen.js'
+import { toObjectId } from '../../../utils/index.js'
+import updateUserPasswordResponse = UserSettingsModule.updateUserPasswordResponse
 
-const { Types } = pkg
-
-export const updateUserPassword = async (id: string, userPasswordInput: UserPasswordInput): Promise<any> => {
-  const userId = new Types.ObjectId(id)
+export const updateUserPassword = async (
+  id: string,
+  userPasswordInput: UserPasswordInput
+): Promise<updateUserPasswordResponse> => {
+  const userId = toObjectId(id)
   const nowPassword = userPasswordInput.nowPassword ?? ''
   const newPassword = userPasswordInput.newPassword ?? ''
 
