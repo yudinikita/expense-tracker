@@ -16,8 +16,8 @@ export const resolvers: Resolvers = {
     helpDetail: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const helpId = args?.helpId ?? ''
-        return await getHelpDetail(user, helpId)
+        const input = args.input
+        return await getHelpDetail(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
@@ -27,17 +27,16 @@ export const resolvers: Resolvers = {
     createHelp: async (_root, args, context, _info) => {
       try {
         const user = context?.user
-        const help = args?.helpInput ?? undefined
-        return await createHelp(user, help)
+        const input = args.input
+        return await createHelp(user, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
     },
     updateHelp: async (_root, args, _context, _info) => {
       try {
-        const helpUpdate = args.helpUpdate
-        if (helpUpdate === null || helpUpdate === undefined) return null
-        return await updateHelp(helpUpdate)
+        const input = args.input
+        return await updateHelp(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
