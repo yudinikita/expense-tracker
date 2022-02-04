@@ -2,13 +2,13 @@ import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
   type Query {
-    helps: [Help]
-    helpDetail(helpId: ID): Help
+    helps: [Help]!
+    helpDetail(input: HelpDetailInput!): Help
   }
 
   type Mutation {
-    createHelp(helpInput: HelpInput): Help!
-    updateHelp(helpUpdate: HelpUpdate): Help!
+    createHelp(input: CreateHelpInput!): Help!
+    updateHelp(input: UpdateHelpInput!): Help!
   }
 
   type Help {
@@ -22,12 +22,16 @@ export const typeDefs = gql`
     user: ID!
   }
 
-  input HelpInput {
+  input HelpDetailInput {
+    id: ID!
+  }
+
+  input CreateHelpInput {
     title: String!
     detail: String
   }
 
-  input HelpUpdate {
+  input UpdateHelpInput {
     id: ID!
     solved: Boolean
   }
