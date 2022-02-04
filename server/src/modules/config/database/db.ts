@@ -18,7 +18,9 @@ export const connectDB = async (app: FastifyInstance): Promise<void> => {
       app.log.error(msgDisconnected)
     })
 
-    await mongoose.connect(MONGO_URI)
+    await mongoose.connect(MONGO_URI, {
+      ignoreUndefined: true
+    })
   } catch (error: any) {
     app.log.error(NameDB, error?.message)
     process.exit(1)
