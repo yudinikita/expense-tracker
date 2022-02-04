@@ -16,7 +16,6 @@ export const inputValidation = Joi.object({
     .messages({
       'string.empty': 'Пароль не должен быть пустым',
       'string.min': 'Пароль должен содержать минимум {#limit} символа',
-      'any.required': 'Пароль обязательное поле',
-      'any.ref': 'Пароли должны совпадать'
+      'any.required': 'Пароль обязательное поле'
     })
 }) as any

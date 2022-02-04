@@ -1,1 +1,1 @@
-export * from './inputValidation.js'
+export * from './input.validation.js'
