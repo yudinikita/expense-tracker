@@ -18,7 +18,7 @@ export const resolvers: Resolvers = {
     updateUserSettings: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const settings = args.settings ?? undefined
+        const settings = args.input
         return await updateUserSettings(userId, settings)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -27,8 +27,8 @@ export const resolvers: Resolvers = {
     updateUserPassword: async (_root, args, context, _info) => {
       try {
         const userId = context?.user.id
-        const userPasswordInput = args.userPasswordInput ?? undefined
-        return await updateUserPassword(userId, userPasswordInput)
+        const input = args?.input
+        return await updateUserPassword(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
