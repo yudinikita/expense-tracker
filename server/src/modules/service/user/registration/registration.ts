@@ -4,12 +4,13 @@ import { sendActivationMail } from '../../mail/index.js'
 import { generateToken } from '../../token/index.js'
 import { createDefaultCategories } from '../../category/index.js'
 import { User } from '../../../graphql/__generated__/graphql.types.gen.js'
+import constants from '../../../constants/constants.js'
 
-export const registration = async (email: string, password: string): Promise<any> => {
+export const registration = async (email: string, password: string): Promise<User> => {
   const candidate: User | null = await UserModel.findOne({ email })
 
   if (candidate != null) {
-    throw new Error(`Пользователь с почтовым адресом ${email} уже существует`)
+    throw new Error(constants.GRAPHQL.MESSAGE.USER_EXISTS)
   }
 
   const hashedPassword = await getHashedPassword(password)
@@ -22,11 +23,19 @@ export const registration = async (email: string, password: string): Promise<any
     activationCode
   })
 
-  await sendActivationMail(email, activationCode)
+  if (process.env['NODE_ENV'] === 'production') {
+    await sendActivationMail(email, activationCode)
+  }
 
   const accessToken = await generateToken({ ...user })
 
   await createDefaultCategories(user.id)
 
-  return { ...user, accessToken }
+  return {
+    id: user.id,
+    email: user.email,
+    isActivated: user.isActivated,
+    settings: user.settings,
+    accessToken
+  }
 }
