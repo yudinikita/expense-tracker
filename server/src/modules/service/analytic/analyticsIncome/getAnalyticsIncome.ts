@@ -1,10 +1,48 @@
 import { AnalyticsCategory, AnalyticsInput, User } from '../../../graphql/__generated__/graphql.types.gen.js'
-import { queryAnalyticsIncome } from '../../../database/index.js'
 import { toObjectId } from '../../../utils/index.js'
+import { TransactionModel } from '../../../models/index.js'
+import { analyticsFilterBuilder } from '../analyticsFilterBuilder/index.js'
 
 export const getAnalyticsIncome = async (user: User, input?: AnalyticsInput | null): Promise<AnalyticsCategory[]> => {
-  const gte = input?.filter?.date?.gte ? new Date(input.filter.date.gte) : undefined
-  const lte = input?.filter?.date?.lte ? new Date(input.filter.date.lte) : undefined
+  let filter = {}
 
-  return await queryAnalyticsIncome(toObjectId(user.id), gte, lte)
+  if (input?.filter !== undefined && input?.filter !== null) {
+    filter = analyticsFilterBuilder(input.filter)
+  }
+
+  const analyticsIncome = await TransactionModel.aggregate([
+    {
+      $match: {
+        user: toObjectId(user.id),
+        amount: { $gt: 0 },
+        ...filter
+      }
+    },
+    {
+      $group:
+        {
+          _id: '$category',
+          amount: { $sum: '$amount' }
+        }
+    },
+    {
+      $lookup: {
+        from: 'categories',
+        localField: '_id',
+        foreignField: '_id',
+        as: 'categories'
+      }
+    },
+    { $unwind: '$categories' },
+    {
+      $project: {
+        _id: 0,
+        category: '$categories',
+        amount: 1
+      }
+    },
+    { $sort: { amount: -1 } }
+  ])
+
+  return analyticsIncome
 }

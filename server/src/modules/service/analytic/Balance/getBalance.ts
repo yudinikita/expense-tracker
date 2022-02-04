@@ -1,19 +1,20 @@
 import { AnalyticsInput, Balance, User } from '../../../graphql/__generated__/graphql.types.gen.js'
 import { TransactionModel } from '../../../models/index.js'
 import { toObjectId } from '../../../utils/index.js'
+import { analyticsFilterBuilder } from '../analyticsFilterBuilder/index.js'
 
 export const getBalance = async (user: User, input?: AnalyticsInput | null): Promise<Balance> => {
-  const gte = input?.filter?.date?.gte ? new Date(input.filter.date.gte) : undefined
-  const lte = input?.filter?.date?.lte ? new Date(input.filter.date.lte) : undefined
+  let filter = {}
+
+  if (input?.filter !== undefined && input?.filter !== null) {
+    filter = analyticsFilterBuilder(input.filter)
+  }
 
   const balance = await TransactionModel.aggregate([
     {
       $match: {
         user: toObjectId(user.id),
-        createdAt: {
-          $gte: gte,
-          $lte: lte
-        }
+        ...filter
       }
     },
     {
