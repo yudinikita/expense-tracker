@@ -17,7 +17,7 @@ export const registration = async (email: string, password: string): Promise<Use
 
   const activationCode = await getActivationCode()
 
-  const user: User = await UserModel.create({
+  const user = await UserModel.create({
     email,
     password: hashedPassword,
     activationCode
@@ -27,15 +27,15 @@ export const registration = async (email: string, password: string): Promise<Use
     await sendActivationMail(email, activationCode)
   }
 
-  const accessToken = await generateToken({ ...user })
+  const accessToken = await generateToken({
+    ...user.toJSON(),
+    id: user._id
+  })
 
   await createDefaultCategories(user.id)
 
   return {
-    id: user.id,
-    email: user.email,
-    isActivated: user.isActivated,
-    settings: user.settings,
+    ...user.toJSON(),
     accessToken
   }
 }

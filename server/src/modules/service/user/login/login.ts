@@ -5,7 +5,7 @@ import { User } from '../../../graphql/__generated__/graphql.types.gen.js'
 import constants from '../../../constants/constants.js'
 
 export const login = async (email: string, password: string): Promise<User> => {
-  const user: User & { password: string } | null = await UserModel.findOne({ email })
+  const user = await UserModel.findOne({ email })
 
   if (user === null) {
     throw new Error(constants.GRAPHQL.MESSAGE.LOGIN_ERROR)
@@ -17,20 +17,13 @@ export const login = async (email: string, password: string): Promise<User> => {
     throw new Error(constants.GRAPHQL.MESSAGE.LOGIN_ERROR)
   }
 
-  const userDto = {
-    // @ts-expect-error
+  const accessToken = await generateToken({
     ...user.toJSON(),
-    // @ts-expect-error
     id: user._id
-  }
-
-  const accessToken = await generateToken({ ...userDto })
+  })
 
   return {
-    id: user.id,
-    email: user.email,
-    isActivated: user.isActivated,
-    settings: user.settings,
+    ...user.toJSON(),
     accessToken
   }
 }

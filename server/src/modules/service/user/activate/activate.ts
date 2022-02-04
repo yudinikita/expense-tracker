@@ -21,13 +21,13 @@ export const activate = async (id: string, activationCode: string): Promise<User
 
   await user.save()
 
-  const accessToken = await generateToken({ ...user })
+  const accessToken = await generateToken({
+    ...user.toJSON(),
+    id: user._id
+  })
 
   return {
-    id: user.id,
-    email: user.email,
-    isActivated: user.isActivated,
-    settings: user.settings,
+    ...user.toJSON(),
     accessToken
   }
 }
