@@ -17,7 +17,7 @@ export const TransactionsDetail = () => {
       {!loading && error && <MyError error={error} />}
 
       {!loading && !error && transaction &&
-      <TransactionsDetailContainer transaction={transaction} />}
+        <TransactionsDetailContainer transaction={transaction} />}
     </>
   )
 }

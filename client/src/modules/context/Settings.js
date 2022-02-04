@@ -42,7 +42,7 @@ export const SettingsProvider = ({ settings }) => {
     try {
       await setUpdateUserSettings({
         variables: {
-          settings: {
+          input: {
             theme: newSettings?.theme || 'light',
             language: newSettings?.language || 'ru',
             currency: newSettings?.currency || 'RUB'

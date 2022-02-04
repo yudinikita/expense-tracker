@@ -1,1 +1,1 @@
-export { useActivationForm } from './useActivationForm'
+export * from './useActivationForm'

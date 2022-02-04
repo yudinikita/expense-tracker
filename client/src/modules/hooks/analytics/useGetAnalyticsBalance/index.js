@@ -1,1 +1,1 @@
-export { useGetAnalyticsBalance } from './useGetAnalyticsBalance'
+export * from './useGetAnalyticsBalance'

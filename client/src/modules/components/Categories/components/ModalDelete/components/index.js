@@ -1,3 +1,3 @@
-export { FormDeleteBase } from './FormDeleteBase'
-export { FormDeleteReplace } from './FormDeleteReplace'
-export { FormDeleteWithTransactions } from './FormDeleteWithTransactions'
+export * from './FormDeleteBase'
+export * from './FormDeleteReplace'
+export * from './FormDeleteWithTransactions'

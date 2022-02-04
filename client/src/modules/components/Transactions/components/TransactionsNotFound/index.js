@@ -1,1 +1,1 @@
-export { TransactionsNotFound } from './TransactionsNotFound'
+export * from './TransactionsNotFound'

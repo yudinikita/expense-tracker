@@ -3,7 +3,7 @@ import { useSearchValidation } from './useSearchValidation'
 import { useGetSearchTransaction } from '../../../../../hooks'
 
 export const useTransactionsSearch = () => {
-  const { searchTransaction, loading, error, refetch } = useGetSearchTransaction()
+  const { searchTransaction, loading, error, refetch } = useGetSearchTransaction({ query: '' })
   const { validationSearch } = useSearchValidation()
   const alert = useAlert()
 
@@ -16,7 +16,9 @@ export const useTransactionsSearch = () => {
       const validation = validationSearch(value)
       if (validation?.isValid) {
         await refetch({
-          query: value
+          input: {
+            query: value
+          }
         })
       } else {
         alert.show(validation?.message)

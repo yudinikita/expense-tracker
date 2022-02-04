@@ -1,1 +1,1 @@
-export { usePrice } from './usePrice'
+export * from './usePrice'

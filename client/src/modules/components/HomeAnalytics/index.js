@@ -1,1 +1,1 @@
-export { HomeAnalytics } from './HomeAnalytics'
+export * from './HomeAnalytics'

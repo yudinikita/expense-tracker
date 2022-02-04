@@ -1,2 +1,2 @@
-export { HELPS } from './helps'
-export { HELP_DETAIL } from './helpDetail'
+export * from './helps'
+export * from './helpDetail'

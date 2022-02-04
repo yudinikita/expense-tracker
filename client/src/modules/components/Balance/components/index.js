@@ -1,1 +1,1 @@
-export { BalancePercentage } from './BalancePercentage'
+export * from './BalancePercentage'

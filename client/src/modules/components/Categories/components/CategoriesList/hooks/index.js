@@ -1,1 +1,1 @@
-export { useCategoriesList } from './useCategoriesList'
+export * from './useCategoriesList'

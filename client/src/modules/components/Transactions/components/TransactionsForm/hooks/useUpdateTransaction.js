@@ -19,12 +19,14 @@ export const useUpdateTransaction = (dataForm, transaction) => {
         const nowDate = getLocalDate(new Date())
         await setUpdateTransaction({
           variables: {
-            id: transaction?.id,
-            transaction: {
-              amount: dataForm.expense ? dataForm?.amount * -1 : Math.abs(dataForm?.amount),
-              category: dataForm?.category,
-              createdAt: dataForm?.createdAt ? dataForm?.createdAt : nowDate,
-              commentary: dataForm?.commentary
+            input: {
+              id: transaction?.id,
+              transaction: {
+                amount: dataForm.expense ? dataForm?.amount * -1 : Math.abs(dataForm?.amount),
+                category: dataForm?.category,
+                createdAt: dataForm?.createdAt ? dataForm?.createdAt : nowDate,
+                commentary: dataForm?.commentary
+              }
             }
           }
         })

@@ -1,1 +1,1 @@
-export { SettingsSecurityPage } from './SettingsSecurityPage'
+export * from './SettingsSecurityPage'

@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const HELP_DETAIL = gql`
-  query helpDetail($helpId: ID) {
-    helpDetail(helpId: $helpId) {
+  query helpDetail($input: HelpDetailInput!) {
+    helpDetail(input: $input) {
       id
       title
       detail

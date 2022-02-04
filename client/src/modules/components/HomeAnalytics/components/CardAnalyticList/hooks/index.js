@@ -1,1 +1,1 @@
-export { useGetDate } from './useGetDate'
+export * from './useGetDate'

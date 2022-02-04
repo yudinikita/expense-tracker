@@ -36,8 +36,10 @@ export const useFormDeleteReplace = () => {
       try {
         await deleteCategoryReplace({
           variables: {
-            id: selectedCategory.id,
-            newId: selectReplaceId
+            input: {
+              id: selectedCategory.id,
+              newId: selectReplaceId
+            }
           }
         })
         alert.success('Категория заменена')

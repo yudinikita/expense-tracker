@@ -1,1 +1,1 @@
-export { MyModal } from './MyModal'
+export * from './MyModal'

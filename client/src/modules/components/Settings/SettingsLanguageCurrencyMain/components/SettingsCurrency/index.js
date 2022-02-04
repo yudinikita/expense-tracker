@@ -1,1 +1,1 @@
-export { SettingsCurrency } from './SettingsCurrency'
+export * from './SettingsCurrency'

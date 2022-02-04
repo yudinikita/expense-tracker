@@ -1,1 +1,1 @@
-export { useCardAnalyticExpenseAverage } from './useCardAnalyticExpenseAverage'
+export * from './useCardAnalyticExpenseAverage'

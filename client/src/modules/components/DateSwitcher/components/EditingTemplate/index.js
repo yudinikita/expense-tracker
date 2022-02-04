@@ -1,1 +1,1 @@
-export { EditingTemplate } from './EditingTemplate'
+export * from './EditingTemplate'

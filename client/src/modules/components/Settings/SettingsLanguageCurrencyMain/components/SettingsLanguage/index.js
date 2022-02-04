@@ -1,1 +1,1 @@
-export { SettingsLanguage } from './SettingsLanguage'
+export * from './SettingsLanguage'

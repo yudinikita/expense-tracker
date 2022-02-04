@@ -1,1 +1,1 @@
-export { useEditingTemplate } from './useEditingTemplate'
+export * from './useEditingTemplate'

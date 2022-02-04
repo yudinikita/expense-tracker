@@ -1,1 +1,1 @@
-export { HomePhrase } from './HomePhrase'
+export * from './HomePhrase'

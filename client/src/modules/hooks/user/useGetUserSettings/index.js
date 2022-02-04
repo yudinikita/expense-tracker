@@ -1,1 +1,1 @@
-export { useGetUserSettings } from './useGetUserSettings'
+export * from './useGetUserSettings'

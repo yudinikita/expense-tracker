@@ -1,1 +1,1 @@
-export { AnalyticsItem } from './AnalyticsIem'
+export * from './AnalyticsIem'

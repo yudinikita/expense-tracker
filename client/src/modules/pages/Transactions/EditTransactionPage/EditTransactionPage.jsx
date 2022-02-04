@@ -1,15 +1,12 @@
 import React from 'react'
 import { InnerNavigate, MyError, MyLoader, TransactionsForm } from '../../../components'
 import { useParams } from 'react-router-dom'
-import { useQuery } from '@apollo/client'
-import { TRANSACTION_DETAIL } from '../../../graphql/queries'
+import { useGetTransactionDetail } from '../../../hooks'
 
 export const EditTransactionPage = () => {
   const transactionId = useParams().id
 
-  const { loading, error, data } = useQuery(TRANSACTION_DETAIL, {
-    variables: { transactionId }
-  })
+  const { transaction, loading, error } = useGetTransactionDetail(transactionId)
 
   if (loading) return <MyLoader />
   if (error) return <MyError error={error} />
@@ -18,7 +15,7 @@ export const EditTransactionPage = () => {
     <>
       <InnerNavigate title='Изменить операцию' />
 
-      <TransactionsForm transaction={data?.transactionDetail} />
+      <TransactionsForm transaction={transaction} />
     </>
   )
 }

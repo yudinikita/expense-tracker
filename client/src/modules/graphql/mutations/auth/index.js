@@ -1,3 +1,3 @@
-export { LOGIN_USER } from './login'
-export { ACTIVATE_USER } from './activate'
-export { REGISTRATION_USER } from './registration'
+export * from './login'
+export * from './activate'
+export * from './registration'

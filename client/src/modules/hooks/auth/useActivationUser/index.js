@@ -1,1 +1,1 @@
-export { useActivationUser } from './useActivationUser'
+export * from './useActivationUser'

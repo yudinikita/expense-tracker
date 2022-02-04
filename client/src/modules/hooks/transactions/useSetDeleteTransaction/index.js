@@ -1,1 +1,1 @@
-export { useSetDeleteTransaction } from './useSetDeleteTransaction'
+export * from './useSetDeleteTransaction'

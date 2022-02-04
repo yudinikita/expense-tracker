@@ -1,1 +1,1 @@
-export { FormDeleteBase } from './FormDeleteBase'
+export * from './FormDeleteBase'

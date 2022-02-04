@@ -1,1 +1,1 @@
-export { MyLoader } from './MyLoader'
+export * from './MyLoader'

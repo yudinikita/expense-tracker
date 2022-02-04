@@ -1,1 +1,1 @@
-export { SettingsMain } from './SettingsMain'
+export * from './SettingsMain'

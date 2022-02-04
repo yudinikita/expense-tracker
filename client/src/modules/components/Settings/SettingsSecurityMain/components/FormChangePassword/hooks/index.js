@@ -1,1 +1,1 @@
-export { useFormChangePassword } from './useFormChangePassword'
+export * from './useFormChangePassword'

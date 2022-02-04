@@ -1,1 +1,1 @@
-export { useRegistrationUser } from './useRegistrationUser'
+export * from './useRegistrationUser'

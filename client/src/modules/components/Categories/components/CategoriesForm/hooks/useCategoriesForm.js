@@ -9,25 +9,23 @@ export const useCategoriesForm = () => {
   const [inputCategory, setInputCategory] = useState('')
   const { isValid, messageFailed } = useValidationCategory(inputCategory)
 
-  const [createCategory, { error, loading }] = useMutation(CREATE_CATEGORY, {
+  const [createCategory, { loading }] = useMutation(CREATE_CATEGORY, {
     refetchQueries: ['categories']
   })
-
-  if (error) alert.error('Не удалось добавить категорию')
-
+  
   const onSubmitForm = async e => {
     e.preventDefault()
     if (isValid) {
       try {
         await createCategory({
           variables: {
-            category: {
+            input: {
               title: inputCategory
             }
           }
         })
         alert.success('Категория добавлена')
-      } catch {
+      } catch (e) {
         alert.error('Не удалось создать категорию')
       } finally {
         setInputCategory('')

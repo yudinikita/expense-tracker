@@ -1,1 +1,1 @@
-export { SettingsAppearance } from './SettingsAppearance'
+export * from './SettingsAppearance'

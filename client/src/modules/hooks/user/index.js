@@ -1,3 +1,3 @@
-export { useGetUserSettings } from './useGetUserSettings'
-export { useSetUpdateUserPassword } from './useSetUpdateUserPassword'
-export { useSetUpdateUserSettings } from './useSetUpdateUserSettings'
+export * from './useGetUserSettings'
+export * from './useSetUpdateUserPassword'
+export * from './useSetUpdateUserSettings'

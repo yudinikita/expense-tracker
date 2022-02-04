@@ -1,1 +1,1 @@
-export { useHelpDetail } from './useHelpDetail'
+export * from './useHelpDetail'

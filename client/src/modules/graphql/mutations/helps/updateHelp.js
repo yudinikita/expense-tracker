@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const UPDATE_HELP = gql`
-  mutation updateHelp($helpUpdate: HelpUpdate) {
-    updateHelp(helpUpdate: $helpUpdate) {
+  mutation updateHelp($input: UpdateHelpInput!) {
+    updateHelp(input: $input) {
       id
       title
       detail

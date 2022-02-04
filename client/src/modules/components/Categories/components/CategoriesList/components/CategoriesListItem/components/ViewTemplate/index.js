@@ -1,1 +1,1 @@
-export { ViewTemplate } from './ViewTemplate'
+export * from './ViewTemplate'

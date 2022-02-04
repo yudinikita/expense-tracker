@@ -1,1 +1,1 @@
-export { CardAnalyticPercent } from './CardAnalyticPercent'
+export * from './CardAnalyticPercent'

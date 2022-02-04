@@ -1,2 +1,2 @@
-export { LayoutMain } from './LayoutMain'
-export { LayoutAuth } from './LayoutAuth'
+export * from './LayoutMain'
+export * from './LayoutAuth'

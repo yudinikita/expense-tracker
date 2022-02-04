@@ -1,1 +1,1 @@
-export { ModalDelete } from './ModalDelete'
+export * from './ModalDelete'

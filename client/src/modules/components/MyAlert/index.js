@@ -1,1 +1,1 @@
-export { MyAlert } from './MyAlert'
+export * from './MyAlert'

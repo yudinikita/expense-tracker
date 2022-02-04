@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignIn } from 'react-auth-kit'
-import { useAlert } from 'react-alert'
 import { useLoginUser } from '../../../../hooks'
 import { EXPIRES_IN } from '../../../../data/constants'
 
@@ -12,7 +11,6 @@ const defaultFormData = {
 
 export const useLoginForm = () => {
   const signIn = useSignIn()
-  const alert = useAlert()
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState(defaultFormData)
@@ -24,7 +22,7 @@ export const useLoginForm = () => {
     try {
       const res = await loginUser({
         variables: {
-          userInput: {
+          input: {
             email: formData.email,
             password: formData.password
           }
@@ -42,8 +40,6 @@ export const useLoginForm = () => {
             email: userData.email
           }
         })
-      } else {
-        alert.error('Ошибка при регистрации')
       }
     } catch (e) {
       return null

@@ -1,1 +1,1 @@
-export { useGetAnalyticsExpense } from './useGetAnalyticsExpense'
+export * from './useGetAnalyticsExpense'

@@ -1,1 +1,1 @@
-export { useSettings } from './useSettings'
+export * from './useSettings'

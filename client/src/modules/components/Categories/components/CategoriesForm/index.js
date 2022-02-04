@@ -1,1 +1,1 @@
-export { CategoriesForm } from './CategoriesForm'
+export * from './CategoriesForm'

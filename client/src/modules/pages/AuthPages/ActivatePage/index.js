@@ -1,1 +1,1 @@
-export { ActivatePage } from './ActivatePage'
+export * from './ActivatePage'

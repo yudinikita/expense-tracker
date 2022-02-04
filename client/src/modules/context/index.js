@@ -1,1 +1,1 @@
-export { SettingsContext, SettingsProvider } from './Settings'
+export * from './Settings'

@@ -1,4 +1,4 @@
-export { StartPage } from './StartPage'
-export { LoginPage } from './LoginPage'
-export { RegistrationPage } from './RegistrationPage'
-export { ActivatePage } from './ActivatePage'
+export * from './StartPage'
+export * from './LoginPage'
+export * from './RegistrationPage'
+export * from './ActivatePage'

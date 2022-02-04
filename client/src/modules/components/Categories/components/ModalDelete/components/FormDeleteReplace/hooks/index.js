@@ -1,1 +1,1 @@
-export { useFormDeleteReplace } from './useFormDeleteReplace'
+export * from './useFormDeleteReplace'

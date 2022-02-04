@@ -1,1 +1,1 @@
-export { ModalSignOut } from './ModalSignOut'
+export * from './ModalSignOut'

@@ -1,1 +1,1 @@
-export { SettingsLanguageCurrencyPage } from './SettingsLanguageCurrencyPage'
+export * from './SettingsLanguageCurrencyPage'

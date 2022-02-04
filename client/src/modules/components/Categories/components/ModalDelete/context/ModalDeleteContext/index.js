@@ -1,1 +1,1 @@
-export { ModalDeleteContext } from './ModalDeleteContext'
+export * from './ModalDeleteContext'

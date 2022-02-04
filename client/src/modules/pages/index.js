@@ -1,34 +1,22 @@
 // Агрегация страниц
 
 // Авторизация
-export { StartPage, LoginPage, RegistrationPage, ActivatePage } from './AuthPages'
+export * from './AuthPages'
 
 // Основные
-export { HomePage } from './HomePage'
-export { TransactionPage } from './Transactions'
-export { AnalyticsPage } from './AnalyticsPage'
-export { SettingsPage } from './Settings'
-export { Logout } from './Logout'
+export * from './HomePage'
+export * from './Transactions'
+export * from './AnalyticsPage'
+export * from './Settings'
+export * from './Logout'
 
 // Настройки
-export {
-  SettingsEmailPage,
-  SettingsSecurityPage,
-  SettingsLanguageCurrencyPage,
-  SettingsAppearancePage
-} from './Settings'
+export * from './Settings'
 
 // Дополнительные
-export {
-  DetailTransactionPage,
-  CreateTransactionPage,
-  SearchTransactionsPage,
-  EditTransactionPage
-} from './Transactions'
-
-export { CategoriesPage } from './CategoriesPage'
-
-export { HelpPage, HelpDetailPage } from './HelpPages/'
+export * from './Transactions'
+export * from './CategoriesPage'
+export * from './HelpPages/'
 
 // Ошибки
-export { Page404 } from './Page404/Page404'
+export * from './Page404/Page404'

@@ -1,9 +1,13 @@
 import { useQuery } from '@apollo/client'
 import { TRANSACTION_DETAIL } from '../../../graphql/queries'
 
-export const useGetTransactionDetail = (transactionId) => {
+export const useGetTransactionDetail = (id) => {
   const { loading, error, data } = useQuery(TRANSACTION_DETAIL, {
-    variables: { transactionId }
+    variables: {
+      input: {
+        id
+      }
+    }
   })
 
   return {

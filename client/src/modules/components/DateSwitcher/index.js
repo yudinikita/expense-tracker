@@ -1,1 +1,1 @@
-export { DateSwitcher } from './DateSwitcher'
+export * from './DateSwitcher'

@@ -1,1 +1,1 @@
-export { CreateTransactionPage } from './CreateTransactionPage'
+export * from './CreateTransactionPage'

@@ -1,1 +1,1 @@
-export { useSetUpdateTransaction } from './useSetUpdateTransaction'
+export * from './useSetUpdateTransaction'

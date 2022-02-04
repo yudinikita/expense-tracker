@@ -1,1 +1,1 @@
-export { useGetAnalyticsAverage } from './useGetAnalyticsAverage'
+export * from './useGetAnalyticsAverage'

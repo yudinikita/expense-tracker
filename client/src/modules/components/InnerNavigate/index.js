@@ -1,1 +1,1 @@
-export { InnerNavigate } from './InnerNavigate'
+export * from './InnerNavigate'

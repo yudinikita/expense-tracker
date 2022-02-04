@@ -1,1 +1,1 @@
-export { SettingsEmailPage } from './SettingsEmailPage'
+export * from './SettingsEmailPage'

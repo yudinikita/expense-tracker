@@ -1,4 +1,4 @@
-export { StartMain } from './StartMain'
-export { LoginForm } from './LoginForm'
-export { ActivationForm } from './ActivationForm'
-export { RegistrationForm } from './RegistrationForm'
+export * from './StartMain'
+export * from './LoginForm'
+export * from './ActivationForm'
+export * from './RegistrationForm'

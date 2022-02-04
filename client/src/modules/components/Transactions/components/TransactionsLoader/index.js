@@ -1,1 +1,1 @@
-export { TransactionsLoader } from './TransactionsLoader'
+export * from './TransactionsLoader'

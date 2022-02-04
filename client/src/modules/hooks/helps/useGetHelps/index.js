@@ -1,1 +1,1 @@
-export { useGetHelps } from './useGetHelps'
+export * from './useGetHelps'

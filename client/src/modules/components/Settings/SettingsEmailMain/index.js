@@ -1,1 +1,1 @@
-export { SettingsEmailMain } from './SettingsEmailMain'
+export * from './SettingsEmailMain'

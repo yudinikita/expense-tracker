@@ -1,1 +1,1 @@
-export { useSetUpdateUserSettings } from './useSetUpdateUserSettings'
+export * from './useSetUpdateUserSettings'

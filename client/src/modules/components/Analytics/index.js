@@ -1,2 +1,2 @@
-export { AnalyticsBalanceList } from './AnalyticsBalanceList'
-export { AnalyticsLoaderList } from './AnalyticsLoaderList'
+export * from './AnalyticsBalanceList'
+export * from './AnalyticsLoaderList'

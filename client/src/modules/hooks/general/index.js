@@ -1,2 +1,2 @@
-export { useDateSwitcher } from './useDateSwitcher'
-export { useSettings } from './useSettings'
+export * from './useDateSwitcher'
+export * from './useSettings'

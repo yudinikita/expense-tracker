@@ -1,1 +1,1 @@
-export { AnalyticsIncome } from './AnalyticsIncome'
+export * from './AnalyticsIncome'

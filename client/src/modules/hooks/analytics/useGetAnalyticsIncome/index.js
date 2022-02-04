@@ -1,1 +1,1 @@
-export { useGetAnalyticsIncome } from './useGetAnalyticsIncome'
+export * from './useGetAnalyticsIncome'

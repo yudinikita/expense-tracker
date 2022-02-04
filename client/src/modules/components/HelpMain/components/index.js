@@ -1,3 +1,3 @@
-export { HelpForm } from './HelpForm'
-export { HelpList } from './HelpList'
-export { HelpDetail } from './HelpDetail'
+export * from './HelpForm'
+export * from './HelpList'
+export * from './HelpDetail'

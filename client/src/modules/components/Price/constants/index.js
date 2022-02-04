@@ -1,1 +1,1 @@
-export { SIGN_DISPLAY, COLOR } from './constants'
+export * from './constants'

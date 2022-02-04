@@ -1,1 +1,1 @@
-export { ActivationForm } from './ActivationForm'
+export * from './ActivationForm'

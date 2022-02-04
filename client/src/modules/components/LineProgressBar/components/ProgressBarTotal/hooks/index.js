@@ -1,1 +1,1 @@
-export { useProgressBarTotal } from './useProgressBarTotal'
+export * from './useProgressBarTotal'

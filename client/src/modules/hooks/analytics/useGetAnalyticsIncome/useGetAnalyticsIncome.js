@@ -3,7 +3,16 @@ import { ANALYTICS_INCOME } from '../../../graphql/queries'
 
 export const useGetAnalyticsIncome = (startDate, endDate) => {
   const { data, loading, error } = useQuery(ANALYTICS_INCOME, {
-    variables: { startDate, endDate }
+    variables: {
+      input: {
+        filter: {
+          date: {
+            gte: startDate,
+            lte: endDate
+          }
+        }
+      }
+    }
   })
 
   return {

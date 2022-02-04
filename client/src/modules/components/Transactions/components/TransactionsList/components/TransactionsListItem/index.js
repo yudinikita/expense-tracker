@@ -1,1 +1,1 @@
-export { TransactionsListItem } from './TransactionsListItem'
+export * from './TransactionsListItem'

@@ -1,1 +1,1 @@
-export { MyError } from './MyError'
+export * from './MyError'

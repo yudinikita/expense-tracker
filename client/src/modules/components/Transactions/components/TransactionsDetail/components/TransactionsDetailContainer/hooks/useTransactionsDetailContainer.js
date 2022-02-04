@@ -32,7 +32,7 @@ export const useTransactionsDetailContainer = (transaction) => {
     try {
       const id = transaction?.id
       const response = await setDeleteTransaction({
-        variables: { id }
+        variables: { input: { id } }
       })
       const result = response?.data?.deleteTransaction
       result?.success ? alert.success(result?.message) : alert.error(result?.message)

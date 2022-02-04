@@ -35,7 +35,7 @@ export const useFormChangePassword = () => {
       try {
         const response = await setUpdateUserPassword({
           variables: {
-            userPasswordInput: {
+            input: {
               ...dataForm
             }
           }

@@ -1,1 +1,1 @@
-export { CategoriesListItemContext } from './CategoriesListItemContext'
+export * from './CategoriesListItemContext'

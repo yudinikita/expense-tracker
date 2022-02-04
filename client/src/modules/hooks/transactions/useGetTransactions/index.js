@@ -1,1 +1,1 @@
-export { useGetTransactions } from './useGetTransactions'
+export * from './useGetTransactions'

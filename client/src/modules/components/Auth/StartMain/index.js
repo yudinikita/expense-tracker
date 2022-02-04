@@ -1,1 +1,1 @@
-export { StartMain } from './StartMain'
+export * from './StartMain'

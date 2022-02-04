@@ -1,1 +1,1 @@
-export { StartPage } from './StartPage'
+export * from './StartPage'

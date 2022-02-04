@@ -21,7 +21,9 @@ export const useActivationForm = () => {
   const authUser = async (code) => {
     const response = await activateUser({
       variables: {
-        activationCode: code
+        input: {
+          code
+        }
       }
     })
     if (response) {

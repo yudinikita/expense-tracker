@@ -19,7 +19,7 @@ export const useCreateTransaction = (dataForm) => {
         const nowDate = getLocalDate(new Date())
         await setCreateTransaction({
           variables: {
-            transaction: {
+            input: {
               amount: dataForm.expense ? dataForm?.amount * -1 : Math.abs(dataForm?.amount),
               category: dataForm?.category,
               createdAt: dataForm?.createdAt ? dataForm?.createdAt : nowDate,

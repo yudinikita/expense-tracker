@@ -1,9 +1,9 @@
 // Агрегация данных
 
-export { homePhrases } from './ListHomePhrases'
-export { currencies } from './ListCurrencies'
-export { languages } from './ListLanguages'
-export { mainLinks } from './ListMainLinks'
-export { settingsLinks } from './ListSettingsLinks'
-export { months } from './Months'
-export { themeList } from './ListThemes'
+export * from './ListHomePhrases'
+export * from './ListCurrencies'
+export * from './ListLanguages'
+export * from './ListMainLinks'
+export * from './ListSettingsLinks'
+export * from './Months'
+export * from './ListThemes'

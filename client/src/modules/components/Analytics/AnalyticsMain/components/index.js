@@ -1,2 +1,2 @@
-export { AnalyticsContainer } from './AnalyticsContainer'
-export { Checkbox } from './Checkbox'
+export * from './AnalyticsContainer'
+export * from './Checkbox'

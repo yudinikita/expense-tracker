@@ -1,1 +1,1 @@
-export { useFormDeleteBase } from './useFormDeleteBase'
+export * from './useFormDeleteBase'

@@ -26,7 +26,9 @@ export const useFormDeleteWithTransactions = () => {
     try {
       await deleteCategoryWithTransactions({
         variables: {
-          id: selectedCategory.id
+          input: {
+            id: selectedCategory.id
+          }
         }
       })
       alert.success('Категория и ее операции удалены')

@@ -1,1 +1,1 @@
-export { SettingsSecurityMain } from './SettingsSecurityMain'
+export * from './SettingsSecurityMain'

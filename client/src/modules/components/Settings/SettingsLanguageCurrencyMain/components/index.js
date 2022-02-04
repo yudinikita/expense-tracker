@@ -1,2 +1,2 @@
-export { SettingsCurrency } from './SettingsCurrency'
-export { SettingsLanguage } from './SettingsLanguage'
+export * from './SettingsCurrency'
+export * from './SettingsLanguage'

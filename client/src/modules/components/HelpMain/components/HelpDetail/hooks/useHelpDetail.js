@@ -21,11 +21,11 @@ export const useHelpDetail = () => {
   }
 
   const handleSolved = async () => {
-    await setUpdateHelp({ variables: { helpUpdate: { id: helpId, solved: true } } })
+    await setUpdateHelp({ variables: { input: { id: helpId, solved: true } } })
   }
 
   const handleUnresolved = async () => {
-    await setUpdateHelp({ variables: { helpUpdate: { id: helpId, solved: false } } })
+    await setUpdateHelp({ variables: { input: { id: helpId, solved: false } } })
   }
 
   return {

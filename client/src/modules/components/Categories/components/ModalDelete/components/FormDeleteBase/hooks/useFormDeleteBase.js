@@ -26,7 +26,9 @@ export const useFormDeleteBase = () => {
     try {
       await deleteCategory({
         variables: {
-          id: selectedCategory.id
+          input: {
+            id: selectedCategory.id
+          }
         }
       })
       alert.success('Категория удалена')

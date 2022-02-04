@@ -1,3 +1,3 @@
-export { CategoriesList } from './CategoriesList'
-export { CategoriesForm } from './CategoriesForm'
-export { CategoriesLoader } from './CategoriesLoader'
+export * from './CategoriesList'
+export * from './CategoriesForm'
+export * from './CategoriesLoader'

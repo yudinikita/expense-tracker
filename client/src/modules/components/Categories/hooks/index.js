@@ -1,1 +1,1 @@
-export { useValidationCategory } from './useValidationCategory'
+export * from './useValidationCategory'

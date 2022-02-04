@@ -25,7 +25,7 @@ export const useEditingTemplate = () => {
         await updateCategory({
           variables: {
             id: category?.id,
-            category: {
+            input: {
               title: editInput
             }
           }

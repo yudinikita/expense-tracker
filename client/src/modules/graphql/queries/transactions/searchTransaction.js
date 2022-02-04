@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const SEARCH_TRANSACTION = gql`
-  query searchTransaction($query: String) {
-    searchTransaction(query: $query) {
+  query searchTransaction($input: SearchTransactionInput!) {
+    searchTransaction(input: $input) {
       id
       amount
       category {

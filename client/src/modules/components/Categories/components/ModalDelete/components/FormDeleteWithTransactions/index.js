@@ -1,1 +1,1 @@
-export { FormDeleteWithTransactions } from './FormDeleteWithTransactions'
+export * from './FormDeleteWithTransactions'

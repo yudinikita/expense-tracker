@@ -1,2 +1,2 @@
-export { HelpPage } from './HelpPage'
-export { HelpDetailPage } from './HelpDetailPage'
+export * from './HelpPage'
+export * from './HelpDetailPage'

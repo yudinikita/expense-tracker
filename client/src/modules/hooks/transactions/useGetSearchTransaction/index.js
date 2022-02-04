@@ -1,1 +1,1 @@
-export { useGetSearchTransaction } from './useGetSearchTransaction'
+export * from './useGetSearchTransaction'

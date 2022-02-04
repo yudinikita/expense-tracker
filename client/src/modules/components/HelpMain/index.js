@@ -1,2 +1,2 @@
-export { HelpMain } from './HelpMain'
-export { HelpDetail } from './components/HelpDetail'
+export * from './HelpMain'
+export * from './components/HelpDetail'

@@ -1,1 +1,1 @@
-export { useRegistrationForm } from './useRegistrationForm'
+export * from './useRegistrationForm'

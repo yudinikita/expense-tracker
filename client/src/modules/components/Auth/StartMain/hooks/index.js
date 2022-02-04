@@ -1,1 +1,1 @@
-export { useStartMain } from './useStartMain'
+export * from './useStartMain'

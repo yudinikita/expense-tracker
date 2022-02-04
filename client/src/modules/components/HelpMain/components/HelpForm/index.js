@@ -1,1 +1,1 @@
-export { HelpForm } from './HelpForm'
+export * from './HelpForm'

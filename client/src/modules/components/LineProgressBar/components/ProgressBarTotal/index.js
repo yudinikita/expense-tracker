@@ -1,1 +1,1 @@
-export { ProgressBarTotal } from './ProgressBarTotal'
+export * from './ProgressBarTotal'

@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const TRANSACTIONS = gql`
-  query transactions($startDate: String, $endDate: String) {
-    transactions(startDate: $startDate, endDate: $endDate) {
+  query transactions($input: TransactionsInput) {
+    transactions(input: $input) {
       id
       amount
       category {

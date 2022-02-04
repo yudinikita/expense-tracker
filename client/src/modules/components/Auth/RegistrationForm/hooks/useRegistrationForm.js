@@ -24,7 +24,7 @@ export const useRegistrationForm = () => {
     try {
       const res = await registrationUser({
         variables: {
-          userInput: {
+          input: {
             email: formData.email,
             password: formData.password
           }

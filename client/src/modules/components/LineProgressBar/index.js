@@ -1,1 +1,1 @@
-export { LineProgressBar } from './LineProgressBar'
+export * from './LineProgressBar'

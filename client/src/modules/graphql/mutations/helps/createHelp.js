@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const CREATE_HELP = gql`
-  mutation createHelp($helpInput: HelpInput) {
-    createHelp(helpInput: $helpInput) {
+  mutation createHelp($input: CreateHelpInput!) {
+    createHelp(input: $input) {
       id
       title
       answer

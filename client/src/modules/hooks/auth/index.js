@@ -1,3 +1,3 @@
-export { useActivationUser } from './useActivationUser'
-export { useLoginUser } from './useLoginUser'
-export { useRegistrationUser } from './useRegistrationUser'
+export * from './useActivationUser'
+export * from './useLoginUser'
+export * from './useRegistrationUser'

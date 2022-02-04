@@ -1,1 +1,1 @@
-export { CategoriesLoader } from './CategoriesLoader'
+export * from './CategoriesLoader'

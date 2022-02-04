@@ -1,1 +1,1 @@
-export { DetailTransactionPage } from './DetailTransactionPage'
+export * from './DetailTransactionPage'

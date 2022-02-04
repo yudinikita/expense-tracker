@@ -1,1 +1,1 @@
-export { CardAnalyticLoader } from './CardAnalyticLoader'
+export * from './CardAnalyticLoader'

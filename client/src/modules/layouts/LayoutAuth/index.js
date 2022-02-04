@@ -1,1 +1,1 @@
-export { LayoutAuth } from './LayoutAuth'
+export * from './LayoutAuth'

@@ -37,7 +37,7 @@ export const useHelpForm = () => {
     if (dataForm?.problemTitle?.length > 1) {
       await setCreateHelp({
         variables: {
-          helpInput: {
+          input: {
             title: dataForm?.problemTitle,
             detail: dataForm?.problemDetail,
           }

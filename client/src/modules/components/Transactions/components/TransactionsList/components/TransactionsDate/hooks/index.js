@@ -1,1 +1,1 @@
-export { useTransactionsDate } from './useTransactionsDate'
+export * from './useTransactionsDate'

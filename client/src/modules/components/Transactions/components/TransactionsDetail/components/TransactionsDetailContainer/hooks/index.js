@@ -1,1 +1,1 @@
-export { useTransactionsDetailContainer } from './useTransactionsDetailContainer'
+export * from './useTransactionsDetailContainer'
