@@ -1,48 +1,42 @@
 import { AuthenticationError, ForbiddenError } from 'apollo-server-fastify'
-import { Resolvers } from '../../__generated__/graphql.types.gen.js'
+import { Resolvers, UserRegistrationInput } from '../../__generated__/graphql.types.gen.js'
 import { activate, inputValidation, login, registration } from '../../../service/user/index.js'
+import constants from '../../../constants/constants.js'
 
 export const resolvers: Resolvers = {
   Mutation: {
     registration: async (_root, args, _context, _info) => {
-      const email = args.userInput?.email ?? ''
-      const password = args.userInput?.password ?? ''
+      const email = args.input.email
+      const password = args.input.password
 
-      const userInput = await inputValidation({ email, password })
+      const validInput: UserRegistrationInput = await inputValidation.validateAsync({ email, password })
 
-      const userData = await registration(userInput.email, userInput.password)
+      const user = await registration(validInput.email, validInput.password)
 
-      return {
-        ...userData.user,
-        accessToken: userData.accessToken
-      }
+      return { ...user }
     },
     activate: async (_root, args, context, _info) => {
       const user = context?.user ?? null
 
-      if (user === null) throw new AuthenticationError('Ошибка авторизации')
-      if (user.isActivated) throw new ForbiddenError('Аккаунт уже активирован')
+      if (user === null) throw new AuthenticationError(constants.GRAPHQL.MESSAGE.AUTH_ERROR)
+      if (user.isActivated) throw new ForbiddenError(constants.GRAPHQL.MESSAGE.ACTIVATION_ERROR)
 
-      const activationCode = args.activationCode ?? ''
+      const activationCode = args.input?.code ?? ''
       const userId = user.id
 
-      const userData = await activate(userId, activationCode)
+      const activatedUser = await activate(userId, activationCode)
 
-      return {
-        ...userData.user,
-        accessToken: userData.accessToken
-      }
+      return { ...activatedUser }
     },
     login: async (_root, args, _context, _info) => {
-      const email = args.userInput?.email ?? ''
-      const password = args.userInput?.password ?? ''
+      const email = args.input.email
+      const password = args.input.password
 
-      const userData = await login(email, password)
+      const validInput: UserRegistrationInput = await inputValidation.validateAsync({ email, password })
 
-      return {
-        ...userData.user,
-        accessToken: userData.accessToken
-      }
+      const user = await login(validInput.email, validInput.password)
+
+      return { ...user }
     }
   }
 }
