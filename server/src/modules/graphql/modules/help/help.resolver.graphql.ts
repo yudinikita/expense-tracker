@@ -41,5 +41,17 @@ export const resolvers: Resolvers = {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
       }
     }
+  },
+  Help: {
+    id: parent => {
+      // @ts-expect-error
+      return parent._id
+    },
+    createdAt: parent => {
+      return new Date(parent.createdAt).toISOString()
+    },
+    updatedAt: parent => {
+      return new Date(parent.updatedAt).toISOString()
+    }
   }
 }
