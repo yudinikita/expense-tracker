@@ -1,15 +1,17 @@
 import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
+  type Query
+
   type Mutation {
-    registration(userInput: UserRegistrationInput): User!
-    login(userInput: UserLoginInput): User!
-    activate(activationCode: String): User!
+    registration(input: UserRegistrationInput!): User!
+    login(input: UserLoginInput!): User!
+    activate(input: UserActivateInput!): User!
   }
 
   type User {
     id: ID!
-    email: String
+    email: String!
     isActivated: Boolean!
     accessToken: String!
     settings: Settings!
@@ -23,5 +25,9 @@ export const typeDefs = gql`
   input UserRegistrationInput {
     email: String!
     password: String!
+  }
+
+  input UserActivateInput {
+    code: String!
   }
 `
