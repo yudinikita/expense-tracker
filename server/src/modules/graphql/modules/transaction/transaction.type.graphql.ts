@@ -2,15 +2,15 @@ import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
   type Query {
-    transactions(startDate: String, endDate: String): [Transaction!]!
-    transactionDetail(transactionId: ID): Transaction!
-    searchTransaction(query: String): [Transaction]
+    transactions(input: TransactionsInput): [Transaction]!
+    transactionDetail(input: TransactionDetailInput!): Transaction!
+    searchTransaction(input: SearchTransactionInput!): [Transaction]!
   }
 
   type Mutation {
-    createTransaction(transaction: TransactionInput): Transaction!
-    updateTransaction(id: ID, transaction: TransactionInput): Transaction!
-    deleteTransaction(id: ID): DeleteTransactionResponse!
+    createTransaction(input: TransactionInput!): Transaction!
+    deleteTransaction(input: DeleteTransactionInput!): DeleteTransactionPayload!
+    updateTransaction(input: UpdateTransactionInput!): Transaction!
   }
 
   type Transaction {
@@ -23,25 +23,42 @@ export const typeDefs = gql`
     updatedAt: String
   }
 
-  input TransactionInput {
-    amount: Int!
-    category: ID
-    commentary: String
-    createdAt: String
-    updatedAt: String
-  }
-
-  type DeleteTransactionResponse {
-    code: String!
+  type DeleteTransactionPayload {
     success: Boolean!
     message: String!
   }
 
+  input TransactionFilter {
+    gte: String
+    lte: String
+  }
+
+  input TransactionsInput {
+    filter: TransactionFilter
+  }
+
+  input TransactionDetailInput {
+    id: ID!
+  }
+
+  input SearchTransactionInput {
+    query: String!
+  }
+
   input TransactionInput {
     amount: Int!
     category: ID
     commentary: String
     createdAt: String
     updatedAt: String
+  }
+
+  input UpdateTransactionInput {
+    id: ID!
+    transaction: TransactionInput!
+  }
+
+  input DeleteTransactionInput {
+    id: ID!
   }
 `
