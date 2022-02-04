@@ -1,14 +1,9 @@
 import { TransactionModel } from '../../models/index.js'
-import pkg from 'mongoose'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
-
-export const updateTransactionsByCategory = async (id: string, newId: string): Promise<any> => {
-  const categoryId = new Types.ObjectId(id)
-  const newCategoryId = new Types.ObjectId(newId)
-
-  return await TransactionModel.updateMany(
-    { category: categoryId },
-    { $set: { category: newCategoryId } }
+export const updateTransactionsByCategory = async (id: string, newId: string): Promise<void> => {
+  await TransactionModel.updateMany(
+    { category: toObjectId(id) },
+    { $set: { category: toObjectId(newId) } }
   )
 }

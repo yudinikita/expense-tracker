@@ -1,8 +1,8 @@
 import { TransactionModel } from '../../models/index.js'
-import { DeleteTransactionInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { DeleteTransactionInput, DeleteTransactionPayload } from '../../graphql/__generated__/graphql.types.gen.js'
 import { toObjectId } from '../../utils/index.js'
 
-export const deleteTransaction = async (input: DeleteTransactionInput): Promise<any> => {
+export const deleteTransaction = async (input: DeleteTransactionInput): Promise<DeleteTransactionPayload> => {
   const deletedTransaction = await TransactionModel.deleteOne({ _id: toObjectId(input.id) })
 
   const isDeleted = deletedTransaction.deletedCount === 1

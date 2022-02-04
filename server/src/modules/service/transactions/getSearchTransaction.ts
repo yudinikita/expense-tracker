@@ -1,16 +1,16 @@
 import { TransactionModel } from '../../models/index.js'
-import { SearchTransactionInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { SearchTransactionInput, Transaction } from '../../graphql/__generated__/graphql.types.gen.js'
 import { toObjectId } from '../../utils/index.js'
 
-export const getSearchTransaction = async (userId: string, input: SearchTransactionInput): Promise<any> => {
+export const getSearchTransaction = async (userId: string, input: SearchTransactionInput): Promise<Transaction[]> => {
   const query = input?.query
 
-  if (query === undefined) return []
+  if (query === undefined || query === null || query === '') return []
 
   const patternFind = /[^A-Za-zА-Яа-яЁё0-9]+/g
   const querySearch = query.replace(patternFind, '')
 
-  if (querySearch === undefined) return []
+  if (querySearch === undefined || querySearch === null || querySearch === '') return []
 
   const amount = parseInt(querySearch) ?? null
   const commentary = String(querySearch) ?? null
@@ -27,14 +27,5 @@ export const getSearchTransaction = async (userId: string, input: SearchTransact
       .sort({ createdAt: -1 })
       .populate('category')
 
-  return transactionsFetched.map(transaction => {
-    const createdAt = new Date(transaction.createdAt).toISOString()
-    const updatedAt = new Date(transaction.updatedAt).toISOString()
-
-    return {
-      ...transaction.toJSON(),
-      createdAt,
-      updatedAt
-    }
-  })
+  return transactionsFetched
 }
