@@ -6,8 +6,8 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    updateUserPassword(userPasswordInput: UserPasswordInput): updateUserPasswordResponse!
-    updateUserSettings(settings: SettingsInput): Settings!
+    updateUserSettings(input: SettingsInput!): Settings!
+    updateUserPassword(input: UserPasswordInput!): updateUserPasswordResponse!
   }
 
   type Settings {
