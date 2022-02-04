@@ -1,31 +1,46 @@
 import { TransactionModel } from '../../models/index.js'
-import pkg from 'mongoose'
+import { Transaction, TransactionFilter, TransactionsInput } from '../../graphql/__generated__/graphql.types.gen.js'
 
-const { Types } = pkg
+export const getTransactions = async (userId: string, input?: TransactionsInput | null): Promise<Transaction[]> => {
+  const filter = input?.filter ? filterBuilder(input.filter) : {}
 
-export const getTransactions = async (id: string, startDate: string, endDate: string): Promise<any> => {
-  const userId = new Types.ObjectId(id)
-  const transactionsFetched =
-    await TransactionModel
-      .find({
-        user: userId,
-        createdAt: {
-          $gte: startDate,
-          $lte: endDate
-        }
-      })
-      .sort({ createdAt: -1 })
-      .populate('category')
+  const transactionsFetched = await TransactionModel
+    .find({
+      user: userId,
+      ...filter
+    })
+    .sort({ createdAt: -1 })
+    .populate('category')
 
   return transactionsFetched.map(transaction => {
-    const createdAt = new Date(transaction._doc.createdAt).toISOString()
-    const updatedAt = new Date(transaction._doc.updatedAt).toISOString()
+    const createdAt = new Date(transaction.createdAt).toISOString()
+    const updatedAt = new Date(transaction.updatedAt).toISOString()
 
     return {
-      ...transaction._doc,
-      _id: transaction.id,
+      ...transaction.toJSON(),
       createdAt,
       updatedAt
     }
   })
+}
+
+const filterBuilder = (filter: TransactionFilter): object => {
+  const f1 = { $gte: filter?.gte }
+  const f2 = { $lte: filter?.lte }
+
+  if (filter?.gte !== undefined && filter?.gte !== null
+    && filter?.lte !== undefined && filter?.lte !== null) {
+    return {
+      createdAt: {
+        $gte: new Date(filter.gte),
+        $lte: filter?.lte
+      }
+    }
+  } else if (filter?.gte !== undefined) {
+    return { createdAt: { f1 } }
+  } else if (filter?.lte !== undefined) {
+    return { createdAt: { f2 } }
+  }
+
+  return {}
 }
