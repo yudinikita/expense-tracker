@@ -13,8 +13,9 @@ const configModule: ModuleConfig = {
   typeDefs: typeDefs,
   resolvers: resolvers,
   middlewares: {
-    '*': {
-      '*': [authMiddleware]
+    Mutation: {
+      updateUserSettings: [authMiddleware],
+      updateUserPassword: [authMiddleware]
     }
   }
 }
