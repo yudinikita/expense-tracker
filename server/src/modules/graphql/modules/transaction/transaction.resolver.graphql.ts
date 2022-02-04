@@ -24,7 +24,7 @@ export const resolvers: Resolvers = {
     transactionDetail: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const input = args?.input
+        const input = args.input
         return await getTransactionDetail(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -33,7 +33,7 @@ export const resolvers: Resolvers = {
     searchTransaction: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const input = args?.input
+        const input = args.input
         return await getSearchTransaction(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -44,7 +44,7 @@ export const resolvers: Resolvers = {
     createTransaction: async (_root, args, context, _info) => {
       try {
         const userId = context.user.id
-        const input = args?.input
+        const input = args.input
         return await createTransaction(userId, input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -52,7 +52,7 @@ export const resolvers: Resolvers = {
     },
     deleteTransaction: async (_root, args, _context, _info) => {
       try {
-        const input = args?.input
+        const input = args.input
         return await deleteTransaction(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -60,7 +60,7 @@ export const resolvers: Resolvers = {
     },
     updateTransaction: async (_root, args, _context, _info) => {
       try {
-        const input = args?.input
+        const input = args.input
         return await updateTransaction(input)
       } catch (error) {
         throw new ApolloError(constants.GRAPHQL.MESSAGE.RESOLVER_ERROR)
@@ -71,6 +71,12 @@ export const resolvers: Resolvers = {
     id: parent => {
       // @ts-expect-error
       return parent._id
+    },
+    createdAt: parent => {
+      return new Date(parent.createdAt).toISOString()
+    },
+    updatedAt: parent => {
+      return new Date(parent.updatedAt).toISOString()
     }
   }
 }
