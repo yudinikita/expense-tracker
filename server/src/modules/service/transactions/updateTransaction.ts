@@ -1,15 +1,11 @@
-import pkg from 'mongoose'
 import { TransactionModel } from '../../models/index.js'
-import { TransactionInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { UpdateTransactionInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
-
-export const updateTransaction = async (id: string, transaction?: TransactionInput): Promise<any> => {
-  const transactionId = new Types.ObjectId(id)
-
+export const updateTransaction = async (input: UpdateTransactionInput): Promise<any> => {
   return await TransactionModel.findOneAndUpdate(
-    { _id: transactionId },
-    { $set: { ...transaction } },
-    { returnOriginal: false }
+    { _id: toObjectId(input.id) },
+    { $set: { ...input.transaction } },
+    { returnDocument: 'after' }
   ).populate('category')
 }
