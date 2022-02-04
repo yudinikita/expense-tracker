@@ -2,7 +2,7 @@ import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
   type Query {
-    balance(input: AnalyticsInput): Balance!
+    balance(input: AnalyticsInput): Balance
 
     analyticsBalance(input: AnalyticsInput): AnalyticsBalance!
     analyticsAverage(input: AnalyticsInput): AnalyticsBalance!
