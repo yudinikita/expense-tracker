@@ -1,15 +1,11 @@
 import { UserModel } from '../../../models/index.js'
-import { SettingsInput } from '../../../graphql/__generated__/graphql.types.gen.js'
-import pkg from 'mongoose'
+import { Settings, SettingsInput } from '../../../graphql/__generated__/graphql.types.gen.js'
 
-const { Types } = pkg
-
-export const updateUserSettings = async (id: string, settings?: SettingsInput): Promise<any> => {
-  const userId = new Types.ObjectId(id)
-  const user = await UserModel.findOneAndUpdate(
-    { _id: userId },
+export const updateUserSettings = async (userId: string, settings: SettingsInput): Promise<Settings> => {
+  const user = await UserModel.findByIdAndUpdate(
+    userId,
     { $set: { settings } },
-    { returnOriginal: false }
+    { returnDocument: 'after' }
   )
-  return user?.settings ?? {}
+  return user?.settings
 }
