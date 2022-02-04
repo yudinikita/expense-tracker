@@ -22,7 +22,11 @@ const constants = {
     MESSAGE: {
       RESOLVER_ERROR: 'Упс, произошла ошибка.',
       AUTH_ERROR: 'Ошибка авторизации',
-      FORBIDDEN_ERROR: 'Аккаунт не активирован'
+      FORBIDDEN_ERROR: 'Аккаунт не активирован',
+      ACTIVATION_ERROR: 'Аккаунт уже активирован',
+      ACTIVATION_CODE_ERROR: 'Аккаунт уже активирован',
+      USER_EXISTS: 'Пользователь с таким почтовым адресом уже существует',
+      LOGIN_ERROR: 'Неправильный логин или пароль'
     }
   }
 }
