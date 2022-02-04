@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { MyApolloProvider } from './apollo'
+import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 
 const $root = document.getElementById('root')
-ReactDOM.render(<MyApolloProvider />, $root)
+ReactDOM.render(<App />, $root)
 
 reportWebVitals()
