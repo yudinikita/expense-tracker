@@ -1,23 +1,18 @@
 import { TransactionModel } from '../../models/index.js'
-import pkg from 'mongoose'
+import { TransactionDetailInput } from '../../graphql/__generated__/graphql.types.gen.js'
+import { toObjectId } from '../../utils/index.js'
 
-const { Types } = pkg
-
-export const getTransactionDetail = async (userId: string, transactionId: string): Promise<any> => {
-  const _userId = new Types.ObjectId(userId)
-  const _transactionId = new Types.ObjectId(transactionId)
-
+export const getTransactionDetail = async (userId: string, input: TransactionDetailInput): Promise<any> => {
   const transactionFetched = await TransactionModel.findOne({
-    user: _userId,
-    _id: _transactionId
+    user: toObjectId(userId),
+    _id: input.id
   }).populate('category')
 
   const createdAt = new Date(transactionFetched.createdAt).toISOString()
   const updatedAt = new Date(transactionFetched.updatedAt).toISOString()
 
   return {
-    ...transactionFetched,
-    _id: transactionFetched.id,
+    ...transactionFetched.toJSON(),
     createdAt,
     updatedAt
   }
