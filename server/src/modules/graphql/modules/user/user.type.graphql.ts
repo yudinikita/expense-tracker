@@ -1,8 +1,6 @@
 import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
-  type Query
-
   type Mutation {
     registration(input: UserRegistrationInput!): User!
     login(input: UserLoginInput!): User!
