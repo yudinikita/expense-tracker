@@ -21,11 +21,9 @@
     "./src"
   ],
   "exclude": [
-    "__tests__"
-  ],
-  "references": [
-    {
-      "path": "../shared"
-    }
+    "__tests__/**",
+    "**/*.test.ts",
+    "**/*.mock.ts",
+    "**/*.spec.ts"
   ]
 }

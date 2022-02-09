@@ -6,10 +6,5 @@
     "noUnusedParameters": false,
     "allowUnreachableCode": true,
     "allowUnusedLabels": true
-  },
-  "references": [
-    {
-      "path": "../shared"
-    }
-  ]
+  }
 }
