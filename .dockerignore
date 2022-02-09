@@ -5,6 +5,8 @@ node_modules
 **/node_modules
 npm-debug.log
 .env
+!.env.production
 README.md
 LICENSE
 .idea
+**/--tests__/**
