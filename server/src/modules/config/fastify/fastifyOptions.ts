@@ -1,3 +1,4 @@
+import 'pino-pretty'
 import { FastifyServerOptions } from 'fastify'
 
 export const fastifyOptions: FastifyServerOptions = {
