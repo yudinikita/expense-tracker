@@ -16,8 +16,7 @@ const STATIC_CONFIG = {
   }
 }
 
-const pathStatic = path.join(_dirname, STATIC_CONFIG.PATHS.CLIENT, STATIC_CONFIG.PATHS.BUILD)
-const root = path.join(pathStatic, STATIC_CONFIG.PATHS.FILE_NAME)
+const root = path.join(_dirname, '..', '..', '..', '..', '..', STATIC_CONFIG.PATHS.CLIENT, STATIC_CONFIG.PATHS.BUILD)
 
 export const staticOptions = {
   root,
@@ -25,7 +24,7 @@ export const staticOptions = {
 }
 
 async function handler (_request: FastifyRequest, reply: FastifyReply): Promise<void> {
-  await reply.sendFile(STATIC_CONFIG.PATHS.FILE_NAME, pathStatic)
+  await reply.sendFile(STATIC_CONFIG.PATHS.FILE_NAME)
 }
 
 export const staticRoute: RouteOptions = {
