@@ -1,5 +1,5 @@
 {
-  "name": "expence-tracker",
+  "name": "expense-tracker",
   "version": "0.0.0-development",
   "license": "MIT",
   "description": "A simple tool for keeping track of personal finances.",
@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "server": "yarn --cwd server start",
     "server:build": "yarn --cwd server build",
+    "server:ts": "yarn --cwd server ts:build",
     "server:install": "yarn --cwd server install",
     "client": "yarn --cwd client start",
     "client:build": "yarn --cwd client build",
@@ -62,7 +63,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.2.2",
     "semantic-release": "^19.0.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   },
   "keywords": [
     "js",
