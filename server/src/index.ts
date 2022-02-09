@@ -14,6 +14,6 @@ initConfig()
 
     startServer()
       .then(() => console.log(colors.bold.green('Happy Expenses! ️❤ ')))
-      .catch(() => console.log('Error server starting!'))
+      .catch((e) => console.log('Error server starting!', e))
   })
   .catch(() => console.log('Error init config!'))
