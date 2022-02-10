@@ -2,6 +2,7 @@ import { createApplication } from 'graphql-modules'
 import {
   AnalyticModule,
   CategoryModule,
+  CommonModule,
   HelpModule,
   TransactionModule,
   UserModule,
@@ -10,11 +11,12 @@ import {
 
 export const application = createApplication({
   modules: [
-    UserModule,
-    UserSettingsModule,
-    CategoryModule,
-    TransactionModule,
     AnalyticModule,
-    HelpModule
+    CategoryModule,
+    CommonModule,
+    HelpModule,
+    TransactionModule,
+    UserModule,
+    UserSettingsModule
   ]
 })
