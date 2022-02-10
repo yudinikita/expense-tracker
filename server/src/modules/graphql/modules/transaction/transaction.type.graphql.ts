@@ -2,25 +2,37 @@ import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
   type Query {
+    "User transactions."
     transactions(input: TransactionsInput): [Transaction]!
+    "User transaction detail."
     transactionDetail(input: TransactionDetailInput!): Transaction!
+    "Search transactions."
     searchTransaction(input: SearchTransactionInput!): [Transaction]!
   }
 
   type Mutation {
+    "Create one transaction."
     createTransaction(input: TransactionInput!): Transaction!
+    "Delete one transaction."
     deleteTransaction(input: DeleteTransactionInput!): DeleteTransactionPayload!
+    "Update transaction info."
     updateTransaction(input: UpdateTransactionInput!): Transaction!
   }
 
   type Transaction {
+    "ID of the transaction."
     id: ID!
-    user: ID!
+    "Amount of the transaction."
     amount: Int!
+    "Category of the transaction."
     category: Category
+    "Commentary of the transaction."
     commentary: String
+    "CreatedAt of the transaction."
     createdAt: String!
+    "UpdatedAt of the transaction."
     updatedAt: String!
+    user: ID!
   }
 
   type DeleteTransactionPayload {
