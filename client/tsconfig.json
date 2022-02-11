@@ -1,0 +1,36 @@
+{
+  "extends": "./tsconfig.checks.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "ES2020",
+    "target": "ES2021",
+    "lib": [
+      "ES2021",
+      "dom"
+    ],
+    "rootDir": "./src",
+    "outDir": "./build",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "__tests__/**",
+    "**/*.test.ts",
+    "**/*.mock.ts",
+    "**/*.spec.ts"
+  ]
+}
