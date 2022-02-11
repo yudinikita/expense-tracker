@@ -4,17 +4,20 @@ import { clearTestDb, connectTestDb, disconnectTestDb } from '../../../../config
 import UserSettingsModule from '../userSettings.module.graphql.js'
 import { getContext, testUserInput } from '../../../../utils/test/index.js'
 import { Settings, UserPasswordInput } from '../../../__generated__/graphql.types.gen.js'
+import { CommonModule } from '../../common/index.js'
 
 describe('GraphQL modules', () => {
 
-  describe('User Settings', () => {
+  describe('User Settings resolvers', () => {
 
     let app: Application
 
     beforeAll(async () => {
       await connectTestDb()
 
-      app = testkit.testModule(UserSettingsModule)
+      app = testkit.testModule(UserSettingsModule, {
+        inheritTypeDefs: [CommonModule]
+      })
     })
 
     afterEach(async () => {
@@ -23,10 +26,6 @@ describe('GraphQL modules', () => {
 
     afterAll(async () => {
       await disconnectTestDb()
-    })
-
-    it('should be defined', () => {
-      expect(app.schema.getQueryType()).toBeDefined()
     })
 
     it('should return default settings', async () => {

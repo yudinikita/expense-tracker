@@ -1,0 +1,60 @@
+import 'reflect-metadata'
+import { Application, gql, testkit } from 'graphql-modules'
+import AnalyticModule from '../analytic.module.graphql.js'
+import CategoryModule from '../../category/category.module.graphql.js'
+import { clearTestDb, connectTestDb, disconnectTestDb } from '../../../../config/database/index.js'
+import { getContext } from '../../../../utils/test/index.js'
+
+describe('GraphQL modules', () => {
+
+  describe('Analytic resolvers', () => {
+
+    describe('Analytics expense', () => {
+
+      let app: Application
+
+      beforeAll(async () => {
+        await connectTestDb()
+
+        app = testkit.testModule(AnalyticModule, {
+          inheritTypeDefs: [CategoryModule]
+        })
+      })
+
+      afterEach(async () => {
+        await clearTestDb()
+      })
+
+      afterAll(async () => {
+        await disconnectTestDb()
+      })
+
+      it('should return analytics expense with empty array', async () => {
+        const analyticsExpenseResponse = await testkit.execute(app, {
+          document: ANALYTICS_EXPENSE,
+          contextValue: await getContext()
+        })
+
+        expect(analyticsExpenseResponse.errors).toBeUndefined()
+        expect(analyticsExpenseResponse.data).toEqual({
+          analyticsExpense: []
+        })
+      })
+
+    })
+
+  })
+
+})
+
+const ANALYTICS_EXPENSE = gql`
+  query {
+    analyticsExpense {
+      amount
+      category {
+        id
+        title
+      }
+    }
+  }
+`

@@ -1,6 +1,8 @@
 import { gql } from 'graphql-modules'
 
 export const typeDefs = gql`
+  type Query
+
   type Mutation {
     "User registration."
     registration(input: UserRegistrationInput!): User!
@@ -23,7 +25,7 @@ export const typeDefs = gql`
     "The user's settings."
     settings: Settings!
   }
-  
+
   input UserLoginInput {
     email: String!
     password: String!
@@ -38,12 +40,4 @@ export const typeDefs = gql`
     "The email activation code."
     code: String!
   }
-
-  #  "The response from the User mutations."
-  #  type UserResponse implements MutationResponse {
-  #    code: String!
-  #    success: Boolean!
-  #    message: String!
-  #    user: User
-  #  }
 `
