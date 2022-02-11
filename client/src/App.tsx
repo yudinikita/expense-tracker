@@ -13,6 +13,7 @@ export const App = () => (
         authType='localstorage'
         authName='_auth'
       >
+        {/* @ts-ignore */}
         <AlertProvider template={MyAlert} {...optionsAlert}>
           <RouteComponent />
         </AlertProvider>
