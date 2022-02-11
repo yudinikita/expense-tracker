@@ -1,6 +1,6 @@
 import { RetryLink } from '@apollo/client/link/retry'
 
-const retryOptions = {
+const retryOptions: RetryLink.Options = {
   delay: {
     initial: 300,
     max: Infinity,

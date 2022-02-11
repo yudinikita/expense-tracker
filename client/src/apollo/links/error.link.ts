@@ -12,7 +12,7 @@ export const errorLink = onError(({
 }) => {
   if (graphQLErrors) {
     for (let err of graphQLErrors) {
-      switch (err.extensions.code) {
+      switch (err.extensions['code']) {
         case 'UNAUTHENTICATED':
           logout()
       }
