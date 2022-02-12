@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { useGetUserSettings, useSetUpdateUserSettings } from '../hooks'
-import { Settings } from '../graphql/models/models.gen.js'
+import { Settings } from '../graphql/__generated__/graphql.gen.js'
 
 interface SettingsContextInterface {
   settings: Settings,
