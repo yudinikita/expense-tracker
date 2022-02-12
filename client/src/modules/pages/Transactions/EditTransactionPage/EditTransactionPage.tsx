@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useGetTransactionDetail } from '../../../hooks'
 
 export const EditTransactionPage = () => {
-  const transactionId = useParams().id
+  const transactionId = useParams()?.['id']
 
   const { transaction, loading, error } = useGetTransactionDetail(transactionId)
 
