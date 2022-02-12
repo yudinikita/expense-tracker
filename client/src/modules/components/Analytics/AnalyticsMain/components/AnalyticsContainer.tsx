@@ -1,11 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { AnalyticsBalance, AnalyticsExpense, AnalyticsIncome } from '../../..'
+
+const propTypes = {
+  typeAnalytic: PropTypes.string,
+  date: PropTypes.exact({
+    activeDate: PropTypes.instanceOf(Date).isRequired,
+    startDate: PropTypes.instanceOf(Date).isRequired,
+    endDate: PropTypes.instanceOf(Date).isRequired
+  }).isRequired
+}
 
 export const AnalyticsContainer = ({
   typeAnalytic,
   date
-}) => {
+}: InferProps<typeof propTypes>) => {
   switch (typeAnalytic) {
     case 'balance':
       return (<AnalyticsBalance date={date} />)
@@ -18,11 +27,4 @@ export const AnalyticsContainer = ({
   }
 }
 
-AnalyticsContainer.propTypes = {
-  typeAnalytic: PropTypes.string,
-  date: PropTypes.exact({
-    activeDate: PropTypes.instanceOf(Date),
-    startDate: PropTypes.instanceOf(Date),
-    endDate: PropTypes.instanceOf(Date)
-  }),
-}
+AnalyticsContainer.propTypes = propTypes

@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import styles from '../../AnalyticsMain.module.scss'
 
 const propTypes = {
-  handleCheckboxClick: PropTypes.func,
+  handleCheckboxClick: PropTypes.func.isRequired,
 }
 
-export const Checkbox = ({ handleCheckboxClick }) => {
+export const Checkbox = ({ handleCheckboxClick }: InferProps<typeof propTypes>) => {
   return (
     <div className={styles.tabs}>
       <div className={'groupCheckbox ' + styles.tabsGroup}>
