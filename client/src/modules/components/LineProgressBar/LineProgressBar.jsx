@@ -11,8 +11,12 @@ const propTypes = {
   array: PropTypes.array,
 }
 
+const defaultProps = {
+  amount: 0
+}
+
 export const LineProgressBar = ({
-  percent = 0,
+  percent,
   height,
   width,
   color,
@@ -39,3 +43,4 @@ export const LineProgressBar = ({
 }
 
 LineProgressBar.propTypes = propTypes
+LineProgressBar.defaultProps = defaultProps
