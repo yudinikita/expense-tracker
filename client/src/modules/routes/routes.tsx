@@ -31,6 +31,7 @@ import browserHistory from '../../browserHistory'
 
 export const RouteComponent = () => {
   return (
+    // @ts-ignore
     <Router history={browserHistory}>
       <Routes>
         <Route element={<PublicRoutes />}>
