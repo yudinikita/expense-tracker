@@ -3,19 +3,28 @@ import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { useGetUserSettings, useSetUpdateUserSettings } from '../hooks'
+import { Settings } from '../graphql/models/models.gen.js'
 
-export const SettingsContext = React.createContext(null)
+interface SettingsContextInterface {
+  settings: Settings,
+  saveSettings: Function
+}
 
-const defaultSettings = {
+export const SettingsContext = React.createContext<SettingsContextInterface | null>(null)
+
+type Props = {
+  settings?: Settings
+}
+
+const defaultSettings: Settings = {
   theme: 'dark',
   language: 'ru',
   currency: 'RUB'
 }
 
-export const SettingsProvider = ({ settings }) => {
-  const [currentSettings, setCurrentSettings] = useState(
-    settings || defaultSettings
-  )
+export const SettingsProvider = ({ settings }: Props) => {
+  const state = settings || defaultSettings
+  const [currentSettings, setCurrentSettings] = useState<Settings>(state)
   const alert = useAlert()
 
   const { userSettings, loading, error } = useGetUserSettings()
@@ -33,7 +42,7 @@ export const SettingsProvider = ({ settings }) => {
     }
   }, [userSettings, loading, error])
 
-  const saveSettings = async (values) => {
+  const saveSettings = async (values: Settings) => {
     const newSettings = {
       ...settings,
       ...values
