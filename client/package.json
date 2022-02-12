@@ -12,6 +12,36 @@
     "lint": "ts-standard --verbose | snazzy",
     "lint:fix": "ts-standard --fix --verbose | snazzy"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json",
+    "files": [
+      "src"
+    ],
+    "ignore": [
+      "build",
+      "__generated__",
+      "__tests__",
+      "src/**/*.gen.ts",
+      "src/**/*.js"
+    ]
+  },
   "dependencies": {
     "@apollo/client": "^3.5.7",
     "@apollo/react-hooks": "^4.0.0",
@@ -45,17 +75,5 @@
     "@babel/plugin-transform-react-jsx-source": "^7.16.7",
     "graphql-tag": "^2.12.6",
     "ts-standard": "^11.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 2 chrome version",
-      "last 2 firefox version",
-      "last 2 safari version"
-    ]
   }
 }
