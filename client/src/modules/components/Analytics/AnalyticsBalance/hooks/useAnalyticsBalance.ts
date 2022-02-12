@@ -1,16 +1,30 @@
 import { useEffect, useState } from 'react'
-import { useGetAnalyticsBalance } from '../../../../hooks'
+import { useAnalyticsBalanceQuery } from '../../../../graphql/__generated__/graphql.gen'
 
-export const useAnalyticsBalance = (startDate, endDate) => {
-  const defaultAnalytics = { amount: 0, percent: 0 }
+const defaultAnalytics = { amount: 0, percent: 0 }
+
+export const useAnalyticsBalance = (startDate?: Date, endDate?: Date) => {
   const [income, setIncome] = useState(defaultAnalytics)
   const [expense, setExpense] = useState(defaultAnalytics)
   const [remainder, setRemainder] = useState(defaultAnalytics)
 
-  const { analyticsBalance, loading, error } = useGetAnalyticsBalance(startDate, endDate)
+  const { data, loading, error } = useAnalyticsBalanceQuery({
+    variables: {
+      input: {
+        filter: {
+          date: {
+            gte: startDate?.toDateString(),
+            lte: endDate?.toDateString()
+          }
+        }
+      }
+    }
+  })
 
   useEffect(() => {
-    if (!loading && !error) {
+    if (!loading && !error && data?.analyticsBalance) {
+      const analyticsBalance = data?.analyticsBalance
+
       const totalTransaction = Math.abs(analyticsBalance.income) + Math.abs(analyticsBalance.expense) || 0
 
       const incomePercentage = Math.abs(analyticsBalance.income / totalTransaction) * 100 || 0
@@ -32,7 +46,7 @@ export const useAnalyticsBalance = (startDate, endDate) => {
         percent: remainderPercentage
       })
     }
-  }, [analyticsBalance, loading, error])
+  }, [data?.analyticsBalance, loading, error])
 
   const analyticsItems = [
     { id: 0, title: 'Доход', amount: income.amount, percent: income.percent, color: '#009e0d' },
