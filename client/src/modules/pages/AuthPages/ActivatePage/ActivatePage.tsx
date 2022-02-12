@@ -7,7 +7,7 @@ export const ActivatePage = () => {
   const auth = useAuthUser()
   const isAuthenticated = useIsAuthenticated()
 
-  const isActivated = auth()?.isActivated
+  const isActivated = auth()?.['isActivated']
 
   if (!isAuthenticated()) return <Navigate to={'/start'} />
   if (isActivated) return <Navigate to={'/'} />
