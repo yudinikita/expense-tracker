@@ -12,6 +12,7 @@
     "outDir": "./build",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "sourceMap": true,
