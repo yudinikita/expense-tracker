@@ -1,12 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { ModalDeleteContext } from '../ModalDelete/context'
 import { CategoriesListItem } from './components'
 import { ModalDelete } from '../ModalDelete'
 import { useCategoriesList } from './hooks'
 import styles from './CategoriesList.module.scss'
+import { Category } from '../../../../graphql/__generated__/graphql.gen'
 
-export const CategoriesList = ({ categories }) => {
+type Props = {
+  categories: Category[]
+}
+
+export const CategoriesList: React.FC<Props> = ({ categories }) => {
   const {
     selectedCategory,
     modalIsOpen,
@@ -38,8 +42,4 @@ export const CategoriesList = ({ categories }) => {
       </ModalDeleteContext.Provider>
     </div>
   )
-}
-
-CategoriesList.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.object)
 }

@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import { useMutation } from '@apollo/client'
-import { CREATE_CATEGORY } from '../../../../../graphql/mutations'
+import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useValidationCategory } from '../../../hooks'
 import { useAlert } from 'react-alert'
+import { useCreateCategoryMutation } from '../../../../../graphql/__generated__/graphql.gen'
 
 export const useCategoriesForm = () => {
   const alert = useAlert()
   const [inputCategory, setInputCategory] = useState('')
   const { isValid, messageFailed } = useValidationCategory(inputCategory)
 
-  const [createCategory, { loading }] = useMutation(CREATE_CATEGORY, {
+  const [createCategory, { loading }] = useCreateCategoryMutation({
     refetchQueries: ['categories']
   })
-  
-  const onSubmitForm = async e => {
+
+  const onSubmitForm = async (e: SyntheticEvent) => {
     e.preventDefault()
+
     if (isValid) {
       try {
         await createCategory({
@@ -35,7 +35,7 @@ export const useCategoriesForm = () => {
     }
   }
 
-  const onChangeInput = async e => {
+  const onChangeInput: ChangeEventHandler<HTMLInputElement> = async (e) => {
     setInputCategory(e.target.value)
   }
 

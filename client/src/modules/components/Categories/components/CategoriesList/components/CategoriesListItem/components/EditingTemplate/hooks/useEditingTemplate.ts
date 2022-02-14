@@ -1,9 +1,8 @@
-import { useContext, useState } from 'react'
+import { ChangeEventHandler, useContext, useState } from 'react'
 import { CategoriesListItemContext } from '../../../context'
 import { useValidationCategory } from '../../../../../../../hooks'
-import { useMutation } from '@apollo/client'
-import { UPDATE_CATEGORY } from '../../../../../../../../../graphql/mutations'
 import { useAlert } from 'react-alert'
+import { useUpdateCategoryMutation } from '../../../../../../../../../graphql/__generated__/graphql.gen'
 
 export const useEditingTemplate = () => {
   const alert = useAlert()
@@ -11,11 +10,11 @@ export const useEditingTemplate = () => {
   const [editInput, setEditInput] = useState(category?.title)
   const { isValid, messageFailed } = useValidationCategory(editInput)
 
-  const [updateCategory, { loading }] = useMutation(UPDATE_CATEGORY, {
+  const [updateCategory, { loading }] = useUpdateCategoryMutation({
     refetchQueries: ['categories']
   })
 
-  const onChangeEditInput = (e) => {
+  const onChangeEditInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setEditInput(e.target.value)
   }
 

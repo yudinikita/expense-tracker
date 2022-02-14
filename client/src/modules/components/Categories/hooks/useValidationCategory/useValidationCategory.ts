@@ -1,7 +1,7 @@
 import { checkUnique, checkValidLength } from './utils/validations'
 import { useGetCategories } from '../../../../hooks'
 
-export const useValidationCategory = (verifiableTitle) => {
+export const useValidationCategory = (verifiableTitle: string) => {
   const { categories } = useGetCategories()
 
   const isUnique = checkUnique(categories, verifiableTitle)

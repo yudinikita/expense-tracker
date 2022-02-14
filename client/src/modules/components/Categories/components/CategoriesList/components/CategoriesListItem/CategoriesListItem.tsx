@@ -1,11 +1,23 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { CategoriesListItemContext } from './context'
 import { EditingTemplate, ViewTemplate } from './components'
 import styles from './CategoriesListItem.module.scss'
+import { Category } from '../../../../../../graphql/__generated__/graphql.gen.js'
 
-export const CategoriesListItem = ({ category, openModalDelete, selectCategory }) => {
+type Props = {
+  category: Category
+  openModalDelete: Function
+  selectCategory: (category: Category) => void
+}
+
+export const CategoriesListItem: React.FC<Props> = ({
+  category,
+  openModalDelete,
+  selectCategory
+}) => {
   const [isEditing, setEditing] = useState(false)
+
+  const renderTemplate = () => isEditing ? <EditingTemplate /> : <ViewTemplate />
 
   return (
     <CategoriesListItemContext.Provider
@@ -17,18 +29,8 @@ export const CategoriesListItem = ({ category, openModalDelete, selectCategory }
       }}
     >
       <div className={styles.item}>
-        {isEditing ? <EditingTemplate /> : <ViewTemplate />}
+        {renderTemplate()}
       </div>
     </CategoriesListItemContext.Provider>
   )
-}
-
-CategoriesListItem.propTypes = {
-  category: PropTypes.exact({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    __typename: PropTypes.string,
-  }),
-  openModalDelete: PropTypes.func,
-  selectCategory: PropTypes.func,
 }

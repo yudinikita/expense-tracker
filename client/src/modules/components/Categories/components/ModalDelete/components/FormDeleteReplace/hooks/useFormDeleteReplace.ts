@@ -1,24 +1,24 @@
-import { useContext, useState } from 'react'
+import { ChangeEventHandler, useContext, useState } from 'react'
 import { ModalDeleteContext } from '../../../context'
-import { useMutation, useQuery } from '@apollo/client'
-import { CATEGORIES } from '../../../../../../../graphql/queries'
-import { DELETE_CATEGORY_REPLACE } from '../../../../../../../graphql/mutations'
 import { useAlert } from 'react-alert'
+import {
+  useCategoriesQuery,
+  useDeleteCategoryReplaceMutation
+} from '../../../../../../../graphql/__generated__/graphql.gen'
 
 export const useFormDeleteReplace = () => {
   const alert = useAlert()
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
-  const [selectReplaceId, setSelectReplaceId] = useState()
+  const [selectReplaceId, setSelectReplaceId] = useState<string | null>(null)
 
-  const { data } = useQuery(CATEGORIES)
+  const { data } = useCategoriesQuery()
 
-  const onReplaceSelect = (e) => {
+  const onReplaceSelect: ChangeEventHandler<HTMLSelectElement> = (e) => {
     setSelectReplaceId(e.target.value)
   }
 
-  const [deleteCategoryReplace, { loading, error }] = useMutation(
-    DELETE_CATEGORY_REPLACE,
+  const [deleteCategoryReplace, { loading, error }] = useDeleteCategoryReplaceMutation(
     {
       refetchQueries: [
         'categories',

@@ -1,15 +1,13 @@
 import { useContext } from 'react'
 import { ModalDeleteContext } from '../../../context'
-import { useMutation } from '@apollo/client'
-import { DELETE_CATEGORY_WITH_TRANSACTIONS } from '../../../../../../../graphql/mutations'
 import { useAlert } from 'react-alert'
+import { useDeleteCategoryWithTransactionsMutation } from '../../../../../../../graphql/__generated__/graphql.gen'
 
 export const useFormDeleteWithTransactions = () => {
   const alert = useAlert()
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
-  const [deleteCategoryWithTransactions, { error, loading }] = useMutation(
-    DELETE_CATEGORY_WITH_TRANSACTIONS,
+  const [deleteCategoryWithTransactions, { error, loading }] = useDeleteCategoryWithTransactionsMutation(
     {
       refetchQueries: [
         'categories',
