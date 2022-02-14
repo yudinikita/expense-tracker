@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignIn } from 'react-auth-kit'
 import { useAlert } from 'react-alert'
 import { useRegistrationUser } from '../../../../hooks'
 import { EXPIRES_IN } from '../../../../data/constants'
+import { UserRegistrationInput } from '../../../../graphql/__generated__/graphql.gen.js'
 
-const defaultFormData = {
+const defaultFormData: UserRegistrationInput = {
   email: '',
   password: ''
 }
@@ -19,43 +20,44 @@ export const useRegistrationForm = () => {
 
   const { registrationUser, loading, error } = useRegistrationUser()
 
-  const onSubmit = async e => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
-    try {
-      const res = await registrationUser({
-        variables: {
-          input: {
-            email: formData.email,
-            password: formData.password
-          }
+
+    const res = await registrationUser({
+      variables: {
+        input: {
+          email: formData.email,
+          password: formData.password
         }
-      })
-      const userData = res?.data?.registration
-      if (userData) {
-        if (signIn({
-          token: userData.accessToken,
-          expiresIn: EXPIRES_IN,
-          tokenType: 'Bearer',
-          authState: {
-            userId: userData.id,
-            isActivated: userData.isActivated,
-            email: userData.email
-          }
-        })) {
-          navigate('/')
-        }
-      } else {
-        alert.error('Ошибка при регистрации')
       }
-    } catch (e) {
-      return null
+    })
+
+    const userData = res?.data?.registration
+
+    if (userData) {
+      if (signIn({
+        token: userData.accessToken,
+        expiresIn: EXPIRES_IN,
+        tokenType: 'Bearer',
+        authState: {
+          userId: userData.id,
+          isActivated: userData.isActivated,
+          email: userData.email
+        }
+      })) {
+        navigate('/')
+      }
+    } else {
+      alert.error('Ошибка при регистрации')
     }
   }
 
-  const onChange = (e) => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault()
+    
     const type = e.target.id
     const value = e.target.value
+
     switch (type) {
       case 'email':
         setFormData({
