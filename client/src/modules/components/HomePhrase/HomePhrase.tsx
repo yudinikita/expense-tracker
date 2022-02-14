@@ -1,8 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useHomePhrase } from './hooks/useHomePhrase'
 
-export const HomePhrase = ({ style }) => {
+type Props = {
+  style: React.CSSProperties
+}
+
+export const HomePhrase = ({ style }: Props) => {
   const { phrase } = useHomePhrase()
 
   return (
@@ -10,9 +13,4 @@ export const HomePhrase = ({ style }) => {
       {phrase}
     </p>
   )
-}
-
-HomePhrase.propTypes = {
-  style: PropTypes.object,
-  phrase: PropTypes.string,
 }

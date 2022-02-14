@@ -1,4 +1,4 @@
-import { getRandomItems } from '../../../utils'
+import { getRandomItem } from '../../../utils'
 import { homePhrases } from '../../../data'
 
 export const useHomePhrase = () => {
@@ -9,7 +9,7 @@ export const useHomePhrase = () => {
       return sessionPhrase
     }
 
-    const randomPhrase = getRandomItems(homePhrases)
+    const randomPhrase = getRandomItem<string>(homePhrases)
 
     window.sessionStorage.setItem('homePhrases', randomPhrase)
 
