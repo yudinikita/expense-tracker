@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignIn } from 'react-auth-kit'
 import { useLoginUser } from '../../../../hooks'
 import { EXPIRES_IN } from '../../../../data/constants'
+import { UserLoginInput } from '../../../../graphql/__generated__/graphql.gen.js'
 
-const defaultFormData = {
+const defaultFormData: UserLoginInput = {
   email: '',
   password: ''
 }
@@ -17,39 +18,40 @@ export const useLoginForm = () => {
 
   const { loginUser, loading, error } = useLoginUser()
 
-  const onSubmit = async e => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
-    try {
-      const res = await loginUser({
-        variables: {
-          input: {
-            email: formData.email,
-            password: formData.password
-          }
+
+    const res = await loginUser({
+      variables: {
+        input: {
+          email: formData.email,
+          password: formData.password
+        }
+      }
+    })
+
+    const userData = res?.data?.login
+
+    if (userData) {
+      signIn({
+        token: userData.accessToken,
+        expiresIn: EXPIRES_IN,
+        tokenType: 'Bearer',
+        authState: {
+          userId: userData.id,
+          isActivated: userData.isActivated,
+          email: userData.email
         }
       })
-      const userData = res?.data?.login
-      if (userData) {
-        signIn({
-          token: userData.accessToken,
-          expiresIn: EXPIRES_IN,
-          tokenType: 'Bearer',
-          authState: {
-            userId: userData.id,
-            isActivated: userData.isActivated,
-            email: userData.email
-          }
-        })
-      }
-    } catch (e) {
-      return null
     }
   }
 
-  const onChange = (e) => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault()
+
     const type = e.target.id
     const value = e.target.value
+
     switch (type) {
       case 'email':
         setFormData({
