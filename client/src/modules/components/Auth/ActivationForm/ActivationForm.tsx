@@ -27,7 +27,7 @@ export const ActivationForm = () => {
             id='activationCode'
             inputMode='numeric'
             autoComplete='one-time-code'
-            maxLength='3'
+            maxLength={3}
             autoFocus
             pattern='[0-9]*'
             placeholder=' '

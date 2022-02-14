@@ -1,24 +1,28 @@
-import { useEffect } from 'react'
+import { ChangeEventHandler, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAuthUser, useSignIn } from 'react-auth-kit'
-import { useActivationUser } from '../../../../hooks'
+import { useActivateMutation } from '../../../../graphql/__generated__/graphql.gen'
 
 export const useActivationForm = () => {
   const auth = useAuthUser()
   const signIn = useSignIn()
 
-  const email = auth()?.email || ''
-  const activationCodeFromLink = useParams()?.code
+  const email = auth()?.['email'] ?? ''
+  const activationCodeFromLink = useParams()?.['code']
 
-  const { activateUser, error, loading } = useActivationUser()
+  const [activateUser, { error, loading }] = useActivateMutation()
 
-  useEffect(async () => {
+  useEffect(() => {
     if (activationCodeFromLink) {
-      await authUser(activationCodeFromLink)
+      const getAuthUser = async () => {
+        await authUser(activationCodeFromLink.toString())
+      }
+
+      getAuthUser().catch(console.error)
     }
   }, [activationCodeFromLink])
-
-  const authUser = async (code) => {
+  
+  const authUser = async (code: string) => {
     const response = await activateUser({
       variables: {
         input: {
@@ -43,7 +47,7 @@ export const useActivationForm = () => {
     }
   }
 
-  const onChange = async (e) => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = async (e) => {
     const value = e.target.value
     if (value.length === 3) {
       const isValid = e.target.validity.valid
