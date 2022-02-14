@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useAlert } from 'react-alert'
-import { useSetCreateHelp } from '../../../../../hooks'
+import { useCreateHelpMutation } from '../../../../../graphql/__generated__/graphql.gen'
 
 const defaultDataForm = {
   problemTitle: '',
@@ -11,11 +11,14 @@ export const useHelpForm = () => {
   const alert = useAlert()
   const [dataForm, setDataForm] = useState(defaultDataForm)
 
-  const { setCreateHelp, loading, error } = useSetCreateHelp()
+  const [createHelp, { loading, error }] = useCreateHelpMutation({
+    refetchQueries: ['helps']
+  })
 
-  const onChange = (e) => {
+  const onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = (e) => {
     const type = e.target.id
     const value = e.target.value
+
     switch (type) {
       case 'problemTitle':
         setDataForm({
@@ -32,10 +35,10 @@ export const useHelpForm = () => {
     }
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
     if (dataForm?.problemTitle?.length > 1) {
-      await setCreateHelp({
+      await createHelp({
         variables: {
           input: {
             title: dataForm?.problemTitle,

@@ -1,22 +1,22 @@
 import React from 'react'
 import { MyError, MyLoader } from '../../..'
-import { useGetHelps } from '../../../../hooks'
 import { HelpListItem } from './components'
+import { useHelpsQuery } from '../../../../graphql/__generated__/graphql.gen'
 
 export const HelpList = () => {
-  const { helps, loading, error } = useGetHelps()
+  const { data, loading, error } = useHelpsQuery()
 
   if (loading) return <MyLoader />
   if (error) return <MyError error={error} />
 
   const renderHelpList = () => {
-    if (helps.length === 0) return <p>Вопросов не найдено</p>
+    if (data?.helps?.length === 0 || data?.helps === undefined) return <p>Вопросов не найдено</p>
 
     return (
       <ul className='list-reset'>
-        {helps.map(helpItem => (
+        {data.helps.map(helpItem => (
           <li key={helpItem?.id}>
-            <HelpListItem helpItem={helpItem} />
+            <HelpListItem helpItem={helpItem!} />
           </li>
         ))}
       </ul>

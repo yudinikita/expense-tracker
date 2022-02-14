@@ -32,7 +32,7 @@ export const HelpForm = () => {
       <div className={'groupInput ' + styles.inputSecond}>
         <textarea
           className={'mainInput'}
-          rows='4'
+          rows={4}
           id='problemDetail'
           placeholder=' '
           disabled={loading}

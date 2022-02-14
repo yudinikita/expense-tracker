@@ -1,13 +1,12 @@
 const locales = 'ru'
-const optionsDate = {
+const formatter = new Intl.DateTimeFormat(locales, {
   day: 'numeric',
   month: 'short',
   year: 'numeric'
-}
-const formatter = new Intl.DateTimeFormat(locales, optionsDate)
+})
 
 export const useHelpListItem = () => {
-  const getDate = (date) => {
+  const getDate = (date: Date | string) => {
     return formatter.format(new Date(date))
   }
 

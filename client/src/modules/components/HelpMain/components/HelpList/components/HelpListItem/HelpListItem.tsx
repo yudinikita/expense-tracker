@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import InlineSVG from 'react-inlinesvg'
 import { useHelpListItem } from './hooks'
 import styles from './HelpListItem.module.scss'
+import { Help } from '../../../../../../graphql/__generated__/graphql.gen'
 
-const propTypes = {
-  helpItem: PropTypes.object,
+type Props = {
+  helpItem: Help
 }
 
-export const HelpListItem = ({ helpItem }) => {
+export const HelpListItem = ({ helpItem }: Props) => {
   const { getDate } = useHelpListItem()
 
   const renderIsSolved = () => {
@@ -45,5 +45,3 @@ export const HelpListItem = ({ helpItem }) => {
     </Link>
   )
 }
-
-HelpListItem.propTypes = propTypes
