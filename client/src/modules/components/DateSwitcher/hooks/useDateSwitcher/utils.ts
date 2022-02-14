@@ -5,23 +5,23 @@ export const formatter = new Intl.DateTimeFormat('ru', {
   year: 'numeric'
 })
 
-export const getMonth = (date) => {
+export const getMonth = (date: Date): string => {
   const dateObject = formatter.formatToParts(date)
-  return dateObject[0].value
+  return dateObject[0]?.value ?? ''
 }
 
-export const getYear = (date) => {
+export const getYear = (date: Date): string => {
   const dateObject = formatter.formatToParts(date)
-  return dateObject[2].value
+  return dateObject[2]?.value ?? ''
 }
 
-export const getNavigationLabel = (date) => {
+export const getNavigationLabel = (date: Date): string => {
   const month = getMonth(date)
   const year = getYear(date)
   return `${month}, ${year}`
 }
 
-export const getDateConstruction = (date) => {
+export const getDateConstruction = (date: Date) => {
   return {
     activeDate: date,
     startDate: firstDateByMonth(date),

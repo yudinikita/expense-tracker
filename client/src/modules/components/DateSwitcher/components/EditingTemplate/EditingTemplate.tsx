@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { months } from '../../../../data'
 import SVG from 'react-inlinesvg'
 import '../../DateSwitcher.scss'
@@ -7,11 +7,11 @@ import '../../DateSwitcher.scss'
 const nowMonth = new Date().getMonth()
 
 const propTypes = {
-  yearLabel: PropTypes.string,
-  handleClickPrevYear: PropTypes.func,
-  handleClickLabel: PropTypes.func,
-  handleClickNextYear: PropTypes.func,
-  handleClickChangeMonth: PropTypes.func,
+  yearLabel: PropTypes.string.isRequired,
+  handleClickPrevYear: PropTypes.func.isRequired,
+  handleClickLabel: PropTypes.func.isRequired,
+  handleClickNextYear: PropTypes.func.isRequired,
+  handleClickChangeMonth: PropTypes.func.isRequired,
   selectedMonth: PropTypes.number,
 }
 
@@ -22,19 +22,19 @@ export const EditingTemplate = ({
   handleClickNextYear,
   handleClickChangeMonth,
   selectedMonth
-}) => {
+}: InferProps<typeof propTypes>) => {
 
-  const getClassesMonthBtn = (monthNumber) => {
+  const getClassesMonthBtn = (monthNumber: number) => {
     const isNowMonth = getNowMonthClass(monthNumber)
     const isSelectedMonth = getNowSelectedClass(monthNumber)
     return `date-switcher__viewContainer__button ${isNowMonth} ${isSelectedMonth}`
   }
 
-  const getNowMonthClass = (monthNumber) => {
+  const getNowMonthClass = (monthNumber: number) => {
     return monthNumber === nowMonth ? 'date-switcher__viewContainer__button-outlined' : ''
   }
 
-  const getNowSelectedClass = (monthNumber) => {
+  const getNowSelectedClass = (monthNumber: number) => {
     return monthNumber === selectedMonth ? 'date-switcher__viewContainer__button-fill' : ''
   }
 

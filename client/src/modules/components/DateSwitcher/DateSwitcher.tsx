@@ -1,20 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useDateSwitcher } from './hooks'
 import { EditingTemplate, ViewTemplate } from './components'
 import './DateSwitcher.scss'
 
-const propTypes = {
-  onChange: PropTypes.func,
-  className: PropTypes.string,
-  style: PropTypes.object,
+type Props = {
+  onChange: React.ChangeEventHandler,
+  className: string,
+  style: React.CSSProperties,
 }
 
-const defaultProps = {
-  className: ''
-}
-
-export const DateSwitcher = ({
+export const DateSwitcher: React.FC<Props> = ({
   onChange,
   className,
   style
@@ -54,7 +49,3 @@ export const DateSwitcher = ({
     </div>
   )
 }
-
-DateSwitcher.propTypes = propTypes
-
-DateSwitcher.defaultProps = defaultProps

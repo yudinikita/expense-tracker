@@ -1,13 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import SVG from 'react-inlinesvg'
 import '../../DateSwitcher.scss'
 
 const propTypes = {
-  navigationLabel: PropTypes.string,
-  handleClickPrev: PropTypes.func,
-  handleClickLabel: PropTypes.func,
-  handleClickNext: PropTypes.func,
+  navigationLabel: PropTypes.string.isRequired,
+  handleClickPrev: PropTypes.func.isRequired,
+  handleClickLabel: PropTypes.func.isRequired,
+  handleClickNext: PropTypes.func.isRequired,
 }
 
 export const ViewTemplate = ({
@@ -15,7 +15,7 @@ export const ViewTemplate = ({
   handleClickPrev,
   handleClickLabel,
   handleClickNext
-}) => {
+}: InferProps<typeof propTypes>) => {
   return (
     <div className={'date-switcher__navigate'}>
       <button
