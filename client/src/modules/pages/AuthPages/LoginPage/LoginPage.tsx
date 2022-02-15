@@ -1,7 +1,7 @@
 import React from 'react'
 import { InnerNavigate, LoginForm } from '../../../components'
 
-export const LoginPage = () => {
+export const LoginPage: React.FC = () => {
   return (
     <div>
       <InnerNavigate title='Вход' linkPath='/' />

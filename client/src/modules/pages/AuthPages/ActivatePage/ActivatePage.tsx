@@ -3,14 +3,14 @@ import { Navigate } from 'react-router-dom'
 import { useAuthUser, useIsAuthenticated } from 'react-auth-kit'
 import { ActivationForm, InnerNavigate } from '../../../components'
 
-export const ActivatePage = () => {
+export const ActivatePage: React.FC = () => {
   const auth = useAuthUser()
   const isAuthenticated = useIsAuthenticated()
 
-  const isActivated = auth()?.['isActivated']
+  const isActivated: boolean = auth()?.['isActivated']
 
-  if (!isAuthenticated()) return <Navigate to={'/start'} />
-  if (isActivated) return <Navigate to={'/'} />
+  if (!isAuthenticated()) return <Navigate to='/start' />
+  if (isActivated) return <Navigate to='/' />
 
   return (
     <>
