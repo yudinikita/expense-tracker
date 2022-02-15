@@ -6,7 +6,7 @@ export const CardAnalyticExpense = () => {
   const { analytic, error, loading } = useCardAnalyticExpense()
 
   if (loading) return <CardAnalyticLoader />
-  if (error) return null
+  if (error != null) return null
 
   return (
     <CardAnalytic

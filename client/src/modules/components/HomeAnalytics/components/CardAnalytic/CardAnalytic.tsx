@@ -1,23 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { Price } from '../../..'
 import { CardAnalyticPercent } from './components'
 import styles from './CardAnalytic.module.scss'
+
+const propTypes = {
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  amount: PropTypes.number.isRequired,
+  percent: PropTypes.number,
+  color: PropTypes.string.isRequired,
+  colorPercent: PropTypes.string.isRequired
+}
 
 const defaultProps = {
   title: '',
   desc: '',
   amount: 0,
-  percent: 0,
-}
-
-const propTypes = {
-  title: PropTypes.string,
-  desc: PropTypes.string,
-  amount: PropTypes.number,
-  percent: PropTypes.number,
-  color: PropTypes.string,
-  colorPercent: PropTypes.string,
+  percent: 0
 }
 
 export const CardAnalytic = ({
@@ -27,7 +27,7 @@ export const CardAnalytic = ({
   percent,
   color,
   colorPercent
-}) => {
+}: InferProps<typeof propTypes>) => {
   return (
     <div
       className={styles.container}

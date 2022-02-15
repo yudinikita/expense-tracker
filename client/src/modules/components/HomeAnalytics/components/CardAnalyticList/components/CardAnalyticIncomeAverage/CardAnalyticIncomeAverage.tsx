@@ -1,13 +1,13 @@
 import React from 'react'
-import { useCardAnalyticIncome } from './hooks'
 import { CardAnalytic } from '../../../CardAnalytic'
 import { CardAnalyticLoader } from '../../../CardAnalyticLoader'
+import { useCardAnalyticIncomeAverage } from './hooks'
 
-export const CardAnalyticIncome = () => {
-  const { analytic, error, loading } = useCardAnalyticIncome()
+export const CardAnalyticIncomeAverage = () => {
+  const { analytic, error, loading } = useCardAnalyticIncomeAverage()
 
   if (loading) return <CardAnalyticLoader />
-  if (error) return null
+  if (error != null) return null
 
   return (
     <CardAnalytic
