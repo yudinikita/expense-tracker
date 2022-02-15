@@ -4,7 +4,6 @@ import { NavItem } from './components/NavItem'
 import styles from './MainNavigation.module.scss'
 
 export const MainNavigation = () => {
-
   return (
     <div className={styles.mainNavigation}>
       <nav>

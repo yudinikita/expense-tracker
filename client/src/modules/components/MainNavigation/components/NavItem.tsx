@@ -1,14 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import InlineSVG from 'react-inlinesvg'
 import styles from './NavItem.module.scss'
+import { MainLink } from '../../../data'
 
 const pathIcon = '/images/icons/nav'
 
-const classNameLink = ({ isActive }) => styles.link + (isActive ? ` ${styles.activeLink}` : '')
+const classNameLink = ({ isActive }: { isActive: boolean }) => styles.link + (isActive ? ` ${styles.activeLink}` : '')
 
-export const NavItem = ({ link }) => (
+interface Props {
+  link: MainLink
+}
+
+export const NavItem: React.FC<Props> = ({ link }) => (
   <NavLink
     to={`/${link.to}`}
     title={link.title}
@@ -22,13 +26,3 @@ export const NavItem = ({ link }) => (
     />
   </NavLink>
 )
-
-NavItem.propTypes = {
-  link: PropTypes.exact({
-    id: PropTypes.number,
-    to: PropTypes.string,
-    title: PropTypes.string,
-    iconName: PropTypes.string,
-    loader: PropTypes.string
-  })
-}
