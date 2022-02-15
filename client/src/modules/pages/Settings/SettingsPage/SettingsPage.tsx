@@ -3,7 +3,7 @@ import { PageTitle, SettingsMain } from '../../../components'
 
 import settings from '../../../assets/animation/settings.json'
 
-export const SettingsPage = () => {
+export const SettingsPage: React.FC = () => {
   return (
     <>
       <PageTitle title='Настройки' icon={settings} />
