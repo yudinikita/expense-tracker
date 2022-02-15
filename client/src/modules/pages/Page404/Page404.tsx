@@ -1,13 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { InnerNavigate } from '../../components/index'
+import { InnerNavigate } from '../../components'
 import { Content404Page } from './Content404Page'
 
-export const Page404 = () => {
+export const Page404: React.FC = () => {
   const navigate = useNavigate()
 
-  const goHome = () => navigate('/')
-  const goHelp = () => navigate('/help')
+  const goHome = (): void => navigate('/')
+  const goHelp = (): void => navigate('/help')
 
   return (
     <>

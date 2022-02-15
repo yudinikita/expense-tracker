@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Content404Page.module.scss'
 
-export const Content404Page = () => {
+export const Content404Page: React.FC = () => {
   return (
     <div>
       <video
