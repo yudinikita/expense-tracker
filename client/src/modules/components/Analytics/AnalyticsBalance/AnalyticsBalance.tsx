@@ -1,24 +1,18 @@
 import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
 import { useAnalyticsBalance } from './hooks/useAnalyticsBalance'
 import { AnalyticsBalanceList, AnalyticsLoaderList } from '..'
 import { MyError } from '../..'
+import { DateSwitcherDate } from '../../../hooks'
 
-const propTypes = {
-  date: PropTypes.exact({
-    activeDate: PropTypes.instanceOf(Date).isRequired,
-    startDate: PropTypes.instanceOf(Date).isRequired,
-    endDate: PropTypes.instanceOf(Date).isRequired
-  }).isRequired
+interface Props {
+  date: DateSwitcherDate
 }
 
-export const AnalyticsBalance = ({ date }: InferProps<typeof propTypes>) => {
+export const AnalyticsBalance: React.FC<Props> = ({ date }) => {
   const { analyticsItems, loading, error } = useAnalyticsBalance(date?.startDate, date?.endDate)
 
   if (loading) return <AnalyticsLoaderList />
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
-  return <AnalyticsBalanceList analyticsItems={analyticsItems} total={null} />
+  return <AnalyticsBalanceList analyticsItems={analyticsItems} />
 }
-
-AnalyticsBalance.propTypes = propTypes

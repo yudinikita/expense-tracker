@@ -22,7 +22,7 @@ export const useAnalyticsBalance = (startDate?: Date, endDate?: Date) => {
   })
 
   useEffect(() => {
-    if (!loading && !error && data?.analyticsBalance) {
+    if (!loading && (error == null) && ((data?.analyticsBalance) != null)) {
       const analyticsBalance = data?.analyticsBalance
 
       const totalTransaction = Math.abs(analyticsBalance.income) + Math.abs(analyticsBalance.expense) || 0
