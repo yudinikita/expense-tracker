@@ -3,10 +3,10 @@ import { useDateSwitcher } from './hooks'
 import { EditingTemplate, ViewTemplate } from './components'
 import './DateSwitcher.scss'
 
-type Props = {
-  onChange: React.ChangeEventHandler,
-  className: string,
-  style: React.CSSProperties,
+interface Props {
+  onChange: Function
+  className?: string
+  style?: React.CSSProperties
 }
 
 export const DateSwitcher: React.FC<Props> = ({
@@ -30,22 +30,20 @@ export const DateSwitcher: React.FC<Props> = ({
   return (
     <div className={`date-switcher ${className}`} style={style}>
       {isEditing
-        ?
-        <EditingTemplate
-          yearLabel={yearLabel}
-          handleClickPrevYear={handleClickPrevYear}
-          handleClickLabel={handleClickLabel}
-          handleClickNextYear={handleClickNextYear}
-          handleClickChangeMonth={handleClickChangeMonth}
-          selectedMonth={selectedMonth}
-        />
-        :
-        <ViewTemplate
-          navigationLabel={navigationLabel}
-          handleClickPrev={handleClickPrev}
-          handleClickLabel={handleClickLabel}
-          handleClickNext={handleClickNext}
-        />}
+        ? <EditingTemplate
+            yearLabel={yearLabel}
+            handleClickPrevYear={handleClickPrevYear}
+            handleClickLabel={handleClickLabel}
+            handleClickNextYear={handleClickNextYear}
+            handleClickChangeMonth={handleClickChangeMonth}
+            selectedMonth={selectedMonth}
+          />
+        : <ViewTemplate
+            navigationLabel={navigationLabel}
+            handleClickPrev={handleClickPrev}
+            handleClickLabel={handleClickLabel}
+            handleClickNext={handleClickNext}
+          />}
     </div>
   )
 }

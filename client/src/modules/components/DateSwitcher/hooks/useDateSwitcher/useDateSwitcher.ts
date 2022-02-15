@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react'
 import { addMonth, addYear, removeMonth, removeYear } from '../../../../utils'
-import { defaultDate, getDateConstruction, getNavigationLabel, getYear, } from './utils'
+import { defaultDate, getDateConstruction, getNavigationLabel, getYear } from './utils'
 
 export const useDateSwitcher = (onChange: Function) => {
   const [date, setDate] = useState(defaultDate)
@@ -39,8 +39,8 @@ export const useDateSwitcher = (onChange: Function) => {
   }
 
   const handleClickChangeMonth = (e: SyntheticEvent) => {
-    // @ts-ignore
-    const month = parseInt(e.target.dataset['month'])
+    // @ts-expect-error
+    const month = parseInt(e.target.dataset.month)
     const changedMonth = date.activeDate.setMonth(month)
     const newDate = new Date(changedMonth)
     setSelectedMonth(month)

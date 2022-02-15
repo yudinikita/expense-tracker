@@ -7,7 +7,7 @@ const propTypes = {
   navigationLabel: PropTypes.string.isRequired,
   handleClickPrev: PropTypes.func.isRequired,
   handleClickLabel: PropTypes.func.isRequired,
-  handleClickNext: PropTypes.func.isRequired,
+  handleClickNext: PropTypes.func.isRequired
 }
 
 export const ViewTemplate = ({
@@ -17,25 +17,25 @@ export const ViewTemplate = ({
   handleClickNext
 }: InferProps<typeof propTypes>) => {
   return (
-    <div className={'date-switcher__navigate'}>
+    <div className='date-switcher__navigate'>
       <button
-        className={'date-switcher__navigate__arrow date-switcher__navigate__prev'}
+        className='date-switcher__navigate__arrow date-switcher__navigate__prev'
         onClick={handleClickPrev}
       >
         <SVG src='/images/icons/arrow-left.svg' />
       </button>
 
       <button
-        className={'date-switcher__navigate__label'}
+        className='date-switcher__navigate__label'
         onClick={handleClickLabel}
       >
-          <span className={'date-switcher__navigate__label-text'}>
-            {navigationLabel}
-          </span>
+        <span className='date-switcher__navigate__label-text'>
+          {navigationLabel}
+        </span>
       </button>
 
       <button
-        className={'date-switcher__navigate__arrow date-switcher__navigate__next'}
+        className='date-switcher__navigate__arrow date-switcher__navigate__next'
         onClick={handleClickNext}
       >
         <SVG src='/images/icons/arrow-right.svg' />

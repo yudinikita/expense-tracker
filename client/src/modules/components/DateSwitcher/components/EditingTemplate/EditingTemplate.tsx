@@ -12,7 +12,7 @@ const propTypes = {
   handleClickLabel: PropTypes.func.isRequired,
   handleClickNextYear: PropTypes.func.isRequired,
   handleClickChangeMonth: PropTypes.func.isRequired,
-  selectedMonth: PropTypes.number,
+  selectedMonth: PropTypes.number
 }
 
 export const EditingTemplate = ({
@@ -23,7 +23,6 @@ export const EditingTemplate = ({
   handleClickChangeMonth,
   selectedMonth
 }: InferProps<typeof propTypes>) => {
-
   const getClassesMonthBtn = (monthNumber: number) => {
     const isNowMonth = getNowMonthClass(monthNumber)
     const isSelectedMonth = getNowSelectedClass(monthNumber)
@@ -40,25 +39,25 @@ export const EditingTemplate = ({
 
   return (
     <>
-      <div className={'date-switcher__navigate'}>
+      <div className='date-switcher__navigate'>
         <button
-          className={'date-switcher__navigate__arrow date-switcher__navigate__prev'}
+          className='date-switcher__navigate__arrow date-switcher__navigate__prev'
           onClick={handleClickPrevYear}
         >
           <SVG src='/images/icons/arrow-left.svg' />
         </button>
 
         <button
-          className={'date-switcher__navigate__label'}
+          className='date-switcher__navigate__label'
           onClick={handleClickLabel}
         >
-          <span className={'date-switcher__navigate__label-text'}>
+          <span className='date-switcher__navigate__label-text'>
             {yearLabel}
           </span>
         </button>
 
         <button
-          className={'date-switcher__navigate__arrow date-switcher__navigate__next'}
+          className='date-switcher__navigate__arrow date-switcher__navigate__next'
           onClick={handleClickNextYear}
         >
           <SVG src='/images/icons/arrow-right.svg' />
