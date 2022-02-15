@@ -1,9 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import Lottie from 'react-lottie-player/dist/LottiePlayerLight'
 import styles from './PageTitle.module.scss'
 
-export const PageTitle = ({ title, icon }) => {
+const propTypes = {
+  title: PropTypes.string,
+  icon: PropTypes.object.isRequired
+}
+
+export const PageTitle = ({ title, icon }: InferProps<typeof propTypes>) => {
   return (
     <div className={styles.container}>
       <h1>{title}</h1>
@@ -20,7 +25,4 @@ export const PageTitle = ({ title, icon }) => {
   )
 }
 
-PageTitle.propTypes = {
-  title: PropTypes.string,
-  icon: PropTypes.object
-}
+PageTitle.propTypes = propTypes
