@@ -4,7 +4,7 @@ import { PageTitle, Transactions } from '../../../components'
 
 import money from '../../../assets/animation/money.json'
 
-export const TransactionPage = () => {
+export const TransactionPage: React.FC = () => {
   return (
     <>
       <PageTitle title='Операции' icon={money} />
