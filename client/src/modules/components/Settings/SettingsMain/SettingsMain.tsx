@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ModalSignOut, SettingsNavigate } from '../..'
 
-export const SettingsMain = () => {
+export const SettingsMain: React.FC = () => {
   const [modalIsOpen, setIsOpen] = useState(false)
 
   const openModal = () => setIsOpen(true)

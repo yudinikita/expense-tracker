@@ -22,7 +22,7 @@ export const FormChangePassword = () => {
     <form onSubmit={onSubmit}>
       <h3>Изменить пароль</h3>
       <br />
-      <div className={'groupInput'}>
+      <div className='groupInput'>
         <input
           className='mainInput'
           type='password'
@@ -42,7 +42,7 @@ export const FormChangePassword = () => {
         </label>
       </div>
       <br />
-      <div className={'groupInput'}>
+      <div className='groupInput'>
         <input
           className='mainInput'
           type='password'

@@ -1,14 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import { MyModal } from '../..'
 
-export const ModalSignOut = ({
+interface Props {
+  isOpen: boolean
+  onRequestClose: (event: React.MouseEvent | React.KeyboardEvent) => void
+}
+
+export const ModalSignOut: React.FC<Props> = ({
   isOpen,
   onRequestClose
 }) => {
   const navigate = useNavigate()
-  const handleClickLogout = () => navigate('/logout')
+  const handleClickLogout = (): void => navigate('/logout')
 
   return (
     <MyModal
@@ -36,9 +40,4 @@ export const ModalSignOut = ({
       </div>
     </MyModal>
   )
-}
-
-ModalSignOut.propTypes = {
-  isOpen: PropTypes.bool,
-  onRequestClose: PropTypes.func
 }

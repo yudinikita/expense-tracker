@@ -3,7 +3,7 @@ import { settingsLinks } from '../../../data'
 import { SettingsNavigateItem } from './components/SettingsNavigateItem'
 import styles from './SettingsNavigate.module.scss'
 
-export const SettingsNavigate = () => {
+export const SettingsNavigate: React.FC = () => {
   return (
     <div className={styles.container}>
       <ul className='list-reset'>

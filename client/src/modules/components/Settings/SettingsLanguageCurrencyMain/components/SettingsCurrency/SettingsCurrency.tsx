@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ChangeEventHandler } from 'react'
 import { useSettings } from '../../../../../hooks'
 import { currencies } from '../../../../../data'
 
 export const SettingsCurrency = () => {
   const { settings, saveSettings } = useSettings()
 
-  const changeHandler = (e) => {
+  const changeHandler: ChangeEventHandler<HTMLSelectElement> = (e) => {
     saveSettings({ ...settings, currency: e.target.value })
   }
 

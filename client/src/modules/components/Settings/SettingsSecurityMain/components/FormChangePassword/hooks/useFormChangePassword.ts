@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useAlert } from 'react-alert'
-import { useSetUpdateUserPassword } from '../../../../../../hooks'
+import { useUpdateUserPasswordMutation } from '../../../../../../graphql/__generated__/graphql.gen'
 
-const validation = (dataForm) => {
+const validation = (dataForm: DataForm) => {
   if (dataForm?.newPassword?.length < 6) {
     return {
       isValid: false,
@@ -16,6 +16,11 @@ const validation = (dataForm) => {
   }
 }
 
+interface DataForm {
+  nowPassword: string
+  newPassword: string
+}
+
 const defaultDataForm = {
   nowPassword: '',
   newPassword: ''
@@ -23,17 +28,18 @@ const defaultDataForm = {
 
 export const useFormChangePassword = () => {
   const alert = useAlert()
-  const [dataForm, setDataForm] = useState(defaultDataForm)
+
+  const [dataForm, setDataForm] = useState<DataForm>(defaultDataForm)
   const [content, setContent] = useState(false)
 
-  const { setUpdateUserPassword, loading } = useSetUpdateUserPassword()
+  const [updateUserPassword, { loading }] = useUpdateUserPasswordMutation()
 
-  const onSubmit = async e => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
     const { isValid, message } = validation(dataForm)
     if (isValid) {
       try {
-        const response = await setUpdateUserPassword({
+        const response = await updateUserPassword({
           variables: {
             input: {
               ...dataForm
@@ -59,7 +65,7 @@ export const useFormChangePassword = () => {
     }
   }
 
-  const onChange = async e => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = async (e) => {
     const type = e.target.id
     const value = e.target.value
 

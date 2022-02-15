@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { ChangeEventHandler } from 'react'
 import { themeList } from '../../../data'
 import { useSettings } from '../../../hooks'
 import { InnerNavigate } from '../..'
 import styles from './SettingsAppearance.module.scss'
 import InlineSVG from 'react-inlinesvg'
 
-export const SettingsAppearance = () => {
+export const SettingsAppearance: React.FC = () => {
   const { settings, saveSettings } = useSettings()
   const currentTheme = settings?.theme || 'light'
 
-  const handleChangeTheme = (e) => {
+  const handleChangeTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
     const selectedTheme = e.target.value
     saveSettings({ ...settings, theme: selectedTheme })
   }

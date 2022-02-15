@@ -1,10 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import InlineSVG from 'react-inlinesvg'
 import styles from './SettingsNavigateItem.module.scss'
+import { SettingsMainLink } from '../../../../data'
 
-export const SettingsNavigateItem = ({ link }) => {
+interface Props {
+  link: SettingsMainLink
+}
+
+export const SettingsNavigateItem: React.FC<Props> = ({ link }) => {
   return (
     <NavLink
       to={`${link.to}`}
@@ -26,8 +30,4 @@ export const SettingsNavigateItem = ({ link }) => {
       />
     </NavLink>
   )
-}
-
-SettingsNavigateItem.propTypes = {
-  link: PropTypes.object
 }
