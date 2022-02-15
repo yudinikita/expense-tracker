@@ -20,7 +20,7 @@ export const useAnalyticsExpense = (startDate: Date, endDate: Date) => {
   })
 
   useEffect(() => {
-    if (!loading && !error && data?.analyticsExpense) {
+    if (!loading && (error == null) && ((data?.analyticsExpense) != null)) {
       const analyticsExpense = data?.analyticsExpense
 
       const totalAnalytics = analyticsExpense.reduce((acc, item) => {

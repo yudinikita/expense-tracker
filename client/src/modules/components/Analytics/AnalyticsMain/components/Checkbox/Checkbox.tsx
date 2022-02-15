@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import styles from '../../AnalyticsMain.module.scss'
 
 const propTypes = {
-  handleCheckboxClick: PropTypes.func.isRequired,
+  handleCheckboxClick: PropTypes.func.isRequired
 }
 
 export const Checkbox = ({ handleCheckboxClick }: InferProps<typeof propTypes>) => {

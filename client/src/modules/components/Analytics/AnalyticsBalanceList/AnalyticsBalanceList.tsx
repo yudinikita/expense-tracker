@@ -1,20 +1,13 @@
 import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
 import { AnalyticsItem, TransactionsNotFound } from '../..'
-import { AnalyticsTotal } from './components'
+import { AnalyticsItemType, AnalyticsTotal } from './components'
 
-const propTypes = {
-  analyticsItems: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.any,
-    title: PropTypes.string,
-    amount: PropTypes.number,
-    percent: PropTypes.number,
-    color: PropTypes.string
-  })).isRequired,
-  total: PropTypes.number,
+interface Props {
+  analyticsItems: AnalyticsItemType[]
+  total?: number
 }
 
-export const AnalyticsBalanceList = ({ analyticsItems, total }: InferProps<typeof propTypes>) => {
+export const AnalyticsBalanceList: React.FC<Props> = ({ analyticsItems, total }) => {
   if (analyticsItems?.length === 0) return <TransactionsNotFound />
 
   const renderTotal = () => total
@@ -37,5 +30,3 @@ export const AnalyticsBalanceList = ({ analyticsItems, total }: InferProps<typeo
     </ul>
   )
 }
-
-AnalyticsBalanceList.propTypes = propTypes

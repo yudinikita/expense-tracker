@@ -5,7 +5,7 @@ import styles from './AnalyticsItem.module.scss'
 
 const propTypes = {
   title: PropTypes.string,
-  amount: PropTypes.number,
+  amount: PropTypes.number.isRequired,
   percent: PropTypes.number,
   color: PropTypes.string
 }
@@ -22,7 +22,7 @@ export const AnalyticsItem = ({
         <p>{title}</p>
         <Price amount={amount} haveColor={false} />
       </div>
-      <LineProgressBar percent={percent ?? undefined} color={color} />
+      <LineProgressBar percent={percent ?? undefined} color={color ?? ''} />
     </>
   )
 }
