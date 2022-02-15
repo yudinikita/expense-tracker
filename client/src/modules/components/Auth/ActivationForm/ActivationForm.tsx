@@ -20,7 +20,7 @@ export const ActivationForm = () => {
       <p className={styles.email}>{email}</p>
 
       <form className={styles.form}>
-        <div className={'groupInput'}>
+        <div className='groupInput'>
           <input
             className='mainInput'
             type='text'

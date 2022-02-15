@@ -2,9 +2,8 @@ import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignIn } from 'react-auth-kit'
 import { useAlert } from 'react-alert'
-import { useRegistrationUser } from '../../../../hooks'
 import { EXPIRES_IN } from '../../../../data/constants'
-import { UserRegistrationInput } from '../../../../graphql/__generated__/graphql.gen.js'
+import { useRegistrationMutation, UserRegistrationInput } from '../../../../graphql/__generated__/graphql.gen'
 
 const defaultFormData: UserRegistrationInput = {
   email: '',
@@ -18,7 +17,7 @@ export const useRegistrationForm = () => {
 
   const [formData, setFormData] = useState(defaultFormData)
 
-  const { registrationUser, loading, error } = useRegistrationUser()
+  const [registrationUser, { loading, error }] = useRegistrationMutation()
 
   const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
@@ -34,7 +33,7 @@ export const useRegistrationForm = () => {
 
     const userData = res?.data?.registration
 
-    if (userData) {
+    if (userData != null) {
       if (signIn({
         token: userData.accessToken,
         expiresIn: EXPIRES_IN,
@@ -54,7 +53,7 @@ export const useRegistrationForm = () => {
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault()
-    
+
     const type = e.target.id
     const value = e.target.value
 

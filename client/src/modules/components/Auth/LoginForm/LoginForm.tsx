@@ -21,7 +21,7 @@ export const LoginForm = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div className={'groupInput'}>
+        <div className='groupInput'>
           <input
             className='mainInput'
             onChange={onChange}

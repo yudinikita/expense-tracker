@@ -1,9 +1,8 @@
 import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignIn } from 'react-auth-kit'
-import { useLoginUser } from '../../../../hooks'
 import { EXPIRES_IN } from '../../../../data/constants'
-import { UserLoginInput } from '../../../../graphql/__generated__/graphql.gen.js'
+import { useLoginMutation, UserLoginInput } from '../../../../graphql/__generated__/graphql.gen'
 
 const defaultFormData: UserLoginInput = {
   email: '',
@@ -16,7 +15,7 @@ export const useLoginForm = () => {
 
   const [formData, setFormData] = useState(defaultFormData)
 
-  const { loginUser, loading, error } = useLoginUser()
+  const [loginUser, { loading, error }] = useLoginMutation()
 
   const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
@@ -32,7 +31,7 @@ export const useLoginForm = () => {
 
     const userData = res?.data?.login
 
-    if (userData) {
+    if (userData != null) {
       signIn({
         token: userData.accessToken,
         expiresIn: EXPIRES_IN,

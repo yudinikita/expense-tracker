@@ -21,7 +21,7 @@ export const useActivationForm = () => {
       getAuthUser().catch(console.error)
     }
   }, [activationCodeFromLink])
-  
+
   const authUser = async (code: string) => {
     const response = await activateUser({
       variables: {
@@ -32,7 +32,7 @@ export const useActivationForm = () => {
     })
     if (response) {
       const userData = response?.data?.activate
-      if (userData) {
+      if (userData != null) {
         signIn({
           token: userData.accessToken,
           expiresIn: 30 * 24 * 60 * 60 * 1000,
@@ -40,7 +40,7 @@ export const useActivationForm = () => {
           authState: {
             userId: userData.id,
             isActivated: userData.isActivated,
-            email: userData.email,
+            email: userData.email
           }
         })
       }
