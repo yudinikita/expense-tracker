@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
 import { useAlert } from 'react-alert'
-import { useGetUserSettings, useSetUpdateUserSettings } from '../hooks'
-import { Settings } from '../graphql/__generated__/graphql.gen.js'
+import { Settings, useUpdateUserSettingsMutation, useUserSettingsQuery } from '../graphql/__generated__/graphql.gen'
 
 interface SettingsContextInterface {
-  settings: Settings,
-  saveSettings: Function
+  settings: Settings
+  saveSettings: (settings: Settings) => void
 }
 
-export const SettingsContext = React.createContext<SettingsContextInterface | null>(null)
+export const SettingsContext = React.createContext<SettingsContextInterface>({} as SettingsContextInterface)
 
-type Props = {
+interface Props {
   settings?: Settings
 }
 
@@ -27,20 +26,20 @@ export const SettingsProvider = ({ settings }: Props) => {
   const [currentSettings, setCurrentSettings] = useState<Settings>(state)
   const alert = useAlert()
 
-  const { userSettings, loading, error } = useGetUserSettings()
-  const { setUpdateUserSettings } = useSetUpdateUserSettings()
+  const { data, loading, error } = useUserSettingsQuery()
+  const [updateUserSettings] = useUpdateUserSettingsMutation()
 
   useEffect(() => {
-    if (!loading && !error) {
+    if (!loading && (error == null)) {
       setCurrentSettings({
         ...currentSettings,
-        ...userSettings
+        ...data?.userSettings
       })
 
-      const userTheme = userSettings?.theme || 'light'
+      const userTheme = data?.userSettings?.theme || 'light'
       document.documentElement.setAttribute('data-theme', userTheme)
     }
-  }, [userSettings, loading, error])
+  }, [data?.userSettings, loading, error])
 
   const saveSettings = async (values: Settings) => {
     const newSettings = {
@@ -49,7 +48,7 @@ export const SettingsProvider = ({ settings }: Props) => {
     }
 
     try {
-      await setUpdateUserSettings({
+      await updateUserSettings({
         variables: {
           input: {
             theme: newSettings?.theme || 'light',
