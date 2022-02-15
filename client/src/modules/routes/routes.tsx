@@ -29,9 +29,9 @@ import {
 } from '../pages'
 import browserHistory from '../../browserHistory'
 
-export const RouteComponent = () => {
+export const RouteComponent: React.FC = () => {
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <Router history={browserHistory}>
       <Routes>
         <Route element={<PublicRoutes />}>
@@ -68,12 +68,12 @@ export const RouteComponent = () => {
               <Route path='help' element={<HelpPage />} />
               <Route path='help/:id' element={<HelpDetailPage />} />
               <Route path='404' element={<Page404 />} />
-              <Route path='*' element={<Navigate to={'/404'} />} />
+              <Route path='*' element={<Navigate to='/404' />} />
             </Route>
           </Route>
         </Route>
 
-        <Route path='*' element={<Navigate to={'/'} />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </Router>
   )
