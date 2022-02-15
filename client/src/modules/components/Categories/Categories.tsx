@@ -1,13 +1,15 @@
 import React from 'react'
 import { CategoriesForm, CategoriesList, CategoriesLoader } from './components'
 import { MyError } from '../MyError'
-import { useGetCategories } from '../../hooks'
+import { Category, useCategoriesQuery } from '../../graphql/__generated__/graphql.gen'
 
 export const Categories = () => {
-  const { categories, loading, error } = useGetCategories()
+  const { data, loading, error } = useCategoriesQuery()
+
+  const categories = data?.categories as Category[]
 
   if (loading) return <CategoriesLoader />
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
   return (
     <div>

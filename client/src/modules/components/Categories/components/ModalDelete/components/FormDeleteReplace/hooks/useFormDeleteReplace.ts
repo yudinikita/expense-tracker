@@ -26,10 +26,10 @@ export const useFormDeleteReplace = () => {
         'analyticsBalance',
         'analyticsExpense',
         'analyticsIncome'
-      ],
+      ]
     })
 
-  if (error) alert.error('Не удалось удалить категорию')
+  if (error != null) alert.error('Не удалось удалить категорию')
 
   const clickDeleteReplace = async () => {
     if (selectReplaceId) {

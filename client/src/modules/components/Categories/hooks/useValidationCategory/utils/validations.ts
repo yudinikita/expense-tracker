@@ -11,6 +11,6 @@ export const checkUnique = (categories: Category[], verifiableTitle: string) => 
 }
 
 export const checkValidLength = (categoryTitle: string) => {
-  return categoryTitle.length < CATEGORY_MAX_LENGTH
-    && categoryTitle.length > CATEGORY_MIN_LENGTH
+  return categoryTitle.length < CATEGORY_MAX_LENGTH &&
+    categoryTitle.length > CATEGORY_MIN_LENGTH
 }

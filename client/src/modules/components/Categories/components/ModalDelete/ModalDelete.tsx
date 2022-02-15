@@ -1,15 +1,14 @@
 import React, { useContext } from 'react'
-import PropTypes, { InferProps } from 'prop-types'
 import { ModalDeleteContext } from './context'
 import { MyModal } from '../../..'
 import { FormDeleteBase, FormDeleteReplace, FormDeleteWithTransactions } from './components'
 import styles from './ModalDelete.module.scss'
 
-const propTypes = {
-  isOpen: PropTypes.bool
+interface Props {
+  isOpen: boolean
 }
 
-export const ModalDelete = ({ isOpen }: InferProps<typeof propTypes>) => {
+export const ModalDelete: React.FC<Props> = ({ isOpen }) => {
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
   return (
@@ -36,5 +35,3 @@ export const ModalDelete = ({ isOpen }: InferProps<typeof propTypes>) => {
     </MyModal>
   )
 }
-
-ModalDelete.propTypes = propTypes

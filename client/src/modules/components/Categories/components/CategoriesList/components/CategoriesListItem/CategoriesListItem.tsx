@@ -4,7 +4,7 @@ import { EditingTemplate, ViewTemplate } from './components'
 import styles from './CategoriesListItem.module.scss'
 import { Category } from '../../../../../../graphql/__generated__/graphql.gen.js'
 
-type Props = {
+interface Props {
   category: Category
   openModalDelete: Function
   selectCategory: (category: Category) => void

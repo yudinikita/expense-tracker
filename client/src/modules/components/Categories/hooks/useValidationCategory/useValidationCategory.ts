@@ -1,8 +1,9 @@
 import { checkUnique, checkValidLength } from './utils/validations'
-import { useGetCategories } from '../../../../hooks'
+import { Category, useCategoriesQuery } from '../../../../graphql/__generated__/graphql.gen'
 
 export const useValidationCategory = (verifiableTitle: string) => {
-  const { categories } = useGetCategories()
+  const { data } = useCategoriesQuery()
+  const categories = data?.categories as Category[]
 
   const isUnique = checkUnique(categories, verifiableTitle)
   const isValidLength = checkValidLength(verifiableTitle)

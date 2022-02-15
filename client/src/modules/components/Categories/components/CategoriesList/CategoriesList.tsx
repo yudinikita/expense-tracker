@@ -6,7 +6,7 @@ import { useCategoriesList } from './hooks'
 import styles from './CategoriesList.module.scss'
 import { Category } from '../../../../graphql/__generated__/graphql.gen'
 
-type Props = {
+interface Props {
   categories: Category[]
 }
 
@@ -37,7 +37,8 @@ export const CategoriesList: React.FC<Props> = ({ categories }) => {
       <ModalDeleteContext.Provider value={{
         onRequestClose: closeModal,
         selectedCategory: selectedCategory
-      }}>
+      }}
+      >
         <ModalDelete isOpen={modalIsOpen} />
       </ModalDeleteContext.Provider>
     </div>

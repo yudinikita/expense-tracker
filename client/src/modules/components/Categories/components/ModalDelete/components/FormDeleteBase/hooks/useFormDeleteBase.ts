@@ -6,7 +6,7 @@ import { useDeleteCategoryMutation } from '../../../../../../../graphql/__genera
 export const useFormDeleteBase = () => {
   const alert = useAlert()
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
-  
+
   const [deleteCategory, { loading, error }] = useDeleteCategoryMutation({
     refetchQueries: [
       'categories',
@@ -17,7 +17,7 @@ export const useFormDeleteBase = () => {
     ]
   })
 
-  if (error) alert.error('Не удалось удалить категорию')
+  if (error != null) alert.error('Не удалось удалить категорию')
 
   const clickDeleteBase = async () => {
     try {

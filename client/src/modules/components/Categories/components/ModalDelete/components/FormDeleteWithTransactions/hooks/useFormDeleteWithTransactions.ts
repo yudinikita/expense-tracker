@@ -18,7 +18,7 @@ export const useFormDeleteWithTransactions = () => {
       ]
     })
 
-  if (error) alert.error('Не удалось удалить категорию')
+  if (error != null) alert.error('Не удалось удалить категорию')
 
   const clickDeleteWithTransactions = async () => {
     try {
