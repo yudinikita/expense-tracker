@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 
 const modalStyles = {
@@ -18,7 +17,13 @@ const modalStyles = {
   }
 }
 
-export const MyModal = ({
+interface Props {
+  isOpen: boolean
+  onRequestClose: (event: React.MouseEvent | React.KeyboardEvent) => void
+  className?: string
+}
+
+export const MyModal: React.FC<Props> = ({
   isOpen,
   onRequestClose,
   className,
@@ -36,11 +41,3 @@ export const MyModal = ({
     </Modal>
   )
 }
-
-MyModal.propTypes = {
-  isOpen: PropTypes.bool,
-  onRequestClose: PropTypes.func,
-  className: PropTypes.string,
-  children: PropTypes.node,
-}
-
