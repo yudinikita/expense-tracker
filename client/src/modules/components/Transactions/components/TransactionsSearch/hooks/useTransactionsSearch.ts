@@ -1,17 +1,25 @@
 import { useAlert } from 'react-alert'
 import { useSearchValidation } from './useSearchValidation'
-import { useGetSearchTransaction } from '../../../../../hooks'
+import { useSearchTransactionQuery } from '../../../../../graphql/__generated__/graphql.gen'
+import React from 'react'
 
 export const useTransactionsSearch = () => {
-  const { searchTransaction, loading, error, refetch } = useGetSearchTransaction({ query: '' })
+  const { data, loading, error, refetch } = useSearchTransactionQuery({
+    variables: {
+      input: {
+        query: ''
+      }
+    }
+  })
   const { validationSearch } = useSearchValidation()
   const alert = useAlert()
 
-  const transactions = searchTransaction
+  const transactions = data?.searchTransaction
   const count = transactions?.length || 0
 
-  const handleKeyDown = async (e) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      // @ts-expect-error
       const value = e.target.value.trim()
       const validation = validationSearch(value)
       if (validation?.isValid) {

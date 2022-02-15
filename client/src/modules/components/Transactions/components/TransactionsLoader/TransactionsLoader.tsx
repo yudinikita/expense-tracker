@@ -2,7 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 import styles from './TransactionsLoader.module.scss'
 
-const LoaderItem = (props) => (
+const LoaderItem: React.FC = (props) => (
   <ContentLoader
     speed={2}
     width={315}
@@ -19,7 +19,7 @@ const LoaderItem = (props) => (
   </ContentLoader>
 )
 
-export const TransactionsLoader = () => {
+export const TransactionsLoader: React.FC = () => {
   return (
     <div className={styles.container}>
       <LoaderItem />

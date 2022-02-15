@@ -1,10 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Price, SIGN_DISPLAY } from '../../../../../Price'
 import styles from './TransactionsListItem.module.scss'
+import { Transaction } from '../../../../../../graphql/__generated__/graphql.gen'
 
-export const TransactionsListItem = ({ transaction }) => {
+interface Props {
+  transaction: Transaction
+}
+
+export const TransactionsListItem: React.FC<Props> = ({ transaction }) => {
   const title = transaction?.category?.title || 'Без категории'
   const amount = transaction?.amount
 
@@ -32,8 +36,4 @@ export const TransactionsListItem = ({ transaction }) => {
       {renderCommentary()}
     </Link>
   )
-}
-
-TransactionsListItem.propTypes = {
-  transaction: PropTypes.object,
 }

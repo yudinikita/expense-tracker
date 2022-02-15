@@ -1,16 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useTransactionsForm, useUpdateTransaction } from './hooks'
 import styles from './TransactionsForm.module.scss'
 import { useCreateTransaction } from './hooks/useCreateTransaction'
+import { Transaction } from '../../../../graphql/__generated__/graphql.gen'
 
-const propTypes = {
-  transaction: PropTypes.object,
+interface Props {
+  transaction?: Transaction
 }
 
-export const TransactionsForm = ({
-  transaction
-}) => {
+export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
   const { onChange, categories, dataForm } = useTransactionsForm(transaction)
   const { handleClickCreate, createLoading } = useCreateTransaction(dataForm)
   const { handleClickUpdate, handleClickCancel, updateLoading } = useUpdateTransaction(dataForm, transaction)
@@ -115,7 +113,7 @@ export const TransactionsForm = ({
           <option disabled value='' hidden>Выберите категорию</option>
           {categories && categories.map(category => (
             <option
-              key={category.id}
+              key={category?.id}
               value={category?.id}
             >
               {category?.title}
@@ -153,7 +151,7 @@ export const TransactionsForm = ({
       <div className={`${styles.input} groupInput`}>
         <textarea
           className={styles.commentary + ' mainInput'}
-          rows='4'
+          rows={4}
           name='createTransaction'
           id='commentary'
           onChange={onChange}
@@ -168,9 +166,7 @@ export const TransactionsForm = ({
         </label>
       </div>
 
-      {transaction ? renderBtnEdit() : renderBtnCreate()}
+      {(transaction != null) ? renderBtnEdit() : renderBtnCreate()}
     </form>
   )
 }
-
-TransactionsForm.propTypes = propTypes

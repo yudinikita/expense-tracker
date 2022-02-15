@@ -5,19 +5,20 @@ import { MyError } from '../../../MyError'
 import { TransactionsLoader } from '../TransactionsLoader'
 import { TransactionsSearchNotFound } from './TransactionsSearchNotFound'
 
-export const TransactionsSearch = () => {
+export const TransactionsSearch: React.FC = () => {
   const { transactions, loading, error, count, handleKeyDown } = useTransactionsSearch()
 
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
   const renderTransactionList = () => {
     if (transactions?.length === 0) return <TransactionsSearchNotFound />
+    // @ts-expect-error
     return <TransactionsList transactions={transactions} />
   }
 
   return (
     <div>
-      <div className={'groupInput'}>
+      <div className='groupInput'>
         <input
           className='mainInput'
           type='search'
@@ -37,7 +38,7 @@ export const TransactionsSearch = () => {
 
       <p>Найдено операций: <b>{count}</b></p>
 
-      {!error && !transactions && loading && <TransactionsLoader />}
+      {!error && (transactions == null) && loading && <TransactionsLoader />}
       {!loading && renderTransactionList()}
     </div>
   )

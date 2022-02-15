@@ -1,18 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { TransactionsDate, TransactionsListItem } from './components'
 import { TransactionsNotFound } from '..'
 import styles from './TransactionsList.module.scss'
+import { Transaction } from '../../../../graphql/__generated__/graphql.gen'
 
-const propTypes = {
-  transactions: PropTypes.array,
+interface Props {
+  transactions: Transaction[]
 }
 
-const defaultProps = {
-  transactions: [],
-}
-
-export const TransactionsList = ({ transactions }) => {
+export const TransactionsList: React.FC<Props> = ({ transactions = [] }) => {
   const renderNotFound = () => (transactions?.length === 0 ? <TransactionsNotFound /> : null)
 
   return (
@@ -35,7 +31,3 @@ export const TransactionsList = ({ transactions }) => {
     </div>
   )
 }
-
-TransactionsList.defaultProps = defaultProps
-
-TransactionsList.propTypes = propTypes

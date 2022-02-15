@@ -1,6 +1,5 @@
 export const useSearchValidation = () => {
-
-  const validationSearch = (text) => {
+  const validationSearch = (text: string) => {
     if (text?.length === 0) {
       return {
         isValid: false,

@@ -1,5 +1,7 @@
-export const useValidationForm = (verifiableDataForm) => {
-  if (verifiableDataForm?.amount?.length === 0) {
+import { DataTransactionsForm } from './useTransactionsForm'
+
+export const useValidationForm = (verifiableDataForm: DataTransactionsForm) => {
+  if (verifiableDataForm?.amount.toString()?.length === 0) {
     return {
       isValid: false,
       messageFailed: 'Укажите сумму'

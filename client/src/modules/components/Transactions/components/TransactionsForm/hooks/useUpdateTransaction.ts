@@ -1,27 +1,40 @@
 import { useNavigate } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { useValidationForm } from './useValidationForm'
-import { useSetUpdateTransaction } from '../../../../../hooks'
 import { getLocalDate } from '../../../../../utils'
+import { DataTransactionsForm } from './useTransactionsForm'
+import { Transaction, useUpdateTransactionMutation } from '../../../../../graphql/__generated__/graphql.gen'
+import { MouseEventHandler } from 'react'
 
-export const useUpdateTransaction = (dataForm, transaction) => {
+export const useUpdateTransaction = (dataForm: DataTransactionsForm, transaction?: Transaction) => {
   const navigate = useNavigate()
   const alert = useAlert()
 
   const { isValid, messageFailed } = useValidationForm(dataForm)
 
-  const { setUpdateTransaction, loading } = useSetUpdateTransaction()
+  const [updateTransaction, { loading }] = useUpdateTransactionMutation({
+    refetchQueries: [
+      'transactions',
+      'transactionDetail',
+      'balance',
+      'analyticsBalance',
+      'analyticsExpense',
+      'analyticsIncome',
+      'analyticsAverage'
+    ]
+  })
 
-  const handleClickUpdate = async (e) => {
+  const handleClickUpdate: MouseEventHandler = async (e) => {
     e.preventDefault()
     if (isValid) {
       try {
         const nowDate = getLocalDate(new Date())
-        await setUpdateTransaction({
+        await updateTransaction({
           variables: {
             input: {
-              id: transaction?.id,
+              id: transaction?.id ?? '',
               transaction: {
+                // @ts-expect-error
                 amount: dataForm.expense ? dataForm?.amount * -1 : Math.abs(dataForm?.amount),
                 category: dataForm?.category,
                 createdAt: dataForm?.createdAt ? dataForm?.createdAt : nowDate,

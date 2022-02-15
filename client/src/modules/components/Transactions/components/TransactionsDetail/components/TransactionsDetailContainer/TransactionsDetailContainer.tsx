@@ -1,16 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Price, SIGN_DISPLAY } from '../../../../..'
 import { useTransactionsDetailContainer } from './hooks'
 import styles from './TransactionsDetailContainer.module.scss'
+import { Transaction } from '../../../../../../graphql/__generated__/graphql.gen'
 
-const priceStyle = {
+const priceStyle: React.CSSProperties = {
   fontWeight: '700',
   fontSize: '30px',
   lineHeight: '140%'
 }
 
-export const TransactionsDetailContainer = ({ transaction }) => {
+interface Props {
+  transaction: Transaction
+}
+
+export const TransactionsDetailContainer: React.FC<Props> = ({ transaction }) => {
   const {
     date,
     handleClickEdit,
@@ -63,8 +67,4 @@ export const TransactionsDetailContainer = ({ transaction }) => {
       </div>
     </div>
   )
-}
-
-TransactionsDetailContainer.propTypes = {
-  transaction: PropTypes.object,
 }
