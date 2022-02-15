@@ -10,5 +10,5 @@ export const months = [
   { number: 8, name: 'Сентябрь', shortName: 'Сен' },
   { number: 9, name: 'Октябрь', shortName: 'Окт' },
   { number: 10, name: 'Ноябрь', shortName: 'Ноя' },
-  { number: 11, name: 'Декабрь', shortName: 'Дек' },
+  { number: 11, name: 'Декабрь', shortName: 'Дек' }
 ]

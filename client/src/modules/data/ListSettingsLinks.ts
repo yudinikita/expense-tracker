@@ -1,3 +1,10 @@
+export interface SettingsMainLink {
+  id: number
+  to: string
+  title: string
+  icon: string
+}
+
 export const settingsLinks = [
   { id: 0, to: '/categories', title: 'Категории', icon: 'categories' },
   { id: 1, to: 'email', title: 'Электронная почта', icon: 'mail' },
