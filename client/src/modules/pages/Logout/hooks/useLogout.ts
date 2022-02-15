@@ -7,7 +7,7 @@ export const useLogout = () => {
   const client = useApolloClient()
   const navigate = useNavigate()
 
-  const logout = () => {
+  const logout = (): void => {
     clearCache()
     clearStorage()
     clearTheme()
@@ -15,17 +15,17 @@ export const useLogout = () => {
     navigate('/')
   }
 
-  const clearCache = () => {
-    client.clearStore()
+  const clearCache = (): void => {
+    client.clearStore().catch((e) => console.error(e))
     client.cache.gc()
   }
 
-  const clearStorage = () => {
+  const clearStorage = (): void => {
     localStorage.clear()
     sessionStorage.clear()
   }
 
-  const clearTheme = () => {
+  const clearTheme = (): void => {
     document.documentElement.removeAttribute('data-theme')
   }
 
