@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, SVGProps } from 'react'
 import styles from '../MyError.module.scss'
 
 export const MyErrorContent = () => {
@@ -9,7 +9,7 @@ export const MyErrorContent = () => {
   )
 }
 
-const SvgComponent = (props) => {
+const SvgComponent: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
