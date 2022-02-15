@@ -9,7 +9,7 @@ const stylePhrase = {
   color: '#666'
 }
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
   return (
     <>
       <PageTitle title='Главная' icon={handShake} />
