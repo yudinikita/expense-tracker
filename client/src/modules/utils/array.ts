@@ -1,1 +1,1 @@
-export const getRandomItems = (array: any[]): any[] => array[Math.floor(Math.random() * array.length)]
+export const getRandomItem = <T> (array: any[]): T => array[Math.floor(Math.random() * array.length)]
