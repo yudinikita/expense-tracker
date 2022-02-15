@@ -10,8 +10,8 @@ export const errorLink = onError(({
   graphQLErrors,
   networkError
 }) => {
-  if (graphQLErrors) {
-    for (let err of graphQLErrors) {
+  if (graphQLErrors != null) {
+    for (const err of graphQLErrors) {
       switch (err.extensions['code']) {
         case 'UNAUTHENTICATED':
           logout()
@@ -19,7 +19,7 @@ export const errorLink = onError(({
     }
   }
 
-  if (networkError) {
+  if (networkError != null) {
     console.log(`[Network error]: ${networkError}`)
   }
 })
