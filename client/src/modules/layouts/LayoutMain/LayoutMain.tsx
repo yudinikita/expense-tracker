@@ -3,7 +3,7 @@ import { MainHeader, MainNavigation } from '../../components'
 import { Outlet } from 'react-router-dom'
 import styles from './LayoutMain.module.scss'
 
-export const LayoutMain = () => {
+export const LayoutMain: React.FC = () => {
   return (
     <div className={styles.container}>
       <MainHeader />
