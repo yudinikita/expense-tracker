@@ -1,11 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { SIGN_DISPLAY } from './constants'
 import { usePrice } from './hooks'
 import './Price.scss'
 
 const propTypes = {
-  amount: PropTypes.number,
+  amount: PropTypes.number.isRequired,
   haveColor: PropTypes.bool,
   havePrefix: PropTypes.bool,
   signDisplay: PropTypes.oneOf([
@@ -16,7 +16,7 @@ const propTypes = {
   ]),
   className: PropTypes.string,
   style: PropTypes.object,
-  title: PropTypes.string,
+  title: PropTypes.string
 }
 
 const defaultProps = {
@@ -34,12 +34,12 @@ export const Price = ({
   className,
   style,
   title
-}) => {
+}: InferProps<typeof propTypes>) => {
   const {
     formatAmount,
     defaultStyles,
     prefix
-  } = usePrice(amount, signDisplay, haveColor)
+  } = usePrice(amount, signDisplay ?? SIGN_DISPLAY.AUTO, haveColor ?? false)
 
   const activeClassName = 'price ' + className
 
@@ -49,7 +49,7 @@ export const Price = ({
     <span
       className={activeClassName}
       style={{ ...defaultStyles, ...style }}
-      title={title}
+      title={title ?? ''}
     >
       {renderPrefix()} <span>{formatAmount}</span>
     </span>

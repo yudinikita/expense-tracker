@@ -6,21 +6,22 @@ const defaultOptionsAmount = {
   currency: 'RUB',
   currencyDisplay: 'symbol',
   useGrouping: true,
-  maximumFractionDigits: 0,
+  maximumFractionDigits: 0
 }
 
-const getPrefix = (amount) => {
+const getPrefix = (amount: number): string | null => {
   if (amount > 0) return '🠕'
   if (amount < 0) return '🠗'
   return null
 }
 
-const getColor = (amount) => {
+const getColor = (amount: number): string => {
   if (amount > 0) return COLOR.POSITIVE
   if (amount < 0) return COLOR.NEGATIVE
+  return ''
 }
 
-const getFormatter = (locales, defaultOptionsAmount, userSettingsCurrency, signDisplay) => {
+const getFormatter = (locales: string, defaultOptionsAmount: object, userSettingsCurrency: string, signDisplay: any) => {
   return new Intl.NumberFormat(locales, {
     ...defaultOptionsAmount,
     currency: userSettingsCurrency,
@@ -28,7 +29,7 @@ const getFormatter = (locales, defaultOptionsAmount, userSettingsCurrency, signD
   })
 }
 
-export const usePrice = (amount, signDisplay, haveColor) => {
+export const usePrice = (amount: number, signDisplay: string, haveColor: boolean) => {
   const { settings } = useSettings()
   const userSettingsCurrency = settings?.currency || 'RUB'
   const locales = settings?.language || 'ru'
@@ -40,7 +41,7 @@ export const usePrice = (amount, signDisplay, haveColor) => {
   const color = getColor(amount)
 
   const defaultStyles = {
-    color: haveColor ? color : null
+    color: haveColor ? color : ''
   }
 
   return {

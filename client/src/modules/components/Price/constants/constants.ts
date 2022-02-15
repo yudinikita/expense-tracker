@@ -7,5 +7,5 @@ export const SIGN_DISPLAY = {
 
 export const COLOR = {
   POSITIVE: 'var(--color-other-green)',
-  NEGATIVE: 'var(--color-other-red)',
+  NEGATIVE: 'var(--color-other-red)'
 }
