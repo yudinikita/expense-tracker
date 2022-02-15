@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHomePhrase } from './hooks/useHomePhrase'
 
-type Props = {
+interface Props {
   style: React.CSSProperties
 }
 
