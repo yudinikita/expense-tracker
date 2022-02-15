@@ -6,7 +6,7 @@ import styles from './HelpForm.module.scss'
 export const HelpForm = () => {
   const { loading, error, onChange, onSubmit, dataForm } = useHelpForm()
 
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
   return (
     <form onSubmit={onSubmit}>
@@ -31,7 +31,7 @@ export const HelpForm = () => {
 
       <div className={'groupInput ' + styles.inputSecond}>
         <textarea
-          className={'mainInput'}
+          className='mainInput'
           rows={4}
           id='problemDetail'
           placeholder=' '

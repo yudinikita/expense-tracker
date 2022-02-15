@@ -42,7 +42,7 @@ export const useHelpForm = () => {
         variables: {
           input: {
             title: dataForm?.problemTitle,
-            detail: dataForm?.problemDetail,
+            detail: dataForm?.problemDetail
           }
         }
       })

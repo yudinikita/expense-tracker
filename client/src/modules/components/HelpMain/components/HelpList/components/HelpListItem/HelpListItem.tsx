@@ -5,7 +5,7 @@ import { useHelpListItem } from './hooks'
 import styles from './HelpListItem.module.scss'
 import { Help } from '../../../../../../graphql/__generated__/graphql.gen'
 
-type Props = {
+interface Props {
   helpItem: Help
 }
 

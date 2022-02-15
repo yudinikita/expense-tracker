@@ -7,7 +7,7 @@ export const HelpList = () => {
   const { data, loading, error } = useHelpsQuery()
 
   if (loading) return <MyLoader />
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
   const renderHelpList = () => {
     if (data?.helps?.length === 0 || data?.helps === undefined) return <p>Вопросов не найдено</p>

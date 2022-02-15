@@ -9,13 +9,13 @@ export const HelpDetail = () => {
     updateHelpResponse,
     getDate,
     handleSolved,
-    handleUnresolved,
+    handleUnresolved
   } = useHelpDetail()
 
-  const helpDetail = helpDetailResponse?.helpDetail
+  const helpDetail = helpDetailResponse?.data?.helpDetail
 
   if (helpDetailResponse?.loading) return <MyLoader />
-  if (helpDetailResponse?.error) return <MyError error={helpDetailResponse?.error} />
+  if ((helpDetailResponse?.error) != null) return <MyError error={helpDetailResponse?.error} />
 
   const answer = helpDetail?.answer || 'Скоро будет...'
 
@@ -27,14 +27,14 @@ export const HelpDetail = () => {
     if (helpDetail?.answer) {
       if (helpDetail?.solved === null) return renderSolvedBtn()
       if (helpDetail?.solved === true) return <p>Вы сообщили, что проблема решена.</p>
-      if (helpDetail?.solved === true) return <p>Вы сообщили, что проблема не решена.</p>
+      if (helpDetail?.solved === false) return <p>Вы сообщили, что проблема не решена.</p>
     }
     return null
   }
 
   const renderSolvedBtn = () => {
     if (updateHelpResponse?.loading) return <MyLoader />
-    if (updateHelpResponse?.error) return <MyError error={helpDetailResponse?.error} />
+    if ((updateHelpResponse?.error) != null) return <MyError error={helpDetailResponse?.error} />
 
     return (
       <div>
@@ -65,7 +65,7 @@ export const HelpDetail = () => {
       {renderDetail()}
       <div className={styles.innerContainer}>
         <p>{renderIsAnswer()}</p>
-        <p>{getDate(helpDetail?.createdAt)}</p>
+        <p>{getDate(helpDetail?.createdAt ?? '')}</p>
       </div>
       <br />
 
