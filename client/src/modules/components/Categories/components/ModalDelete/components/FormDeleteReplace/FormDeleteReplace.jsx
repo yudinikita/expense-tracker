@@ -20,7 +20,7 @@ export const FormDeleteReplace = () => {
         <select
           className='mainInput'
           onChange={onReplaceSelect}
-          defaultValue={''}
+          defaultValue=''
           disabled={loading}
         >
           <option disabled value='' hidden>Выберите категорию</option>

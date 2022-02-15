@@ -14,10 +14,11 @@ generates:
     config:
       contextType: GraphQLModules.Context
       useIndexSignature: true
-  ./client/src/modules/graphql/models/models.gen.ts:
+  ./client/src/modules/graphql/__generated__/graphql.gen.tsx:
     plugins:
       - "typescript"
       - "typescript-operations"
+      - "typescript-react-apollo"
     config:
       useExplicitTyping: true
   ./graphql.schema.json:
