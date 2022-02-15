@@ -8,7 +8,7 @@ export const Balance = () => {
   const { balance, loading, error } = useBalance()
 
   if (loading) return <MyLoader />
-  if (error) return <MyError error={error} />
+  if (error != null) return <MyError error={error} />
 
   return (
     <div className={styles.container}>

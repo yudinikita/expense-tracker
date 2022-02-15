@@ -6,7 +6,7 @@ const locales = 'ru'
 
 const formatter = new Intl.NumberFormat(locales, {
   style: 'percent',
-  signDisplay: 'never',
+  signDisplay: 'never'
 })
 
 const propTypes = {
