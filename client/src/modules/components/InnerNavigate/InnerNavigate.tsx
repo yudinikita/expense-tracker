@@ -1,15 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import SVG from 'react-inlinesvg'
 import styles from './InnerNavigate.module.scss'
+
+const propTypes = {
+  title: PropTypes.string,
+  linkPath: PropTypes.string,
+  haveBtn: PropTypes.bool,
+  haveTitle: PropTypes.bool
+}
 
 export const InnerNavigate = ({
   title,
   linkPath,
   haveBtn = true,
   haveTitle = true
-}) => {
+}: InferProps<typeof propTypes>) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -31,9 +38,4 @@ export const InnerNavigate = ({
   )
 }
 
-InnerNavigate.propTypes = {
-  title: PropTypes.string,
-  linkPath: PropTypes.string,
-  haveBtn: PropTypes.bool,
-  haveTitle: PropTypes.bool
-}
+InnerNavigate.propTypes = propTypes
