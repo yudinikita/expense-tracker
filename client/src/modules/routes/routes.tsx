@@ -27,7 +27,7 @@ import {
   StartPage,
   TransactionPage
 } from '../pages'
-import browserHistory from '../../browserHistory'
+import browserHistory from '../../plugins/browserHistory'
 
 export const RouteComponent: React.FC = () => {
   return (
