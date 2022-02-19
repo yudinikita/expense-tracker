@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { App } from './App'
-import reportWebVitals from './reportWebVitals'
+import { Render } from './Render'
+import reportWebVitals from './plugins/reportWebVitals'
+import './plugins/i18next'
+import './plugins/dayjs'
 
 const $root = document.getElementById('root')
-ReactDOM.render(<App />, $root)
+ReactDOM.render(<Render />, $root)
 
 reportWebVitals()

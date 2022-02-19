@@ -1,13 +1,13 @@
 import React from 'react'
 import { AuthProvider } from 'react-auth-kit'
 import { Provider as AlertProvider } from 'react-alert'
-import { RouteComponent } from './modules/routes/routes'
+import { MyApolloProvider } from './plugins/apollo'
 import { MyAlert, optionsAlert } from './modules/components/MyAlert'
+import { RouteComponent } from './modules/routes/routes'
 import './modules/styles/main.scss'
-import { MyApolloProvider } from './apollo'
 
-export const App = () => (
-  <React.StrictMode>
+export const App = () => {
+  return (
     <MyApolloProvider>
       <AuthProvider
         authType='localstorage'
@@ -19,5 +19,5 @@ export const App = () => (
         </AlertProvider>
       </AuthProvider>
     </MyApolloProvider>
-  </React.StrictMode>
-)
+  )
+}
