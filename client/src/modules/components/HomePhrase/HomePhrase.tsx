@@ -5,7 +5,7 @@ interface Props {
   style: React.CSSProperties
 }
 
-export const HomePhrase = ({ style }: Props) => {
+export const HomePhrase: React.FC<Props> = ({ style }) => {
   const { phrase } = useHomePhrase()
 
   return (

@@ -1,8 +1,10 @@
 import React, { ChangeEventHandler } from 'react'
 import { useSettings } from '../../../../../hooks'
 import { currencies } from '../../../../../data'
+import { useTranslation } from 'react-i18next'
 
 export const SettingsCurrency = () => {
+  const { t } = useTranslation()
   const { settings, saveSettings } = useSettings()
 
   const changeHandler: ChangeEventHandler<HTMLSelectElement> = (e) => {
@@ -21,10 +23,10 @@ export const SettingsCurrency = () => {
         >
           {currencies.map(currency => (
             <option
-              key={currency?.id}
-              value={currency?.title}
+              key={currency.id}
+              value={currency.title}
             >
-              {currency?.name} ({currency?.symbol})
+              {t(`currencies.name.${currency.id}`)} ({currency.symbol})
             </option>
           ))}
         </select>
@@ -32,7 +34,7 @@ export const SettingsCurrency = () => {
           className='mainInput__label'
           htmlFor='currencies'
         >
-          Валюта
+          {t('settings.currency.title')}
         </label>
       </div>
     </div>

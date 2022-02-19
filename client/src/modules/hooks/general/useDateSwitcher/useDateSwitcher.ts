@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { endDateByMonth, firstDateByMonth } from '../../../utils'
+import dayjs from 'dayjs'
 
-const nowDate = new Date()
-const firstDate = firstDateByMonth(nowDate)
-const endDate = endDateByMonth(nowDate)
+const nowDate = dayjs().toDate()
+const firstDate = dayjs().startOf('month').toDate()
+const endDate = dayjs().endOf('month').toDate()
 
 export interface DateSwitcherDate {
   activeDate: Date

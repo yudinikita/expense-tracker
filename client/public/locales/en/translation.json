@@ -1,0 +1,291 @@
+{
+  "alert": {
+    "category": {
+      "add": {
+        "success": "Category added"
+      },
+      "delete": {
+        "failed": "Failed to delete category",
+        "success": {
+          "normal": "Category deleted",
+          "replace": "The category has been replaced by",
+          "trans": "Category and transactions deleted"
+        }
+      },
+      "edit": {
+        "success": "Category changed"
+      },
+      "valid": {
+        "exists": "Such a category already exists",
+        "length": "Incorrect category length",
+        "name": "Specify category name"
+      }
+    },
+    "data": {
+      "notfound": "Failed to retrieve data"
+    },
+    "failed": "There was an error",
+    "help": {
+      "add": {
+        "failed": "Enter the essence of the problem",
+        "success": "Question added"
+      }
+    },
+    "password": {
+      "update": {
+        "failed": "Failed to update password"
+      },
+      "valid": {
+        "length": "Minimum 6 characters"
+      }
+    },
+    "settings": {
+      "save": {
+        "success": "Settings saved"
+      }
+    },
+    "transactions": {
+      "add": {
+        "success": "The transactions was created"
+      },
+      "search": {
+        "valid": {
+          "length": "The search bar is empty"
+        }
+      },
+      "update": "The operation is saved",
+      "valid": {
+        "amount": "Specify the amount",
+        "category": "Specify category"
+      }
+    }
+  },
+  "analytics": {
+    "balance": {
+      "expense": "Expense",
+      "income": "Income",
+      "remainder": "Remainder"
+    },
+    "category": {
+      "balance": "Balance",
+      "expense": "Expense",
+      "income": "Income"
+    },
+    "title": "Analytics",
+    "total": "Total"
+  },
+  "button": {
+    "add": "Add",
+    "back": "Back",
+    "cancel": "Cancel",
+    "create": "Create",
+    "edit": "Edit",
+    "logout": "Log out",
+    "remove": "Remove",
+    "save": "Save"
+  },
+  "categories": {
+    "input": "New category",
+    "modaldelete": {
+      "btn": {
+        "delete": "Delete category",
+        "replace": "Replace",
+        "trans": "Delete transactions"
+      },
+      "desc": {
+        "normal": "Are you sure you want to delete a category? Transactions will receive the status «No Category»",
+        "replace": "Delete category and replace with:",
+        "trans": "Delete a category and all transactions with it"
+      },
+      "title": "Deleting a category"
+    },
+    "select": "Choose a category",
+    "title": "Categories"
+  },
+  "currencies": {
+    "name": [
+      "Russian ruble",
+      "Dollar",
+      "Euro",
+      "Belarusian ruble",
+      "South Korean Won",
+      "Ukrainian hryvnia"
+    ]
+  },
+  "help": {
+    "answer": {
+      "no": "No answer",
+      "title": "Answer",
+      "yes": "There answer"
+    },
+    "button": {
+      "title": "Ask a question"
+    },
+    "comingsoon": "Coming soon...",
+    "input": {
+      "more": {
+        "title": "More about the problem"
+      },
+      "title": "Essence of the problem"
+    },
+    "myquestions": "My questions",
+    "notfound": "No questions found",
+    "question": "Question",
+    "solved": {
+      "answer": {
+        "no": "No, the problem remains",
+        "yes": "Yes, problem solved"
+      },
+      "question": "Have you solved your problem?",
+      "yes": "You reported that the problem was solved."
+    },
+    "solver": {
+      "no": "You reported that the problem is not solved."
+    },
+    "title": "Help"
+  },
+  "home": {
+    "analytics": {
+      "card": {
+        "expense": {
+          "average": "Average expense",
+          "title": "Expense"
+        },
+        "income": {
+          "average": "Average income",
+          "title": "Income"
+        }
+      }
+    },
+    "phrases": [
+      "Welcome home",
+      "Welcome back!",
+      "My respects!",
+      "How are you?",
+      "Like you?",
+      "Peace to your hut!",
+      "Long time no see!",
+      "You look great!",
+      "What's your hurry?",
+      "What a meeting!",
+      "What kind of people!",
+      "Good day to you!",
+      "Is that you?",
+      "Where have you been?",
+      "What's New?",
+      "And you're still good!",
+      "How many years...",
+      "How's the day?"
+    ],
+    "title": "Overview"
+  },
+  "logo": {
+    "title": "Logo"
+  },
+  "navigation": {
+    "list": [
+      "Overview",
+      "Transactions",
+      "Analytics",
+      "Settings"
+    ]
+  },
+  "other": {
+    "and": {
+      "title": "and"
+    }
+  },
+  "search": "Search",
+  "settings": {
+    "currency": {
+      "title": "Currency"
+    },
+    "email": {
+      "google": {
+        "desc": "Google login",
+        "off": "Off",
+        "on": "Included"
+      },
+      "now": {
+        "desc": "Your current email address:",
+        "title": "Current email address"
+      },
+      "title": "Email"
+    },
+    "language": {
+      "title": "Language"
+    },
+    "list": [
+      "Categories",
+      "Email",
+      "Security",
+      "Language and currency",
+      "Appearance",
+      "Help"
+    ],
+    "security": {
+      "password": {
+        "current": "Current password",
+        "new": "New password",
+        "title": "Change password"
+      },
+      "title": "Security"
+    },
+    "theme": {
+      "list": [
+        "Light",
+        "Dark"
+      ],
+      "subtitle": "Themes",
+      "title": "Appearance"
+    },
+    "title": "Settings"
+  },
+  "transactions": {
+    "add": "Add an transaction",
+    "create": "New transaction",
+    "detail": {
+      "title": "Operation"
+    },
+    "edit": {
+      "title": "Change category"
+    },
+    "form": {
+      "amount": {
+        "hint": "An integer not equal to zero",
+        "title": "Amount"
+      },
+      "categories": {
+        "create": "Create category",
+        "title": "Category"
+      },
+      "commentary": {
+        "title": "Commentary"
+      },
+      "date": {
+        "title": "Date"
+      }
+    },
+    "notfound": "There is not a single transactions here",
+    "search": {
+      "finded": "Transactions found",
+      "input": {
+        "title": "Amount or comment"
+      },
+      "notfound": "No transactions found",
+      "title": "Search"
+    },
+    "title": "Transactions"
+  },
+  "user": {
+    "balance": {
+      "dayhint": "The amount of transactions for the day",
+      "percenthint": "Percent per day of the balance",
+      "title": "Your balance"
+    },
+    "logout": {
+      "desc": "Are you sure you want to log out of your account?",
+      "title": "Log out"
+    }
+  }
+}

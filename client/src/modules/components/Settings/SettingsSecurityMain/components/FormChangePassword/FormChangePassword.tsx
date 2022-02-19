@@ -3,8 +3,10 @@ import { useFormChangePassword } from './hooks'
 import Lottie from 'react-lottie-player/dist/LottiePlayerLight'
 
 import key from '../../../../../assets/animation/key.json'
+import { useTranslation } from 'react-i18next'
 
 export const FormChangePassword = () => {
+  const { t } = useTranslation()
   const { loading, onSubmit, onChange, dataForm, content } = useFormChangePassword()
 
   const renderContent = () => {
@@ -20,7 +22,7 @@ export const FormChangePassword = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h3>Изменить пароль</h3>
+      <h3>{t('settings.security.password.title')}</h3>
       <br />
       <div className='groupInput'>
         <input
@@ -38,7 +40,7 @@ export const FormChangePassword = () => {
           htmlFor='newCategory'
           className='mainInput__label'
         >
-          Текущий пароль
+          {t('settings.security.password.current')}
         </label>
       </div>
       <br />
@@ -58,7 +60,7 @@ export const FormChangePassword = () => {
           htmlFor='newPassword'
           className='mainInput__label'
         >
-          Новый пароль
+          {t('settings.security.password.new')}
         </label>
       </div>
       <br />
@@ -67,7 +69,7 @@ export const FormChangePassword = () => {
         type='submit'
         disabled={loading}
       >
-        Сохранить изменения
+        {t('button.save')}
       </button>
 
       {renderContent()}

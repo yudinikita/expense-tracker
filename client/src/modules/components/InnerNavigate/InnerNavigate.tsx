@@ -3,6 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import SVG from 'react-inlinesvg'
 import styles from './InnerNavigate.module.scss'
+import { useTranslation } from 'react-i18next'
 
 const propTypes = {
   title: PropTypes.string,
@@ -17,6 +18,7 @@ export const InnerNavigate = ({
   haveBtn = true,
   haveTitle = true
 }: InferProps<typeof propTypes>) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -25,7 +27,7 @@ export const InnerNavigate = ({
   }
 
   const GoButton = () => (
-    <button onClick={handleClick} className={`${styles.button}`} title='Назад'>
+    <button onClick={handleClick} className={`${styles.button}`} title={t('button.back')}>
       <SVG src='/images/icons/arrow-left.svg' loader='<' />
     </button>
   )

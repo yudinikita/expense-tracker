@@ -32,7 +32,7 @@ const getFormatter = (locales: string, defaultOptionsAmount: object, userSetting
 export const usePrice = (amount: number, signDisplay: string, haveColor: boolean) => {
   const { settings } = useSettings()
   const userSettingsCurrency = settings?.currency || 'RUB'
-  const locales = settings?.language || 'ru'
+  const locales = 'ru'
 
   const formatter = getFormatter(locales, defaultOptionsAmount, userSettingsCurrency, signDisplay)
   const formatAmount = formatter.format(amount)

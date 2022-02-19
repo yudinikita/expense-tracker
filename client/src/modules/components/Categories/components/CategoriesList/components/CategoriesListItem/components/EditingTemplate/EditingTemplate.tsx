@@ -2,8 +2,11 @@ import React from 'react'
 import InlineSVG from 'react-inlinesvg'
 import { useEditingTemplate } from './hooks'
 import styles from '../../CategoriesListItem.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const EditingTemplate = () => {
+  const { t } = useTranslation()
+
   const {
     handleClickEditCancel,
     handleClickEditSave,
@@ -28,7 +31,7 @@ export const EditingTemplate = () => {
         <button
           onClick={handleClickEditSave}
           className={`${styles.btn} ${styles.btnEditSave}`}
-          title='Сохранить'
+          title={t('button.save')}
           disabled={loading}
         >
           <InlineSVG src='/images/icons/tick.svg' />
@@ -36,7 +39,7 @@ export const EditingTemplate = () => {
         <button
           onClick={handleClickEditCancel}
           className={`${styles.btn} ${styles.btnEditCancel}`}
-          title='Отменить'
+          title={t('button.cancel')}
           disabled={loading}
         >
           <InlineSVG src='/images/icons/cross.svg' />

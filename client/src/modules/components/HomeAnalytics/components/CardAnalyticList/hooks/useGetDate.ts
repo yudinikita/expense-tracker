@@ -1,11 +1,9 @@
-import { endDateByMonth, firstDateByMonth } from '../../../../../utils'
-
-const nowDate = new Date()
+import dayjs from 'dayjs'
 
 export const useGetDate = () => {
-  const startDate = firstDateByMonth(nowDate)
-  const endDate = endDateByMonth(nowDate)
-  const month = nowDate.toLocaleString('default', { month: 'long' })
+  const startDate = dayjs().startOf('month').toDate()
+  const endDate = dayjs().endOf('month').toDate()
+  const month = dayjs().format('MMMM')
 
   return {
     startDate,

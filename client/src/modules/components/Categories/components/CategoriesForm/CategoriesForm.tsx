@@ -1,8 +1,11 @@
 import React from 'react'
 import { useCategoriesForm } from './hooks/useCategoriesForm'
 import styles from './CategoriesForm.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const CategoriesForm = () => {
+  const { t } = useTranslation()
+
   const {
     loading,
     inputCategory,
@@ -30,7 +33,7 @@ export const CategoriesForm = () => {
           htmlFor='newCategory'
           className='mainInput__label'
         >
-          Новая категория
+          {t('categories.input')}
         </label>
       </div>
       <button
@@ -38,7 +41,7 @@ export const CategoriesForm = () => {
         disabled={loading}
         className='mainButton'
       >
-        Добавить
+        {t('button.add')}
       </button>
     </form>
   )

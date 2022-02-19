@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { useFormDeleteReplace } from './hooks'
 import { ModalDeleteContext } from '../../context'
+import { useTranslation } from 'react-i18next'
 
 export const FormDeleteReplace = () => {
+  const { t } = useTranslation()
   const { selectedCategory } = useContext(ModalDeleteContext)
 
   const {
@@ -14,7 +16,7 @@ export const FormDeleteReplace = () => {
 
   return (
     <div>
-      <p>Удалить категорию и заменить на:</p>
+      <p>{t('categories.modaldelete.desc.replace')}</p>
 
       <div className='groupInput'>
         <select
@@ -23,7 +25,7 @@ export const FormDeleteReplace = () => {
           defaultValue=''
           disabled={loading}
         >
-          <option disabled value='' hidden>Выберите категорию</option>
+          <option disabled value='' hidden>{t('categories.select')}</option>
           {categories
             .filter(category => category?.title !== selectedCategory?.title)
             .map(category => (
@@ -39,7 +41,7 @@ export const FormDeleteReplace = () => {
           className='mainInput__label'
           htmlFor='createdAt'
         >
-          Новая категория
+          {t('categories.input')}
         </label>
       </div>
       <br />
@@ -50,7 +52,7 @@ export const FormDeleteReplace = () => {
         onClick={clickDeleteReplace}
         disabled={loading}
       >
-        Заменить
+        {t('categories.modaldelete.btn.replace')}
       </button>
       <br /><br />
     </div>

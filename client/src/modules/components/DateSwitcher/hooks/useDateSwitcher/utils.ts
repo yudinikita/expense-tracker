@@ -1,37 +1,16 @@
-import { endDateByMonth, firstDateByMonth } from '../../../../utils'
-
-export const formatter = new Intl.DateTimeFormat('ru', {
-  month: 'long',
-  year: 'numeric'
-})
-
-export const getMonth = (date: Date): string => {
-  const dateObject = formatter.formatToParts(date)
-  return dateObject[0]?.value ?? ''
-}
-
-export const getYear = (date: Date): string => {
-  const dateObject = formatter.formatToParts(date)
-  return dateObject[2]?.value ?? ''
-}
-
-export const getNavigationLabel = (date: Date): string => {
-  const month = getMonth(date)
-  const year = getYear(date)
-  return `${month}, ${year}`
-}
+import dayjs from 'dayjs'
 
 export const getDateConstruction = (date: Date) => {
   return {
     activeDate: date,
-    startDate: firstDateByMonth(date),
-    endDate: endDateByMonth(date)
+    startDate: dayjs(date).startOf('month').toDate(),
+    endDate: dayjs(date).endOf('month').toDate()
   }
 }
 
-export const nowDate = new Date()
-export const startDate = firstDateByMonth(nowDate)
-export const endDate = endDateByMonth(nowDate)
+export const nowDate = dayjs().toDate()
+export const startDate = dayjs(nowDate).startOf('month').toDate()
+export const endDate = dayjs(nowDate).endOf('month').toDate()
 
 export const defaultDate = {
   activeDate: nowDate,

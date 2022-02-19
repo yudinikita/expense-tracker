@@ -4,6 +4,7 @@ import { useSignIn } from 'react-auth-kit'
 import { useAlert } from 'react-alert'
 import { EXPIRES_IN } from '../../../../data/constants'
 import { useRegistrationMutation, UserRegistrationInput } from '../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 const defaultFormData: UserRegistrationInput = {
   email: '',
@@ -11,6 +12,7 @@ const defaultFormData: UserRegistrationInput = {
 }
 
 export const useRegistrationForm = () => {
+  const { t } = useTranslation()
   const signIn = useSignIn()
   const alert = useAlert()
   const navigate = useNavigate()
@@ -47,7 +49,7 @@ export const useRegistrationForm = () => {
         navigate('/')
       }
     } else {
-      alert.error('Ошибка при регистрации')
+      alert.error(t('alert.failed'))
     }
   }
 

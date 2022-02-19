@@ -1,7 +1,9 @@
 import { useGetDate } from '../../../hooks'
 import { useAnalyticsAverageQuery } from '../../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useCardAnalyticExpenseAverage = () => {
+  const { t } = useTranslation()
   const { startDate, endDate, month } = useGetDate()
 
   const { data, loading, error } = useAnalyticsAverageQuery({
@@ -23,8 +25,8 @@ export const useCardAnalyticExpenseAverage = () => {
   const percent = Math.floor(expenseAvg * 100 / total) || 0
 
   const analytic = {
-    title: 'Средний расход',
-    desc: `За ${month}`,
+    title: t('home.analytics.card.expense.average'),
+    desc: month,
     amount: expenseAvg,
     percent: percent,
     color: '#f4f6fa',

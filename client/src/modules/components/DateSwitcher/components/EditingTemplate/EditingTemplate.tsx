@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import { months } from '../../../../data'
 import SVG from 'react-inlinesvg'
+import { v4 as uuidv4 } from 'uuid'
 import '../../DateSwitcher.scss'
+import { getMonths } from '../../../../utils'
 
 const nowMonth = new Date().getMonth()
 
@@ -37,6 +38,26 @@ export const EditingTemplate = ({
     return monthNumber === selectedMonth ? 'date-switcher__viewContainer__button-fill' : ''
   }
 
+  const months = getMonths()
+
+  const renderMonths = () => {
+    return months.map((month) => (
+      <div
+        key={uuidv4()}
+        className='date-switcher__viewContainer__cell'
+      >
+        <button
+          data-month={month.month()}
+          title={month.format('MMMM')}
+          className={getClassesMonthBtn(month.month())}
+          onClick={handleClickChangeMonth}
+        >
+          {month.format('MMM')}
+        </button>
+      </div>
+    ))
+  }
+
   return (
     <>
       <div className='date-switcher__navigate'>
@@ -66,21 +87,7 @@ export const EditingTemplate = ({
 
       <div className='date-switcher__viewContainer'>
         <div className='date-switcher__viewContainer__group'>
-          {months.map(month => (
-            <div
-              key={month.number}
-              className='date-switcher__viewContainer__cell'
-            >
-              <button
-                data-month={`${month.number}`}
-                title={month.name}
-                className={getClassesMonthBtn(month.number)}
-                onClick={handleClickChangeMonth}
-              >
-                {month.shortName}
-              </button>
-            </div>
-          ))}
+          {renderMonths()}
         </div>
       </div>
     </>

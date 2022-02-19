@@ -3,6 +3,7 @@ import { useAlert } from 'react-alert'
 import { useNavigate } from 'react-router-dom'
 import { getLocalDate } from '../../../../../utils'
 import { Transaction, useCategoriesQuery } from '../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export interface DataTransactionsForm {
   expense: boolean
@@ -23,6 +24,7 @@ const defaultValueFormData: DataTransactionsForm = {
 }
 
 export const useTransactionsForm = (transaction?: Transaction) => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const navigate = useNavigate()
 
@@ -46,7 +48,7 @@ export const useTransactionsForm = (transaction?: Transaction) => {
 
   const categories = data?.categories ?? []
 
-  if (error != null) alert.error('Не удалось загрузить категории')
+  if (error != null) alert.error(t('alert.failed'))
 
   const onChange: ChangeEventHandler<HTMLSelectElement | HTMLTextAreaElement | HTMLInputElement> =
     (e) => {

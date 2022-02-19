@@ -1,7 +1,9 @@
 import { checkUnique, checkValidLength } from './utils/validations'
 import { Category, useCategoriesQuery } from '../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useValidationCategory = (verifiableTitle: string) => {
+  const { t } = useTranslation()
   const { data } = useCategoriesQuery()
   const categories = data?.categories as Category[]
 
@@ -11,21 +13,21 @@ export const useValidationCategory = (verifiableTitle: string) => {
   if (verifiableTitle.length === 0) {
     return {
       isValid: false,
-      messageFailed: 'Укажите название категории'
+      messageFailed: t('alert.category.valid.name')
     }
   }
 
   if (!isUnique) {
     return {
       isValid: false,
-      messageFailed: 'Такая категория уже существует'
+      messageFailed: t('alert.category.valid.exists')
     }
   }
 
   if (!isValidLength) {
     return {
       isValid: false,
-      messageFailed: 'Некорректная длина категории'
+      messageFailed: t('alert.category.valid.length')
     }
   }
 

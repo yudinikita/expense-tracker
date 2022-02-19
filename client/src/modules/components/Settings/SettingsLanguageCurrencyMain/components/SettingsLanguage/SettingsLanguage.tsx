@@ -1,12 +1,15 @@
 import React, { ChangeEventHandler } from 'react'
 import { useSettings } from '../../../../../hooks'
 import { languages } from '../../../../../data'
+import { useTranslation } from 'react-i18next'
 
 export const SettingsLanguage = () => {
+  const { t } = useTranslation()
   const { settings, saveSettings } = useSettings()
 
   const changeHandler: ChangeEventHandler<HTMLSelectElement> = (e) => {
     saveSettings({ ...settings, language: e.target.value })
+    window.sessionStorage.removeItem('homePhrases')
   }
 
   return (
@@ -31,7 +34,7 @@ export const SettingsLanguage = () => {
           className='mainInput__label'
           htmlFor='languages'
         >
-          Язык
+          {t('settings.language.title')}
         </label>
       </div>
     </div>

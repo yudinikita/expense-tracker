@@ -2,24 +2,16 @@ import { useAlert } from 'react-alert'
 import { useNavigate } from 'react-router-dom'
 import { Transaction, useDeleteTransactionMutation } from '../../../../../../../graphql/__generated__/graphql.gen'
 import { MouseEventHandler } from 'react'
-
-const locale = 'ru'
-
-const formatter = new Intl.DateTimeFormat(locale, {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  second: 'numeric'
-})
+import dayjs from 'dayjs'
+import { useTranslation } from 'react-i18next'
 
 export const useTransactionsDetailContainer = (transaction: Transaction) => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const navigate = useNavigate()
 
   const inputDate = transaction?.createdAt
-  const date = formatter.format(new Date(inputDate))
+  const date = dayjs(inputDate).format('D MMMM YYYY, HH:mm')
 
   const [deleteTransaction, { loading }] = useDeleteTransactionMutation({
     variables: {
@@ -62,7 +54,7 @@ export const useTransactionsDetailContainer = (transaction: Transaction) => {
       result?.success ? alert.success(result?.message) : alert.error(result?.message)
       navigate(-1)
     } catch {
-      alert.success('Ошибка при удалении')
+      alert.error(t('alert.failed'))
     }
   }
 

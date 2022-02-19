@@ -3,8 +3,10 @@ import { MyError, MyLoader, Price, SIGN_DISPLAY } from '..'
 import { useBalance } from './hooks/useBalance'
 import { BalancePercentage } from './components'
 import styles from './Balance.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const Balance = () => {
+  const { t } = useTranslation()
   const { balance, loading, error } = useBalance()
 
   if (loading) return <MyLoader />
@@ -12,7 +14,7 @@ export const Balance = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Ваш баланс</p>
+      <p className={styles.title}>{t('user.balance.title')}</p>
       <Price
         className={styles.balance}
         amount={balance.balanceTotal}
@@ -24,7 +26,7 @@ export const Balance = () => {
           signDisplay={SIGN_DISPLAY.NEVER}
           haveColor
           havePrefix
-          title='Сумма операций за день'
+          title={t('user.balance.dayhint')}
         />
         <BalancePercentage amount={balance?.balancePercentage || 0} />
       </p>

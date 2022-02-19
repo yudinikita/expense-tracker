@@ -5,8 +5,10 @@ import { getLocalDate } from '../../../../../utils'
 import { DataTransactionsForm } from './useTransactionsForm'
 import { Transaction, useUpdateTransactionMutation } from '../../../../../graphql/__generated__/graphql.gen'
 import { MouseEventHandler } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const useUpdateTransaction = (dataForm: DataTransactionsForm, transaction?: Transaction) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const alert = useAlert()
 
@@ -43,9 +45,9 @@ export const useUpdateTransaction = (dataForm: DataTransactionsForm, transaction
             }
           }
         })
-        alert.success('Операция сохранена')
+        alert.success(t('alert.transactions.update'))
       } catch {
-        alert.error('Ошибка при изменении операции')
+        alert.error(t('alert.failed'))
       }
     } else {
       alert.show(messageFailed)

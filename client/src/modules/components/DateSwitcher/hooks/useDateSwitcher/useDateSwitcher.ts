@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react'
-import { addMonth, addYear, removeMonth, removeYear } from '../../../../utils'
-import { defaultDate, getDateConstruction, getNavigationLabel, getYear } from './utils'
+import dayjs from 'dayjs'
+import { defaultDate, getDateConstruction } from './utils'
 
 export const useDateSwitcher = (onChange: Function) => {
   const [date, setDate] = useState(defaultDate)
@@ -14,7 +14,7 @@ export const useDateSwitcher = (onChange: Function) => {
   }
 
   const handleClickPrev = () => {
-    const prevMonthDate = removeMonth(date.activeDate)
+    const prevMonthDate = dayjs(date.activeDate).subtract(1, 'month').toDate()
     saveAndChangeDate(prevMonthDate)
   }
 
@@ -24,17 +24,17 @@ export const useDateSwitcher = (onChange: Function) => {
   }
 
   const handleClickNext = () => {
-    const nextMonthDate = addMonth(date.activeDate)
+    const nextMonthDate = dayjs(date.activeDate).add(1, 'month').toDate()
     saveAndChangeDate(nextMonthDate)
   }
 
   const handleClickPrevYear = () => {
-    const prevYearDate = removeYear(date.activeDate)
+    const prevYearDate = dayjs(date.activeDate).subtract(1, 'year').toDate()
     saveAndChangeDate(prevYearDate)
   }
 
   const handleClickNextYear = () => {
-    const prevYearDate = addYear(date.activeDate)
+    const prevYearDate = dayjs(date.activeDate).add(1, 'year').toDate()
     saveAndChangeDate(prevYearDate)
   }
 
@@ -47,8 +47,8 @@ export const useDateSwitcher = (onChange: Function) => {
     saveAndChangeDate(newDate)
   }
 
-  const navigationLabel = getNavigationLabel(date.startDate)
-  const yearLabel = getYear(date.startDate)
+  const navigationLabel = dayjs(date.startDate).format('MMMM, YYYY')
+  const yearLabel = dayjs(date.startDate).format('YYYY')
 
   return {
     navigationLabel,
