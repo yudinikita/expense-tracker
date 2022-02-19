@@ -1,7 +1,9 @@
 import { useGetDate } from '../../../hooks'
 import { useAnalyticsBalanceQuery } from '../../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useCardAnalyticIncome = () => {
+  const { t } = useTranslation()
   const { startDate, endDate, month } = useGetDate()
 
   const { data, loading, error } = useAnalyticsBalanceQuery({
@@ -23,8 +25,8 @@ export const useCardAnalyticIncome = () => {
   const percent = Math.floor(income * 100 / total) || 0
 
   const analytic = {
-    title: 'Доход',
-    desc: `За ${month}`,
+    title: t('home.analytics.card.income.title'),
+    desc: month,
     amount: income,
     percent: percent,
     color: '#effcef',
