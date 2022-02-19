@@ -1,5 +1,5 @@
 import { ApolloClient, from } from '@apollo/client'
-import { SERVER_URI } from '../constants'
+import { SERVER_URI } from '../../constants'
 import { authLink, errorLink, httpLink, retryLink } from './links'
 import { state } from './state'
 
