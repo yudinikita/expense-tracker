@@ -8,8 +8,5 @@ export const getTransactionDetail = async (userId: string, input: TransactionDet
     _id: toObjectId(input.id)
   }).populate('category')
 
-  // const createdAt = new Date(transactionFetched.createdAt).toISOString()
-  // const updatedAt = new Date(transactionFetched.updatedAt).toISOString()
-
   return transactionFetched.toJSON()
 }
