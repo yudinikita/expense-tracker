@@ -1,20 +1,7 @@
 import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useAlert } from 'react-alert'
 import { useUpdateUserPasswordMutation } from '../../../../../../graphql/__generated__/graphql.gen'
-
-const validation = (dataForm: DataForm) => {
-  if (dataForm?.newPassword?.length < 6) {
-    return {
-      isValid: false,
-      message: 'Минимум 6 символов'
-    }
-  }
-
-  return {
-    isValid: true,
-    message: ''
-  }
-}
+import { useTranslation } from 'react-i18next'
 
 interface DataForm {
   nowPassword: string
@@ -27,12 +14,27 @@ const defaultDataForm = {
 }
 
 export const useFormChangePassword = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
 
   const [dataForm, setDataForm] = useState<DataForm>(defaultDataForm)
   const [content, setContent] = useState(false)
 
   const [updateUserPassword, { loading }] = useUpdateUserPasswordMutation()
+
+  const validation = (dataForm: DataForm) => {
+    if (dataForm?.newPassword?.length < 6) {
+      return {
+        isValid: false,
+        message: t('alert.password.valid.length')
+      }
+    }
+
+    return {
+      isValid: true,
+      message: ''
+    }
+  }
 
   const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
@@ -58,7 +60,7 @@ export const useFormChangePassword = () => {
           alert.error(messageResponse)
         }
       } catch {
-        alert.error('Не удалось обновить пароль')
+        alert.error(t('alert.password.update.failed'))
       }
     } else {
       alert.show(message)

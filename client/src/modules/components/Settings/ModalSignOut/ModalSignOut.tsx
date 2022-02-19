@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MyModal } from '../..'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   isOpen: boolean
@@ -11,6 +12,7 @@ export const ModalSignOut: React.FC<Props> = ({
   isOpen,
   onRequestClose
 }) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const handleClickLogout = (): void => navigate('/logout')
 
@@ -20,14 +22,14 @@ export const ModalSignOut: React.FC<Props> = ({
       onRequestClose={onRequestClose}
     >
       <div>
-        <h2>Выход из аккаунта</h2>
-        <p>Вы уверены, что хотите выйти из аккаунта?</p>
+        <h2>{t('user.logout.title')}</h2>
+        <p>{t('user.logout.desc')}</p>
         <button
           type='button'
           onClick={handleClickLogout}
           className='mainButton'
         >
-          Выйти
+          {t('button.logout')}
         </button>
         <br /><br />
         <button
@@ -35,7 +37,7 @@ export const ModalSignOut: React.FC<Props> = ({
           onClick={onRequestClose}
           className='secondaryButton'
         >
-          Отмена
+          {t('button.cancel')}
         </button>
       </div>
     </MyModal>

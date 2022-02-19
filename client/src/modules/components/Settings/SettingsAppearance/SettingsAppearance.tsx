@@ -1,12 +1,15 @@
 import React, { ChangeEventHandler } from 'react'
 import { themeList } from '../../../data'
 import { useSettings } from '../../../hooks'
-import { InnerNavigate } from '../..'
 import styles from './SettingsAppearance.module.scss'
 import InlineSVG from 'react-inlinesvg'
+import { useTranslation } from 'react-i18next'
 
 export const SettingsAppearance: React.FC = () => {
+  const { t } = useTranslation()
+
   const { settings, saveSettings } = useSettings()
+
   const currentTheme = settings?.theme || 'light'
 
   const handleChangeTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -16,11 +19,10 @@ export const SettingsAppearance: React.FC = () => {
 
   return (
     <>
-      <InnerNavigate title='Внешний вид' />
-      <h3>Темы</h3>
+      <h3>{t('settings.theme.subtitle')}</h3>
 
       <ul className={styles.radios}>
-        {themeList.map(theme => (
+        {themeList.map((theme, i) => (
           <li key={theme?.id}>
             <label
               htmlFor={theme?.value}
@@ -30,7 +32,7 @@ export const SettingsAppearance: React.FC = () => {
                 className={styles.iconTheme}
                 src={`/images/icons/${theme.icon}.svg`}
               />
-              <span className={styles.title}>{theme?.title}</span>
+              <span className={styles.title}>{t(`settings.theme.list.${i}`)}</span>
               <input
                 type='radio'
                 id={theme?.value}
