@@ -2,8 +2,10 @@ import React from 'react'
 import { InnerNavigate, MyError, MyLoader, TransactionsForm } from '../../../components'
 import { useParams } from 'react-router-dom'
 import { Transaction, useTransactionDetailQuery } from '../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const EditTransactionPage: React.FC = () => {
+  const { t } = useTranslation()
   const transactionId = useParams()?.['id'] ?? ''
 
   const { data, loading, error } = useTransactionDetailQuery({
@@ -19,7 +21,7 @@ export const EditTransactionPage: React.FC = () => {
 
   return (
     <>
-      <InnerNavigate title='Изменить операцию' />
+      <InnerNavigate title={t('transactions.edit.title')} />
 
       <TransactionsForm transaction={data?.transactionDetail as Transaction} />
     </>
