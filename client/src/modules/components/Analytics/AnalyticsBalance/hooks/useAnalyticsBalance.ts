@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useAnalyticsBalanceQuery } from '../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 const defaultAnalytics = { amount: 0, percent: 0 }
 
 export const useAnalyticsBalance = (startDate?: Date, endDate?: Date) => {
+  const { t } = useTranslation()
   const [income, setIncome] = useState(defaultAnalytics)
   const [expense, setExpense] = useState(defaultAnalytics)
   const [remainder, setRemainder] = useState(defaultAnalytics)
@@ -49,9 +51,27 @@ export const useAnalyticsBalance = (startDate?: Date, endDate?: Date) => {
   }, [data?.analyticsBalance, loading, error])
 
   const analyticsItems = [
-    { id: 0, title: 'Доход', amount: income.amount, percent: income.percent, color: '#009e0d' },
-    { id: 1, title: 'Расход', amount: expense.amount, percent: expense.percent, color: '#ff3d00' },
-    { id: 2, title: 'Остаток', amount: remainder.amount, percent: remainder.percent, color: '#ffcf26' }
+    {
+      id: 0,
+      title: t('analytics.balance.income'),
+      amount: income.amount,
+      percent: income.percent,
+      color: '#009e0d'
+    },
+    {
+      id: 1,
+      title: t('analytics.balance.expense'),
+      amount: expense.amount,
+      percent: expense.percent,
+      color: '#ff3d00'
+    },
+    {
+      id: 2,
+      title: t('analytics.balance.remainder'),
+      amount: remainder.amount,
+      percent: remainder.percent,
+      color: '#ffcf26'
+    }
   ]
 
   return { analyticsItems, loading, error }
