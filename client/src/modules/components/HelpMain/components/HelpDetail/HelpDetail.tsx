@@ -2,12 +2,14 @@ import React from 'react'
 import { MyError, MyLoader } from '../../..'
 import { useHelpDetail } from './hooks'
 import styles from './HelpDetail.module.scss'
+import { useTranslation } from 'react-i18next'
+import dayjs from 'dayjs'
 
 export const HelpDetail = () => {
+  const { t } = useTranslation()
   const {
     helpDetailResponse,
     updateHelpResponse,
-    getDate,
     handleSolved,
     handleUnresolved
   } = useHelpDetail()
@@ -17,17 +19,17 @@ export const HelpDetail = () => {
   if (helpDetailResponse?.loading) return <MyLoader />
   if ((helpDetailResponse?.error) != null) return <MyError error={helpDetailResponse?.error} />
 
-  const answer = helpDetail?.answer || 'Скоро будет...'
+  const answer = helpDetail?.answer || t('help.comingsoon')
 
-  const renderIsAnswer = () => helpDetail?.answer ? 'Есть ответ' : 'Нет ответа'
+  const renderIsAnswer = () => helpDetail?.answer ? t('help.answer.yes') : t('help.answer.no')
 
   const renderDetail = () => helpDetail?.detail ? <div><p>{helpDetail?.detail}</p></div> : null
 
   const renderSolved = () => {
     if (helpDetail?.answer) {
       if (helpDetail?.solved === null) return renderSolvedBtn()
-      if (helpDetail?.solved === true) return <p>Вы сообщили, что проблема решена.</p>
-      if (helpDetail?.solved === false) return <p>Вы сообщили, что проблема не решена.</p>
+      if (helpDetail?.solved === true) return <p>{t('help.solved.yes')}</p>
+      if (helpDetail?.solved === false) return <p>{t('help.solved.no')}</p>
     }
     return null
   }
@@ -39,13 +41,13 @@ export const HelpDetail = () => {
     return (
       <div>
         <br />
-        <h3>Вы решили свою проблему?</h3>
+        <h3>{t('help.solved.question')}</h3>
         <br />
         <button
           className='mainButton'
           onClick={handleSolved}
         >
-          Да, проблема решена
+          {t('help.solved.answer.yes')}
         </button>
         <br /><br />
 
@@ -53,7 +55,7 @@ export const HelpDetail = () => {
           className='secondaryButton'
           onClick={handleUnresolved}
         >
-          Нет, проблема осталась
+          {t('help.solved.answer.no')}
         </button>
       </div>
     )
@@ -65,11 +67,11 @@ export const HelpDetail = () => {
       {renderDetail()}
       <div className={styles.innerContainer}>
         <p>{renderIsAnswer()}</p>
-        <p>{getDate(helpDetail?.createdAt ?? '')}</p>
+        <p>{dayjs(helpDetail?.createdAt).format('DD MMM YYYY')}</p>
       </div>
       <br />
 
-      <h3>Ответ</h3>
+      <h3>{t('help.answer.title')}</h3>
       <p>{answer}</p>
 
       {renderSolved()}

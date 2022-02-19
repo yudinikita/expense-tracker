@@ -1,6 +1,7 @@
 import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useAlert } from 'react-alert'
 import { useCreateHelpMutation } from '../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 const defaultDataForm = {
   problemTitle: '',
@@ -8,6 +9,7 @@ const defaultDataForm = {
 }
 
 export const useHelpForm = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const [dataForm, setDataForm] = useState(defaultDataForm)
 
@@ -47,9 +49,9 @@ export const useHelpForm = () => {
         }
       })
       setDataForm(defaultDataForm)
-      alert.success('Вопрос добавлен')
+      alert.success(t('alert.help.add.success'))
     } else {
-      alert.show('Введите суть проблемы')
+      alert.show(t('alert.help.add.failed'))
     }
   }
 

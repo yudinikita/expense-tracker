@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import InlineSVG from 'react-inlinesvg'
-import { useHelpListItem } from './hooks'
 import styles from './HelpListItem.module.scss'
 import { Help } from '../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
+import dayjs from 'dayjs'
 
 interface Props {
   helpItem: Help
 }
 
-export const HelpListItem = ({ helpItem }: Props) => {
-  const { getDate } = useHelpListItem()
+export const HelpListItem: React.FC<Props> = ({ helpItem }) => {
+  const { t } = useTranslation()
 
   const renderIsSolved = () => {
     const solved = helpItem?.solved
@@ -23,11 +24,11 @@ export const HelpListItem = ({ helpItem }: Props) => {
   }
 
   const renderCreatedAt = () => {
-    return getDate(helpItem?.createdAt)
+    return dayjs(helpItem?.createdAt).format('DD MMM YYYY')
   }
 
   const renderIsAnswer = () => {
-    return helpItem?.answer ? 'Есть ответ' : 'Нет ответа'
+    return helpItem?.answer ? t('help.answer.yes') : t('help.answer.no')
   }
 
   return (

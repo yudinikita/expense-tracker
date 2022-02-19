@@ -2,8 +2,10 @@ import React from 'react'
 import { MyError } from '../../../MyError'
 import { useHelpForm } from './hooks'
 import styles from './HelpForm.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const HelpForm = () => {
+  const { t } = useTranslation()
   const { loading, error, onChange, onSubmit, dataForm } = useHelpForm()
 
   if (error != null) return <MyError error={error} />
@@ -25,7 +27,7 @@ export const HelpForm = () => {
           htmlFor='problemTitle'
           className='mainInput__label'
         >
-          Суть проблемы
+          {t('help.input.title')}
         </label>
       </div>
 
@@ -43,7 +45,7 @@ export const HelpForm = () => {
           className='mainInput__label'
           htmlFor='problemDetail'
         >
-          Подробно о проблеме
+          {t('help.input.more.title')}
         </label>
       </div>
 
@@ -52,7 +54,7 @@ export const HelpForm = () => {
         type='submit'
         disabled={loading}
       >
-        Задать вопрос
+        {t('help.button.title')}
       </button>
     </form>
   )
