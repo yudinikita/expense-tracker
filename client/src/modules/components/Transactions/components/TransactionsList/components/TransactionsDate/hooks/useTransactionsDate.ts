@@ -1,19 +1,8 @@
 import { Transaction } from '../../../../../../../graphql/__generated__/graphql.gen'
-
-const locale = 'ru'
-
-const formatter = new Intl.DateTimeFormat(locale, {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long'
-})
+import dayjs from 'dayjs'
 
 const getFormatDate = (dateCreatedAt: Date) => {
-  const date = formatter.formatToParts(dateCreatedAt)
-  const weekday = date[0]?.value
-  const day = date[2]?.value
-  const month = date[4]?.value
-  return `${day} ${month}, ${weekday}`
+  return dayjs(dateCreatedAt).format('D MMMM, dddd')
 }
 
 export const useTransactionsDate = (transactions: Transaction[], index: number) => {

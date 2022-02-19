@@ -4,8 +4,10 @@ import { TransactionsList } from '../TransactionsList'
 import { MyError } from '../../../MyError'
 import { TransactionsLoader } from '../TransactionsLoader'
 import { TransactionsSearchNotFound } from './TransactionsSearchNotFound'
+import { useTranslation } from 'react-i18next'
 
 export const TransactionsSearch: React.FC = () => {
+  const { t } = useTranslation()
   const { transactions, loading, error, count, handleKeyDown } = useTransactionsSearch()
 
   if (error != null) return <MyError error={error} />
@@ -32,11 +34,11 @@ export const TransactionsSearch: React.FC = () => {
           htmlFor='searchInput'
           className='mainInput__label'
         >
-          Сумма или комментарий
+          {t('transactions.search.input.title')}
         </label>
       </div>
 
-      <p>Найдено операций: <b>{count}</b></p>
+      <p>{t('transactions.search.finded')}: <b>{count}</b></p>
 
       {!error && (transactions == null) && loading && <TransactionsLoader />}
       {!loading && renderTransactionList()}

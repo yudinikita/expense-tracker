@@ -3,6 +3,7 @@ import { Price, SIGN_DISPLAY } from '../../../../..'
 import { useTransactionsDetailContainer } from './hooks'
 import styles from './TransactionsDetailContainer.module.scss'
 import { Transaction } from '../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 const priceStyle: React.CSSProperties = {
   fontWeight: '700',
@@ -15,6 +16,8 @@ interface Props {
 }
 
 export const TransactionsDetailContainer: React.FC<Props> = ({ transaction }) => {
+  const { t } = useTranslation()
+
   const {
     date,
     handleClickEdit,
@@ -54,7 +57,7 @@ export const TransactionsDetailContainer: React.FC<Props> = ({ transaction }) =>
           className='mainButton'
           onClick={handleClickEdit}
         >
-          Изменить
+          {t('button.edit')}
         </button>
         <br /><br />
         <button
@@ -62,7 +65,7 @@ export const TransactionsDetailContainer: React.FC<Props> = ({ transaction }) =>
           onClick={handleClickRemove}
           disabled={loadingRemove}
         >
-          Удалить
+          {t('button.remove')}
         </button>
       </div>
     </div>

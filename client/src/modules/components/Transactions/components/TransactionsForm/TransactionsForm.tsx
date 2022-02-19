@@ -3,12 +3,14 @@ import { useTransactionsForm, useUpdateTransaction } from './hooks'
 import styles from './TransactionsForm.module.scss'
 import { useCreateTransaction } from './hooks/useCreateTransaction'
 import { Transaction } from '../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   transaction?: Transaction
 }
 
 export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
+  const { t } = useTranslation()
   const { onChange, categories, dataForm } = useTransactionsForm(transaction)
   const { handleClickCreate, createLoading } = useCreateTransaction(dataForm)
   const { handleClickUpdate, handleClickCancel, updateLoading } = useUpdateTransaction(dataForm, transaction)
@@ -21,7 +23,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
       name='createTransaction'
       onClick={handleClickCreate}
     >
-      Создать
+      {t('button.create')}
     </button>
   )
 
@@ -34,7 +36,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
         name='updateTransaction'
         onClick={handleClickUpdate}
       >
-        Сохранить
+        {t('button.save')}
       </button>
       <br />
       <button
@@ -44,7 +46,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
         name='cancel'
         onClick={handleClickCancel}
       >
-        Отменить
+        {t('button.cancel')}
       </button>
     </>
   )
@@ -63,7 +65,9 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
             onChange={onChange}
             checked={dataForm?.expense}
           />
-          <label htmlFor='expense'>Расход</label>
+          <label htmlFor='expense'>
+            {t('analytics.balance.expense')}
+          </label>
         </div>
 
         <div className='checkbox'>
@@ -74,7 +78,9 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
             onChange={onChange}
             checked={dataForm?.income}
           />
-          <label htmlFor='income'>Доход</label>
+          <label htmlFor='income'>
+            {t('analytics.balance.income')}
+          </label>
         </div>
       </div>
 
@@ -89,14 +95,14 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
           onChange={onChange}
           pattern='(?!0+)\d+'
           required
-          title='Целое число не равное нулю'
+          title={t('transactions.form.amount.hint')}
           value={dataForm?.amount}
         />
         <label
           className='mainInput__label'
           htmlFor='amount'
         >
-          Сумма
+          {t('transactions.form.amount.title')}
         </label>
       </div>
 
@@ -110,7 +116,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
           placeholder=' '
           value={dataForm?.category}
         >
-          <option disabled value='' hidden>Выберите категорию</option>
+          <option disabled value='' hidden>{t('categories.select')}</option>
           {categories && categories.map(category => (
             <option
               key={category?.id}
@@ -119,13 +125,13 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
               {category?.title}
             </option>
           ))}
-          <option value='create'>Создать категорию</option>
+          <option value='create'>{t('transactions.form.categories.create')}</option>
         </select>
         <label
           className='mainInput__label'
           htmlFor='category'
         >
-          Категория
+          {t('transactions.form.categories.title')}
         </label>
       </div>
 
@@ -144,7 +150,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
           className='mainInput__label'
           htmlFor='createdAt'
         >
-          Дата
+          {t('transactions.form.date.title')}
         </label>
       </div>
 
@@ -162,7 +168,7 @@ export const TransactionsForm: React.FC<Props> = ({ transaction }) => {
           className='mainInput__label'
           htmlFor='commentary'
         >
-          Комментарий
+          {t('transactions.form.commentary.title')}
         </label>
       </div>
 

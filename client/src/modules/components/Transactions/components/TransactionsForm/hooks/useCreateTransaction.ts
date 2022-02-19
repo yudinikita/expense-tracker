@@ -6,11 +6,13 @@ import { DataTransactionsForm } from './useTransactionsForm'
 import { MouseEventHandler } from 'react'
 import { Transaction, useCreateTransactionMutation } from '../../../../../graphql/__generated__/graphql.gen'
 import { gql } from '@apollo/client'
+import { useTranslation } from 'react-i18next'
 
 // @ts-expect-error
 const sortTransactionsByDate = (dateA: Transaction, dateB: Transaction) => new Date(dateA?.createdAt) - new Date(dateB?.createdAt)
 
 export const useCreateTransaction = (dataForm: DataTransactionsForm) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const alert = useAlert()
 
@@ -71,10 +73,10 @@ export const useCreateTransaction = (dataForm: DataTransactionsForm) => {
             }
           }
         })
-        alert.success('Операция создана')
+        alert.success(t('alert.transactions.add.success'))
         navigate('/transactions')
       } catch {
-        alert.error('Ошибка при создании операции')
+        alert.error(t('alert.failed'))
       }
     } else {
       alert.show(messageFailed)
