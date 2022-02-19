@@ -1,0 +1,291 @@
+{
+  "alert": {
+    "category": {
+      "add": {
+        "success": "Categoría añadida"
+      },
+      "delete": {
+        "failed": "No se pudo eliminar la categoría",
+        "success": {
+          "normal": "Categoría eliminada",
+          "replace": "Categoría reemplazada",
+          "trans": "Categoría y operaciones eliminadas"
+        }
+      },
+      "edit": {
+        "success": "Categoría cambiada"
+      },
+      "valid": {
+        "exists": "Esta categoría ya existe",
+        "length": "Longitud de categoría incorrecta",
+        "name": "Especifique el nombre de la categoría"
+      }
+    },
+    "data": {
+      "notfound": "No se pudieron obtener los datos"
+    },
+    "failed": "Se ha producido un error",
+    "help": {
+      "add": {
+        "failed": "Introduzca la esencia del problema",
+        "success": "Pregunta añadida"
+      }
+    },
+    "password": {
+      "update": {
+        "failed": "No se pudo actualizar la contraseña"
+      },
+      "valid": {
+        "length": "Mínimo 6 caracteres"
+      }
+    },
+    "settings": {
+      "save": {
+        "success": "Ajustes guardados"
+      }
+    },
+    "transactions": {
+      "add": {
+        "success": "Operación creada"
+      },
+      "search": {
+        "valid": {
+          "length": "La barra de búsqueda está vacía"
+        }
+      },
+      "update": "Operación guardada",
+      "valid": {
+        "amount": "Apropiación",
+        "category": "Especifique una categoría"
+      }
+    }
+  },
+  "analytics": {
+    "balance": {
+      "expense": "Consumo",
+      "income": "Ingresos",
+      "remainder": "Resto"
+    },
+    "category": {
+      "balance": "Saldo",
+      "expense": "Consumo",
+      "income": "Ingresos"
+    },
+    "title": "Analítica",
+    "total": "Total"
+  },
+  "button": {
+    "add": "Añadir",
+    "back": "Volver",
+    "cancel": "Anulación",
+    "create": "Crear",
+    "edit": "Cambiar",
+    "logout": "Ir a",
+    "remove": "Borrar",
+    "save": "Guardar"
+  },
+  "categories": {
+    "input": "Nueva categoría",
+    "modaldelete": {
+      "btn": {
+        "delete": "Borrar categoría",
+        "replace": "Sustituir",
+        "trans": "Borrar las operaciones"
+      },
+      "desc": {
+        "normal": "¿Está seguro de que quiere eliminar una categoría? Las transacciones recibirán el estado \"Sin categoría\"",
+        "replace": "Eliminar la categoría y sustituirla por:",
+        "trans": "Eliminar una categoría y todas las operaciones con ella"
+      },
+      "title": "Borrar una categoría"
+    },
+    "select": "Elija una categoría",
+    "title": "Categorías"
+  },
+  "currencies": {
+    "name": [
+      "Rublo ruso",
+      "Dólar",
+      "Euro",
+      "Rublo de bellorus",
+      "Won surcoreano",
+      "Hryvnia ucraniana"
+    ]
+  },
+  "help": {
+    "answer": {
+      "no": "No hay respuesta",
+      "title": "Respuesta",
+      "yes": "Hay una respuesta"
+    },
+    "button": {
+      "title": "Haz una pregunta"
+    },
+    "comingsoon": "Próximamente...",
+    "input": {
+      "more": {
+        "title": "Sobre el problema"
+      },
+      "title": "El quid del problema"
+    },
+    "myquestions": "Mis preguntas",
+    "notfound": "No se han encontrado preguntas",
+    "question": "Pregunta",
+    "solved": {
+      "answer": {
+        "no": "No, el problema sigue siendo",
+        "yes": "Sí, problema resuelto"
+      },
+      "question": "¿Ha resuelto su problema?",
+      "yes": "Ha informado de que el problema se ha resuelto."
+    },
+    "solver": {
+      "no": "Ha informado de que el problema no se ha resuelto."
+    },
+    "title": "Ayuda"
+  },
+  "home": {
+    "analytics": {
+      "card": {
+        "expense": {
+          "average": "Caudal medio",
+          "title": "Consumo"
+        },
+        "income": {
+          "average": "Ingresos medios",
+          "title": "Ingresos"
+        }
+      }
+    },
+    "phrases": [
+      "Bienvenido",
+      "¡Bienvenido de nuevo!",
+      "¡Mis respetos!",
+      "¡A quién veo!",
+      "¿Cómo estás?",
+      "¡Paz a tu choza!",
+      "¡Ha pasado mucho tiempo!",
+      "¡Te ves genial!",
+      "¿Adónde vas?",
+      "¡Qué reunión!",
+      "¡Qué gente!",
+      "¡Salud!",
+      "¿Eres tú?",
+      "¿Dónde has estado?",
+      "¿Qué hay de nuevo?",
+      "¡Y tú estás bien!",
+      "Cuántos años...",
+      "¿Qué tal el día?"
+    ],
+    "title": "Resumen"
+  },
+  "logo": {
+    "title": "Logotipo"
+  },
+  "navigation": {
+    "list": [
+      "Inicio",
+      "Operaciones",
+      "Análisis",
+      "Configuración"
+    ]
+  },
+  "other": {
+    "and": {
+      "title": "e"
+    }
+  },
+  "search": "Búsqueda",
+  "settings": {
+    "currency": {
+      "title": "Moneda"
+    },
+    "email": {
+      "google": {
+        "desc": "iniciar sesión con Google",
+        "off": "Apagado",
+        "on": "Incorporado"
+      },
+      "now": {
+        "desc": "Su dirección de correo electrónico actual:",
+        "title": "Dirección de correo electrónico actual"
+      },
+      "title": "Correo electrónico"
+    },
+    "language": {
+      "title": "Idioma"
+    },
+    "list": [
+      "Categorías",
+      "Correo electrónico",
+      "Seguridad",
+      "Idioma y moneda",
+      "Apariencia",
+      "Ayuda"
+    ],
+    "security": {
+      "password": {
+        "current": "Contraseña actual",
+        "new": "Nueva contraseña",
+        "title": "Cambiar contraseña"
+      },
+      "title": "Seguridad"
+    },
+    "theme": {
+      "list": [
+        "Claro",
+        "Oscuro"
+      ],
+      "subtitle": "Cabo",
+      "title": "Apariencia"
+    },
+    "title": "Ajustes"
+  },
+  "transactions": {
+    "add": "Añadir operación",
+    "create": "Nueva operación",
+    "detail": {
+      "title": "Operación"
+    },
+    "edit": {
+      "title": "Cambiar categoría"
+    },
+    "form": {
+      "amount": {
+        "hint": "Un entero no es cero",
+        "title": "Suma"
+      },
+      "categories": {
+        "create": "Crear categoría",
+        "title": "Categoría"
+      },
+      "commentary": {
+        "title": "Comentario"
+      },
+      "date": {
+        "title": "Fecha"
+      }
+    },
+    "notfound": "No hay ninguna operación aquí",
+    "search": {
+      "finded": "Operaciones encontradas",
+      "input": {
+        "title": "Cantidad o comentario"
+      },
+      "notfound": "Operaciones no encontradas",
+      "title": "Búsqueda de operaciones"
+    },
+    "title": "Operaciones"
+  },
+  "user": {
+    "balance": {
+      "dayhint": "Suma de operaciones por día",
+      "percenthint": "Porcentaje por día del saldo",
+      "title": "Su saldo"
+    },
+    "logout": {
+      "desc": "¿Estás seguro de que quieres cerrar sesión?",
+      "title": "Cerrar sesión"
+    }
+  }
+}
