@@ -5,8 +5,10 @@ import {
   useCategoriesQuery,
   useDeleteCategoryReplaceMutation
 } from '../../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useFormDeleteReplace = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
@@ -29,7 +31,7 @@ export const useFormDeleteReplace = () => {
       ]
     })
 
-  if (error != null) alert.error('Не удалось удалить категорию')
+  if (error != null) alert.error(t('alert.category.delete.failed'))
 
   const clickDeleteReplace = async () => {
     if (selectReplaceId) {
@@ -42,14 +44,14 @@ export const useFormDeleteReplace = () => {
             }
           }
         })
-        alert.success('Категория заменена')
+        alert.success(t('alert.category.delete.success.replace'))
       } catch {
-        alert.error('Не удалось удалить категорию')
+        alert.error(t('alert.category.delete.failed'))
       } finally {
         onRequestClose()
       }
     } else {
-      alert.error('Категория не выбрана')
+      alert.error(t('alert.failed'))
     }
   }
 

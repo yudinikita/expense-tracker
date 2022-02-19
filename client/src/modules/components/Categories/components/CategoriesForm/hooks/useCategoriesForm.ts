@@ -2,8 +2,10 @@ import { ChangeEventHandler, SyntheticEvent, useState } from 'react'
 import { useValidationCategory } from '../../../hooks'
 import { useAlert } from 'react-alert'
 import { useCreateCategoryMutation } from '../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useCategoriesForm = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const [inputCategory, setInputCategory] = useState('')
   const { isValid, messageFailed } = useValidationCategory(inputCategory)
@@ -24,9 +26,9 @@ export const useCategoriesForm = () => {
             }
           }
         })
-        alert.success('Категория добавлена')
+        alert.success(t('alert.category.add.success'))
       } catch (e) {
-        alert.error('Не удалось создать категорию')
+        alert.error(t('alert.failed'))
       } finally {
         setInputCategory('')
       }

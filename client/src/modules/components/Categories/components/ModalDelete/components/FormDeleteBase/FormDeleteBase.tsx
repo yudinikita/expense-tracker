@@ -1,19 +1,21 @@
 import React from 'react'
 import { useFormDeleteBase } from './hooks'
+import { useTranslation } from 'react-i18next'
 
 export const FormDeleteBase = () => {
+  const { t } = useTranslation()
   const { clickDeleteBase, loading } = useFormDeleteBase()
 
   return (
     <div>
-      <p>Вы&#160;уверены, что хотите удалить категорию? Операции получат статус &#171;Без категории&#187;</p>
+      <p>{t('categories.modaldelete.desc.normal')}</p>
       <button
         className='mainButton'
         type='button'
         onClick={clickDeleteBase}
         disabled={loading}
       >
-        Удалить категорию
+        {t('categories.modaldelete.btn.delete')}
       </button>
       <br /><br />
     </div>

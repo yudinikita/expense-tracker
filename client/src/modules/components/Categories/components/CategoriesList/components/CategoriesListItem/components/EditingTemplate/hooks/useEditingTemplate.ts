@@ -3,8 +3,10 @@ import { CategoriesListItemContext } from '../../../context'
 import { useValidationCategory } from '../../../../../../../hooks'
 import { useAlert } from 'react-alert'
 import { useUpdateCategoryMutation } from '../../../../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useEditingTemplate = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const { category, setEditing } = useContext(CategoriesListItemContext)
   const [editInput, setEditInput] = useState(category?.title)
@@ -29,9 +31,9 @@ export const useEditingTemplate = () => {
             }
           }
         })
-        alert.success('Категория изменена')
+        alert.success(t('alert.category.edit.success'))
       } catch {
-        alert.error('Не удалось получить данные')
+        alert.error(t('alert.data.notfound'))
       } finally {
         setEditing(false)
       }

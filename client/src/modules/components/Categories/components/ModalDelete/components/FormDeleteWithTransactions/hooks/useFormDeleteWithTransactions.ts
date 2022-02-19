@@ -2,8 +2,10 @@ import { useContext } from 'react'
 import { ModalDeleteContext } from '../../../context'
 import { useAlert } from 'react-alert'
 import { useDeleteCategoryWithTransactionsMutation } from '../../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
 
 export const useFormDeleteWithTransactions = () => {
+  const { t } = useTranslation()
   const alert = useAlert()
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
@@ -18,7 +20,7 @@ export const useFormDeleteWithTransactions = () => {
       ]
     })
 
-  if (error != null) alert.error('Не удалось удалить категорию')
+  if (error != null) alert.error(t('alert.category.delete.failed'))
 
   const clickDeleteWithTransactions = async () => {
     try {
@@ -29,9 +31,9 @@ export const useFormDeleteWithTransactions = () => {
           }
         }
       })
-      alert.success('Категория и ее операции удалены')
+      alert.success(t('alert.category.delete.success.trans'))
     } catch {
-      alert.error('Не удалось удалить категорию')
+      alert.error(t('alert.category.delete.failed'))
     } finally {
       onRequestClose()
     }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CategoriesListItemContext } from './context'
 import { EditingTemplate, ViewTemplate } from './components'
 import styles from './CategoriesListItem.module.scss'
-import { Category } from '../../../../../../graphql/__generated__/graphql.gen.js'
+import { Category } from '../../../../../../graphql/__generated__/graphql.gen'
 
 interface Props {
   category: Category
