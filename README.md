@@ -10,7 +10,7 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
-💰 **Простой** инструмент для учета расходов и доходов. Без лишних функций и подписок. Различные **отчеты** за период.
+💰 Простой инструмент для учета расходов и доходов. Без лишних функций и подписок. Различные отчеты за период.
 Подойдет для людей, желающих вести учет своих трат и понимать, на что они тратят денег больше всего, не разбираясь в
 сложных системах.
 
@@ -48,16 +48,20 @@
 - 📝 Можно задавать вопросы и получать на них ответы.
 - 🎨 Смена темы: светлая и темная.
 
+## 🖥 Поддержка
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
+| --- | --- | --- | --- |
+| last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+
 ## 📝 Начало работы
 
 ### 1. Установка
 
-Скопируйте репозиторий и установите зависимости
-
-```shell
+```bash
 git clone https://github.com/nblackninja/expense-tracker.git
-cd expense-tracker 
-npm install
+cd expense-tracker
+yarn install:all
 ```
 
 ## 💬 Примечание
