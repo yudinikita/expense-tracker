@@ -1,6 +1,6 @@
-<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Управление расходами и доходами)'>
+<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='(비용 및 수입 관리)'>
 
-# Денежки – самый легкий учет финансов
+# 가장 쉬운 재정 회계
 
 <p>
   <img alt="Scrutinizer build (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/build/g/nblackninja/expense-tracker">
