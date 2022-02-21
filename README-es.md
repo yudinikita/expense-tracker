@@ -19,13 +19,16 @@ sistemas complejos.
 ## ️⚒️ Tecnología
 
 <p>
-  <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat&logo=mongodb&logoColor=white" />
-  <img alt="Fastify" src="https://img.shields.io/badge/-Fastify-404D59?style=flat&logo=fastify&logoColor=white" />
   <img alt="React" src="https://img.shields.io/badge/-React-20232A?style=flat&logo=react&logoColor=white" />
+  <img alt="Fastify" src="https://img.shields.io/badge/-Fastify-404D59?style=flat&logo=fastify&logoColor=white" />
+  <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat&logo=mongodb&logoColor=white" />
   <img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=flat&logo=Node.js&logoColor=white" />
   <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" />
   <img alt="GraphQL" src="https://img.shields.io/badge/-GraphQL-E10098?style=flat&logo=graphql&logoColor=white" />
   <img alt="Apollo" src="https://img.shields.io/badge/-Apollo-311C87?style=flat&logo=apollo-graphql&logoColor=white" />
+  <img alt="Jest" src="https://img.shields.io/badge/-Jest-14C531?style=flat&logo=jest&logoColor=white" />
+  <img alt="StoryBook" src="https://img.shields.io/badge/-Storybook-FE4284?style=flat&logo=storybook&logoColor=white" />
+  <img alt="Docker" src="https://img.shields.io/badge/-Docker-022964?style=flat&logo=docker&logoColor=white" />
   <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat&logo=heroku&logoColor=white" />
   <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=white" /> 
   <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white" />
