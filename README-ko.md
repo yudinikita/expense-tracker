@@ -10,13 +10,13 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
-💰 Простой инструмент для учета расходов и доходов. Без лишних функций и подписок. Различные отчеты за период.
-Подойдет для людей, желающих вести учет своих трат и понимать, на что они тратят денег больше всего, не разбираясь в
-сложных системах.
+💰 회계 비용과 소득에 대한 간단한 도구입니다. 불필요한 기능 및 구독없이. 기간에 대한 다양한 보고서.
+그것은 그들의 지출의 기록을 유지하고 그들이 이해하지 않고,에 가장 돈을 지출 무엇을 이해하고자하는 사람들에게 적합합니다
+복잡한 시스템.
 
-![Скриншоты приложения](https://user-images.githubusercontent.com/36636599/145864310-35100d93-415c-45a4-b8f9-32595e1bf4c2.png)
+![응용 프로그램의 스크린 샷](https://user-images.githubusercontent.com/36636599/145864310-35100d93-415c-45a4-b8f9-32595e1bf4c2.png)
 
-## ️⚒️ Технологии
+## ️⚒️ 기술
 
 <p>
   <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat&logo=mongodb&logoColor=white" />
@@ -32,31 +32,31 @@
   <img alt="Scss" src="https://img.shields.io/badge/-SCSS-CC6699?style=flat&logo=sass&logoColor=white" /> 
 </p>
 
-## ✨ Возможности
+## ✨ 기회
 
-- 💵 Записи расходов и доходов по категориям с комментариями.
-- 📊 Статистика по категориям за период в виде диаграмм.
-- 📈 Просмотр разницы доход / расход по месяцу.
-- 🛡 Написано на TypeScript с предсказуемыми типами.
-- 🌍 Локализация для 6 языков: русский, английский, испанский, украинский, белорусский, корейский.
-- ✏️ Переименование категорий после создания.
-- 🌈 Просмотр суммы операций за день и процент от баланса.
-- 🔎 Поиск операций по сумме или комментарию.
-- ⚙️ Смена пароля и выбор валюты.
-- 🌈 Замена и удаление категории вместе с операциями.
-- 📦 Тесты для сервера и клиента.
-- 📝 Можно задавать вопросы и получать на них ответы.
-- 🎨 Смена темы: светлая и темная.
+- 💵 코멘트가있는 카테고리 별 비용 및 소득 기록.
+- 📊 차트의 형태로 기간에 대한 범주 별 통계.
+- 📈 월 소득/비용 차이를 볼 수 있습니다.
+- 🛡 예측 가능한 유형으로 타이프 스크립트로 작성되었습니다.
+- 🌍 6 개 언어 현지화:러시아어,영어,스페인어,우크라이나어,벨로루시 어,한국어.
+- ✏️ 생성 후 카테고리 이름 바꾸기.
+- 🌈 일 및 균형의 비율에 대한 거래의 양을 볼 수 있습니다.
+- 🔎 금액 또는 주석으로 거래를 검색합니다.
+- ⚙️ 암호 변경 및 통화 선택.
+- 🌈 교체 및 작업과 함께 범주를 삭제.
+- 📦 서버 및 클라이언트에 대한 테스트.
+- 📝 당신은 질문을하고 그들에게 답을 얻을 수 있습니다.
+- 🎨 테마 변경:빛과 어둠.
 
-## 🖥 Поддержка
+## 🖥 지원
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
 | --- | --- | --- | --- |
 | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## 📝 Начало работы
+## 📝시작
 
-### 1. Установка
+### 1. 설치 방법
 
 ```bash
 git clone https://github.com/nblackninja/expense-tracker.git
@@ -64,16 +64,15 @@ cd expense-tracker
 yarn install:all
 ```
 
-## 💬 Примечание
+## 💬 참고
 
-Если у вас есть пожелания или проблемы с использованием приложения, пишите на
-почту.
+응용 프로그램을 사용하여 어떤 제안이나 문제가있는 경우,에 쓰기 메일.
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-## 🔐 Лицензия
+## 🔐 라이센스
 
-Исходный код опубликован под лицензией MIT, которая доступна [здесь](LICENSE).
+소스 코드는 사용 가능한 라이센스에 따라 게시됩니다 [여기](LICENSE).
 
 ---
 
