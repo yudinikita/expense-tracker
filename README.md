@@ -1,6 +1,6 @@
-<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Managing expenses and income)'>
+<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Denezhki (Managing expenses and income)'>
 
-# the easiest accounting of finances
+# Denezhki – Easiest accounting of finances
 
 <p>
   <img alt="Scrutinizer build (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/build/g/nblackninja/expense-tracker">
@@ -32,7 +32,7 @@ complex systems.
   <img alt="Scss" src="https://img.shields.io/badge/-SCSS-CC6699?style=flat&logo=sass&logoColor=white" /> 
 </p>
 
-## ✨ Opportunities
+## ✨ Features
 
 - 💵 Records of expenses and income by category with comments.
 - 📊 Statistics by category for the period in the form of charts.
