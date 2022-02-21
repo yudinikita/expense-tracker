@@ -1,6 +1,6 @@
-<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='(Gestión de gastos e ingresos)'>
+<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Denezhki (Gestión de gastos e ingresos)'>
 
-# La contabilidad más fácil de las finanzas
+# Denezhki – la contabilidad más fácil de las finanzas
 
 <p>
   <img alt="Scrutinizer build (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/build/g/nblackninja/expense-tracker">
