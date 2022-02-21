@@ -1,6 +1,6 @@
-<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Управление расходами и доходами)'>
+<img align='right' src="https://user-images.githubusercontent.com/36636599/145850897-c920d271-caac-43d3-8fda-a9d0268df0db.png" width="100" height='100' alt='Денежки (Managing expenses and income)'>
 
-# Денежки – самый легкий учет финансов
+# the easiest accounting of finances
 
 <p>
   <img alt="Scrutinizer build (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/build/g/nblackninja/expense-tracker">
@@ -10,13 +10,13 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
-💰 Простой инструмент для учета расходов и доходов. Без лишних функций и подписок. Различные отчеты за период.
-Подойдет для людей, желающих вести учет своих трат и понимать, на что они тратят денег больше всего, не разбираясь в
-сложных системах.
+💰 A simple tool for accounting expenses and income. Without unnecessary functions and subscriptions. Various reports for the period.
+It is suitable for people who want to keep records of their spending and understand what they spend the most money on, without understanding
+complex systems.
 
-![Скриншоты приложения](https://user-images.githubusercontent.com/36636599/145864310-35100d93-415c-45a4-b8f9-32595e1bf4c2.png)
+![Screenshots of the application](https://user-images.githubusercontent.com/36636599/145864310-35100d93-415c-45a4-b8f9-32595e1bf4c2.png)
 
-## ️⚒️ Технологии
+## ️⚒️ Technologies
 
 <p>
   <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat&logo=mongodb&logoColor=white" />
@@ -32,31 +32,31 @@
   <img alt="Scss" src="https://img.shields.io/badge/-SCSS-CC6699?style=flat&logo=sass&logoColor=white" /> 
 </p>
 
-## ✨ Возможности
+## ✨ Opportunities
 
-- 💵 Записи расходов и доходов по категориям с комментариями.
-- 📊 Статистика по категориям за период в виде диаграмм.
-- 📈 Просмотр разницы доход / расход по месяцу.
-- 🛡 Написано на TypeScript с предсказуемыми типами.
-- 🌍 Локализация для 6 языков: русский, английский, испанский, украинский, белорусский, корейский.
-- ✏️ Переименование категорий после создания.
-- 🌈 Просмотр суммы операций за день и процент от баланса.
-- 🔎 Поиск операций по сумме или комментарию.
-- ⚙️ Смена пароля и выбор валюты.
-- 🌈 Замена и удаление категории вместе с операциями.
-- 📦 Тесты для сервера и клиента.
-- 📝 Можно задавать вопросы и получать на них ответы.
-- 🎨 Смена темы: светлая и темная.
+- 💵 Records of expenses and income by category with comments.
+- 📊 Statistics by category for the period in the form of charts.
+- 📈 Viewing the income/ expense difference by month.
+- 🛡 Written in TypeScript with predictable types.
+- 🌍 Localization for 6 languages: Russian, English, Spanish, Ukrainian, Belarusian, Korean.
+- ✏️ Renaming categories after creation.
+- 🌈 View the amount of transactions for the day and the percentage of the balance.
+- 🔎 Search for transactions by amount or comment.
+- ⚙️ Password change and currency selection.
+- 🌈 Replacing and deleting a category along with operations.
+- 📦 Tests for server and client.
+- 📝 You can ask questions and get answers to them.
+- 🎨 Change of theme: light and dark.
 
-## 🖥 Поддержка
+## 🖥 Support
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
 | --- | --- | --- | --- |
 | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## 📝 Начало работы
+## 📝 Getting started
 
-### 1. Установка
+### 1. Installation
 
 ```bash
 git clone https://github.com/nblackninja/expense-tracker.git
@@ -64,16 +64,16 @@ cd expense-tracker
 yarn install:all
 ```
 
-## 💬 Примечание
+## 💬 Note
 
-Если у вас есть пожелания или проблемы с использованием приложения, пишите на
-почту.
+If you have any suggestions or problems using the application, write to the
+mail.
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-## 🔐 Лицензия
+## 🔐 License
 
-Исходный код опубликован под лицензией MIT, которая доступна [здесь](LICENSE).
+The source code is published under the MIT license, which is available [here](LICENSE).
 
 ---
 
