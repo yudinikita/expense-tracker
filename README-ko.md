@@ -10,6 +10,8 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
+[English](./README.md) | [Русский](./README-ru.md) | [Беларускі](./README-be.md) | [Українською](./README-uk.md) | 한국어 | [Spanish](./README-es.md)
+
 💰 회계 비용과 소득에 대한 간단한 도구입니다. 불필요한 기능 및 구독없이. 기간에 대한 다양한 보고서.
 그것은 그들의 지출의 기록을 유지하고 그들이 이해하지 않고,에 가장 돈을 지출 무엇을 이해하고자하는 사람들에게 적합합니다
 복잡한 시스템.
