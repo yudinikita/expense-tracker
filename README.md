@@ -14,6 +14,8 @@
 It is suitable for people who want to keep records of their spending and understand what they spend the most money on, without understanding
 complex systems.
 
+English | [Русский](./README-ru.md) | [Беларускі](./README-be.md) | [Українською](./README-uk.md) | [한국어](./README-ko.md) | [Spanish](./README-es.md)
+
 ![Screenshots of the application](https://user-images.githubusercontent.com/36636599/145864310-35100d93-415c-45a4-b8f9-32595e1bf4c2.png)
 
 ## ️⚒️ Technologies
