@@ -10,6 +10,8 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/nblackninja/expense-tracker">
 </p>
 
+[English](./README.md) | [Русский](./README-ru.md) | [Беларускі](./README-be.md) | [Українською](./README-uk.md) | [한국어](./README-ko.md) | Spanish
+
 💰 Una herramienta sencilla para la contabilidad de gastos e ingresos. Sin funciones y suscripciones innecesarias. Varios informes para el período.
 Adecuado para personas que desean mantener un registro de sus gastos y comprender en qué gastan más dinero sin comprender
 sistemas complejos.
