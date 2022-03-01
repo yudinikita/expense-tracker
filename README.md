@@ -41,7 +41,7 @@ English | [Русский](./README-ru.md) | [Беларускі](./README-be.md
 
 - 💵 Records of expenses and income by category with comments.
 - 📊 Statistics by category for the period in the form of charts.
-- 📈 Viewing the income/ expense difference by month.
+- 📈 Viewing the income / expense difference by month.
 - 🛡 Written in TypeScript with predictable types.
 - 🌍 Localization for 6 languages: Russian, English, Spanish, Ukrainian, Belarusian, Korean.
 - ✏️ Renaming categories after creation.
