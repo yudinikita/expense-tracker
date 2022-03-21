@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
-import { MyLoader } from './modules/components'
-import { App } from './App'
+import { Loaders } from 'modules/ui'
+import { App } from 'App'
 
 export const Render: React.FC = () => {
   return (
     <React.StrictMode>
-      <Suspense fallback={<MyLoader />}>
+      <Suspense fallback={<Loaders variant='circular' />}>
         <App />
       </Suspense>
     </React.StrictMode>
