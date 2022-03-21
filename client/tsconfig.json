@@ -8,6 +8,7 @@
       "ES2021",
       "dom"
     ],
+    "baseUrl": "src",
     "rootDir": "./src",
     "outDir": "./build",
     "moduleResolution": "node",
@@ -21,6 +22,9 @@
       "./node_modules/@types"
     ]
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "build",
