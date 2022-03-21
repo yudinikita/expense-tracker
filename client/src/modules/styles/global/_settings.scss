@@ -14,8 +14,8 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  font-size: 16px;
-  font-family: 'Inter', sans-serif;
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
   line-height: 160%;
   background-color: var(--background-color);
   animation: .3s fadeIn ease-in-out;
@@ -45,12 +45,12 @@ h6 {
   padding: 0;
   color: var(--title-color);
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family-base);
   line-height: 130%;
 }
 
 .container {
-  width: 315px;
+  width: var(--inner-max-width);
   margin: 120px auto 150px;
 }
 
@@ -104,7 +104,7 @@ h6 {
 }
 
 .contentContainer {
-  max-width: 375px;
+  max-width: var(--outside-max-width);
   margin: 0 auto;
   padding: 0 30px;
 }
