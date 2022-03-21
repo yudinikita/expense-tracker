@@ -1,30 +1,37 @@
 import React from 'react'
-import { TransactionsDate, TransactionsListItem } from './components'
-import { TransactionsNotFound } from '..'
-import styles from './TransactionsList.module.scss'
-import { Transaction } from '../../../../graphql/__generated__/graphql.gen'
+import { Transaction } from 'modules/graphql'
+import { Errors } from 'modules/ui'
+import { TransactionsNotFound } from '../TransactionsNotFound'
+import { TransactionsLoader } from '../TransactionsLoader'
+import { TransactionsDateContainer, TransactionsListItemContainer } from './components'
+import s from './TransactionsList.module.scss'
 
-interface Props {
-  transactions: Transaction[]
+interface TransactionsListProps {
+  transactions?: Transaction[]
+  loading?: boolean
+  error?: any
 }
 
-export const TransactionsList: React.FC<Props> = ({ transactions = [] }) => {
-  const renderNotFound = () => (transactions?.length === 0 ? <TransactionsNotFound /> : null)
+export const TransactionsList: React.FC<TransactionsListProps> = ({
+  transactions = [],
+  loading = false,
+  error,
+}) => {
+
+  if (loading) return <TransactionsLoader />
+  if (error) return <Errors variant='default' />
+  if (transactions?.length === 0) return <TransactionsNotFound />
 
   return (
     <div>
-      {renderNotFound()}
       <ul className='list-reset'>
         {transactions.map((transaction, index) => (
           <li
             key={transaction?.id}
-            className={styles.transactionsItem}
+            className={s.transactionsItem}
           >
-            <TransactionsDate
-              transactions={transactions}
-              index={index}
-            />
-            <TransactionsListItem transaction={transaction} />
+            <TransactionsDateContainer transactions={transactions} index={index} />
+            <TransactionsListItemContainer transaction={transaction} />
           </li>
         ))}
       </ul>

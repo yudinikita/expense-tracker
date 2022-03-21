@@ -1,19 +1,17 @@
-import { Transaction } from '../../../../../../../graphql/__generated__/graphql.gen'
 import dayjs from 'dayjs'
+import { Transaction } from 'modules/graphql'
 
-const getFormatDate = (dateCreatedAt: Date) => {
-  return dayjs(dateCreatedAt).format('D MMMM, dddd')
-}
+const formatDate = 'D MMMM, dddd'
 
 export const useTransactionsDate = (transactions: Transaction[], index: number) => {
-  const dateCreatedAt = new Date(transactions[index]?.createdAt ?? '')
+  const dateCreatedAt = dayjs(transactions[index]?.createdAt ?? '')
 
-  if (index === 0) return { date: getFormatDate(dateCreatedAt) }
+  if (index === 0) return { date: dateCreatedAt.format(formatDate) }
 
-  const prevDay = new Date(transactions[index - 1]?.createdAt ?? '').getDate()
-  const nowDay = dateCreatedAt.getDate()
+  const prevDay = dayjs(transactions[index - 1]?.createdAt ?? '').date()
+  const nowDay = dateCreatedAt.date()
 
-  const date = nowDay !== prevDay ? getFormatDate(dateCreatedAt) : null
+  const date = nowDay !== prevDay ? dateCreatedAt.format(formatDate) : null
 
   return {
     date

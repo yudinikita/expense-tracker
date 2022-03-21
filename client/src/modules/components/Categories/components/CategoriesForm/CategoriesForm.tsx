@@ -1,48 +1,37 @@
 import React from 'react'
-import { useCategoriesForm } from './hooks/useCategoriesForm'
-import styles from './CategoriesForm.module.scss'
 import { useTranslation } from 'react-i18next'
+import { Button, Input, Space } from 'modules/ui'
+import { useCategoriesForm } from './hooks'
 
 export const CategoriesForm = () => {
   const { t } = useTranslation()
 
-  const {
-    loading,
-    inputCategory,
-    onSubmitForm,
-    onChangeInput
-  } = useCategoriesForm()
+  const { formik, errors, invalid } = useCategoriesForm()
 
   return (
-    <form
-      onSubmit={onSubmitForm}
-      className={styles.container}
-    >
-      <div className={styles.input + ' groupInput'}>
-        <input
-          className='mainInput'
-          onChange={onChangeInput}
-          value={inputCategory}
-          type='text'
-          id='newCategory'
-          placeholder=' '
-          required
-          disabled={loading}
-        />
-        <label
-          htmlFor='newCategory'
-          className='mainInput__label'
-        >
-          {t('categories.input')}
-        </label>
-      </div>
-      <button
-        type='submit'
-        disabled={loading}
-        className='mainButton'
+    <form onSubmit={formik.handleSubmit}>
+      <Space
+        direction='vertical'
+        size={25}
+        blockItem
       >
-        {t('button.add')}
-      </button>
+        <Input
+          label={t('categories.input')}
+          id='newCategory'
+          block
+          validationText={errors.title}
+          invalid={invalid.title}
+          disabled={formik.isSubmitting}
+          {...formik.getFieldProps('title')}
+        />
+
+        <Button
+          type='submit'
+          loading={formik.isSubmitting}
+        >
+          {t('button.add')}
+        </Button>
+      </Space>
     </form>
   )
 }

@@ -1,9 +1,11 @@
-import { useAlert } from 'react-alert'
-import { useSearchValidation } from './useSearchValidation'
-import { useSearchTransactionQuery } from '../../../../../graphql/__generated__/graphql.gen'
 import React from 'react'
+import { useAlert } from 'react-alert'
+import { useSearchTransactionQuery } from 'modules/graphql'
+import { useSearchValidation } from './useSearchValidation'
 
 export const useTransactionsSearch = () => {
+  const alert = useAlert()
+  
   const { data, loading, error, refetch } = useSearchTransactionQuery({
     variables: {
       input: {
@@ -11,11 +13,11 @@ export const useTransactionsSearch = () => {
       }
     }
   })
+
   const { validationSearch } = useSearchValidation()
-  const alert = useAlert()
 
   const transactions = data?.searchTransaction
-  const count = transactions?.length || 0
+  const count = transactions?.length ?? 0
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {

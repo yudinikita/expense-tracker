@@ -1,40 +1,61 @@
 import React, { useContext } from 'react'
-import { ModalDeleteContext } from './context'
-import { MyModal } from '../../..'
-import { FormDeleteBase, FormDeleteReplace, FormDeleteWithTransactions } from './components'
-import styles from './ModalDelete.module.scss'
 import { useTranslation } from 'react-i18next'
+import { Props as ModalProps } from 'react-modal'
+import { Button, DialogContentContainer, Divider, Space, Typography } from 'modules/ui'
+import { ModalDeleteContext } from './context'
+import { FormDeleteBase, FormDeleteReplace, FormDeleteWithTransactions } from './components'
+import s from './ModalDelete.module.scss'
 
-interface Props {
-  isOpen: boolean
-}
-
-export const ModalDelete: React.FC<Props> = ({ isOpen }) => {
+export const ModalDelete: React.FC<ModalProps> = ({ isOpen }) => {
   const { t } = useTranslation()
 
   const { selectedCategory, onRequestClose } = useContext(ModalDeleteContext)
 
   return (
-    <MyModal
+    <DialogContentContainer
       isOpen={isOpen}
       onRequestClose={onRequestClose}
     >
-      <div className={styles.container}>
-        <h2 className={styles.title}>{t('categories.modaldelete.title')}</h2>
-        <h3 className={styles.categoryTitle}>{selectedCategory?.title}</h3>
+      <Space
+        direction='vertical'
+        className={s.container}
+        size={15}
+        block
+        blockItem
+      >
+        <Typography variant='h2'>
+          {t('categories.modaldelete.title')}
+        </Typography>
+
+        <Typography
+          variant='h3'
+          className={s.categoryTitle}
+        >
+          {selectedCategory?.title}
+        </Typography>
+
+        <Divider space={1} variant='invisible' />
 
         <FormDeleteBase />
+
+        <Divider space={1} variant='invisible' />
+
         <FormDeleteReplace />
+
+        <Divider space={1} variant='invisible' />
+
         <FormDeleteWithTransactions />
 
-        <button
-          className='secondaryButton'
-          type='button'
+        <Divider space={1} variant='invisible' />
+
+        <Button
+          variant='outline'
           onClick={onRequestClose}
+          block
         >
           {t('button.cancel')}
-        </button>
-      </div>
-    </MyModal>
+        </Button>
+      </Space>
+    </DialogContentContainer>
   )
 }

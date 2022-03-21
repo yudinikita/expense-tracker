@@ -1,16 +1,20 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { ModalDeleteContext } from '../ModalDelete/context'
 import { CategoriesListItem } from './components'
+import { Space } from 'modules/ui'
 import { ModalDelete } from '../ModalDelete'
 import { useCategoriesList } from './hooks'
-import styles from './CategoriesList.module.scss'
-import { Category } from '../../../../graphql/__generated__/graphql.gen'
+import { Category } from 'modules/graphql'
+import s from './CategoriesList.module.scss'
 
 interface Props {
   categories: Category[]
 }
 
 export const CategoriesList: React.FC<Props> = ({ categories }) => {
+  const { t } = useTranslation()
+
   const {
     selectedCategory,
     modalIsOpen,
@@ -20,10 +24,15 @@ export const CategoriesList: React.FC<Props> = ({ categories }) => {
   } = useCategoriesList()
 
   return (
-    <div className={styles.container}>
-      <ul className='list-reset'>
+    <Space
+      direction='vertical'
+      size={0}
+      block
+      blockItem
+    >
+      <ul className='list-reset' style={{ width: '100%' }}>
         {categories.map(category => (
-          <li key={category.id} className={styles.listItem}>
+          <li key={category.id} className={s.listItem}>
             <CategoriesListItem
               category={category}
               openModalDelete={openModal}
@@ -31,7 +40,7 @@ export const CategoriesList: React.FC<Props> = ({ categories }) => {
             />
           </li>
         ))}
-        {categories?.length === 0 && <p>Категорий не найдено</p>}
+        {categories?.length === 0 && <p>{t('categories.not_found')}</p>}
       </ul>
 
       <ModalDeleteContext.Provider value={{
@@ -41,6 +50,6 @@ export const CategoriesList: React.FC<Props> = ({ categories }) => {
       >
         <ModalDelete isOpen={modalIsOpen} />
       </ModalDeleteContext.Provider>
-    </div>
+    </Space>
   )
 }

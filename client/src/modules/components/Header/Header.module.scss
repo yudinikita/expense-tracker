@@ -1,0 +1,20 @@
+.container {
+  margin-top: var(--space-xxxl);
+  margin-bottom: var(--space-base);
+}
+
+.logo {
+  padding: 0;
+}
+
+.addLink {
+  display: block;
+}
+
+.addButton {
+  padding: 8px;
+  
+  path {
+    stroke: var(--icon-color);
+  }
+}

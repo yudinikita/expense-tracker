@@ -1,33 +1,91 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { TransactionsDetailContainer } from './components'
-import { InnerNavigate, MyError, MyLoader } from '../../..'
-import { useTransactionDetailQuery } from '../../../../graphql/__generated__/graphql.gen'
 import { useTranslation } from 'react-i18next'
+import { Transaction } from 'modules/graphql'
+import { Button, Price, Space, Typography } from 'modules/ui'
+import { useTransactionsDetail } from './hooks'
+import s from './TransactionsDetail.module.scss'
 
-export const TransactionsDetail: React.FC = () => {
+type TransactionPick = 'id' | 'amount' | 'commentary' | 'createdAt'
+
+interface TransactionsDetailProps extends Partial<Pick<Transaction, TransactionPick>> {
+  categoryTitle?: string
+}
+
+export const TransactionsDetail: React.FC<TransactionsDetailProps> = ({
+  id,
+  amount,
+  categoryTitle,
+  commentary,
+  createdAt
+}) => {
   const { t } = useTranslation()
 
-  const transactionId = useParams()['id'] ?? ''
+  const {
+    date,
+    handleClickEdit,
+    handleClickRemove,
+    loadingRemove
+  } = useTransactionsDetail(id, createdAt)
 
-  const { data, loading, error } = useTransactionDetailQuery({
-    variables: {
-      input: {
-        id: transactionId
-      }
-    }
-  })
+  const title = categoryTitle || 'Без категории'
 
   return (
-    <>
-      <InnerNavigate title={t('transactions.detail.title')} />
+    <Space
+      direction='vertical'
+      align='center'
+      size={25}
+      block
+    >
+      <Space
+        className={s.textAnimate}
+        direction='vertical'
+        align='center'
+        size={15}
+        block
+      >
+        <Price
+          className={s.price}
+          amount={amount}
+          haveColor
+        />
 
-      {loading && <MyLoader />}
-      {!loading && error && <MyError error={error} />}
+        <Typography variant='h2'>
+          {title}
+        </Typography>
 
-      {!loading && (error == null) && data?.transactionDetail &&
-        // @ts-expect-error
-        <TransactionsDetailContainer transaction={data?.transactionDetail} />}
-    </>
+        <Typography
+          variant='text'
+          type='secondary'
+        >
+          {date}
+        </Typography>
+
+        {renderCommentary(commentary)}
+      </Space>
+
+      <Space
+        direction='vertical'
+        size={20}
+      >
+        <Button onClick={handleClickEdit}>
+          {t('button.edit')}
+        </Button>
+        <Button
+          variant='outline'
+          onClick={handleClickRemove}
+          loading={loadingRemove}
+        >
+          {t('button.remove')}
+        </Button>
+      </Space>
+    </Space>
   )
 }
+
+const renderCommentary = (commentary?: string | null) => (
+  commentary
+    ? <Typography variant='text' type='secondary' className={s.commentary}>
+      {commentary}
+    </Typography>
+    : null
+)

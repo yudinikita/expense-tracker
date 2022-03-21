@@ -1,6 +1,10 @@
 import React from 'react'
-import { CardAnalyticList } from './components'
+import { AnalyticCardList } from './components'
 
 export const HomeAnalytics = () => {
-  return <CardAnalyticList />
+  return (
+    <>
+      <AnalyticCardList />
+    </>
+  )
 }

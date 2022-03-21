@@ -1,6 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import styles from './TransactionsLoader.module.scss'
+import { Space } from 'modules/ui'
+import s from './TransactionsLoader.module.scss'
 
 const LoaderItem: React.FC = (props) => (
   <ContentLoader
@@ -8,7 +9,7 @@ const LoaderItem: React.FC = (props) => (
     width={315}
     height={60}
     viewBox='0 0 315 60'
-    title='Загрузка...'
+    title='Loading...'
     backgroundColor='#ebebeb'
     foregroundColor='#d2d2d2'
     {...props}
@@ -21,10 +22,13 @@ const LoaderItem: React.FC = (props) => (
 
 export const TransactionsLoader: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <Space
+      direction='vertical'
+      className={s.container}
+    >
       <LoaderItem />
       <LoaderItem />
       <LoaderItem />
-    </div>
+    </Space>
   )
 }

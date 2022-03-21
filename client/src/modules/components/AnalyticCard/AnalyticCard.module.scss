@@ -1,0 +1,77 @@
+.card {
+  width: var(--inner-max-width);
+  background-color: var(--color-gray-5);
+  cursor: pointer;
+  border-radius: var(--border-radius-base);
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.content {
+  padding: var(--space-md);
+}
+
+.title,
+.subtitle,
+.price {
+  max-width: 180px;
+  text-overflow: ellipsis;
+  overflow-wrap: inherit;
+  overflow: hidden;
+}
+
+.title,
+.price,
+.value {
+  color: black;
+}
+
+.percentContainer {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  --size: 80px;
+}
+
+.value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: var(--size);
+  text-overflow: ellipsis;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.circularChart {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.circleBg {
+  fill: none;
+  stroke-width: 3.8;
+}
+
+.train {
+  animation: progress 1s ease-out forwards;
+  fill: none;
+  stroke: var(--color-gray-6);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.track {
+  fill: none;
+  stroke: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}

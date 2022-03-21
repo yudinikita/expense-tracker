@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { Category } from 'modules/graphql'
 import { CategoriesListItemContext } from './context'
 import { EditingTemplate, ViewTemplate } from './components'
-import styles from './CategoriesListItem.module.scss'
-import { Category } from '../../../../../../graphql/__generated__/graphql.gen'
+import s from './CategoriesListItem.module.scss'
 
 interface Props {
   category: Category
@@ -28,7 +28,7 @@ export const CategoriesListItem: React.FC<Props> = ({
         selectCategory
       }}
     >
-      <div className={styles.item}>
+      <div className={s.item}>
         {renderTemplate()}
       </div>
     </CategoriesListItemContext.Provider>

@@ -1,39 +1,62 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Price, SIGN_DISPLAY } from '../../../../../Price'
-import styles from './TransactionsListItem.module.scss'
-import { Transaction } from '../../../../../../graphql/__generated__/graphql.gen'
+import { useTranslation } from 'react-i18next'
+import { Transaction } from 'modules/graphql'
+import { Button, Link, Price, Space, Typography } from 'modules/ui'
+import s from './TransactionsListItem.module.scss'
 
-interface Props {
-  transaction: Transaction
+type TransactionPick = 'id' | 'amount' | 'commentary'
+
+interface TransactionsListItemProps extends Pick<Transaction, TransactionPick> {
+  categoryTitle?: string
 }
 
-export const TransactionsListItem: React.FC<Props> = ({ transaction }) => {
-  const title = transaction?.category?.title || 'Без категории'
-  const amount = transaction?.amount
+export const TransactionsListItem: React.FC<TransactionsListItemProps> = ({
+  id = '#',
+  amount = 0,
+  categoryTitle,
+  commentary
+}) => {
+  const { t } = useTranslation()
 
-  const renderCommentary = () => (
-    transaction?.commentary
-      ? <p className={styles.commentary}>{transaction?.commentary}</p>
-      : null
-  )
+  const title = categoryTitle ?? t('transactions.uncategorized')
+
+  const price = <Price className={s.amount} amount={amount} haveColor />
 
   return (
     <Link
-      to={`/transactions/${transaction?.id}`}
-      className={styles.link}
+      className={s.link}
+      href={`/transactions/${id}`}
       title='Операция'
+      route
+      block
     >
-      <div className={styles.containerTitleAmount}>
-        <p className={styles.title}>{title}</p>
-        <Price
-          className={styles.amount}
-          amount={amount}
-          signDisplay={SIGN_DISPLAY.EXCEPT_ZERO}
-          haveColor
-        />
-      </div>
-      {renderCommentary()}
+      <Button
+        variant='default'
+        textAlign='left'
+        size='small'
+        block
+        after={price}
+      >
+        <Space
+          direction='vertical'
+          block
+          blockItem
+        >
+          <Typography
+            className={s.title}
+            variant='h4'
+          >
+            {title}
+          </Typography>
+          {renderCommentary(commentary)}
+        </Space>
+      </Button>
     </Link>
   )
 }
+
+const renderCommentary = (commentary?: string | null) => (
+  commentary
+    ? <Typography className={s.commentary} variant='text' fontSize={16}>{commentary}</Typography>
+    : null
+)

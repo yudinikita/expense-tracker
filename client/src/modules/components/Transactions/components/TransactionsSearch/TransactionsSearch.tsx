@@ -1,46 +1,46 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Transaction } from 'modules/graphql'
+import { Divider, Errors, Input, Space, Typography } from 'modules/ui'
 import { useTransactionsSearch } from './hooks'
 import { TransactionsList } from '../TransactionsList'
-import { MyError } from '../../../MyError'
 import { TransactionsLoader } from '../TransactionsLoader'
 import { TransactionsSearchNotFound } from './TransactionsSearchNotFound'
-import { useTranslation } from 'react-i18next'
 
 export const TransactionsSearch: React.FC = () => {
   const { t } = useTranslation()
   const { transactions, loading, error, count, handleKeyDown } = useTransactionsSearch()
 
-  if (error != null) return <MyError error={error} />
+  if (error) return <Errors />
 
   const renderTransactionList = () => {
-    if (transactions?.length === 0) return <TransactionsSearchNotFound />
-    // @ts-expect-error
-    return <TransactionsList transactions={transactions} />
+    if (count === 0) return <TransactionsSearchNotFound />
+    return <TransactionsList transactions={transactions as Transaction[]} />
   }
 
   return (
     <div>
-      <div className='groupInput'>
-        <input
-          className='mainInput'
+      <Space direction='vertical' size={15}>
+        <Input
           type='search'
-          id='searchInput'
-          placeholder=' '
           inputMode='search'
+          label={t('transactions.search.input.title')}
           onKeyDown={handleKeyDown}
           disabled={loading}
         />
-        <label
-          htmlFor='searchInput'
-          className='mainInput__label'
+
+        <Typography
+          variant='text'
+          fontSize={16}
         >
-          {t('transactions.search.input.title')}
-        </label>
-      </div>
+          {t('transactions.search.finded')}: <b>{count}</b>
+        </Typography>
+      </Space>
 
-      <p>{t('transactions.search.finded')}: <b>{count}</b></p>
+      <Divider variant='invisible' space={10} />
 
-      {!error && (transactions == null) && loading && <TransactionsLoader />}
+      {!error && !transactions && loading && <TransactionsLoader />}
+
       {!loading && renderTransactionList()}
     </div>
   )

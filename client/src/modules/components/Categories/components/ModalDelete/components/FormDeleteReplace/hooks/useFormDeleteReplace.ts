@@ -1,11 +1,8 @@
 import { ChangeEventHandler, useContext, useState } from 'react'
-import { ModalDeleteContext } from '../../../context'
 import { useAlert } from 'react-alert'
-import {
-  useCategoriesQuery,
-  useDeleteCategoryReplaceMutation
-} from '../../../../../../../graphql/__generated__/graphql.gen'
 import { useTranslation } from 'react-i18next'
+import { ModalDeleteContext } from '../../../context'
+import { useCategoriesQuery, useDeleteCategoryReplaceMutation } from 'modules/graphql'
 
 export const useFormDeleteReplace = () => {
   const { t } = useTranslation()

@@ -1,5 +1,5 @@
 import { createContext, Dispatch, SetStateAction } from 'react'
-import { Category } from '../../../../../../../graphql/__generated__/graphql.gen'
+import { Category } from 'modules/graphql'
 
 interface ICategoriesListItemContext {
   category: Category
