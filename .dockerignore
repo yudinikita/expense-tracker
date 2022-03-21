@@ -4,9 +4,15 @@
 node_modules
 **/node_modules
 npm-debug.log
-.env
+.env*
+*.env
 !.env.production
 README.md
 LICENSE
 .idea
-**/--tests__/**
+**/__tests__/**
+**/__mocks__/**
+**/storybook-static/**
+**/stories/**
+*.stories.*
+/client/**/*.stories.*
