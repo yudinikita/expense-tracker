@@ -1,6 +1,15 @@
 schema: "./server/src/modules/graphql/modules/**/*.graphql.ts"
-documents: "./client/src/modules/graphql/**/*.js"
+documents:
+  - "./client/src/modules/graphql/**/*.{gql,graphql,ts,js,tsx,jsx}"
+  - "!./client/src/modules/graphql/__generated__"
 generates:
+  ./client/src/modules/graphql/graphql.gen.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      useExplicitTyping: true
   ./server/src/modules/graphql/modules:
     preset: graphql-modules
     presetConfig:
@@ -14,13 +23,6 @@ generates:
     config:
       contextType: GraphQLModules.Context
       useIndexSignature: true
-  ./client/src/modules/graphql/__generated__/graphql.gen.tsx:
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo"
-    config:
-      useExplicitTyping: true
   ./graphql.schema.json:
     plugins:
       - "introspection"
