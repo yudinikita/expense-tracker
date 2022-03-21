@@ -1,20 +1,25 @@
-import pkg from 'mongoose'
+import pkg, { HydratedDocument } from 'mongoose'
 import { UserModel } from '../../../models/index.js'
 import { generateToken } from '../../token/index.js'
-import { User } from '../../../graphql/__generated__/graphql.types.gen.js'
-import { AuthenticationError } from 'apollo-server-fastify'
+import { User, UserActivationResponse } from '../../../graphql/__generated__/graphql.types.gen.js'
 import constants from '../../../constants/constants.js'
 
 const { Types } = pkg
 
-export const activate = async (id: string, activationCode: string): Promise<User> => {
+export const activate = async (id: string, activationCode: string): Promise<UserActivationResponse> => {
   const userId = new Types.ObjectId(id)
-  const user: any = await UserModel.findOne({ _id: userId })
+  const user: HydratedDocument<User> = await UserModel.findOne({ _id: userId })
 
-  if (user === null) throw new AuthenticationError(constants.GRAPHQL.MESSAGE.AUTH_ERROR)
+  if (!user) return {
+    code: '400',
+    success: false,
+    message: constants.GRAPHQL.MESSAGE.AUTH_ERROR
+  }
 
-  if (user.activationCode !== activationCode) {
-    throw new Error(constants.GRAPHQL.MESSAGE.ACTIVATION_CODE_ERROR)
+  if (user?.activationCode !== activationCode) return {
+    code: '400',
+    success: false,
+    message: constants.GRAPHQL.MESSAGE.ACTIVATION_CODE_ERROR
   }
 
   user.isActivated = true
@@ -27,7 +32,14 @@ export const activate = async (id: string, activationCode: string): Promise<User
   })
 
   return {
-    ...user.toJSON(),
-    accessToken
+    code: '200',
+    success: true,
+    message: '',
+    user: { ...user.toJSON() },
+    tokens: {
+      accessToken,
+      expiresIn: constants.JWT.EXPIRES_IN,
+      tokenType: constants.JWT.TOKEN_TYPE
+    }
   }
 }
