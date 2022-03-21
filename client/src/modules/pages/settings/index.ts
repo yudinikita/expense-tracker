@@ -1,0 +1,6 @@
+export * from './SettingsSecurityPage'
+export * from './SettingsPage'
+export * from './SettingsEmailPage'
+export * from './SettingsLanguagePage'
+export * from './SettingsCurrencyPage'
+export * from './SettingsAppearancePage'

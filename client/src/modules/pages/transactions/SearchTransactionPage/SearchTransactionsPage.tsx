@@ -1,20 +1,20 @@
 import React from 'react'
-import { Categories, NavigationBar } from '../../components'
 import { useTranslation } from 'react-i18next'
 import { NAVIGATION } from 'modules/constants'
+import { NavigationBar, TransactionsSearch } from 'modules/components'
 
-export const CategoriesPage: React.FC = () => {
+export const SearchTransactionsPage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <>
       <NavigationBar
-        title={t('categories.title')}
+        title={t('transactions.search.title')}
         backButton
         spaceBottom={NAVIGATION.INNER.SPACE.BOTTOM}
       />
 
-      <Categories />
+      <TransactionsSearch />
     </>
   )
 }

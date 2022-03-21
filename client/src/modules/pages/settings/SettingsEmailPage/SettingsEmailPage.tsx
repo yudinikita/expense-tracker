@@ -1,20 +1,20 @@
 import React from 'react'
-import { Categories, NavigationBar } from '../../components'
 import { useTranslation } from 'react-i18next'
 import { NAVIGATION } from 'modules/constants'
+import { NavigationBar, SettingsEmail } from 'modules/components'
 
-export const CategoriesPage: React.FC = () => {
+export const SettingsEmailPage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <>
       <NavigationBar
-        title={t('categories.title')}
+        title={t('settings.email.title')}
         backButton
         spaceBottom={NAVIGATION.INNER.SPACE.BOTTOM}
       />
 
-      <Categories />
+      <SettingsEmail />
     </>
   )
 }

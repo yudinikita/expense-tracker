@@ -1,23 +1,29 @@
 import React from 'react'
-import { Balance, HomeAnalytics, HomePhrase, PageTitle } from '../../components'
-
-import handShake from '../../assets/animation/handShake.json'
 import { useTranslation } from 'react-i18next'
-
-const stylePhrase = {
-  marginTop: '15px',
-  marginBottom: '25px',
-  color: '#666'
-}
+import { NAVIGATION } from 'modules/constants'
+import { Typography } from 'modules/ui'
+import { BalanceContainer, HomeAnalytics, NavigationBar } from 'modules/components'
+import { useWelcomePhrase } from 'modules/hooks'
+import handShake from 'modules/assets/animation/handShake.json'
 
 export const HomePage: React.FC = () => {
   const { t } = useTranslation()
+  const { phrase } = useWelcomePhrase()
+
+  const subtitle = <Typography variant='h6' type='secondary'>{phrase}</Typography>
 
   return (
     <>
-      <PageTitle title={t('home.title')} icon={handShake} />
-      <HomePhrase style={stylePhrase} />
-      <Balance />
+      <NavigationBar
+        title={t('home.title')}
+        titleVariant='large'
+        subtitle={subtitle}
+        spaceBottom={NAVIGATION.GLOBAL.SPACE.BOTTOM}
+        animationData={handShake}
+      />
+
+      <BalanceContainer />
+
       <HomeAnalytics />
     </>
   )
