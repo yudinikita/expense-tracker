@@ -1,18 +1,15 @@
 import React from 'react'
-import { MainHeader, MainNavigation } from '../../components'
 import { Outlet } from 'react-router-dom'
-import styles from './LayoutMain.module.scss'
+import { Footer, Header } from 'modules/components'
+import { Layout } from 'modules/ui'
 
 export const LayoutMain: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <MainHeader />
-
-      <main className='container'>
-        <Outlet />
-      </main>
-
-      <MainNavigation />
-    </div>
+    <Layout
+      header={<Header />}
+      footer={<Footer />}
+    >
+      <Outlet />
+    </Layout>
   )
 }
