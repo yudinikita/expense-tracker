@@ -5,7 +5,8 @@ const constants = {
     DEFAULT_HOST: 'localhost'
   },
   JWT: {
-    EXPIRES_IN: 1000 * 60 * 60 * 24 * 30
+    EXPIRES_IN: 1000 * 60 * 60 * 24 * 30,
+    TOKEN_TYPE: 'Bearer'
   },
   AUTH: {
     SALT_ROUNDS: 10,
@@ -20,13 +21,14 @@ const constants = {
   },
   GRAPHQL: {
     MESSAGE: {
-      RESOLVER_ERROR: 'Упс, произошла ошибка.',
-      AUTH_ERROR: 'Ошибка авторизации',
-      FORBIDDEN_ERROR: 'Аккаунт не активирован',
-      ACTIVATION_ERROR: 'Аккаунт уже активирован',
-      ACTIVATION_CODE_ERROR: 'Аккаунт уже активирован',
-      USER_EXISTS: 'Пользователь с таким почтовым адресом уже существует',
-      LOGIN_ERROR: 'Неправильный логин или пароль'
+      RESOLVER_ERROR: 'Oops, there is an error, please try again later.',
+      AUTH_ERROR: 'validations.common.auth_error',
+      FORBIDDEN_ERROR: 'validations.common.forbidden_error',
+      ACTIVATION_ERROR: 'validations.common.activation_error',
+      ACTIVATION_CODE_ERROR: 'validations.common.activation_error',
+      USER_EXISTS: 'validations.login.user_exists',
+      USER_NOT_EXISTS: 'validations.login.user_not_exists',
+      LOGIN_ERROR: 'validations.login.error'
     }
   }
 }
