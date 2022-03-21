@@ -33,7 +33,8 @@
     },
     "password": {
       "update": {
-        "failed": "No se pudo actualizar la contraseña"
+        "failed": "No se pudo actualizar la contraseña",
+        "success": "Contraseña actualiza"
       },
       "valid": {
         "length": "Mínimo 6 caracteres"
@@ -74,6 +75,10 @@
     "title": "Analítica",
     "total": "Total"
   },
+  "app": {
+    "desc": "Conducir contabilidad e ingresos. Gratis y facil.",
+    "name": "Denezhki"
+  },
   "button": {
     "add": "Añadir",
     "back": "Volver",
@@ -82,7 +87,10 @@
     "edit": "Cambiar",
     "logout": "Ir a",
     "remove": "Borrar",
-    "save": "Guardar"
+    "save": "Guardar",
+    "send": "Código de activación",
+    "signin": "Entrar",
+    "signup": "Crea una cuenta"
   },
   "categories": {
     "input": "Nueva categoría",
@@ -99,10 +107,17 @@
       },
       "title": "Borrar una categoría"
     },
+    "not_found": "Categorías no encontradas",
     "select": "Elija una categoría",
     "title": "Categorías"
   },
   "currencies": {
+    "BYN": "Rublo Bielorruso",
+    "EUR": "Euro",
+    "KRW": "Won surcoreano",
+    "RUB": "Rublo ruso",
+    "UAH": "Hryvnia ucraniana",
+    "USD": "Dólar",
     "name": [
       "Rublo ruso",
       "Dólar",
@@ -111,6 +126,10 @@
       "Won surcoreano",
       "Hryvnia ucraniana"
     ]
+  },
+  "error": {
+    "desc": "No se pudieron obtener los datos. Compruebe la conexión a Internet o inténtelo de nuevo.",
+    "title": "¡Vaya! Se produjo un error"
   },
   "help": {
     "answer": {
@@ -191,9 +210,18 @@
     ]
   },
   "other": {
+    "Do you already have an account": "Ya tienes una cuenta?",
+    "You still do not have an account": "¿Todavía no tienes una cuenta?",
+    "activation_code": "Código de activación",
+    "activation_desc": "Enviamos un mensaje con el código de verificación a su correo.",
     "and": {
       "title": "e"
-    }
+    },
+    "check_mail": "Revisar correo",
+    "password": "Clave"
+  },
+  "page": {
+    "title": "Denezhki – la contabilidad más fácil de las finanzas "
   },
   "search": "Búsqueda",
   "settings": {
@@ -275,7 +303,8 @@
       "notfound": "Operaciones no encontradas",
       "title": "Búsqueda de operaciones"
     },
-    "title": "Operaciones"
+    "title": "Operaciones",
+    "uncategorized": "Sin categoría"
   },
   "user": {
     "balance": {
@@ -286,6 +315,22 @@
     "logout": {
       "desc": "¿Estás seguro de que quieres cerrar sesión?",
       "title": "Cerrar sesión"
+    }
+  },
+  "validations": {
+    "common": {
+      "activation_error": "La cuenta ya ha sido activada o código de activación incorrecto",
+      "auth_error": "Error de autorización",
+      "email": "Ingrese la dirección de correo electrónico correcta",
+      "forbidden_error": "La cuenta no está activada",
+      "max": "No debe haber más de ${min} caracteres",
+      "min": "Debe haber al menos ${min} caracteres",
+      "password": "Ingrese la contraseña correcta",
+      "required": "Este es un campo obligatorio"
+    },
+    "login": {
+      "error": "Usuario o contraseña incorrecta",
+      "user_exists": "El usuario con una dirección de correo electrónico ya existe"
     }
   }
 }

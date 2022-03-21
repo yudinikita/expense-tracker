@@ -25,12 +25,42 @@
   --title-color: var(--color-black);
   --font-color: var(--color-black);
   --font-color-second: var(--color-gray-7);
-  --link-color: var(--color-black);
+  --font-color-disabled: var(--color-gray-3);
+  --link-color: var(--color-other-blue);
 
   --icon-color: var(--color-black);
   --icon-color-second: var(--color-gray-3);
 
   --hover-color: var(--color-gray-1);
+
+  --outside-max-width: 375px;
+  --inner-max-width: 315px;
+
+  --font-size-base: 16px;
+  --font-size-h1: 52px;
+  --font-size-h2: 30px;
+  --font-size-h3: 24px;
+  --font-size-h4: 18px;
+
+  --font-family-base: 'Inter', sans-serif;
+
+  --space-xxs: 5px;
+  --space-xs: 10px;
+  --space-sm: 15px;
+  --space-md: 20px;
+  --space-base: 25px;
+  --space-lg: 30px;
+  --space-xl: 35px;
+  --space-xxl: 40px;
+  --space-xxxl: 50px;
+
+  --border-radius-base: 10px;
+  --border-width: 2px;
+
+  --stroke-width: 2px;
+
+  --transition-delay-base: 0.3s;
+  --transition-timing-base: ease-in-out;
 }
 
 [data-theme='dark'] {
@@ -39,6 +69,7 @@
   --title-color: var(--color-gray-2);
   --font-color: var(--color-white);
   --font-color-second: var(--color-gray-5);
+  --font-color-disabled: var(--color-gray-7);
   --link-color: var(--color-gray-3);
 
   --icon-color: var(--color-gray-4);

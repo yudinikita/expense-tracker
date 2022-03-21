@@ -1,8 +1,8 @@
 import React from 'react'
 import InlineSVG from 'react-inlinesvg'
-import { useEditingTemplate } from './hooks'
-import styles from '../../CategoriesListItem.module.scss'
 import { useTranslation } from 'react-i18next'
+import { useEditingTemplate } from './hooks'
+import s from '../../CategoriesListItem.module.scss'
 
 export const EditingTemplate = () => {
   const { t } = useTranslation()
@@ -17,20 +17,20 @@ export const EditingTemplate = () => {
 
   return (
     <>
-      <div className={styles.titleContainer}>
+      <div className={s.titleContainer}>
         <input
           type='text'
-          className={styles.titleInput}
+          className={s.titleInput}
           value={editInput}
           onChange={onChangeEditInput}
           disabled={loading}
           autoFocus
         />
       </div>
-      <div className={styles.groupBtn + ' ' + styles.groupBtnEdit}>
+      <div className={s.groupBtn + ' ' + s.groupBtnEdit}>
         <button
           onClick={handleClickEditSave}
-          className={`${styles.btn} ${styles.btnEditSave}`}
+          className={`${s.btn} ${s.btnEditSave}`}
           title={t('button.save')}
           disabled={loading}
         >
@@ -38,7 +38,7 @@ export const EditingTemplate = () => {
         </button>
         <button
           onClick={handleClickEditCancel}
-          className={`${styles.btn} ${styles.btnEditCancel}`}
+          className={`${s.btn} ${s.btnEditCancel}`}
           title={t('button.cancel')}
           disabled={loading}
         >

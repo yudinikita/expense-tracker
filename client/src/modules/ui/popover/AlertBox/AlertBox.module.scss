@@ -1,0 +1,22 @@
+.alert {
+  width: var(--inner-max-width);
+  background-color: rgba(76, 76, 76, 0.95);
+  cursor: pointer;
+  border-radius: var(--border-radius-base);
+}
+
+.container {
+  padding: var(--space-sm);
+}
+
+.message {
+  display: -webkit-box;
+  max-width: 230px;
+  margin: 0;
+  color: var(--color-white);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}

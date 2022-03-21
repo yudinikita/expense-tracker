@@ -1,22 +1,13 @@
-// Агрегация страниц
+// Auth
+export * from './auth'
 
-// Авторизация
-export * from './AuthPages'
-
-// Основные
+// General
 export * from './HomePage'
-export * from './Transactions'
+export * from './transactions'
 export * from './AnalyticsPage'
-export * from './Settings'
+export * from './settings'
 export * from './Logout'
 
-// Настройки
-export * from './Settings'
-
-// Дополнительные
-export * from './Transactions'
+// Other
 export * from './CategoriesPage'
-export * from './HelpPages/'
-
-// Ошибки
-export * from './Page404/Page404'
+export * from './helps'

@@ -1,0 +1,24 @@
+.title {
+  max-width: var(--inner-max-width);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.subtitle {
+  max-width: var(--inner-max-width);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.lottie {
+  width: 34px;
+}
+
+.backButtonIcon {
+  path {
+    stroke: var(--icon-color);
+  }
+}

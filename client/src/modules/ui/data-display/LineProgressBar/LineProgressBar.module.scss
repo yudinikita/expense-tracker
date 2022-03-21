@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: var(--base-height);
+  background-color: var(--hover-color);
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  --base-height: 35px;
+
+  &:hover {
+    .percent {
+      opacity: 1;
+    }
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  height: var(--base-height);
+}
+
+.progress {
+  z-index: 2;
+  width: 20px;
+  min-width: 20px;
+  height: 100%;
+  background-color: var(--color-other-green);
+  transition: width 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.1s;
+
+  &:hover {
+    .percent {
+      opacity: 1;
+    }
+  }
+
+  &:only-child {
+    border-radius: 10px;
+  }
+}
+
+.percent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  color: var(--font-color);
+  font-weight: 500;
+  text-shadow: var(--hover-color) 1px 1px 3px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}

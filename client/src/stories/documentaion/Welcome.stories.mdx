@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/addon-docs'
+import { AbilitiesDescription } from './AbilitiesDescription'
+import imgPreview from '../assets/welcome/preview.jpg'
+
+<style>{`
+  .welcomeParagraph {
+    font-size: 20px !important;
+    line-height: 160% !important;
+  }
+
+  .welcomeLink {
+    font-size: 18px !important;
+    color: var(--link-color) !important;
+  }
+
+  .welcomeLink:hover {
+    text-decoration: underline !important;
+  }
+ `}</style>
+
+<Meta title="Welcome" />
+
+# Denezhki Design System
+
+<p className='welcomeParagraph'>
+  Here you can find our design guidelines, component documentation, and resources for building apps with Denezhki design
+  system.
+</p>
+
+<br />
+
+<img src={imgPreview} alt="Introduction" />
+
+<br />
+<br />
+<br />
+
+## What’s inside
+
+<AbilitiesDescription />
+
+<br />
+
+## Resources
+
+<ul>
+  <li>
+    <a href="https://expense-tracker.cf" className='welcomeLink'>Site</a>
+  </li>
+  <li>
+    <a href="https://github.com/nblackninja/expense-tracker" className='welcomeLink'>GitHub</a>
+  </li>
+  <li>
+    <a href="https://www.figma.com/file/SOiwWVrSImrcKjQQseQ0wY/%D0%94%D0%B5%D0%BD%D0%B5%D0%B6%D0%BA%D0%B8?node-id=0%3A1"
+       className='welcomeLink'>Figma</a>
+  </li>
+</ul>
+
+<br />
+
+## Feedback
+
+<p className='welcomeParagraph'>
+  Help me improve this pattern by providing feedback on email nikitayudin782@gmail.com
+</p>

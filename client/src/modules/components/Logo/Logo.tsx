@@ -1,18 +1,19 @@
 import React from 'react'
-import SVG from 'react-inlinesvg'
+import { Icon } from 'modules/ui'
+import { LogoFill } from 'modules/assets/icons'
 import { useTranslation } from 'react-i18next'
 
-const srcLogo = '/images/logo.svg'
-
-export const Logo: React.FC<React.SVGProps<SVG>> = (props) => {
+/**
+ * Our proud logo. There is no a in the middle.
+ * Use sparingly, and make sure it has a lot of visual distinction to stand out appropriately.
+ */
+export const Logo: React.FC<React.SVGProps<HTMLOrSVGElement>> = (props) => {
   const { t } = useTranslation()
+
   return (
-    // @ts-expect-error
-    <SVG
-      src={srcLogo}
+    <Icon
+      icon={LogoFill}
       title={t('logo.title')}
-      loader={<h2>Д</h2>}
-      cacheRequests
       {...props}
     />
   )

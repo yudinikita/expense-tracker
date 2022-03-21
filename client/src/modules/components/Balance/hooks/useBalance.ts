@@ -1,10 +1,5 @@
-import { useBalanceQuery } from '../../../graphql/__generated__/graphql.gen'
-
-const startDate = new Date()
-const endDate = new Date(startDate.getTime())
-
-startDate.setHours(0, 0, 0, 0)
-endDate.setHours(23, 59, 59, 999)
+import dayjs from 'dayjs'
+import { useBalanceQuery } from 'modules/graphql'
 
 export const useBalance = () => {
   const balance = useBalanceQuery()
@@ -14,8 +9,8 @@ export const useBalance = () => {
       input: {
         filter: {
           date: {
-            gte: startDate.toDateString(),
-            lte: endDate.toDateString()
+            gte: dayjs().startOf('day').format(),
+            lte: dayjs().endOf('day').format()
           }
         }
       }
@@ -24,7 +19,9 @@ export const useBalance = () => {
 
   const balanceTotal = balance?.data?.balance?.totalAmount ?? 0
   const balancePerDateTotal = balancePerDate?.data?.balance?.totalAmount ?? 0
-  const balancePercentage = balancePerDateTotal / balanceTotal
+  const balancePercentage = balanceTotal === 0 && balancePerDateTotal === 0
+    ? 0
+    : balancePerDateTotal / balanceTotal * 100
 
   const userBalanceTotal = {
     balanceTotal,

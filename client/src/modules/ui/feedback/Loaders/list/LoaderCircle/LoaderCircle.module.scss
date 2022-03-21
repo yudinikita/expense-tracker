@@ -1,0 +1,55 @@
+.loaderContainer {
+  position: relative;
+  display: inline-block;
+  --size: 48px;
+  --stroke-width: 3px;
+  --train-color: var(--color-brand-yellow);
+  --track-color: var(--color-gray-3);
+}
+
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  transform-origin: 50% 50%;
+  animation: 1.5s cubic-bezier(0.4, 0, 0.3, 1) 0s infinite normal none running rotate;
+}
+
+.loaderCircleBg {
+  fill: none;
+  stroke: var(--track-color);
+  stroke-width: var(--stroke-width);
+}
+
+.loaderCircleOver {
+  transform-origin: 50% 50%;
+  animation: 1.5s cubic-bezier(0.3, 0.95, 0.65, 0.9) 0s infinite normal both running continuousCircle;
+  fill: none;
+  stroke: var(--train-color);
+  stroke-width: calc(var(--stroke-width));
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes continuousCircle {
+  0% {
+    stroke-dasharray: calc(0 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width)))), calc(360 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+    stroke-dashoffset: calc(0 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+    animation-timing-function: ease-in;
+  }
+  20% {
+    stroke-dasharray: calc(200 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width)))), calc(360 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+    stroke-dashoffset: calc(-40 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+  }
+  100% {
+    stroke-dasharray: calc(200 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width)))), calc(360 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+    stroke-dashoffset: calc(-360 / 360 * calc(3.14159 * (var(--size) - var(--stroke-width))));
+  }
+}

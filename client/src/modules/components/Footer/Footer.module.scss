@@ -1,0 +1,30 @@
+.container {
+  padding: 15px 0;
+
+  div:nth-child(odd) {
+    path {
+      fill: var(--icon-color);
+    }
+  }
+
+  div:nth-child(even) {
+    path {
+      stroke: var(--icon-color);
+    }
+  }
+}
+
+.link {
+  transition: background-color 0.3s ease-in-out;
+
+  :global(path#bg) {
+    transition: fill 0.6s ease-in-out;
+    fill: transparent;
+  }
+}
+
+.active {
+  :global(path#bg) {
+    fill: var(--color-brand-yellow);
+  }
+}

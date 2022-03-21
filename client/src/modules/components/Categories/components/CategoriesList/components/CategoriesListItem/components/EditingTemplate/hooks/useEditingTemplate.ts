@@ -2,7 +2,7 @@ import { ChangeEventHandler, useContext, useState } from 'react'
 import { CategoriesListItemContext } from '../../../context'
 import { useValidationCategory } from '../../../../../../../hooks'
 import { useAlert } from 'react-alert'
-import { useUpdateCategoryMutation } from '../../../../../../../../../graphql/__generated__/graphql.gen'
+import { useUpdateCategoryMutation } from 'modules/graphql'
 import { useTranslation } from 'react-i18next'
 
 export const useEditingTemplate = () => {

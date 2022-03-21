@@ -1,0 +1,34 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--space-base);
+  border: 1px solid var(--color-gray-3);
+  border-radius: var(--border-radius-base);
+}
+
+.image {
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  margin: 15px 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+}
+
+.content {
+  margin-bottom: 25px;
+}
+
+.link {
+  color: var(--link-color);
+  font-size: 16px !important;
+  line-height: 160% !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}

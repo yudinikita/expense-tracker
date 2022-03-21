@@ -1,21 +1,22 @@
 import Joi from 'joi'
+import { UserRegistrationInput } from '../../../graphql/__generated__/graphql.types.gen.js'
 
-export const inputValidation = Joi.object({
+export const inputValidation = Joi.object<UserRegistrationInput>({
   email: Joi.string()
     .email({ minDomainSegments: 2 })
     .required()
     .messages({
-      'string.empty': 'Email не должен быть пустым',
-      'string.email': 'Введен некорректный email',
-      'any.required': 'Email обязательное поле'
+      'string.empty': 'validations.common.email',
+      'string.email': 'validations.common.email',
+      'any.required': 'validations.common.required'
     }),
 
   password: Joi.string()
     .min(6)
     .required()
     .messages({
-      'string.empty': 'Пароль не должен быть пустым',
-      'string.min': 'Пароль должен содержать минимум {#limit} символа',
-      'any.required': 'Пароль обязательное поле'
+      'string.empty': 'validations.common.password',
+      'string.min': 'validations.common.password',
+      'any.required': 'validations.common.required'
     })
-}) as any
+})

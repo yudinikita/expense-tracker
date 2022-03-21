@@ -6,7 +6,10 @@ export const context: Context = async (req: any): Promise<any> => {
 
   const currentUser = await getCurrentUser(authHeader)
 
+  const i18n = req?.request?.i18n ?? {}
+
   return {
-    user: currentUser
+    user: currentUser,
+    i18n
   }
 }

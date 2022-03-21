@@ -4,8 +4,17 @@ import { defaultCategories } from './defaultCategories.js'
 
 const { Types } = pkg
 
-export const createDefaultCategories = async (id: string): Promise<void> => {
+export const createDefaultCategories = async (id: string, lng: string): Promise<void> => {
   const userId = new Types.ObjectId(id)
-  const defaultCategoriesWithUser = defaultCategories.map(category => { return { user: userId, title: category } })
+
+  // @ts-ignore
+  const defaultCategoriesWithUser = defaultCategories[lng]
+    .map((category: string) => {
+      return {
+        user: userId,
+        title: category
+      }
+    })
+
   await CategoryModel.insertMany(defaultCategoriesWithUser)
 }

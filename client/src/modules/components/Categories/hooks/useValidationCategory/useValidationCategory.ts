@@ -1,5 +1,5 @@
 import { checkUnique, checkValidLength } from './utils/validations'
-import { Category, useCategoriesQuery } from '../../../../graphql/__generated__/graphql.gen'
+import { Category, useCategoriesQuery } from 'modules/graphql'
 import { useTranslation } from 'react-i18next'
 
 export const useValidationCategory = (verifiableTitle: string) => {

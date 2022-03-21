@@ -33,7 +33,8 @@
     },
     "password": {
       "update": {
-        "failed": "암호 업데이트 실패"
+        "failed": "암호 업데이트 실패",
+        "success": "암호가 업데이트되었습니다"
       },
       "valid": {
         "length": "최소 6 자"
@@ -74,6 +75,10 @@
     "title": "분석",
     "total": "전체"
   },
+  "app": {
+    "desc": "회계 및 수입을 실시하십시오. 쉽고 쉽습니다.",
+    "name": "가장"
+  },
   "button": {
     "add": "추가",
     "back": "뒤로",
@@ -82,7 +87,10 @@
     "edit": "변경",
     "logout": "나가",
     "remove": "제거",
-    "save": "저장"
+    "save": "저장",
+    "send": "보내다",
+    "signin": "안으로",
+    "signup": "계정을 만드십시오"
   },
   "categories": {
     "input": "새로운 카테고리",
@@ -99,10 +107,17 @@
       },
       "title": "범주 삭제"
     },
+    "not_found": "카테고리가 없습니다",
     "select": "카테고리 선택",
     "title": "카테고리"
   },
   "currencies": {
+    "BYN": "벨로루시 루블",
+    "EUR": "유로",
+    "KRW": "한국 원",
+    "RUB": "러시아 루블",
+    "UAH": "우크라이나 그리브 나",
+    "USD": "달러",
     "name": [
       "러시아 루블",
       "달러",
@@ -111,6 +126,10 @@
       "한국 원",
       "우크라이나 그리브 나"
     ]
+  },
+  "error": {
+    "desc": "데이터를 검색할 수 없습니다. 인터넷 연결을 확인하거나 다시 시도하십시오",
+    "title": "아차! 오류가 발생했습니다"
   },
   "help": {
     "answer": {
@@ -191,9 +210,18 @@
     ]
   },
   "other": {
+    "Do you already have an account": "이미 계정이 있습니까?",
+    "You still do not have an account": "아직도 계정이 없습니까?",
+    "activation_code": "활성화 코드",
+    "activation_desc": "우리는 귀하의 메일에 확인 코드가있는 메시지를 보냈습니다.",
     "and": {
       "title": "그리고"
-    }
+    },
+    "check_mail": "메일을 확인하다",
+    "password": "비밀번호"
+  },
+  "page": {
+    "title": "가장 쉬운 재정 회계 "
   },
   "search": "검색",
   "settings": {
@@ -275,7 +303,8 @@
       "notfound": "작업을 찾을 수 없음",
       "title": "작업 검색"
     },
-    "title": "운영"
+    "title": "운영",
+    "uncategorized": "카테고리가 없어"
   },
   "user": {
     "balance": {
@@ -286,6 +315,22 @@
     "logout": {
       "desc": "계정에서 로그아웃하시겠습니까?",
       "title": "계정에서 로그아웃"
+    }
+  },
+  "validations": {
+    "common": {
+      "activation_error": "계정이 이미 활성화되었거나 올바르지 않은 활성화 코드가 이미 있습니다",
+      "auth_error": "권한 부여 오류",
+      "email": "올바른 이메일 주소를 입력하십시오",
+      "forbidden_error": "계정이 활성화되지 않습니다",
+      "max": "${min} 문자가 없어야합니다.",
+      "min": "적어도 ${min} 문자가 있어야합니다.",
+      "password": "올바른 암호를 입력하십시오",
+      "required": "필수 필드입니다"
+    },
+    "login": {
+      "error": "잘못된 로그인 또는 암호",
+      "user_exists": "이러한 이메일 주소가있는 사용자가 이미 있습니다"
     }
   }
 }

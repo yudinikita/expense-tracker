@@ -7,9 +7,9 @@
     "lib": [
       "ES2021"
     ],
-    "moduleResolution": "Node",
     "rootDir": "./src",
     "outDir": "./build",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,7 +18,7 @@
     ]
   },
   "include": [
-    "./src"
+    "src"
   ],
   "exclude": [
     "__tests__/**",

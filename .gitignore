@@ -125,3 +125,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Storybook
+client/storybook-static/

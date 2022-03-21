@@ -33,7 +33,8 @@
     },
     "password": {
       "update": {
-        "failed": "Failed to update password"
+        "failed": "Failed to update password",
+        "success": "Password updated"
       },
       "valid": {
         "length": "Minimum 6 characters"
@@ -74,6 +75,10 @@
     "title": "Analytics",
     "total": "Total"
   },
+  "app": {
+    "desc": "Conduct accounting and income. Free and easy.",
+    "name": "Denezhki"
+  },
   "button": {
     "add": "Add",
     "back": "Back",
@@ -82,7 +87,10 @@
     "edit": "Edit",
     "logout": "Log out",
     "remove": "Remove",
-    "save": "Save"
+    "save": "Save",
+    "send": "Send",
+    "signin": "Sign In",
+    "signup": "Sign Up"
   },
   "categories": {
     "input": "New category",
@@ -99,10 +107,17 @@
       },
       "title": "Deleting a category"
     },
+    "not_found": "Categories not found",
     "select": "Choose a category",
     "title": "Categories"
   },
   "currencies": {
+    "BYN": "Belarusian Ruble",
+    "EUR": "Euro",
+    "KRW": "South Korean Won",
+    "RUB": "Russian Ruble",
+    "UAH": "Ukrainian hryvnia",
+    "USD": "Dollar",
     "name": [
       "Russian ruble",
       "Dollar",
@@ -111,6 +126,10 @@
       "South Korean Won",
       "Ukrainian hryvnia"
     ]
+  },
+  "error": {
+    "desc": "Data could not be retrieved. Check your internet connection or try again.",
+    "title": "Oops! An error has occurred"
   },
   "help": {
     "answer": {
@@ -191,9 +210,18 @@
     ]
   },
   "other": {
+    "Do you already have an account": "Do you already have an account?",
+    "You still do not have an account": "You still do not have an account?",
+    "activation_code": "Activation code",
+    "activation_desc": "We sent a message with verification code to your mail",
     "and": {
       "title": "and"
-    }
+    },
+    "check_mail": "Check mail",
+    "password": "Password"
+  },
+  "page": {
+    "title": "Denezhki – Easiest accounting of finances"
   },
   "search": "Search",
   "settings": {
@@ -275,7 +303,8 @@
       "notfound": "No transactions found",
       "title": "Search"
     },
-    "title": "Transactions"
+    "title": "Transactions",
+    "uncategorized": "No category"
   },
   "user": {
     "balance": {
@@ -286,6 +315,22 @@
     "logout": {
       "desc": "Are you sure you want to log out of your account?",
       "title": "Log out"
+    }
+  },
+  "validations": {
+    "common": {
+      "activation_error": "Account has already been activated or incorrect activation code",
+      "auth_error": "Authorisation Error",
+      "email": "Enter the correct email address",
+      "forbidden_error": "Account is not activated",
+      "max": "There must be no more than ${min} characters",
+      "min": "There must be at least ${min} characters",
+      "password": "Enter the correct password",
+      "required": "This is a required field"
+    },
+    "login": {
+      "error": "Incorrect login or password",
+      "user_exists": "User with such an email address already exists"
     }
   }
 }

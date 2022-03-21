@@ -1,0 +1,37 @@
+.base {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  --divider-color-border: var(--color-gray-2)
+}
+
+.solid {
+  border-top: 1px solid var(--divider-color-border);
+}
+
+.dashed {
+  background: 0 0;
+  border-color: var(--divider-color-border);
+  border-style: dashed;
+  border-width: 1px 0 0;
+}
+
+.horizontal {
+  display: flex;
+  clear: both;
+  width: 100%;
+  min-width: 100%;
+  margin: var(--space-base) 0;
+}
+
+.vertical {
+  position: relative;
+  top: -0.06em;
+  display: inline-block;
+  height: 0.9em;
+  margin: 0 8px;
+  vertical-align: middle;
+  border-top: 0;
+  border-left: 1px solid var(--divider-color-border);
+}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useAlert } from 'react-alert'
-import { Settings, useUpdateUserSettingsMutation, useUserSettingsQuery } from '../../graphql/__generated__/graphql.gen'
-import { SettingsContext } from './SettingsContext'
-import { defaultSettings } from './defaultSettings'
-import { applyUserSettings } from './utils'
 import { useTranslation } from 'react-i18next'
+import { Settings, useUpdateUserSettingsMutation, useUserSettingsQuery } from 'modules/graphql'
+import { SettingsContext } from './SettingsContext'
+import { applyUserSettings } from './utils'
+import { defaultSettings } from './defaultSettings'
 
 interface Props {
   settings?: Settings
@@ -13,9 +13,10 @@ interface Props {
 
 export const SettingsProvider: React.FC<Props> = ({ settings }) => {
   const { t } = useTranslation()
+  const alert = useAlert()
+
   const state = settings || defaultSettings
   const [currentSettings, setCurrentSettings] = useState<Settings>(state)
-  const alert = useAlert()
 
   const { data, loading, error } = useUserSettingsQuery()
   const [updateUserSettings] = useUpdateUserSettingsMutation()

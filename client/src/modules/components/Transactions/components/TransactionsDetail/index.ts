@@ -1,1 +1,1 @@
-export * from './TransactionsDetail'
+export * from './TransactionsDetailContainer'

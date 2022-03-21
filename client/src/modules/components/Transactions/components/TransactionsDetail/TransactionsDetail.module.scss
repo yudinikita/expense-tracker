@@ -1,0 +1,36 @@
+@import '../../../../styles/global/animations';
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+}
+
+.category {
+  margin-top: 10px;
+}
+
+.commentary {
+  color: var(--color-gray-5);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  overflow-wrap: break-word;
+}
+
+.btnEdit {
+  margin-bottom: 25px;
+}
+
+.textAnimate {
+  animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}

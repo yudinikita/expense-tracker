@@ -1,7 +1,7 @@
 import React from 'react'
 import { CategoriesForm, CategoriesList, CategoriesLoader } from './components'
-import { MyError } from '../MyError'
-import { Category, useCategoriesQuery } from '../../graphql/__generated__/graphql.gen'
+import { Category, useCategoriesQuery } from 'modules/graphql'
+import { Errors, Space } from 'modules/ui'
 
 export const Categories = () => {
   const { data, loading, error } = useCategoriesQuery()
@@ -9,12 +9,17 @@ export const Categories = () => {
   const categories = data?.categories as Category[]
 
   if (loading) return <CategoriesLoader />
-  if (error != null) return <MyError error={error} />
+  if (error != null) return <Errors />
 
   return (
-    <div>
+    <Space
+      direction='vertical'
+      size={50}
+      block
+      blockItem
+    >
       <CategoriesForm />
       <CategoriesList categories={categories} />
-    </div>
+    </Space>
   )
 }

@@ -1,36 +1,23 @@
 import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
-import styles from '../Balance.module.scss'
 import { useTranslation } from 'react-i18next'
+import s from '../Balance.module.scss'
 
-const locales = 'ru'
-
-const formatter = new Intl.NumberFormat(locales, {
-  style: 'percent',
-  signDisplay: 'never'
-})
-
-const propTypes = {
-  amount: PropTypes.number
+interface BalancePercentageProps {
+  amount?: number
 }
 
-const defaultPropTypes = {
-  amount: 0
-}
-
-export const BalancePercentage = ({ amount }: InferProps<typeof propTypes>) => {
+export const BalancePercentage: React.FC<BalancePercentageProps> = ({
+  amount = 0
+}) => {
   const { t } = useTranslation()
-  const formatAmount = formatter.format(Number(amount))
+  const formatAmount = parseFloat(amount?.toFixed(2))
 
   return (
     <span
-      className={styles.balancePercent}
+      className={s.balancePercent}
       title={t('user.balance.percenthint')}
     >
-      {formatAmount}
+      {formatAmount}%
     </span>
   )
 }
-
-BalancePercentage.propTypes = propTypes
-BalancePercentage.defaultPropTypes = defaultPropTypes

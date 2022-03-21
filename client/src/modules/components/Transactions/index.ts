@@ -1,5 +1,2 @@
 export * from './Transactions'
 export * from './components'
-export * from './components'
-export * from './components'
-export * from './components'

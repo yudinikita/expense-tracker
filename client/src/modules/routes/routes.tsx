@@ -16,12 +16,12 @@ import {
   HomePage,
   LoginPage,
   Logout,
-  Page404,
   RegistrationPage,
   SearchTransactionsPage,
   SettingsAppearancePage,
+  SettingsCurrencyPage,
   SettingsEmailPage,
-  SettingsLanguageCurrencyPage,
+  SettingsLanguagePage,
   SettingsPage,
   SettingsSecurityPage,
   StartPage,
@@ -63,12 +63,12 @@ export const RouteComponent: React.FC = () => {
               <Route path='settings' element={<SettingsPage />} />
               <Route path='settings/security' element={<SettingsSecurityPage />} />
               <Route path='settings/email' element={<SettingsEmailPage />} />
-              <Route path='settings/language-currency' element={<SettingsLanguageCurrencyPage />} />
+              <Route path='settings/language' element={<SettingsLanguagePage />} />
+              <Route path='settings/currency' element={<SettingsCurrencyPage />} />
               <Route path='settings/appearance' element={<SettingsAppearancePage />} />
               <Route path='help' element={<HelpPage />} />
               <Route path='help/:id' element={<HelpDetailPage />} />
-              <Route path='404' element={<Page404 />} />
-              <Route path='*' element={<Navigate to='/404' />} />
+              <Route path='*' element={<HomePage />} />
             </Route>
           </Route>
         </Route>

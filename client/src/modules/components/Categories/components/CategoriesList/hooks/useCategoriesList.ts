@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Category } from '../../../../../graphql/__generated__/graphql.gen'
+import { Category } from 'modules/graphql'
 
 export const useCategoriesList = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>({} as Category)

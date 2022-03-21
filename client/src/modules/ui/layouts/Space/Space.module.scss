@@ -1,0 +1,19 @@
+.space {
+  display: inline-flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.item {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+}
+
+.block {
+  width: 100%;
+}
+
+.blockItem {
+  width: 100%;
+}
