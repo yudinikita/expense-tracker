@@ -1,5 +1,5 @@
 import React from 'react'
-import { Settings } from '../../graphql/__generated__/graphql.gen'
+import { Settings } from 'modules/graphql'
 
 interface SettingsContextInterface {
   settings: Settings

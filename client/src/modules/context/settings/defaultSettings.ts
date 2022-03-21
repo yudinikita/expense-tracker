@@ -1,4 +1,4 @@
-import { Settings } from '../../graphql/__generated__/graphql.gen'
+import { Settings } from 'modules/graphql'
 
 export const defaultSettings: Settings = {
   theme: 'light',
