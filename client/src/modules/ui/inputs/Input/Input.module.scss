@@ -1,0 +1,137 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: var(--inner-max-width);
+  padding: calc(var(--space-base) - 2px);
+  color: var(--font-color);
+  font-size: 18px;
+  line-height: 160%;
+  background-color: var(--background-color);
+  outline: none;
+  cursor: text;
+  transition: all .3s ease-in-out;
+  border: 2px solid var(--icon-color-second);
+  border-radius: 10px;
+
+  &:hover {
+    border-color: var(--color-brand-yellow);
+  }
+
+  &:focus-within, &:active {
+    border-color: var(--color-brand-yellow);
+
+    .label {
+      transform: matrix(0.75, 0, 0, 0.75, 0, -35);
+    }
+  }
+
+  :not(.input:placeholder-shown) + .label {
+    transform: matrix(0.75, 0, 0, 0.75, 0, -35);
+  }
+}
+
+.input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  color: var(--font-color);
+  background-color: var(--background-color);
+  outline: none;
+  border: none;
+}
+
+.label {
+  position: absolute;
+  right: auto;
+  left: 1rem;
+  padding-right: 6px;
+  padding-left: 6px;
+  color: var(--font-color-second);
+  font-size: 18px;
+  line-height: 120%;
+  white-space: nowrap;
+  background-color: var(--background-color);
+  transform: translate(0, 0);
+  transform-origin: left center;
+  transition: .2s transform, .2s padding, .1s opacity, font-weight .1s;
+  user-select: none;
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+.block {
+  max-width: 100%;
+}
+
+.disabled {
+  cursor: not-allowed;
+
+  .input {
+    color: var(--font-color-second);
+    background-color: var(--background-color);
+    cursor: not-allowed;
+  }
+
+  &:hover, &:focus, &:active {
+    border-color: var(--icon-color-second);
+
+    .label {
+      transform: none;
+    }
+  }
+}
+
+.invalid {
+  border-color: var(--color-other-red);
+}
+
+.prefix, .suffix {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+
+.prefix {
+  margin-right: 10px;
+}
+
+.suffix {
+  margin-left: 10px;
+}
+
+.activeLabel {
+  .label {
+    transform: matrix(0.75, 0, 0, 0.75, 0, -35);
+  }
+}
+
+.validationContainer {
+  display: flex;
+  height: auto;
+  margin-top: var(--space-xs);
+  color: var(--color-other-red);
+  overflow: hidden;
+}
+
+.validationText {
+  margin-left: var(--space-xxs);
+  font-size: var(--font-size-base);
+}
+
+[data-theme='dark'] {
+  .input {
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  }
+}

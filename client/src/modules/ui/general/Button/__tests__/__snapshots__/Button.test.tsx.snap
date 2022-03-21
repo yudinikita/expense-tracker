@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should renders correctly 1`] = `
+<button
+  className="base primary block"
+  disabled={false}
+>
+  Click me!
+</button>
+`;

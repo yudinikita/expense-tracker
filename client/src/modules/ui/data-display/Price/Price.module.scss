@@ -1,0 +1,24 @@
+.base {
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.positive {
+  color: var(--color-other-green);
+}
+
+.negative {
+  color: var(--color-other-red);
+}
+
+.iconPositive {
+  path {
+    stroke: var(--color-other-green);
+  }
+}
+
+.iconNegative {
+  path {
+    stroke: var(--color-other-red);
+  }
+}

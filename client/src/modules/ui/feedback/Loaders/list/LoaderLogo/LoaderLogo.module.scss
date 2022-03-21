@@ -1,0 +1,54 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  animation: pulsate-bck 1.5s ease-in-out infinite both;
+  animation-delay: 1.5s;
+  fill: var(--color-brand-yellow);
+  overflow: visible;
+}
+
+.loaderBg {
+  overflow: hidden;
+}
+
+.loaderPing {
+  transform: scale(1);
+  transform-origin: center center;
+  animation: pulse-me 3s linear infinite both;
+  animation-delay: 1.5s;
+}
+
+.loaderPing2 {
+  animation-delay: 3s;
+}
+
+@keyframes pulse-me {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.09;
+  }
+  70% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsate-bck {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

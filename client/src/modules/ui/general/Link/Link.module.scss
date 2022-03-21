@@ -1,0 +1,21 @@
+.base {
+  display: inline-flex;;
+  color: var(--link-color);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: 160%;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.second {
+  color: var(--color-gray-6);
+}
+
+.block {
+  width: 100%;
+}

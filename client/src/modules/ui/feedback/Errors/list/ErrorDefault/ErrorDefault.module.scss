@@ -1,0 +1,17 @@
+@import '../../../../../styles/global/animations';
+
+.container {
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.content {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  animation: bounce-top 0.9s both;
+}

@@ -1,0 +1,17 @@
+.loader {
+  display: block;
+  text-align: center;
+  animation: .7s fadeIn ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+
+

@@ -1,0 +1,155 @@
+.base {
+  position: relative;
+  display: inline-block;
+  width: var(--inner-max-width);
+  padding: var(--space-base);
+  font-weight: 500;
+  line-height: 130%;
+  text-align: center;
+  overflow-wrap: break-word;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out;
+  border: none;
+  border-radius: var(--border-radius-base);
+
+  &:active {
+    transform: scale(.96);
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconButton {
+  width: max-content;
+  padding: var(--space-xs);
+}
+
+.primary {
+  background-color: var(--color-brand-yellow);
+
+  &:hover {
+    background-color: #e7c337;
+  }
+}
+
+.outline {
+  padding: calc(var(--space-base) - var(--border-width));
+  color: var(--font-color);
+  background-color: transparent;
+  border: var(--border-width) solid var(--font-color);
+
+  &:hover {
+    color: var(--color-black);
+    background-color: var(--color-brand-yellow);
+    border-color: var(--color-brand-yellow);
+  }
+}
+
+.invisible {
+  color: var(--color-other-blue);
+  background-color: transparent;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+}
+
+.default {
+  color: var(--font-color);
+  font-weight: 400;
+  background-color: transparent;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+}
+
+.block {
+  width: 100%;
+}
+
+.disabled {
+  color: var(--color-gray-5);
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: var(--color-gray-2);
+}
+
+.small {
+  padding: var(--space-sm);
+}
+
+.medium {
+  padding: var(--space-md);
+}
+
+.large {
+  padding: var(--space-lg);
+}
+
+.left {
+  .wrapper {
+    text-align: left;
+  }
+}
+
+.center {
+  .wrapper {
+    text-align: center;
+  }
+}
+
+.right {
+  .wrapper {
+    text-align: right;
+  }
+}
+
+.children {
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.before,
+.after {
+  display: inline-flex;
+}
+
+.before {
+  margin-right: var(--space-md);
+}
+
+.after {
+  margin-left: var(--space-md);
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  left: auto;
+  height: calc(100% - 20px);
+  margin: auto;
+  transform-origin: center center;
+  animation: rotate 1s linear infinite;
+  overflow: hidden;
+}
+
+.loaderPath {
+  stroke: var(--color-gray-5);
+  stroke-dasharray: 93.6375, 124.85;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
