@@ -11,8 +11,7 @@
 
 # Graphql Code Generate
 __generated__/
-*.gen.ts
-*.gen.js
+*.gen.*
 
 # misc
 .DS_Store
