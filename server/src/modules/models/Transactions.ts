@@ -21,7 +21,15 @@ const TransactionSchema = new Schema<any>({
     type: Types.ObjectId,
     ref: 'User',
     required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
-}, { timestamps: true })
+})
 
 export const TransactionModel = model<any>('Transaction', TransactionSchema)
