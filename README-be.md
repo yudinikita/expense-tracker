@@ -69,6 +69,11 @@ cd expense-tracker
 yarn install:all
 ```
 
+## 🗂 Resourses
+- [Site](https://expense-tracker.cf)
+- [Storybook](https://www.chromatic.com/library?appId=623882bbcd369a003a86af1c&inviteToken=7a958f7d83c54a05b7079784f9f454e5)
+- [Figma](https://www.figma.com/file/SOiwWVrSImrcKjQQseQ0wY/%D0%94%D0%B5%D0%BD%D0%B5%D0%B6%D0%BA%D0%B8?node-id=0%3A1)
+
 ## 💬 Заўвага
 
 Калі ў вас ёсць пажаданні ці праблемы з выкарыстаннем прыкладання, пішыце на
