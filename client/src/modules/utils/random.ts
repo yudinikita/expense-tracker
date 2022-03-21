@@ -9,3 +9,8 @@ export const getRandomInt = (lower: number = 0, upper: number = 1): number => {
   const max = Math.floor(upper)
   return Math.floor(Math.random() * (max - min)) + min
 }
+
+export const generateRandomColor = (): string => {
+  const randNum = Math.random().toString(16)
+  return '#' + randNum.substring(randNum.length - 6)
+}
