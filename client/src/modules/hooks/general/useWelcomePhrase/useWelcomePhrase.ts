@@ -1,9 +1,9 @@
-import { getRandomInt } from '../../../utils'
 import { useTranslation } from 'react-i18next'
+import { getRandomInt } from 'modules/utils'
 
 const COUNT_PHRASES = 18
 
-export const useHomePhrase = () => {
+export const useWelcomePhrase = () => {
   const { t } = useTranslation()
 
   const getPhrase = () => {
