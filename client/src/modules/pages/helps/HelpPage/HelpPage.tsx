@@ -4,7 +4,7 @@ import { NAVIGATION } from 'modules/constants'
 import { Space } from 'modules/ui'
 import { HelpForm, HelpList, NavigationBar } from 'modules/components'
 
-export const HelpPage: React.FC = () => {
+const HelpPage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
@@ -26,3 +26,5 @@ export const HelpPage: React.FC = () => {
     </>
   )
 }
+
+export default HelpPage

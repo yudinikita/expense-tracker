@@ -5,7 +5,7 @@ import { NavigationBar, Transactions } from 'modules/components'
 import { Link } from 'modules/ui'
 import money from 'modules/assets/animation/money.json'
 
-export const TransactionPage: React.FC = () => {
+const TransactionPage: React.FC = () => {
   const { t } = useTranslation()
 
   const subtitle = (
@@ -33,3 +33,6 @@ export const TransactionPage: React.FC = () => {
     </>
   )
 }
+
+export default TransactionPage
+

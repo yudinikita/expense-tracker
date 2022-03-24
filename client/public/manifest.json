@@ -1,0 +1,80 @@
+{
+  "short_name": "Denezhki",
+  "name": "Denezhki: Expense Tracker",
+  "description": "A simple tool for keeping track of personal finances.",
+  "author": "Nikita Yudin <nikitayudin782@gmail.com>",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "theme_color": "#000000",
+  "categories": [
+    "finances"
+  ],
+  "orientation": "portrait-primary",
+  "default_locale": "ru",
+  "icons": [
+    {
+      "src": "/images/touch/icons-vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/images/touch/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/images/touch/icons-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/images/touch/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/touch/icons-168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "/images/touch/icons-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/images/touch/icons-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/images/touch/icons-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/images/touch/icons-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/screenshot1.png",
+      "type": "image/png",
+      "sizes": "383x820"
+    },
+    {
+      "src": "/images/screenshots/screenshot2.png",
+      "type": "image/jpg",
+      "sizes": "383x820"
+    },
+    {
+      "src": "/images/screenshots/screenshot3.png",
+      "type": "image/jpg",
+      "sizes": "383x820"
+    }
+  ]
+}

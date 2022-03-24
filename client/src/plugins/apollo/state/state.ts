@@ -1,3 +1,5 @@
 import { InMemoryCache } from '@apollo/client'
 
-export const state = new InMemoryCache()
+export const getApolloCache = async (): Promise<InMemoryCache> => {
+  return new InMemoryCache()
+}
