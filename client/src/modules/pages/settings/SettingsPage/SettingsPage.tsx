@@ -5,7 +5,7 @@ import { Link } from 'modules/ui'
 import { ModalSignOut, NavigationBar, SettingsNavigate } from 'modules/components'
 import settings from 'modules/assets/animation/settings.json'
 
-export const SettingsPage: React.FC = () => {
+const SettingsPage: React.FC = () => {
   const { t } = useTranslation()
   const [modalIsOpen, setIsOpen] = useState(false)
 
@@ -38,3 +38,6 @@ export const SettingsPage: React.FC = () => {
     </>
   )
 }
+
+export default SettingsPage
+

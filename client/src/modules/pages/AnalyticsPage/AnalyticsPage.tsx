@@ -4,7 +4,7 @@ import { NAVIGATION } from 'modules/constants'
 import { AnalyticsMain, NavigationBar } from 'modules/components'
 import analytic from 'modules/assets/animation/analytic.json'
 
-export const AnalyticsPage: React.FC = () => {
+const AnalyticsPage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
@@ -20,3 +20,6 @@ export const AnalyticsPage: React.FC = () => {
     </>
   )
 }
+
+export default AnalyticsPage
+

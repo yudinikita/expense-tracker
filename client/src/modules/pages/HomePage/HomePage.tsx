@@ -6,7 +6,7 @@ import { BalanceContainer, HomeAnalytics, NavigationBar } from 'modules/componen
 import { useWelcomePhrase } from 'modules/hooks'
 import handShake from 'modules/assets/animation/handShake.json'
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   const { t } = useTranslation()
   const { phrase } = useWelcomePhrase()
 
@@ -28,3 +28,5 @@ export const HomePage: React.FC = () => {
     </>
   )
 }
+
+export default HomePage
