@@ -1,15 +1,19 @@
 import { ApolloClient, from } from '@apollo/client'
 import { SERVER_URI } from '../../constants'
 import { authLink, errorLink, httpLink, retryLink } from './links'
-import { state } from './state'
+import { getApolloCache } from './state'
 
-export const apolloClient = new ApolloClient({
-  uri: SERVER_URI,
-  link: from([
-    errorLink,
-    retryLink,
-    authLink,
-    httpLink
-  ]),
-  cache: state
-})
+export const getApolloClient = async () => {
+  const cache = await getApolloCache()
+
+  return new ApolloClient({
+    uri: SERVER_URI,
+    link: from([
+      errorLink,
+      retryLink,
+      authLink,
+      httpLink
+    ]),
+    cache
+  })
+}
