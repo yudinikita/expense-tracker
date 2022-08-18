@@ -42,7 +42,7 @@
     "@types/joi": "^17.2.3",
     "@types/node": "^16.10.1",
     "ansi-colors": "^4.1.1",
-    "apollo-server-core": "^3.3.0",
+    "apollo-server-core": "^3.10.1",
     "apollo-server-fastify": "^3.6.1",
     "babel-plugin-transform-import-meta": "^2.1.0",
     "bcrypt": "^5.0.1",
